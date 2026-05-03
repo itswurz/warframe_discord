@@ -625,7 +625,7 @@ class UpgradeConfirmView(discord.ui.View):
                 f"**Rank {new_rank}/{max_rank}**!\n"
                 f"Stats: {stat_block}\n"
                 f"{E.endo} Endo remaining: `{rem_endo:,}`  ·  "
-                f"💰 Credits remaining: `{rem_credits:,}`"
+                f"{E.credits} Credits remaining: `{rem_credits:,}`"
                 f"{next_msg}"
             ),
             view=None,
@@ -751,7 +751,7 @@ class ModsCog(commands.Cog, name="Mods"):
             f"**After upgrade (Rank {cur_rank + 1}):** {next_str}\n\n"
             f"{E.endo} **Endo needed:** `{endo_cost:,}`  ·  "
             f"**You have:** `{endo_have:,}` {'✅' if can_endo else '❌'}\n"
-            f"💰 **Credits needed:** `{credit_cost:,}`  ·  "
+            f"{E.credits} **Credits needed:** `{credit_cost:,}`  ·  "
             f"**You have:** `{credits_have:,}` {'✅' if can_credits else '❌'}"
         )
 
