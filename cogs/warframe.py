@@ -210,7 +210,7 @@ def build_orbiter_embed(profile: dict) -> discord.Embed:
         title="<:wf_lotus:1499651243101126816>  ORBITER",
         description=(
             f"<:wf_lotus:1499651243101126816> **Mastery Rank {mr}**  ·  "
-            f"`{credits_:,}` Credits  ·  "
+            f"<:credits:1499637105142399087> `{credits_:,}` Credits  ·  "
             f"`{missions}` Missions  ·  "
             f"`{kills}` Kills"
         ),
@@ -255,7 +255,7 @@ def build_orbiter_embed(profile: dict) -> discord.Embed:
                 f"{hp_line}   {shld_line}   {armor_line}   {energy_line}{bonus_tag}\n"
                 f"<:damage:1499651176419950622> **Mods:** {mod_tag}\n"
                 f"\n"
-                f"**Sell Value:** `{sell_val:,}` Credits  ·  `!warframe sell {wf_id}` to dispose\n"
+                f"**Sell Value:** <:credits:1499637105142399087> `{sell_val:,}` Credits  ·  `!warframe sell {wf_id}` to dispose\n"
                 f"**Mods:** `!warframe mods {wf_id}` to configure\n"
                 f"*{wf_data.get('lore', '—')[:80]}"
                 f"{'…' if len(wf_data.get('lore', '')) > 80 else ''}*"
@@ -376,7 +376,7 @@ def _build_warframe_view_embed(
             f"**Owner:** {owner_name}{own_tag}\n"
             f"**Acquired:** {date_str}\n"
             f"**Status:** {active_tag}\n"
-            f"**Sell Value:** `{sell_val:,}` Credits"
+            f"**Sell Value:** <:credits:1499637105142399087> `{sell_val:,}` Credits"
         ),
         inline=False,
     )
@@ -436,7 +436,7 @@ def _build_sell_confirm_embed(
         description=(
             f"You are about to sell {emoji} **{wf_name}** `[{inst_id}]`.\n\n"
             f"**Level:** {level} / {_MAX_LEVEL}\n"
-            f"**Sale value:** `{sell_val:,}` Credits"
+            f"**Sale value:** <:credits:1499637105142399087> `{sell_val:,}` Credits"
             f"{mod_note}\n\n"
             "⚠️ This action is **permanent and cannot be undone**."
         ),
@@ -476,7 +476,7 @@ class SellConfirmView(discord.ui.View):
             return False
         return True
 
-    @discord.ui.button(label="Confirm Sale", style=discord.ButtonStyle.danger, emoji="💰", custom_id="sell_confirm")
+    @discord.ui.button(label="Confirm Sale", style=discord.ButtonStyle.danger, emoji=discord.PartialEmoji(name="credits", id=1499637105142399087), custom_id="sell_confirm")
     async def confirm_btn(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
         profile  = await persistence.load_player(self.owner_id)
         inst_id  = self.instance["instance_id"]
@@ -531,8 +531,8 @@ class SellConfirmView(discord.ui.View):
         await interaction.response.edit_message(
             content=(
                 f"<:wf_lotus:1499651243101126816> {wf_emoji} **{wf_name}** "
-                f"`[{inst_id}]` sold for **{self.sell_price:,}** Credits. "
-                f"Balance: `{profile['credits']:,}` Credits."
+                f"`[{inst_id}]` sold for **{self.sell_price:,}** <:credits:1499637105142399087> Credits. "
+                f"Balance: <:credits:1499637105142399087> `{profile['credits']:,}` Credits."
             ),
             embed=embed, view=view,
         )

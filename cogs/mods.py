@@ -304,7 +304,7 @@ def _build_mods_list_layout(
             f"Page {page + 1}/{total_pages}\n"
             f"**{total_mods}** total  ·  **{total_unique}** unique  ·  "
             f"<:endo:1499750353002954792> **{endo_amount:,}** Endo  ·  "
-            f"💰 **{credits:,}** Credits"
+            f"<:credits:1499637105142399087> **{credits:,}** Credits"
         )
         .sep(visible=False)
     )
@@ -450,7 +450,7 @@ def _build_mod_view_layout(
         if rank < max_r:
             upgrade_cost_line = (
                 f"\n\n<:endo:1499750353002954792> `{endo_needed:,}` Endo  "
-                f"💰 `{credit_needed:,}` Credits"
+                f"<:credits:1499637105142399087> `{credit_needed:,}` Credits"
             )
             stats_text += (
                 f"\n\n**Next Rank ({rank + 1}):**\n"
@@ -617,7 +617,7 @@ class UpgradeConfirmView(discord.ui.View):
         if credits_have < cred_cost:
             await interaction.response.edit_message(
                 content=(
-                    f"❌ Not enough Credits.\n"
+                    f"<:credits:1499637105142399087> ❌ Not enough Credits.\n"
                     f"Need **{cred_cost:,}**, have **{credits_have:,}**."
                 ),
                 view=None,
@@ -814,7 +814,7 @@ class ModsCog(commands.Cog, name="Mods"):
             credits_have = credits_have,
         )
         await ctx.send(
-            content=content + "\n\n⚠️ Confirm to spend Endo + Credits — **30 seconds to decide.**",
+            content=content + "\n\n⚠️ Confirm to spend Endo + <:credits:1499637105142399087> Credits — **30 seconds to decide.**",
             view=view,
         )
 
