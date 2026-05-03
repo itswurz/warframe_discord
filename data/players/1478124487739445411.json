@@ -1,0 +1,155 @@
+{
+  "schema_version": 5,
+  "user_id": "1478124487739445411",
+  "initialized": true,
+  "warframe": "Mag",
+  "weapon": "Paris",
+  "secondary_weapon": "Lato",
+  "melee_weapon": "Skana",
+  "warframe_roster": [
+    {
+      "instance_id": "I1CX8GY",
+      "warframe_key": "mag",
+      "warframe_name": "Mag",
+      "level": 0,
+      "xp": 0,
+      "acquired_at": "2026-05-02T10:55:41.640352+00:00",
+      "is_active": true,
+      "equipped_mods": {
+        "0": {
+          "mod_uuid": "4a1f0213-aa73-49f7-824f-754bb3b720b3",
+          "mod_name": "Heavy Impact",
+          "codex_uuid": "mod-heavy-impact"
+        }
+      }
+    }
+  ],
+  "warframe_level": 0,
+  "mastery_rank": 0,
+  "credits": 300,
+  "platinum": 0,
+  "experience": 0,
+  "total_kills": 6,
+  "total_missions": 2,
+  "missions_won": 2,
+  "missions_lost": 0,
+  "highest_combo": 1,
+  "damage_dealt": 2490,
+  "inventory": {
+    "Ferrite": 314,
+    "Detonite Ampule": 2,
+    "Rubedo": 94
+  },
+  "mod_collection": [
+    {
+      "uuid": "4a1f0213-aa73-49f7-824f-754bb3b720b3",
+      "name": "Heavy Impact",
+      "rarity": "common",
+      "rank": 0,
+      "acquired_at": "2026-05-02T11:00:27.979167+00:00",
+      "source": "drop:grineer_scorpion",
+      "tradeable": false,
+      "equipped_on_warframe": "I1CX8GY"
+    }
+  ],
+  "equipped_mods": {
+    "primary_1": null,
+    "primary_2": null,
+    "secondary_1": null,
+    "secondary_2": null,
+    "melee_1": null,
+    "melee_2": null,
+    "warframe_1": null,
+    "warframe_2": null
+  },
+  "trade_history": [],
+  "last_warframe_state": {
+    "warframe_key": "mag",
+    "warframe_name": "Mag",
+    "hp": 75,
+    "max_hp": 75,
+    "shields": 150,
+    "max_shields": 150,
+    "armor": 105,
+    "base_armor": 105,
+    "energy": 88,
+    "max_energy": 188,
+    "combo_gauge": 1,
+    "static_charges": 0,
+    "exalted_active": false,
+    "magnetize_absorb": false,
+    "magnetize_stored": 0,
+    "speed_active": false,
+    "speed_turns": 0,
+    "statuses": []
+  },
+  "last_session": {
+    "turn": 1,
+    "state": "victory",
+    "actions_used": 2,
+    "bonus_actions": 0,
+    "primary_weapon_name": "Paris",
+    "player_untargetable": false,
+    "electric_shield_active": false,
+    "electric_shield_turns": 0,
+    "electric_shield_stacks": 0,
+    "electric_shield_electrified": false,
+    "magnetize_target_key": null,
+    "magnetize_turns": 0,
+    "polarize_shards_absorbed": false,
+    "mission_kills": 3,
+    "mission_damage_dealt": 1085,
+    "mission_credits_earned": 150
+  },
+  "last_mission_loot": [
+    {
+      "name": "Ferrite",
+      "amount": 53,
+      "emoji": "<:ferrite:1499750270199009320>",
+      "rarity": "common",
+      "type": "resource"
+    },
+    {
+      "name": "Rubedo",
+      "amount": 23,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
+      "type": "resource"
+    },
+    {
+      "name": "Heavy Impact",
+      "amount": 1,
+      "emoji": "<:heavyimpactmod:1499760849814945793>",
+      "rarity": "common",
+      "type": "mod"
+    },
+    {
+      "name": "Ferrite",
+      "amount": 63,
+      "emoji": "<:ferrite:1499750270199009320>",
+      "rarity": "common",
+      "type": "resource"
+    },
+    {
+      "name": "Rubedo",
+      "amount": 24,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
+      "type": "resource"
+    },
+    {
+      "name": "Ferrite",
+      "amount": 67,
+      "emoji": "<:ferrite:1499750270199009320>",
+      "rarity": "common",
+      "type": "resource"
+    },
+    {
+      "name": "Rubedo",
+      "amount": 22,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
+      "type": "resource"
+    }
+  ]
+}

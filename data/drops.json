@@ -1,0 +1,162 @@
+{
+  "_note": "Edit any emoji value below. Use Discord custom emoji format <:name:id> or plain Unicode.",
+
+  "emojis": {
+    "_section_resources": "──── Resources ────",
+    "Ferrite":          "<:ferrite:1499750270199009320>",
+    "Rubedo":           "<:rubedo:1499750208022773931>",
+    "Neurodes":         "<:neurodes:1499750148991881366>",
+    "Detonite Ampule":  "<:d_ampule:1499750066913673256>",
+
+    "_section_endo": "──── Endo ────",
+    "Endo":             "<:endo:1499750353002954792>",
+
+    "_section_cosmetics": "──── Cosmetics ────",
+    "Sand Yellow Pigment": "<:pigment:1499751296075436062>",
+
+    "_section_mod_fallbacks": "──── Mod rarity fallback icons (used when a mod has no specific entry) ────",
+    "Mod_Common":    "<:common:1499767200410636351>",
+    "Mod_Uncommon":  "<:uncommon:1499767231926636705>",
+    "Mod_Rare":      "<:rare:1499767261236297899>",
+
+    "_section_mods": "──── Individual mod icons — replace with <:modname:id> from your server ────",
+
+    "Ammo Drum":           "<:ammodrummod:1499756401784782949>",
+    "Fast Hands":          "<:fasthandsmod:1499756472383307866>",
+    "Vitality":            "<:vitalitymod:1499756591715582014>",
+    "Pressure Point":      "<:pressurepointmod:1499756641262764184>",
+    "Diamond Skin":        "<:diamondskinmod:1499756538074497197>",
+    "Heated Charge":       "<:heatedchargemod:1499760847281590343>",
+    "Rending Strike":      "<:rendingstrikemod:1499760884547981444>",
+    "Rifle Ammo Mutation": "<:rifleammomutationmod:1499760889476415539>",
+    "Streamline":          "<:streamlinemod:1499760906576461825>",
+    "Heavy Trauma":        "<:heavytraumamod:1499760852721471550>",
+    "Iron Phoenix":        "<:ironphoenixmod:1499760856530026520>",
+
+    "Blunderbuss":         "<:blunderbussmod:1499760830580002816>",
+    "Perpetual Agony":     "<:perpetualagonymod:1499760871574863993>",
+    "Rifle Aptitude":      "<:rifleaptitudemod:1499760893427192009>",
+    "Reflex Coil":         "<:reflexcoilmod:1499760879351234610>",
+    "North Wind":          "<:northwindmod:1499760868156510208>",
+    "Fever Strike":        "<:feverstrikemod:1499760837768908962>",
+    "Flow":                "<:flowmod:1499760842005020864>",
+    "Tranquil Cleave":     "<:tranquilcleavemod:1499760910825295982>",
+    "Focus Energy":        "<:focusenergymod:1499760844655956008>",
+
+    "Lightning Rod":       "<:lightningrodmod:1499760860288127208>",
+    "Serration":           "<:serrationmod:1499760898510684280>",
+    "Heavy Impact":        "<:heavyimpactmod:1499760849814945793>",
+    "Steel Fiber":         "<:steelfibermod:1499760902550065273>",
+    "Redirection":         "<:redirectionmod:1499760875291279421>",
+    "Master Thief":        "<:masterthiefmod:1499760864725827584>",
+    "Defiled Snapdragon":  "<:defiledsnapdragonmod:1499760835227029586>",
+    "Stance Mod (Various)":"🟨"
+  },
+
+  "enemies": {
+
+    "grineer_lancer": {
+      "_wiki": "https://wiki.warframe.com/w/Lancer",
+
+      "mods": [
+        { "name": "Ammo Drum",           "chance": 0.0114, "rarity": "common"   },
+        { "name": "Fast Hands",          "chance": 0.0114, "rarity": "uncommon" },
+        { "name": "Vitality",            "chance": 0.0114, "rarity": "common"   },
+        { "name": "Pressure Point",      "chance": 0.0114, "rarity": "common"   },
+        { "name": "Diamond Skin",        "chance": 0.0033, "rarity": "uncommon" },
+        { "name": "Heated Charge",       "chance": 0.0033, "rarity": "uncommon" },
+        { "name": "Rending Strike",      "chance": 0.0022, "rarity": "uncommon" },
+        { "name": "Rifle Ammo Mutation", "chance": 0.0022, "rarity": "uncommon" },
+        { "name": "Streamline",          "chance": 0.0001, "rarity": "rare"     },
+        { "name": "Heavy Trauma",        "chance": 0.0001, "rarity": "rare"     },
+        { "name": "Iron Phoenix",        "chance": 0.0001, "rarity": "rare"     },
+        { "name": "Endo", "amount": 80,  "chance": 0.0001, "rarity": "uncommon", "type": "endo" }
+      ],
+
+      "resources": {
+        "common":   { "name": "Ferrite", "min": 50, "max": 100, "chance": 0.80 },
+        "uncommon": [
+          { "name": "Rubedo",          "min": 15, "max": 25,  "chance": 0.22 },
+          { "name": "Detonite Ampule", "amount": 1,           "chance": 0.18 }
+        ],
+        "rare": [
+          { "name": "Neurodes", "amount": 1, "chance": 0.03 }
+        ]
+      },
+
+      "region_resource": { "name": "Ferrite", "min": 30, "max": 60, "chance": 0.07 },
+
+      "cosmetics": []
+    },
+
+    "grineer_butcher": {
+      "_wiki": "https://wiki.warframe.com/w/Butcher",
+
+      "mods": [
+        { "name": "Blunderbuss",     "chance": 0.0114, "rarity": "common"   },
+        { "name": "Perpetual Agony", "chance": 0.0114, "rarity": "common"   },
+        { "name": "Rifle Aptitude",  "chance": 0.0013, "rarity": "rare"     },
+        { "name": "Reflex Coil",     "chance": 0.0013, "rarity": "rare"     },
+        { "name": "North Wind",      "chance": 0.0013, "rarity": "rare"     },
+        { "name": "Fever Strike",    "chance": 0.0013, "rarity": "rare"     },
+        { "name": "Flow",            "chance": 0.0003, "rarity": "rare"     },
+        { "name": "Tranquil Cleave", "chance": 0.0003, "rarity": "rare"     },
+        { "name": "Focus Energy",    "chance": 0.0003, "rarity": "rare"     },
+        { "name": "Endo", "amount": 15, "chance": 0.0057, "rarity": "uncommon", "type": "endo" },
+        { "name": "Endo", "amount": 50, "chance": 0.0013, "rarity": "uncommon", "type": "endo" },
+        { "name": "Endo", "amount": 80, "chance": 0.0003, "rarity": "uncommon", "type": "endo" }
+      ],
+
+      "resources": {
+        "common":   { "name": "Ferrite", "min": 50, "max": 100, "chance": 0.80 },
+        "uncommon": [
+          { "name": "Rubedo",          "min": 15, "max": 25, "chance": 0.22 },
+          { "name": "Detonite Ampule", "amount": 1,          "chance": 0.18 }
+        ],
+        "rare": [
+          { "name": "Neurodes", "amount": 1, "chance": 0.03 }
+        ]
+      },
+
+      "region_resource": { "name": "Ferrite", "min": 30, "max": 60, "chance": 0.07 },
+
+      "cosmetics": []
+    },
+
+    "grineer_scorpion": {
+      "_wiki": "https://wiki.warframe.com/w/Scorpion_(Grineer)",
+
+      "mods": [
+        { "name": "Lightning Rod",       "chance": 0.0114, "rarity": "common"   },
+        { "name": "Ammo Drum",           "chance": 0.0114, "rarity": "common"   },
+        { "name": "Serration",           "chance": 0.0022, "rarity": "common"   },
+        { "name": "Heavy Impact",        "chance": 0.0022, "rarity": "common"   },
+        { "name": "Steel Fiber",         "chance": 0.0022, "rarity": "common"   },
+        { "name": "Redirection",         "chance": 0.0022, "rarity": "common"   },
+        { "name": "Master Thief",        "chance": 0.0003, "rarity": "rare"     },
+        { "name": "Defiled Snapdragon",  "chance": 0.0003, "rarity": "rare"     },
+        { "name": "Stance Mod (Various)","chance": 0.0003, "rarity": "rare"     },
+        { "name": "Endo", "amount": 15,  "chance": 0.0114, "rarity": "uncommon", "type": "endo" },
+        { "name": "Endo", "amount": 50,  "chance": 0.0013, "rarity": "uncommon", "type": "endo" }
+      ],
+
+      "resources": {
+        "common":   { "name": "Ferrite", "min": 50, "max": 100, "chance": 0.80 },
+        "uncommon": [
+          { "name": "Rubedo",          "min": 15, "max": 25, "chance": 0.22 },
+          { "name": "Detonite Ampule", "amount": 1,          "chance": 0.18 }
+        ],
+        "rare": [
+          { "name": "Neurodes", "amount": 1, "chance": 0.03 }
+        ]
+      },
+
+      "region_resource": { "name": "Ferrite", "min": 30, "max": 60, "chance": 0.07 },
+
+      "cosmetics": [
+        { "name": "Sand Yellow Pigment", "amount": 1, "chance": 0.50 }
+      ]
+    }
+
+  }
+}
