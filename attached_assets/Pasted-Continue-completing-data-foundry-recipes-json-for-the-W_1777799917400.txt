@@ -1,0 +1,31 @@
+Continue completing `data/foundry_recipes.json` for the Warframe Discord bot.
+
+RULES:
+- Source of truth = warframe.fandom.com ONLY. Fetch every page fresh. No training data.
+- Only add an item if its wiki page has a Manufacturing Requirements table with a "Time:" field.
+- Every entry needs: name, type, category, wiki_verified:true, wiki_source, ingredients, credit_cost, base_time, result_key, result_name, result_type
+- base_time: ≤12 hrs=300, ≤24 hrs=480, >24 hrs=720
+- Do NOT touch any existing entries — they are all wiki_verified=true already.
+
+ALREADY DONE — SKIP ENTIRELY:
+Warframes (59): Ash, Atlas, Banshee, Baruuk, Caliban, Chroma, Citrine, Cyte-09, Dagath, Dante, Ember, Equinox, Excalibur, Frost, Gara, Garuda, Gauss, Grendel, Gyre, Harrow, Hildryn, Hydroid, Inaros, Ivara, Jade, Khora, Koumei, Kullervo, Lavos, Limbo, Loki, Mag, Mesa, Mirage, Nekros, Nezha, Nidus, Nova, Nyx, Oberon, Octavia, Protea, Qorvex, Revenant, Rhino, Saryn, Sevagoth, Styanax, Titania, Trinity, Valkyr, Vauban, Volt, Voruna, Wisp, Wukong, Xaku, Yareli, Zephyr
+Primaries (33): AX-52, Amprex, Arca Plasmor, Boltor, Buzlok, Carmine Penta, Corinth, Dread, Ferrox, Flux Rifle, Gorgon, Grakata, Hek, Ignis, Karak, Lanka, Latron, Mandonel, Mutalist Cernos, Mutalist Quanta, Opticor, Paris, Proboscis Cernos, Quanta, Secura Penta, Soma, Stradavar, Supra, Tigris, Tonkor, Torid, Vectis, Vulkar
+Secondaries (19): Afuris, Akbronco, Akmagnus, Akstiletto, Akvasto, Arca Scisco, Bronco, Despair, Dual Cestra, Dual Toxocyst, Furis, Hikou, Kunai, Magnus, Twin Gremlins, Twin Rogga, Vasto, Vaykor Marelok, Vesper 77
+Melee (55): Ack & Brunt, Arca Titron, Argo & Vel, Arum Spinosa, Atterax, Azothane, Bo, Broken Scepter, Broken War, Ceramic Dagger, Ceti Lacera, Cinta, Cobra & Crane, Dark Dagger, Dark Split-Sword, Dark Sword, Dragon Nikana, Dual Cleavers, Dual Ether, Dual Heat Swords, Dual Ichor, Dual Keres, Dual Raza, Dual Skana, Dual Zoren, Edun, Ether Daggers, Ether Reaper, Ether Sword, Fragor, Furax, Galatine, Gazal Machete, Gram, Hate, Heat Dagger, Heat Sword, Jat Kittag, Jat Kusar, Jaw Sword, Kronen, Nami Skyla, Nami Solo, Orthos, Pangolin Sword, Plasma Sword, Sampotes, Sigma & Octantis, Silva & Aegis, Skana, Sun & Moon, Syam, Tipedo, Twin Krohkur, Wolf Sledge
+Sentinels (9): Carrier, Dethcube, Djinn, Helios, Nautilus, Oxylus, Shade, Taxon, Wyrm
+Craftable resources (6): Detonite Injector, Fieldron, Forma, Mutagen Mass, Orokin Catalyst, Orokin Reactor
+
+STILL NEEDED (fetch wiki pages in parallel batches of 10-15):
+1. Any warframes NOT in the list above — check warframe.fandom.com/wiki/List_of_Warframes
+2. More primaries — check warframe.fandom.com/wiki/Primary
+3. More secondaries — check warframe.fandom.com/wiki/Secondary
+4. More melee — check warframe.fandom.com/wiki/Melee
+5. Archwing weapons — warframe.fandom.com/wiki/Arch-Gun and /wiki/Arch-Melee (category: arch_gun / arch_melee)
+6. Sentinel weapons — warframe.fandom.com/wiki/Sentinel (category: sentinel_weapon)
+7. More craftable resources (category: craftable_resource) — fetch each of these pages and add if a Time: table exists:
+   Exilus Adapter, Weapon Exilus Adapter, Aura Forma, Umbral Forma,
+   Hema, Cetus Wisp (check), Kavat Genetic Code, Nidus Phryke (check),
+   Helminth Charger, Voidrig, Bonewidow, Hound,
+   and any others listed at warframe.fandom.com/wiki/Foundry
+
+Start by fetching the list/category pages to get full item lists, then batch-fetch individual pages, parse each for a Time: field, and write valid entries to the JSON. Update _meta.version when done.
