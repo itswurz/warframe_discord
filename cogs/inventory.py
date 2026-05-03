@@ -127,12 +127,6 @@ class FilterSelect(discord.ui.Select):
                 default=(current_filter == "resources"),
             ),
             discord.SelectOption(
-                label="Endo",
-                value="endo",
-                emoji=E.endo,
-                default=(current_filter == "endo"),
-            ),
-            discord.SelectOption(
                 label="Cosmetics",
                 value="cosmetics",
                 emoji="🎨",

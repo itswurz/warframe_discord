@@ -110,17 +110,7 @@ def build_display_items(profile: dict, item_db: dict) -> list[dict]:
             continue
 
         if name == "Endo":
-            items.append({
-                "name":     "Endo",
-                "emoji":    E.endo,
-                "category": "endo",
-                "rarity":   "uncommon",
-                "count":    amount,
-                "detail":   (
-                    f"{E.endo} **Endo** ×{amount:,}\n"
-                    f"  *Mod upgrade material*"
-                ),
-            })
+            continue
         elif name in resource_db:
             meta = resource_db[name]
             items.append({
@@ -158,8 +148,8 @@ def build_display_items(profile: dict, item_db: dict) -> list[dict]:
                 "detail":   f"📦 **{name}** ×{amount:,}",
             })
 
-    # Sort: endo first, then resources, then cosmetics
-    cat_order = {"endo": 0, "resource": 1, "cosmetic": 2}
+    # Sort: resources first, then cosmetics
+    cat_order = {"resource": 0, "cosmetic": 1}
     items.sort(key=lambda x: (
         cat_order.get(x["category"], 9),
         x["name"],
@@ -173,8 +163,6 @@ def apply_filter(items: list[dict], filter_key: str) -> list[dict]:
         return items
     if filter_key == "resources":
         return [i for i in items if i["category"] == "resource"]
-    if filter_key == "endo":
-        return [i for i in items if i["category"] == "endo"]
     if filter_key == "cosmetics":
         return [i for i in items if i["category"] == "cosmetic"]
     return items
@@ -183,7 +171,6 @@ def apply_filter(items: list[dict], filter_key: str) -> list[dict]:
 FILTER_LABELS: dict[str, str] = {
     "all":       "All Items",
     "resources": "Resources",
-    "endo":      "Endo",
     "cosmetics": "Cosmetics",
 }
 
