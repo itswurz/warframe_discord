@@ -398,22 +398,39 @@ class CombatSession:
     def _run_enemy_turn(self) -> None:
         for enemy in self.living_enemies():
 
-            # Hard CC blocks action
+            # Hard CC blocks action (includes Frozen from 10× Cold)
             if not enemy.can_act():
-                cc_status = next(
-                    (s for s in enemy.statuses
-                     if s.status_type in (
-                         StatusType.KNOCKDOWN, StatusType.STUNNED,
-                         StatusType.BLIND, StatusType.MAGNETIZED,
-                     )),
-                    None,
-                )
-                cc_icon = cc_status.icon() if cc_status else _STUNNED
-                cc_name = cc_status.name.lower() if cc_status else "incapacitated"
-                self.log.append(f"{cc_icon} **{enemy.name}** is {cc_name} — skips turn.")
+                if enemy.is_frozen():
+                    cold = enemy.get_status(StatusType.COLD)
+                    cc_icon = cold.icon() if cold else "❄️"
+                    self.log.append(
+                        f"{cc_icon} **{enemy.name}** is Frozen solid "
+                        f"(×{cold.stacks if cold else 10} Cold) — cannot act!"
+                    )
+                else:
+                    cc_status = next(
+                        (s for s in enemy.statuses
+                         if s.status_type in (
+                             StatusType.KNOCKDOWN, StatusType.STUNNED,
+                             StatusType.BLIND, StatusType.MAGNETIZED,
+                         )),
+                        None,
+                    )
+                    cc_icon = cc_status.icon() if cc_status else _STUNNED
+                    cc_name = cc_status.name.lower() if cc_status else "incapacitated"
+                    self.log.append(f"{cc_icon} **{enemy.name}** is {cc_name} — skips turn.")
                 continue
 
             action = enemy.choose_action()
+
+            # Heat Panic — ≥3 Heat stacks give 50% chance to skip action
+            if enemy.is_panicked():
+                heat = enemy.get_status(StatusType.HEAT)
+                self.log.append(
+                    f"🔥 **{enemy.name}** panics from the flames "
+                    f"(×{heat.stacks if heat else '?'} Heat) — skips turn!"
+                )
+                continue
 
             # Radiation confusion
             if enemy.is_confused():
@@ -641,6 +658,40 @@ class CombatSession:
             # General status ticks (Bleed, Heat, Toxin, etc.)
             for msg in enemy.tick_statuses():
                 self.log.append(msg)
+
+            # Blast detonation — 5-stack threshold triggers AoE explosion
+            blast = enemy.get_status(StatusType.BLAST)
+            if blast and blast.stacks >= 5 and enemy.is_alive:
+                det_dmg = max(10, int(blast.magnitude * blast.stacks * 1.5))
+                enemy.remove_status(StatusType.BLAST)
+                self.log.append(
+                    f"{_BLAST_ICO} **{enemy.name}** DETONATES — "
+                    f"**{det_dmg}** {_BLAST_ICO} Blast AoE!"
+                )
+                for other in self.living_enemies():
+                    splash = det_dmg if other is enemy else max(1, det_dmg // 2)
+                    other.take_damage(splash, "blast")
+                    self.log.append(
+                        f"  {_BLAST_ICO} **{other.name}** caught in explosion! "
+                        f"({splash} Blast | HP: {other.hp}/{other.max_hp})"
+                    )
+                    if not other.is_alive:
+                        self.log.append(f"  {_DOWN} **{other.name}** obliterated!")
+
+            # Magnetic electric bonus — triggers once when shields were fully stripped
+            if enemy.magnetic_shield_stripped and enemy.is_alive:
+                enemy.magnetic_shield_stripped = False
+                mag = enemy.get_status(StatusType.MAGNETIC)
+                if mag:
+                    arc_dmg = max(5, int(enemy.max_shields * 0.03 * mag.stacks))
+                    enemy.take_damage(arc_dmg, "electricity")
+                    self.log.append(
+                        f"  {_ELEC} **Magnetic overload!** Shields stripped — "
+                        f"**{arc_dmg}** {_ELEC} Electricity arcs into "
+                        f"**{enemy.name}**! (HP: {enemy.hp}/{enemy.max_hp})"
+                    )
+                    if not enemy.is_alive:
+                        self.log.append(f"  {_DOWN} **{enemy.name}** electrocuted!")
 
         # Electric Shield expiry
         if self.electric_shield_active:

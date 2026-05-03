@@ -126,7 +126,10 @@ def _proc_chance(
     chance:  float = 0.25,
     source:  str   = "",
 ) -> None:
-    """Roll a proc for a given damage type on a surviving enemy."""
+    """
+    Roll a proc for a given damage type on a surviving enemy.
+    All proc messages reflect wiki-accurate stacking behaviour.
+    """
     if not target.is_alive:
         return
     if random.random() > chance:
@@ -138,66 +141,136 @@ def _proc_chance(
     if dtype == "slash":
         mag = 15
         target.apply_status(make_slash_bleed(mag, src))
+        bleeds = sum(1 for s in target.statuses if s.status_type == StatusType.SLASH_BLEED)
         log.append(
             f"  {icon} **{target.name}** Bleeds! "
-            f"({mag} {dmg_icon('true')} True dmg/turn × 2)"
+            f"({mag} {dmg_icon('true')} True dmg/turn × 3t | {bleeds} bleed(s) active)"
         )
+
     elif dtype == "puncture":
         target.apply_status(make_puncture(src))
-        log.append(f"  {icon} **{target.name}** Punctured! (-30% dmg on next attack)")
+        punc = target.get_status(StatusType.PUNCTURE)
+        stacks = punc.stacks if punc else 1
+        reduction = min(80, 40 + (stacks - 1) * 10)
+        log.append(
+            f"  {icon} **{target.name}** Weakened! "
+            f"(−{reduction}% dmg out | ×{stacks} stack{'s' if stacks > 1 else ''})"
+        )
+
     elif dtype == "impact":
         target.apply_status(make_impact(src))
-        log.append(f"  {icon} **{target.name}** Staggered! (-25% shield regen, 1t)")
+        imp = target.get_status(StatusType.IMPACT)
+        stacks = imp.stacks if imp else 1
+        log.append(
+            f"  {icon} **{target.name}** Staggered! "
+            f"(+{stacks * 8}% Mercy threshold | ×{stacks} stack{'s' if stacks > 1 else ''})"
+        )
+
     elif dtype == "electricity":
         target.apply_status(make_electric(40, src))
-        log.append(f"  {icon} **{target.name}** Electric proc! (arcs to adjacent enemy)")
+        elec = target.get_status(StatusType.ELECTRIC)
+        stacks = elec.stacks if elec else 1
+        arc = int(elec.magnitude) if elec else 40
+        log.append(
+            f"  {icon} **{target.name}** Tesla Chained! "
+            f"(Stunned 1t + {arc} {icon} arc/turn | ×{stacks} stack{'s' if stacks > 1 else ''})"
+        )
+
     elif dtype == "magnetic":
         target.apply_status(make_magnetic_proc(src))
+        mag_s = target.get_status(StatusType.MAGNETIC)
+        stacks = mag_s.stacks if mag_s else 1
+        shield_mult = 2.0 + (stacks - 1) * 0.25
         log.append(
-            f"  {icon} **{target.name}** Magnetic proc! "
-            f"(shields drained, -50% max shields, 2t)"
+            f"  {icon} **{target.name}** Disrupted! "
+            f"(×{shield_mult:.2f} shield dmg | shield regen halted | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
+
     elif dtype == "blast":
-        target.apply_status(make_blast(src))
-        target.apply_status(make_knockdown(src))
-        log.append(
-            f"  {icon} **{target.name}** Blasted! (Knockdown + -25% accuracy, 1t)"
-        )
+        detonated = target.apply_status(make_blast(30, src))
+        blast_s = target.get_status(StatusType.BLAST)
+        stacks = blast_s.stacks if blast_s else 1
+        if detonated:
+            log.append(
+                f"  {icon} **{target.name}** DETONATES! "
+                f"(5 charges ignite — AoE Blast!)"
+            )
+        else:
+            log.append(
+                f"  {icon} **{target.name}** Charged! "
+                f"(Blast charge ×{stacks}/5 — detonates at 5)"
+            )
+
     elif dtype == "heat":
         target.apply_status(make_heat(12, src))
+        heat = target.get_status(StatusType.HEAT)
+        stacks = heat.stacks if heat else 1
+        total_dot = int(heat.magnitude) if heat else 12
+        panic_note = " | 🔥 Panic!" if stacks >= 3 else ""
         log.append(
-            f"  {icon} **{target.name}** Burning! "
-            f"(12 {dmg_icon('heat')} Heat dmg/turn × 2, -50% armor)"
+            f"  {icon} **{target.name}** Ignited! "
+            f"({total_dot} {icon} Heat/turn × 3t{panic_note} | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
+
     elif dtype == "cold":
         target.apply_status(make_cold(src))
-        log.append(f"  {icon} **{target.name}** Chilled! (-30% damage output, 2t)")
+        cold = target.get_status(StatusType.COLD)
+        stacks = cold.stacks if cold else 1
+        slow_pct = min(90, int((0.50 + (stacks - 1) * 0.05) * 100))
+        frozen_note = " | ❄️ **FROZEN!**" if stacks >= 10 else ""
+        log.append(
+            f"  {icon} **{target.name}** Frozen! "
+            f"(−{slow_pct}% dmg out{frozen_note} | ×{stacks} stack{'s' if stacks > 1 else ''})"
+        )
+
     elif dtype == "toxin":
         target.apply_status(make_toxin(14, src))
+        tox = target.get_status(StatusType.TOXIN)
+        stacks = tox.stacks if tox else 1
+        total_dot = int(tox.magnitude) if tox else 14
         log.append(
             f"  {icon} **{target.name}** Poisoned! "
-            f"(14 {dmg_icon('toxin')} Toxin dmg/turn × 2, bypasses shields)"
+            f"({total_dot} {icon} Toxin/turn × 3t | bypasses shields | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
+
     elif dtype == "radiation":
         target.apply_status(make_radiation(src))
+        rad = target.get_status(StatusType.RADIATION)
+        stacks = rad.stacks if rad else 1
+        duration = rad.duration if rad else 2
         log.append(
-            f"  {icon} **{target.name}** Irradiated! "
-            f"(25% chance to attack allies, 2t)"
+            f"  {icon} **{target.name}** Confused! "
+            f"(attacks allies for {duration}t | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
+
     elif dtype == "viral":
         target.apply_status(make_viral(src))
-        log.append(f"  {icon} **{target.name}** Viral! (effective max HP halved, 2t)")
+        vir = target.get_status(StatusType.VIRAL)
+        stacks = vir.stacks if vir else 1
+        mult = 1.75 + (stacks - 1) * 0.25
+        log.append(
+            f"  {icon} **{target.name}** Contagion! "
+            f"(×{mult:.2f} HP dmg taken | ×{stacks} stack{'s' if stacks > 1 else ''})"
+        )
+
     elif dtype == "corrosive":
-        target.apply_status(make_corrosive(0.15, src))
+        target.apply_status(make_corrosive(src))
+        corr = target.get_status(StatusType.CORROSIVE)
+        stacks = corr.stacks if corr else 1
+        stripped = target.corrosive_stripped
         log.append(
             f"  {icon} **{target.name}** Corroded! "
-            f"(-15% base armor permanently, max 4 stacks)"
+            f"(−{stripped} armor for 3t | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
+
     elif dtype == "gas":
         target.apply_status(make_gas(18, src))
+        gas = target.get_status(StatusType.GAS)
+        stacks = gas.stacks if gas else 1
+        total_dot = int(gas.magnitude) if gas else 18
         log.append(
             f"  {icon} **{target.name}** Gas Cloud! "
-            f"(18 {dmg_icon('toxin')} Toxin dmg/turn × 2 AoE)"
+            f"({total_dot} {dmg_icon('toxin')} Toxin/turn × 3t AoE | ×{stacks} stack{'s' if stacks > 1 else ''})"
         )
 
 
