@@ -1,0 +1,189 @@
+Populate `data/enemies.json` for the Warframe Discord bot with full enemy coverage.
+
+RULES:
+- Source of truth = warframe.fandom.com ONLY. Fetch every page fresh. No training data.
+- DO NOT change or delete any of the 8 existing entries:
+  grineer_lancer, grineer_butcher, grineer_scorpion, frontier_lancer,
+  frontier_trooper, frontier_heavy_gunner, grineer_warden, captain_vor
+- All new entries go inside the existing `"enemies": {}` object.
+- Use EXACT wiki HP/Shield/Armor base stats (level 1 unless noted).
+- For bosses only: scale HP to ~45%, Shields ~35%, Armor ~95% of wiki level-appropriate values.
+- Damage values in abilities are for the BOT game (not the real game) — balance relative to existing entries.
+- When done, update `_note` in the file with the new entry count.
+
+─────────────────────────────────────────────
+EXACT SCHEMA — every entry must match this shape exactly:
+{
+  "key_name": {
+    "name": "Display Name",
+    "faction": "Grineer|Corpus|Infested|Corrupted|Sentient",
+    "hp": <integer>,
+    "shields": <integer>,
+    "armor": <integer>,
+    "base_level": <integer>,
+    "behavior": "aggressive|melee|ranged|support|boss|flying",
+    "icon_key": "same_as_dict_key",
+    "xp_reward": <integer>,
+    "is_boss": true,           ← ONLY include this field if true
+    "_wiki": "<one-line note: enemy name, location, wiki stats, wiki URL>",
+    "abilities": [
+      {
+        "name": "Ability Name",
+        "damage": <integer>,
+        "damage_type": "impact|slash|puncture|heat|cold|electricity|toxin|radiation|blast|corrosive|magnetic|gas|viral|void|none",
+        "effect": null|"knockdown"|"slash_bleed"|"pull"|"stagger"|"poison"|"burn"|"freeze"|"radiation_confusion"|"magnetic_drain"|"viral_dot"|"corrosive_strip"|"blast_knockdown"|"self_shield_restore",
+        "target": "front",
+        "chance": <0.0-1.0>,
+        "description": "One sentence flavour description.",
+        "bleed_mag": <integer>    ← ONLY for slash_bleed effect
+        "heal_amount": <integer>  ← ONLY for self_shield_restore effect
+      }
+    ],
+    "drops": {
+      "mods": [
+        { "name": "Mod Name", "chance": 0.0114, "rarity": "common" },
+        { "name": "Mod Name", "chance": 0.0033, "rarity": "uncommon" },
+        { "name": "Mod Name", "chance": 0.0013, "rarity": "rare" },
+        { "name": "Endo", "amount": 50, "chance": 0.0057, "rarity": "uncommon", "type": "endo" }
+      ],
+      "resources": {
+        "common":   { "name": "Resource", "min": 50, "max": 100, "chance": 0.80 },
+        "uncommon": [ { "name": "Resource", "min": 10, "max": 20, "chance": 0.20 } ],
+        "rare":     [ { "name": "Resource", "amount": 1, "chance": 0.03 } ]
+      },
+      "region_resource": { "name": "Resource", "min": 25, "max": 60, "chance": 0.07 },
+      "cosmetics": []
+    }
+  }
+}
+
+─────────────────────────────────────────────
+FACTION DROP RESOURCE RULES (use these per faction):
+  Grineer   → common: Ferrite, uncommon: [Rubedo, Detonite Ampule], rare: [Neurodes]
+  Corpus    → common: Polymer Bundle, uncommon: [Circuits, Fieldron Sample], rare: [Control Module]
+  Infested  → common: Nano Spores, uncommon: [Plastids, Mutagen Sample], rare: [Neurodes]
+  Corrupted → common: Alloy Plate, uncommon: [Rubedo, Morphics], rare: [Orokin Cell]
+  Sentient  → common: Alloy Plate, uncommon: [Circuits, Morphics], rare: [Orokin Cell]
+
+MOD DROP CHANCE CONVENTIONS:
+  common mods: 0.0114  |  uncommon mods: 0.0033–0.0057  |  rare mods: 0.0003–0.0013
+  boss common: 0.05    |  boss uncommon: 0.025           |  boss rare: 0.005–0.02
+  Endo drops: always rarity "uncommon", type "endo", multiple tiers allowed
+
+XP REWARD GUIDELINES:
+  Standard infantry: 40–80 | Elite/Heavy: 100–200 | Mini-boss: 300–500 | Boss: 800–2000
+
+─────────────────────────────────────────────
+WIKI PAGES TO FETCH (fetch each in parallel batches):
+
+BATCH 1 — Grineer standard units:
+  https://warframe.fandom.com/wiki/Heavy_Gunner
+  https://warframe.fandom.com/wiki/Bombard
+  https://warframe.fandom.com/wiki/Trooper
+  https://warframe.fandom.com/wiki/Napalm
+  https://warframe.fandom.com/wiki/Shield_Lancer
+  https://warframe.fandom.com/wiki/Ballista
+  https://warframe.fandom.com/wiki/Seeker
+  https://warframe.fandom.com/wiki/Eviscerator
+  https://warframe.fandom.com/wiki/Hellion
+  https://warframe.fandom.com/wiki/Commander_(Grineer)
+  https://warframe.fandom.com/wiki/Hyekka_Master
+  https://warframe.fandom.com/wiki/Drahk_Master
+  https://warframe.fandom.com/wiki/Roller
+  https://warframe.fandom.com/wiki/Powerfist
+  https://warframe.fandom.com/wiki/Elite_Lancer
+  https://warframe.fandom.com/wiki/Manic
+  https://warframe.fandom.com/wiki/Nox
+
+BATCH 2 — Grineer bosses:
+  https://warframe.fandom.com/wiki/Tyl_Regor
+  https://warframe.fandom.com/wiki/Sargas_Ruk
+  https://warframe.fandom.com/wiki/Vay_Hek
+  https://warframe.fandom.com/wiki/Kela_de_Thaym
+  https://warframe.fandom.com/wiki/Lieutenant_Lech_Kril
+  https://warframe.fandom.com/wiki/Councilor_Vay_Hek
+  https://warframe.fandom.com/wiki/General_Sargas_Ruk
+  https://warframe.fandom.com/wiki/Hek_(Boss)
+
+BATCH 3 — Corpus standard units:
+  https://warframe.fandom.com/wiki/Crewman
+  https://warframe.fandom.com/wiki/Prod_Crewman
+  https://warframe.fandom.com/wiki/Sniper_Crewman
+  https://warframe.fandom.com/wiki/Tech
+  https://warframe.fandom.com/wiki/Nullifier_Crewman
+  https://warframe.fandom.com/wiki/MOA
+  https://warframe.fandom.com/wiki/Railgun_MOA
+  https://warframe.fandom.com/wiki/Shockwave_MOA
+  https://warframe.fandom.com/wiki/Fusion_MOA
+  https://warframe.fandom.com/wiki/Shield_Osprey
+  https://warframe.fandom.com/wiki/Mine_Osprey
+  https://warframe.fandom.com/wiki/Sapping_Osprey
+  https://warframe.fandom.com/wiki/Hyena_(Corpus)
+  https://warframe.fandom.com/wiki/Anti_MOA
+
+BATCH 4 — Corpus bosses:
+  https://warframe.fandom.com/wiki/Jackal
+  https://warframe.fandom.com/wiki/Raptor
+  https://warframe.fandom.com/wiki/Ambulas
+  https://warframe.fandom.com/wiki/The_Sergeant
+  https://warframe.fandom.com/wiki/Zanuka_Hunter
+  https://warframe.fandom.com/wiki/Alad_V
+
+BATCH 5 — Infested standard units:
+  https://warframe.fandom.com/wiki/Runner
+  https://warframe.fandom.com/wiki/Charger
+  https://warframe.fandom.com/wiki/Leaper
+  https://warframe.fandom.com/wiki/Crawler
+  https://warframe.fandom.com/wiki/Toxic_Crawler
+  https://warframe.fandom.com/wiki/Electric_Crawler
+  https://warframe.fandom.com/wiki/Nauseous_Crawler
+  https://warframe.fandom.com/wiki/Ancient_Healer
+  https://warframe.fandom.com/wiki/Toxic_Ancient
+  https://warframe.fandom.com/wiki/Disruptor
+  https://warframe.fandom.com/wiki/Boiler
+  https://warframe.fandom.com/wiki/Lobber_Crawler
+  https://warframe.fandom.com/wiki/Infested_Crewman
+  https://warframe.fandom.com/wiki/Swarm_Mutalist_MOA
+
+BATCH 6 — Infested bosses + Corrupted:
+  https://warframe.fandom.com/wiki/Phorid
+  https://warframe.fandom.com/wiki/Lephantis
+  https://warframe.fandom.com/wiki/Infested_Alad_V
+  https://warframe.fandom.com/wiki/Corrupted_Lancer
+  https://warframe.fandom.com/wiki/Corrupted_Heavy_Gunner
+  https://warframe.fandom.com/wiki/Corrupted_Bombard
+  https://warframe.fandom.com/wiki/Corrupted_Crewman
+  https://warframe.fandom.com/wiki/Corrupted_MOA
+  https://warframe.fandom.com/wiki/Corrupted_Nullifier_Crewman
+  https://warframe.fandom.com/wiki/Corrupted_Ancient
+  https://warframe.fandom.com/wiki/Corrupted_Vor
+
+BATCH 7 — Sentient + Eximus:
+  https://warframe.fandom.com/wiki/Battalyst
+  https://warframe.fandom.com/wiki/Conculyst
+  https://warframe.fandom.com/wiki/Eidolon_Teralyst
+  https://warframe.fandom.com/wiki/Eximus
+
+─────────────────────────────────────────────
+ENEMY KEY NAMING CONVENTION:
+  faction_unit_name  (all lowercase, underscores)
+  Examples: grineer_bombard, corpus_crewman, infested_runner, corrupted_lancer
+  Bosses: tyl_regor, jackal, phorid, corrupted_vor, eidolon_teralyst
+  Eximus variants: grineer_lancer_eximus, corpus_crewman_eximus
+
+─────────────────────────────────────────────
+ABILITIES DESIGN GUIDE (2–4 per enemy):
+- Ability 1: primary attack, chance=1.0, most common damage type for the unit
+- Ability 2: secondary/special attack, chance=0.3–0.6, can have a proc effect
+- Ability 3 (elite/boss only): signature move, chance=0.3–0.5
+- Ability 4 (boss only): phase/mechanic ability (e.g., shield phase, summon)
+- damage values: infantry 20–80, elite 40–120, mini-boss 60–150, boss 80–200
+- Buff/heal abilities: damage=0, damage_type="none"
+
+FOR EACH ENEMY:
+1. Fetch the wiki page
+2. Extract: HP, Shields, Armor, base level, health type, armor type, weapons used
+3. Look for an "Abilities" or "Attacks" section describing special moves
+4. Write 2–4 abilities based on the actual wiki description of attacks
+5. Set drops based on the faction rules above + any wiki-noted unique drops
+6. Fill _wiki with: "Name — location. HP/Shields/Armor per wiki. Weapons. Source URL"
