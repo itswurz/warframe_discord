@@ -31,6 +31,7 @@ import discord
 from discord.ext import commands
 
 from data import persistence
+from utils.emojis import E
 from utils.inventory_embeds import (
     build_display_items,
     apply_filter,
@@ -122,37 +123,37 @@ class FilterSelect(discord.ui.Select):
             discord.SelectOption(
                 label="Mods — All",
                 value="mods",
-                emoji="<:damage:1499651176419950622>",
+                emoji=E.location,
                 default=(current_filter == "mods"),
             ),
             discord.SelectOption(
                 label="Mods — Common",
                 value="mods_common",
-                emoji="<:common:1499767200410636351>",
+                emoji=E.common,
                 default=(current_filter == "mods_common"),
             ),
             discord.SelectOption(
                 label="Mods — Uncommon",
                 value="mods_uncommon",
-                emoji="<:uncommon:1499767231926636705>",
+                emoji=E.uncommon,
                 default=(current_filter == "mods_uncommon"),
             ),
             discord.SelectOption(
                 label="Mods — Rare",
                 value="mods_rare",
-                emoji="<:rare:1499767261236297899>",
+                emoji=E.rare,
                 default=(current_filter == "mods_rare"),
             ),
             discord.SelectOption(
                 label="Resources",
                 value="resources",
-                emoji="<:ferrite:1499750270199009320>",
+                emoji=E.ferrite,
                 default=(current_filter == "resources"),
             ),
             discord.SelectOption(
                 label="Endo",
                 value="endo",
-                emoji="<:endo:1499750353002954792>",
+                emoji=E.endo,
                 default=(current_filter == "endo"),
             ),
             discord.SelectOption(
@@ -189,7 +190,7 @@ class FilterSelect(discord.ui.Select):
             log.exception("[inventory] FilterSelect callback error for user %s", interaction.user.id)
             await _interaction_error(
                 interaction,
-                f"<:wf_lotus:1499651243101126816> Ordis encountered an error applying that filter.\n"
+                f"{E.lotus} Ordis encountered an error applying that filter.\n"
                 f"```{type(exc).__name__}: {exc}```",
             )
 
@@ -223,7 +224,7 @@ class PrevButton(discord.ui.Button):
             log.exception("[inventory] PrevButton error for user %s", interaction.user.id)
             await _interaction_error(
                 interaction,
-                f"<:wf_lotus:1499651243101126816> Ordis failed to turn the page.\n"
+                f"{E.lotus} Ordis failed to turn the page.\n"
                 f"```{type(exc).__name__}: {exc}```",
             )
 
@@ -254,7 +255,7 @@ class NextButton(discord.ui.Button):
             log.exception("[inventory] NextButton error for user %s", interaction.user.id)
             await _interaction_error(
                 interaction,
-                f"<:wf_lotus:1499651243101126816> Ordis failed to turn the page.\n"
+                f"{E.lotus} Ordis failed to turn the page.\n"
                 f"```{type(exc).__name__}: {exc}```",
             )
 
@@ -303,7 +304,7 @@ class RefreshButton(discord.ui.Button):
             log.exception("[inventory] RefreshButton error for user %s", interaction.user.id)
             await _interaction_error(
                 interaction,
-                f"<:wf_lotus:1499651243101126816> Ordis failed to refresh your inventory.\n"
+                f"{E.lotus} Ordis failed to refresh your inventory.\n"
                 f"```{type(exc).__name__}: {exc}```",
             )
 
@@ -406,7 +407,7 @@ class InventoryView(discord.ui.View):
             log.error("[inventory] _refresh HTTP error: %s", exc)
             await _interaction_error(
                 interaction,
-                "<:wf_lotus:1499651243101126816> Ordis had trouble sending the inventory panel. "
+                f"{E.lotus} Ordis had trouble sending the inventory panel. "
                 "Please try again.",
             )
 
@@ -414,7 +415,7 @@ class InventoryView(discord.ui.View):
             log.exception("[inventory] _refresh unexpected error for target %s", self.target_id)
             await _interaction_error(
                 interaction,
-                f"<:wf_lotus:1499651243101126816> Ordis encountered an unexpected error.\n"
+                f"{E.lotus} Ordis encountered an unexpected error.\n"
                 f"```{type(exc).__name__}: {exc}```",
             )
 
@@ -466,7 +467,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] load_player failed for user %s", target_id)
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> Ordis could not access the player database. "
+                    f"{E.lotus} Ordis could not access the player database. "
                     f"Please try again later.\n```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
@@ -482,7 +483,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] build_display_items failed for user %s", target_id)
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> Ordis failed to read the inventory data. "
+                    f"{E.lotus} Ordis failed to read the inventory data. "
                     f"Your profile may be corrupted.\n```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
@@ -503,7 +504,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] build_inventory_embed failed for user %s", target_id)
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> Ordis failed to build the inventory panel. "
+                    f"{E.lotus} Ordis failed to build the inventory panel. "
                     f"Please try again.\n```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
@@ -519,16 +520,16 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] InventoryView init failed for user %s", target_id)
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> Ordis failed to build the inventory panel. "
+                    f"{E.lotus} Ordis failed to build the inventory panel. "
                     f"Please try again.\n```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
                 return
 
             header = (
-                f"<:wf_lotus:1499651243101126816> **{target_name}'s** Tenno inventory."
+                f"{E.lotus} **{target_name}'s** Tenno inventory."
                 if target_id != owner_id
-                else "<:wf_lotus:1499651243101126816> Your Tenno inventory, Operator."
+                else f"{E.lotus} Your Tenno inventory, Operator."
             )
 
             await ctx.send(
@@ -540,7 +541,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
         except Exception as exc:
             log.exception("[inventory] Unhandled error in inventory_cmd for user %s", ctx.author.id)
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> An unexpected error occurred opening the inventory. "
+                f"{E.lotus} An unexpected error occurred opening the inventory. "
                 f"Ordis apologises.\n```{type(exc).__name__}: {exc}```",
                 delete_after=20,
             )
@@ -556,14 +557,14 @@ class InventoryCog(commands.Cog, name="Inventory"):
         elif isinstance(error, commands.BadArgument):
             # e.g. user typed a non-member mention
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Tenno not found. "
+                f"{E.lotus} Tenno not found. "
                 "Mention a valid server member, or use `!inventory` with no arguments.",
                 delete_after=8,
             )
         else:
             log.exception("[inventory] inventory_cmd unhandled framework error: %s", error)
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Ordis encountered an unexpected error. "
+                f"{E.lotus} Ordis encountered an unexpected error. "
                 f"```{type(error).__name__}: {error}```",
                 delete_after=20,
             )
@@ -587,7 +588,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
         try:
             if _ITEM_DB_LOAD_ERROR:
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> ⚠️ {_ITEM_DB_LOAD_ERROR}",
+                    f"{E.lotus} ⚠️ {_ITEM_DB_LOAD_ERROR}",
                     delete_after=12,
                 )
                 return
@@ -597,7 +598,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] item_cmd: load_player failed for user %s", ctx.author.id)
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> Ordis could not access the player database. "
+                    f"{E.lotus} Ordis could not access the player database. "
                     f"Please try again later.\n```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
@@ -608,7 +609,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
             except Exception as exc:
                 log.exception("[inventory] build_item_embed failed for item %r", name)
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> Ordis failed to build the item card for **`{name}`**. "
+                    f"{E.lotus} Ordis failed to build the item card for **`{name}`**. "
                     f"```{type(exc).__name__}: {exc}```",
                     delete_after=15,
                 )
@@ -620,14 +621,14 @@ class InventoryCog(commands.Cog, name="Inventory"):
                 if suggestions:
                     sugg_str = "\n".join(f"  • **{s}**" for s in suggestions)
                     await ctx.send(
-                        f"<:wf_lotus:1499651243101126816> "
+                        f"{E.lotus} "
                         f"**`{name}`** not found in the Ordis database.\n"
                         f"Did you mean one of these?\n{sugg_str}",
                         delete_after=15,
                     )
                 else:
                     await ctx.send(
-                        f"<:wf_lotus:1499651243101126816> "
+                        f"{E.lotus} "
                         f"**`{name}`** is not in the Ordis item database, Operator.\n"
                         f"Check the spelling or try `!inventory` to browse what you own.",
                         delete_after=10,
@@ -639,7 +640,7 @@ class InventoryCog(commands.Cog, name="Inventory"):
         except Exception as exc:
             log.exception("[inventory] Unhandled error in item_cmd for user %s", ctx.author.id)
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> An unexpected error occurred looking up that item. "
+                f"{E.lotus} An unexpected error occurred looking up that item. "
                 f"```{type(exc).__name__}: {exc}```",
                 delete_after=20,
             )
@@ -654,14 +655,14 @@ class InventoryCog(commands.Cog, name="Inventory"):
             )
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide an item name. "
+                f"{E.lotus} Please provide an item name. "
                 "Example: `!item Vitality`",
                 delete_after=8,
             )
         else:
             log.exception("[inventory] item_cmd unhandled framework error: %s", error)
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Ordis encountered an unexpected error. "
+                f"{E.lotus} Ordis encountered an unexpected error. "
                 f"```{type(error).__name__}: {error}```",
                 delete_after=20,
             )

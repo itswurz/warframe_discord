@@ -25,6 +25,7 @@ import discord
 from discord.ext import commands
 
 from data import persistence
+from utils.emojis import E
 from data.persistence import (
     load_player,
     save_player,
@@ -92,38 +93,7 @@ def _get_mod_by_uuid(profile: dict, mod_uuid: str) -> Optional[dict]:
 
 # ── Display helpers ────────────────────────────────────────────────────────────
 
-_RARITY_EMOJI = {
-    "rare":     "<:rare:1499767261236297899>",
-    "uncommon": "<:uncommon:1499767231926636705>",
-    "common":   "<:common:1499767200410636351>",
-}
 _RARITY_TAG = {"rare": "R", "uncommon": "U", "common": "C"}
-
-# ── Mod icon map from drops.json ───────────────────────────────────────────────
-def _load_drops_emojis() -> dict[str, str]:
-    path = os.path.join(os.path.dirname(__file__), "..", "data", "drops.json")
-    try:
-        with open(path, encoding="utf-8") as f:
-            return json.load(f).get("emojis", {})
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {}
-
-_DROPS_EMOJIS: dict[str, str] = _load_drops_emojis()
-
-
-def _mod_icon(name: str, rarity: str, codex_mod: Optional[dict] = None) -> str:
-    """
-    Resolve the correct emoji for a mod using the full priority chain:
-      1. codex_mod["icon"]  (warframes_mods.json — Warframe mods)
-      2. drops.json emojis  (covers weapon/stance mods like Heated Charge)
-      3. Rarity emoji fallback  (Mod_Common / Mod_Uncommon / Mod_Rare)
-    """
-    if codex_mod and codex_mod.get("icon"):
-        return codex_mod["icon"]
-    from_drops = _DROPS_EMOJIS.get(name)
-    if from_drops:
-        return from_drops
-    return _DROPS_EMOJIS.get(f"Mod_{rarity.capitalize()}", "📦")
 
 PAGE_SIZE = 6  # mod groups per page
 
@@ -300,11 +270,11 @@ def _build_mods_list_layout(
     header = (
         _CB(accent_colour=0x1F4E5F)
         .text(
-            f"<:wf_lotus:1499651243101126816>  {owner_tag}**Mod Collection**  ·  "
+            f"{E.lotus}  {owner_tag}**Mod Collection**  ·  "
             f"Page {page + 1}/{total_pages}\n"
             f"**{total_mods}** total  ·  **{total_unique}** unique  ·  "
-            f"<:endo:1499750353002954792> **{endo_amount:,}** Endo  ·  "
-            f"<:credits:1499637105142399087> **{credits:,}** Credits"
+            f"{E.endo} **{endo_amount:,}** Endo  ·  "
+            f"{E.credits} **{credits:,}** Credits"
         )
         .sep(visible=False)
     )
@@ -313,10 +283,9 @@ def _build_mods_list_layout(
     lines: list[str] = []
     for g in slice_:
         cm    = g["codex_mod"]
-        re    = _RARITY_EMOJI.get(g["rarity"], "📦")
+        re    = E.rarity(g["rarity"])
         rtag  = _RARITY_TAG.get(g["rarity"], "?")
-        # Use the mod's own icon; never substitute a rarity emoji as the mod icon
-        icon  = _mod_icon(g["name"], g["rarity"], cm)
+        icon  = E.mod(g["name"], g["rarity"])
         count = g["count"]
 
         # Show each copy's UUID + rank inline
@@ -414,10 +383,9 @@ def _build_mod_view_layout(
     rank   = mod_inst.get("rank", 0)
     max_r  = mod_inst.get("max_rank", codex_mod.get("max_rank", 5) if codex_mod else 5)
     uuid   = mod_inst["uuid"]
-    re_em  = _RARITY_EMOJI.get(rarity, "📦")
+    re_em  = E.rarity(rarity)
     rtag   = rarity.capitalize()
-    # Use the mod's own icon; fall back to a neutral 📦 — never a rarity emoji
-    icon   = _mod_icon(name, rarity, codex_mod)
+    icon   = E.mod(name, rarity)
 
     accent = {"rare": 0xD4AF37, "uncommon": 0x4B9CDB, "common": 0x888888}.get(rarity, 0x1F4E5F)
 
@@ -449,8 +417,8 @@ def _build_mod_view_layout(
         )
         if rank < max_r:
             upgrade_cost_line = (
-                f"\n\n<:endo:1499750353002954792> `{endo_needed:,}` Endo  "
-                f"<:credits:1499637105142399087> `{credit_needed:,}` Credits"
+                f"\n\n{E.endo} `{endo_needed:,}` Endo  "
+                f"{E.credits} `{credit_needed:,}` Credits"
             )
             stats_text += (
                 f"\n\n**Next Rank ({rank + 1}):**\n"
@@ -475,10 +443,10 @@ def _build_mod_view_layout(
     # ── Header (with optional thumbnail) ─────────────────────────────────────
     header_text = (
         f"{icon} **{name}** — {re_em} {rtag}\n"
-        f"<:combo:1499663262520971326> **UUID:** `{uuid}`\n"
-        f"<:wf_lotus:1499651243101126816> **Owner:** {owner_name} *(ID: {owner_id})*\n"
-        f"<:damage:1499651176419950622> **Location:** {warframe_ctx}\n"
-        f"<:damage_reduction:1499651603945226260> **Rank:** {rk_bar}"
+        f"{E.combo} **UUID:** `{uuid}`\n"
+        f"{E.lotus} **Owner:** {owner_name} *(ID: {owner_id})*\n"
+        f"{E.location} **Location:** {warframe_ctx}\n"
+        f"{E.defense} **Rank:** {rk_bar}"
     )
 
     # ── Codex footer ──────────────────────────────────────────────────────────
@@ -617,7 +585,7 @@ class UpgradeConfirmView(discord.ui.View):
         if credits_have < cred_cost:
             await interaction.response.edit_message(
                 content=(
-                    f"<:credits:1499637105142399087> ❌ Not enough Credits.\n"
+                    f"{E.credits} ❌ Not enough Credits.\n"
                     f"Need **{cred_cost:,}**, have **{credits_have:,}**."
                 ),
                 view=None,
@@ -656,7 +624,7 @@ class UpgradeConfirmView(discord.ui.View):
                 f"{self.mod_icon} **{self.mod_name}** `[{self.mod_uuid}]` upgraded to "
                 f"**Rank {new_rank}/{max_rank}**!\n"
                 f"Stats: {stat_block}\n"
-                f"<:endo:1499750353002954792> Endo remaining: `{rem_endo:,}`  ·  "
+                f"{E.endo} Endo remaining: `{rem_endo:,}`  ·  "
                 f"💰 Credits remaining: `{rem_credits:,}`"
                 f"{next_msg}"
             ),
@@ -726,7 +694,7 @@ class ModsCog(commands.Cog, name="Mods"):
 
         if mod_inst is None:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Mod `{mod_uuid}` not found in **your** collection.\n"
+                f"{E.lotus} ❌ Mod `{mod_uuid}` not found in **your** collection.\n"
                 "Use `!mods` to browse your mods and find the UUID.",
                 delete_after=12,
             )
@@ -737,7 +705,7 @@ class ModsCog(commands.Cog, name="Mods"):
         max_rank = mod_inst.get("max_rank", 5)
         rarity   = mod_inst.get("rarity", "common")
         cm       = _get_codex_mod(name)
-        icon     = _mod_icon(name, rarity, cm)
+        icon     = E.mod(name, rarity)
 
         if cur_rank >= max_rank:
             await ctx.send(
@@ -775,13 +743,13 @@ class ModsCog(commands.Cog, name="Mods"):
         can_credits = credits_have >= credit_cost
         can_rank    = can_endo and can_credits
 
-        re = _RARITY_EMOJI.get(rarity, "📦")
+        re = E.rarity(rarity)
         content = (
             f"{icon} **{name}** `[{mod_uuid}]` — {re} {rarity.capitalize()}\n"
             f"Rank: {rk_bar}\n\n"
             f"**Current stats (Rank {cur_rank}):** {cur_str}\n"
             f"**After upgrade (Rank {cur_rank + 1}):** {next_str}\n\n"
-            f"<:endo:1499750353002954792> **Endo needed:** `{endo_cost:,}`  ·  "
+            f"{E.endo} **Endo needed:** `{endo_cost:,}`  ·  "
             f"**You have:** `{endo_have:,}` {'✅' if can_endo else '❌'}\n"
             f"💰 **Credits needed:** `{credit_cost:,}`  ·  "
             f"**You have:** `{credits_have:,}` {'✅' if can_credits else '❌'}"
@@ -814,7 +782,7 @@ class ModsCog(commands.Cog, name="Mods"):
             credits_have = credits_have,
         )
         await ctx.send(
-            content=content + "\n\n⚠️ Confirm to spend Endo + <:credits:1499637105142399087> Credits — **30 seconds to decide.**",
+            content=content + f"\n\n⚠️ Confirm to spend Endo + {E.credits} Credits — **30 seconds to decide.**",
             view=view,
         )
 
@@ -847,7 +815,7 @@ class ModsCog(commands.Cog, name="Mods"):
 
             if mod_inst is None:
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> ❌ No mod with UUID `{mod_uuid}` found "
+                    f"{E.lotus} ❌ No mod with UUID `{mod_uuid}` found "
                     f"in any Tenno's collection.\n"
                     f"Use `!mods` to see your mod UUIDs.",
                     delete_after=14,
@@ -911,7 +879,7 @@ class ModsCog(commands.Cog, name="Mods"):
     async def upgrade_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Provide a mod UUID.\n"
+                f"{E.lotus} Provide a mod UUID.\n"
                 "Usage: `!mods upgrade A9X4M2Q`\n"
                 "Use `!mods` to see your mod UUIDs.",
                 delete_after=10,
@@ -925,7 +893,7 @@ class ModsCog(commands.Cog, name="Mods"):
     async def view_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Provide a mod UUID.\n"
+                f"{E.lotus} Provide a mod UUID.\n"
                 "Usage: `!mods view A9X4M2Q`",
                 delete_after=10,
             )

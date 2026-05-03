@@ -18,6 +18,7 @@ from data.weapons import (
     PRIMARY_CHOICES, SECONDARY_CHOICES, MELEE_CHOICES,
 )
 from utils.polarity_embeds import add_polarity_field_to_weapon_embed
+from utils.emojis import E
 
 _STEP_LABELS = {
     "primary":   ("Step 2 of 4", "Primary Weapon"),
@@ -156,10 +157,10 @@ def build_weapon_embed(
     embed.add_field(
         name="DAMAGE",
         value=(
-            f"<:impact:1499636596633374780> Impact      **{d['impact']}**\n"
-            f"<:puncture:1499594734421803060> Puncture    **{d['puncture']}**\n"
-            f"<:slash_effect:1499584690859020459> Slash       **{d['slash']}**\n"
-            f"<:damage:1499651176419950622> **Total       {d['total']}** / action"
+            f"{E.impact} Impact      **{d['impact']}**\n"
+            f"{E.puncture} Puncture    **{d['puncture']}**\n"
+            f"{E.slash} Slash       **{d['slash']}**\n"
+            f"{E.location} **Total       {d['total']}** / action"
         ),
         inline=True,
     )
@@ -183,14 +184,14 @@ def build_weapon_embed(
     embed.add_field(
         name="STRENGTHS",
         value="\n".join(
-            f"<:stat_positive:1499636780356337715> {s}" for s in wp["strengths"]
+            f"{E.stat_positive} {s}" for s in wp["strengths"]
         ),
         inline=True,
     )
     embed.add_field(
         name="WEAKNESSES",
         value="\n".join(
-            f"<:stat_negative:1499636840494399638> {w}" for w in wp["weaknesses"]
+            f"{E.stat_negative} {w}" for w in wp["weaknesses"]
         ),
         inline=True,
     )

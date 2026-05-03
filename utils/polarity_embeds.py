@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import discord
 from typing import Optional
+from utils.emojis import E
 
 from data.polarity import (
     emoji as pol_emoji,
@@ -234,7 +235,7 @@ def build_polarity_overview_embed(
     """
     wf_slots  = warframe_slot_polarities(warframe_key)
     embed = discord.Embed(
-        title=f"<:wf_lotus:1499651243101126816>  {warframe_name} — Polarity Slots",
+        title=f"{E.lotus}  {warframe_name} — Polarity Slots",
         description=(
             "Each slot's polarity determines how much mod capacity a mod consumes.\n"
             "Match the polarity to **halve** the drain. Mismatch to **double** it."

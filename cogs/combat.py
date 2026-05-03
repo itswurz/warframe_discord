@@ -33,6 +33,7 @@ from combat.weapons import WEAPON_STATS
 from utils.combat_embeds import build_combat_embed, build_loot_embed
 from data.warframes import WARFRAMES
 from data import persistence
+from utils.emojis import E
 
 
 # ── Per-warframe ability button metadata ──────────────────────────────────────
@@ -41,22 +42,22 @@ from data import persistence
 
 _ABILITY_META: dict[str, list[tuple[str, str]]] = {
     "excalibur": [
-        ("<:slash_dash:1499574774429515917>",    "Slash Dash"),
-        ("<:radial_blind:1499574926364119050>",   "Radial Blind"),
-        ("<:radial_javelin:1499575401343877391>", "Radial Javelin"),
-        ("<:exalted_blade:1499575259526074468>",  "Exalted Blade"),
+        (E.slash_dash,    "Slash Dash"),
+        (E.radial_blind,   "Radial Blind"),
+        (E.radial_javelin, "Radial Javelin"),
+        (E.exalted_blade,  "Exalted Blade"),
     ],
     "mag": [
-        ("<:pull:1499595083547410643>",      "Pull"),
-        ("<:magnetize:1499595149091668103>", "Magnetize"),
-        ("<:polarize:1499595238786994246>",  "Polarize"),
-        ("<:crush:1499595185888428234>",     "Crush"),
+        (E.pull,      "Pull"),
+        (E.magnetize, "Magnetize"),
+        (E.polarize,  "Polarize"),
+        (E.crush,     "Crush"),
     ],
     "volt": [
-        ("<:shock:1499596261375086732>",          "Shock"),
-        ("<:speed:1499596301984071832>",           "Speed"),
-        ("<:electric_shield:1499596339674349658>", "Elec. Shield"),
-        ("<:discharge:1499596381508075550>",       "Discharge"),
+        (E.shock,          "Shock"),
+        (E.speed,           "Speed"),
+        (E.electric_shield, "Elec. Shield"),
+        (E.discharge,       "Discharge"),
     ],
 }
 
@@ -67,13 +68,13 @@ _NUMBER_EMOJIS = ["1️⃣", "2️⃣", "3️⃣", "4️⃣"]
 # Reads the ability's cost from ABILITY_COSTS automatically.
 
 _HOLD_CAST_META: dict[str, tuple[str, str, int]] = {
-    "mag": ("<:magnetize:1499595149091668103>", "Hold Cast", 1),
+    "mag": (E.magnetize, "Hold Cast", 1),
 }
 
 # ── Exalted override — when a toggle is active, replace the melee button ──────
 # Maps warframe_key → (emoji, label) to show while the toggle is on
 _MELEE_EXALTED_OVERRIDE: dict[str, tuple[str, str]] = {
-    "excalibur": ("<:exalted_blade:1499575259526074468>", "Exalted"),
+    "excalibur": (E.exalted_blade, "Exalted"),
 }
 
 # ── Which ability_flags key indicates the melee override is active ─────────────
@@ -355,7 +356,7 @@ class HoldCastButton(discord.ui.Button):
 
     def __init__(self, session: CombatSession):
         wf_key = session.player.warframe_key
-        meta   = _HOLD_CAST_META.get(wf_key, ("<:magnetize:1499595149091668103>", "Hold Cast", 1))
+        meta   = _HOLD_CAST_META.get(wf_key, (E.magnetize, "Hold Cast", 1))
         emoji, label, self._ability_index = meta
 
         costs = ABILITY_COSTS.get(wf_key, DEFAULT_ABILITY_COSTS)
@@ -425,13 +426,13 @@ class StatusButton(discord.ui.Button):
             ),
             (
                 f"<a:health:1499636458309423215> HP: {p.hp}/{p.max_hp}  "
-                f"<:wf_shield:1499636531755745280> Shields: {p.shields}/{p.max_shields}"
+                f"{E.shield} Shields: {p.shields}/{p.max_shields}"
             ),
             (
                 f"<a:energy_orb:1499636329842212964> Energy: {p.energy}/{p.max_energy}  "
-                f"<:combo:1499663262520971326> Combo: {p.combo_gauge}"
+                f"{E.combo} Combo: {p.combo_gauge}"
             ),
-            f"<:wf_lotus:1499651243101126816> Statuses: {p.status_icons()}",
+            f"{E.lotus} Statuses: {p.status_icons()}",
             "",
         ]
         for enemy in s.enemies:
@@ -444,7 +445,7 @@ class StatusButton(discord.ui.Button):
                 )
             else:
                 lines.append(
-                    f"~~{enemy.icon} {enemy.name}~~  <:down:1499663521414119535>"
+                    f"~~{enemy.icon} {enemy.name}~~  {E.down}"
                 )
 
         await interaction.response.send_message(

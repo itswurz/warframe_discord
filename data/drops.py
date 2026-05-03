@@ -60,19 +60,13 @@ def _data() -> dict:
     return _CACHE
 
 
-def _emoji(emojis: dict, name: str, rarity: str = "") -> str:
-    """
-    Look up the emoji for an item name.
-    Falls back to the rarity-tier icon (Mod_Common / Mod_Uncommon / Mod_Rare),
-    then to a plain box if nothing matches.
-    """
-    if name in emojis:
-        return emojis[name]
-    if rarity:
-        key = f"Mod_{rarity.capitalize()}"
-        if key in emojis:
-            return emojis[key]
-    return "📦"
+def _emoji(name: str, rarity: str = "") -> str:
+    """Return the display emoji for a drop item using the central emoji registry."""
+    from utils.emojis import E
+    icon = E.item(name)
+    if icon != "📦":
+        return icon
+    return E.mod(name, rarity)
 
 
 def roll_drops(
@@ -91,9 +85,8 @@ def roll_drops(
         A (possibly empty) list of drop dicts.  Mod drops include a
         "mod_instance" key containing the full UUID mod dict.
     """
-    data   = _data()
-    emojis = data.get("emojis", {})
-    edata  = data.get("enemies", {}).get(enemy_key)
+    data  = _data()
+    edata = data.get("enemies", {}).get(enemy_key)
 
     if not edata:
         return []
@@ -113,7 +106,7 @@ def roll_drops(
         name   = entry["name"]
         amount = entry.get("amount", 1)
         rarity = entry.get("rarity", "common")
-        em     = _emoji(emojis, name, rarity)
+        em     = _emoji(name, rarity)
 
         if dtype == "endo":
             drops.append({
@@ -144,7 +137,7 @@ def roll_drops(
         drops.append({
             "name":   common["name"],
             "amount": amt,
-            "emoji":  _emoji(emojis, common["name"]),
+            "emoji":  _emoji(common["name"]),
             "rarity": "common",
             "type":   "resource",
         })
@@ -160,7 +153,7 @@ def roll_drops(
         drops.append({
             "name":   item["name"],
             "amount": amt,
-            "emoji":  _emoji(emojis, item["name"]),
+            "emoji":  _emoji(item["name"]),
             "rarity": "uncommon",
             "type":   "resource",
         })
@@ -171,7 +164,7 @@ def roll_drops(
         drops.append({
             "name":   item["name"],
             "amount": item.get("amount", 1),
-            "emoji":  _emoji(emojis, item["name"]),
+            "emoji":  _emoji(item["name"]),
             "rarity": "rare",
             "type":   "resource",
         })
@@ -183,7 +176,7 @@ def roll_drops(
         drops.append({
             "name":   region["name"],
             "amount": amt,
-            "emoji":  _emoji(emojis, region["name"]),
+            "emoji":  _emoji(region["name"]),
             "rarity": "common",
             "type":   "resource",
         })
@@ -195,7 +188,7 @@ def roll_drops(
         drops.append({
             "name":   item["name"],
             "amount": item.get("amount", 1),
-            "emoji":  _emoji(emojis, item["name"]),
+            "emoji":  _emoji(item["name"]),
             "rarity": "cosmetic",
             "type":   "cosmetic",
         })

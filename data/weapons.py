@@ -1,3 +1,4 @@
+from utils.emojis import E
 # data/weapons.py
 # ─────────────────────────────────────────────────────────────────────────────
 # Full player-choice weapon codex for all three loadout slots.
@@ -35,7 +36,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Primary — Assault Rifle",
         "trigger":       "Auto",
         "role":          "Balanced Damage",
-        "emoji":         "<:braton:1499699815813218325>",
+        "emoji":         E.braton,
         "color":         0x1F4E5F,
         "thumbnail_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
@@ -49,9 +50,9 @@ WEAPONS: dict[str, dict] = {
         ),
         "play_style": (
             "A full-auto rifle that sprays three rapid bursts per action, splitting damage across "
-            "<:impact:1499636596633374780> Impact · "
-            "<:puncture:1499594734421803060> Puncture · "
-            "<:slash_effect:1499584690859020459> Slash almost equally. "
+            f"{E.impact} Impact · "
+            f"{E.puncture} Puncture · "
+            f"{E.slash} Slash almost equally. "
             "Consistent sustained pressure — effective against any target type, specialist against none."
         ),
         "damage": {
@@ -90,7 +91,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Primary — Bow",
         "trigger":       "Charge",
         "role":          "High-Crit Precision",
-        "emoji":         "<:paris:1499699912445661214>",
+        "emoji":         E.paris,
         "color":         0x1F4E5F,
         "thumbnail_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
@@ -104,7 +105,7 @@ WEAPONS: dict[str, dict] = {
         ),
         "play_style": (
             "A charged bow that fires one devastating arrow per action, dealing overwhelming "
-            "<:puncture:1499594734421803060> Puncture damage. "
+            f"{E.puncture} Puncture damage. "
             "Each arrow **Punch-Throughs** the primary target and pierces every enemy in the line. "
             "30% crit chance with a 2.0× multiplier makes critical strikes common. "
             "Fires silently — nearby enemies are never alerted."
@@ -125,7 +126,7 @@ WEAPONS: dict[str, dict] = {
         },
         "perks": [
             (
-                "<:puncture:1499594734421803060> **Punch-Through** — "
+                f"{E.puncture} **Punch-Through** — "
                 "Each arrow passes through the primary target and strikes every enemy "
                 "behind them in the same line for full damage."
             ),
@@ -160,7 +161,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Secondary — Semi-Auto Pistol",
         "trigger":       "Semi-Auto",
         "role":          "Balanced Sidearm",
-        "emoji":         "<:lato:1499699965109207051>",
+        "emoji":         E.lato,
         "color":         0x1F4E5F,
         "thumbnail_url": None,   # add CDN URL when asset is available
         "lore": (
@@ -170,7 +171,7 @@ WEAPONS: dict[str, dict] = {
         ),
         "play_style": (
             "A semi-auto pistol that fires one accurate shot per action, splitting damage with a "
-            "<:slash_effect:1499584690859020459> Slash lean (50 %). "
+            f"{E.slash} Slash lean (50 %). "
             "Balanced stats mean it is equally serviceable against shields, armor, and raw HP. "
             "The Tenno's reliable backup when the Primary runs dry."
         ),
@@ -212,7 +213,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Secondary — Thrown",
         "trigger":       "Semi-Auto",
         "role":          "Silent Disabler",
-        "emoji":         "<:kunai:1499920860344094830>",
+        "emoji":         E.kunai,
         "color":         0x1F4E5F,
         "thumbnail_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
@@ -227,7 +228,7 @@ WEAPONS: dict[str, dict] = {
         ),
         "play_style": (
             "A thrown sidearm that hurls one precision kunai per action, dealing heavy "
-            "<:puncture:1499594734421803060> Puncture damage (50 %). "
+            f"{E.puncture} Puncture damage (50 %). "
             "**Puncture procs reduce enemy damage output by 30 %** for 1 turn — critical against "
             "high-damage Butchers and Scorpions. "
             "Fires silently; 15 % status chance beats the Lato's. "
@@ -249,7 +250,7 @@ WEAPONS: dict[str, dict] = {
         },
         "perks": [
             (
-                "<:puncture:1499594734421803060> **Puncture Proc** — "
+                f"{E.puncture} **Puncture Proc** — "
                 "A Puncture status reduces the target's damage output by **-30 %** for 1 turn, "
                 "softening their next attack on you."
             ),
@@ -286,7 +287,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Melee — Sword",
         "trigger":       "N/A",
         "role":          "Armor-Cutting Damage",
-        "emoji":         "<:skana:1499700067672526899>",
+        "emoji":         E.skana,
         "color":         0x1F4E5F,
         "thumbnail_url": None,   # add CDN URL when asset is available
         "lore": (
@@ -313,16 +314,16 @@ WEAPONS: dict[str, dict] = {
             "Crit Multiplier": "1.5×",
             "Status Chance":   "**16%**  per swing",
             "Hits / Action":   "1  sword swing",
-            "Special":         "<:excalibur_icon:1499569316138586244> +10% dmg with Excalibur",
+            "Special":         f"{E.excalibur} +10% dmg with Excalibur",
         },
         "perks": [
             (
-                "<:slash_effect:1499584690859020459> **Armor-Piercing Slash** — "
+                f"{E.slash} **Armor-Piercing Slash** — "
                 "Slash damage bypasses enemy armor in turn-based combat, dealing full damage "
                 "directly to HP. Extremely effective against Grineer."
             ),
             (
-                "<:excalibur_icon:1499569316138586244> **Excalibur Passive** — "
+                f"{E.excalibur} **Excalibur Passive** — "
                 "Excalibur deals +10 % damage when wielding a sword. "
                 "Also enables the full Exalted Blade synergy."
             ),
@@ -351,7 +352,7 @@ WEAPONS: dict[str, dict] = {
         "type":          "Melee — Staff",
         "trigger":       "N/A",
         "role":          "Crowd-Control Disabler",
-        "emoji":         "<:bo_staff:1499920804866031797>",
+        "emoji":         E.bo_staff,
         "color":         0x1F4E5F,
         "thumbnail_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
@@ -367,7 +368,7 @@ WEAPONS: dict[str, dict] = {
         ),
         "play_style": (
             "A reach weapon that delivers one sweeping strike per action, dealing heavy "
-            "<:impact:1499636596633374780> Impact damage (70 %). "
+            f"{E.impact} Impact damage (70 %). "
             "**Impact procs cause Knockdown — the target skips their next turn.** "
             "10 % status chance means roughly 1-in-10 swings disables an attacker entirely. "
             "Armor reduces Impact damage, so the Bo shines against unarmored or lightly armored targets. "
@@ -385,11 +386,11 @@ WEAPONS: dict[str, dict] = {
             "Crit Multiplier": "1.5×",
             "Status Chance":   "10%  per swing",
             "Hits / Action":   "1  staff sweep",
-            "Special":         "<:stunned:1499671616479563826> Knockdown on Impact proc",
+            "Special":         f"{E.stunned} Knockdown on Impact proc",
         },
         "perks": [
             (
-                "<:stunned:1499671616479563826> **Impact Knockdown** — "
+                f"{E.stunned} **Impact Knockdown** — "
                 "An Impact status proc (10 % chance per swing) causes **Knockdown**, "
                 "forcing the target to skip their next turn entirely."
             ),

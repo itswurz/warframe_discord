@@ -48,6 +48,7 @@ from typing import Optional
 
 import discord
 from data import persistence as _pers
+from utils.emojis import E
 
 # ── Data loading ───────────────────────────────────────────────────────────────
 
@@ -92,7 +93,7 @@ def _get_codex_mod_by_name(name: str) -> dict | None:
 def _pol_info(polarity: str) -> dict:
     return _db()["slot_polarities"].get(
         polarity.lower(),
-        {"emoji": "<:any:1499939092811743242>", "display": polarity.capitalize()}
+        {"emoji": E.any, "display": polarity.capitalize()}
     )
 
 
@@ -100,11 +101,6 @@ def _pol_info(polarity: str) -> dict:
 
 _RARITY_ORDER = {r: i for i, r in enumerate(["rare", "uncommon", "common"])}
 _RARITY_TAG   = {"rare": "[R]", "uncommon": "[U]", "common": "[C]"}
-_RARITY_EMOJI = {
-    "rare":     "<:rare:1499767261236297899>",
-    "uncommon": "<:uncommon:1499767231926636705>",
-    "common":   "<:common:1499767200410636351>",
-}
 
 # ── Stat label map (for compact description strings) ──────────────────────────
 _STAT_LABELS: dict[str, str] = {
@@ -536,20 +532,20 @@ def _delta_str(base: int, final: int) -> str:
 def _stats_line(base_stats: dict, final_stats: dict) -> str:
     parts = [
         f"<a:health:1499636458309423215> {_delta_str(base_stats['health'],  final_stats.get('health',  base_stats['health']))}",
-        f"<:wf_shield:1499636531755745280> {_delta_str(base_stats['shields'], final_stats.get('shields', base_stats['shields']))}",
-        f"<:damage_reduction:1499651603945226260> {_delta_str(base_stats['armor'],  final_stats.get('armor',  base_stats['armor']))}",
+        f"{E.shield} {_delta_str(base_stats['shields'], final_stats.get('shields', base_stats['shields']))}",
+        f"{E.defense} {_delta_str(base_stats['armor'],  final_stats.get('armor',  base_stats['armor']))}",
         f"<a:energy_orb:1499636329842212964> {_delta_str(base_stats['energy'],  final_stats.get('energy',  base_stats['energy']))}",
     ]
     if final_stats.get("ability_efficiency_bonus"):
-        parts.append(f"<:streamlinemod:1499760906576461825> **-{final_stats['ability_efficiency_bonus']}%** cost")
+        parts.append(f"{E.mod('Streamline')} **-{final_stats['ability_efficiency_bonus']}%** cost")
     if final_stats.get("puncture_resist_bonus"):
-        parts.append(f"<:puncture:1499594734421803060> **+{final_stats['puncture_resist_bonus']}%** Punc.Res")
+        parts.append(f"{E.puncture} **+{final_stats['puncture_resist_bonus']}%** Punc.Res")
     if final_stats.get("knockdown_chance_bonus"):
-        parts.append(f"<:stunned:1499671616479563826> **+{final_stats['knockdown_chance_bonus']}%** KD")
+        parts.append(f"{E.stunned} **+{final_stats['knockdown_chance_bonus']}%** KD")
     if final_stats.get("loot_bonus"):
         parts.append(f"🔓 **+{final_stats['loot_bonus']}%** Loot")
     if final_stats.get("electricity_store_bonus"):
-        parts.append(f"<:electricity:1499596184958795917> **+{final_stats['electricity_store_bonus']}%** Arc")
+        parts.append(f"{E.electricity} **+{final_stats['electricity_store_bonus']}%** Arc")
     return "  ".join(parts)
 
 
@@ -779,18 +775,12 @@ def build_mods_layout(
             label      = f"{match_tag} {mod_name[:14]}·{short_uuid}"
             # Use mod icon if available; never fall back to polarity emoji for
             # an occupied slot — use a neutral placeholder instead
-            emoji      = (
-                codex_mod["icon"]
-                if codex_mod
-                else _RARITY_EMOJI.get(
-                    next(
-                        (m.get("rarity","common") for m in profile.get("mod_collection",[])
-                         if m.get("uuid") == mod_uuid),
-                        "common"
-                    ),
-                    "📦"
-                )
+            _mod_rarity = next(
+                (m.get("rarity", "common") for m in profile.get("mod_collection", [])
+                 if m.get("uuid") == mod_uuid),
+                "common"
             )
+            emoji = E.mod(mod_name, _mod_rarity)
             style      = (
                 discord.ButtonStyle.success if match_tag == "✅"
                 else discord.ButtonStyle.primary
@@ -831,7 +821,7 @@ def build_mods_layout(
             max_r   = inst.get("max_rank", cm.get("max_rank", 5) if cm else 5)
             eq_here = inst.get("equipped_on_warframe") == instance_id
             eq_tag  = " ★" if eq_here else ""
-            icon    = cm["icon"] if cm else _RARITY_EMOJI.get(rarity, "📦")
+            icon    = E.mod(inst["name"], rarity)
 
             # Label: "Vitality [R] R5/10 ★ | A9X4M2Q"
             # UUID after the pipe is the shared identity with !mods
@@ -912,7 +902,7 @@ def build_mods_layout(
         sel_rank  = sel_inst.get("rank", 0) if sel_inst else 0
         sel_cm    = _get_codex_mod_by_name(sel_name) if sel_inst else None
         ind_label = f"✅ {sel_name} R{sel_rank} · {sel_uuid}"[:80]
-        ind_emoji = sel_cm["icon"] if sel_cm else None
+        ind_emoji = E.mod(sel_name, sel_inst.get("rarity", "common") if sel_inst else "common")
     else:
         ind_label = f"Pg {page + 1}/{total_pages}  ·  {len(available)} Warframe mod(s)"
         ind_emoji = None
@@ -992,7 +982,7 @@ def build_mods_layout(
     hdr = (
         _CB(accent_colour=accent)
         .text(
-            f"<:wf_lotus:1499651243101126816>  **{wf_name}**{active_tag}  ·  "
+            f"{E.lotus}  **{wf_name}**{active_tag}  ·  "
             f"`{instance_id}`  ·  Level **{level}**\n"
             f"{_stats_line(base_stats, final_stats)}\n"
             f"**Slots:** {slot_row_str}"
@@ -1016,13 +1006,11 @@ def build_mods_layout(
             rarity = sel_inst.get("rarity", "common")
             rank   = sel_inst.get("rank", 0)
             max_r  = sel_inst.get("max_rank", cm.get("max_rank", 5) if cm else 5)
-            re_em  = _RARITY_EMOJI.get(rarity, "📦")
-
             # Build hint lines — UUID is shown prominently as the identity bridge
             hint_lines = [
-                f"{cm['icon'] if cm else re_em} **{sel_inst['name']}** "
+                f"{E.mod(sel_inst['name'], rarity)} **{sel_inst['name']}** "
                 f"{_RARITY_TAG.get(rarity, '')}  ·  Rank **{rank} / {max_r}**",
-                f"<:combo:1499663262520971326> **UUID:** `{sel_uuid}`",
+                f"{E.combo} **UUID:** `{sel_uuid}`",
             ]
             if cm:
                 pi_       = _pol_info(cm["polarity"])

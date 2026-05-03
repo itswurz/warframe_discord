@@ -20,6 +20,7 @@ import discord
 from typing import Optional
 
 from data.polarity import emoji as pol_emoji, mod_polarity as get_mod_polarity
+from utils.emojis import E
 
 DEFAULT_COLOR   = 0x1F4E5F
 MOD_COLOR       = 0x2B4A6B
@@ -28,9 +29,9 @@ COSMETIC_COLOR  = 0x4B3468
 
 # ── Rarity display ────────────────────────────────────────────────────────────
 RARITY_EMOJIS: dict[str, str] = {
-    "common":    "<:common:1499767200410636351>",
-    "uncommon":  "<:uncommon:1499767231926636705>",
-    "rare":      "<:rare:1499767261236297899>",
+    "common":    E.common,
+    "uncommon":  E.uncommon,
+    "rare":      E.rare,
     "cosmetic":  "✦",
 }
 
@@ -50,12 +51,12 @@ RARITY_FOOTER_LABELS: dict[str, str] = {
 }
 
 CATEGORY_ICONS: dict[str, str] = {
-    "Warframe":  "<:wf_lotus:1499651243101126816>",
-    "Rifle":     "<:braton:1499699815813218325>",
-    "Pistol":    "<:lato:1499699965109207051>",
-    "Shotgun":   "<:damage:1499651176419950622>",
-    "Melee":     "<:skana:1499700067672526899>",
-    "Stance":    "<:combo:1499663262520971326>",
+    "Warframe":  E.lotus,
+    "Rifle":     E.braton,
+    "Pistol":    E.lato,
+    "Shotgun":   E.location,
+    "Melee":     E.skana,
+    "Stance":    E.combo,
 }
 
 PAGE_SIZE = 8   # items per inventory page
@@ -74,7 +75,7 @@ def _rarity_color(rarity: str) -> int:
 
 
 def _category_icon(category: str) -> str:
-    return CATEGORY_ICONS.get(category, "<:damage:1499651176419950622>")
+    return CATEGORY_ICONS.get(category, E.location)
 
 
 def _mod_icon_from_db(name: str, item_db: dict, fallback_emoji: str) -> str:
@@ -183,12 +184,12 @@ def build_display_items(profile: dict, item_db: dict) -> list[dict]:
         if name == "Endo":
             items.append({
                 "name":     "Endo",
-                "emoji":    "<:endo:1499750353002954792>",
+                "emoji":    E.endo,
                 "category": "endo",
                 "rarity":   "uncommon",
                 "count":    amount,
                 "detail":   (
-                    f"<:endo:1499750353002954792> **Endo** ×{amount:,}\n"
+                    f"{E.endo} **Endo** ×{amount:,}\n"
                     f"  *Mod upgrade material*"
                 ),
             })
@@ -264,9 +265,9 @@ def apply_filter(items: list[dict], filter_key: str) -> list[dict]:
 FILTER_LABELS: dict[str, str] = {
     "all":          "All Items",
     "mods":         "All Mods",
-    "mods_common":  "<:common:1499767200410636351> Common Mods",
-    "mods_uncommon":"<:uncommon:1499767231926636705> Uncommon Mods",
-    "mods_rare":    "<:rare:1499767261236297899> Rare Mods",
+    "mods_common":  f"{E.common} Common Mods",
+    "mods_uncommon":f"{E.uncommon} Uncommon Mods",
+    "mods_rare":    f"{E.rare} Rare Mods",
     "resources":    "Resources",
     "endo":         "Endo",
     "cosmetics":    "Cosmetics",
@@ -299,7 +300,7 @@ def build_inventory_embed(
 
     whose = "Your" if is_self else f"{owner_name}'s"
     embed = discord.Embed(
-        title=f"<:wf_lotus:1499651243101126816>  {whose} Inventory",
+        title=f"{E.lotus}  {whose} Inventory",
         description=(
             f"**{wf}**  ·  MR {mr}  ·  {cr:,} Credits\n"
             f"Filter: **{label}**  ·  Page {page}/{max(1, total_pages)}"
@@ -405,11 +406,11 @@ def build_mod_embed(
 
     stats_lines = (
         f"{cat_ico} **Category:** {category}\n"
-        f"<:damage_reduction:1499651603945226260> **Weapon Class:** {weapon_class}\n"
+        f"{E.defense} **Weapon Class:** {weapon_class}\n"
         f"<a:energy_orb:1499636329842212964> **Polarity:** {_mp_em} {_mp.capitalize()}\n"
-        f"<:damage:1499651176419950622> **Drain:** {drain_str}\n"
-        f"<:combo:1499663262520971326> **Ranks:** {rank_str}\n"
-        f"<:wf_lotus:1499651243101126816> **Compatible:** {compat_str}"
+        f"{E.location} **Drain:** {drain_str}\n"
+        f"{E.combo} **Ranks:** {rank_str}\n"
+        f"{E.lotus} **Compatible:** {compat_str}"
     )
     embed.add_field(name="MOD INFO", value=stats_lines, inline=True)
 

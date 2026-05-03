@@ -16,6 +16,7 @@ from discord.ext import commands
 
 from data.weapons import WEAPONS, SECONDARY_CHOICES
 from data import persistence
+from utils.emojis import E
 from utils.weapon_embeds import (
     build_secondary_entry_embed,
     build_weapon_embed,
@@ -57,7 +58,7 @@ class ChooseSecondaryButton(discord.ui.Button):
 
             await interaction.response.edit_message(
                 content=(
-                    f"<:wf_lotus:1499651243101126816> "
+                    f"{E.lotus} "
                     f"{WEAPONS[self.weapon_key]['emoji']} **{weapon_name}** holstered, Operator.\n"
                     f"One final choice — your **Melee weapon**."
                 ),

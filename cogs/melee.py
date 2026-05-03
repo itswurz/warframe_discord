@@ -20,6 +20,7 @@ from discord.ext import commands
 
 from data.weapons import WEAPONS, MELEE_CHOICES, SLOT_DEFAULTS
 from data import persistence
+from utils.emojis import E
 from utils.weapon_embeds import (
     build_melee_entry_embed,
     build_weapon_embed,
@@ -130,7 +131,7 @@ class ChooseMeleeButton(discord.ui.Button):
 
             await interaction.response.edit_message(
                 content=(
-                    f"<:wf_lotus:1499651243101126816> Loadout locked, Operator. Deploying now.\n"
+                    f"{E.lotus} Loadout locked, Operator. Deploying now.\n"
                     f"{pw.get('emoji', '')} **{primary_name}**  ·  "
                     f"{sw.get('emoji', '')} **{secondary_name}**  ·  "
                     f"{mw.get('emoji', '')} **{melee_name}**"

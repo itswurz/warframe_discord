@@ -1,3 +1,4 @@
+from utils.emojis import E
 # data/enemies.py
 # ─────────────────────────────────────────────────────────────────────────────
 # Enemy codex — Grineer & Corpus starter enemies adapted for turn-based combat.
@@ -23,7 +24,7 @@ ENEMIES: dict[str, dict] = {
         "shields":  0,
         "armor":    100,    # wiki: 100 base armor
         "behavior": "aggressive",
-        "icon":     "<:grineer_lancer:1499660127844827246>",
+        "icon":     E.grineer_lancer,
         "xp_reward": 40,
         "abilities": [
             {
@@ -58,7 +59,7 @@ ENEMIES: dict[str, dict] = {
         "shields":  0,
         "armor":    65,     # wiki: 65 base armor
         "behavior": "aggressive",
-        "icon":     "<:grineer_butcher:1499660056378212573>",
+        "icon":     E.grineer_butcher,
         "xp_reward": 55,
         "abilities": [
             {
@@ -94,7 +95,7 @@ ENEMIES: dict[str, dict] = {
         "shields": 0,
         "armor": 200,
         "behavior": "melee",
-        "icon": "<:grineer_scorpion:1499660394686320641>",
+        "icon": E.grineer_scorpion,
         "xp_reward": 60,
         "abilities": [
             {

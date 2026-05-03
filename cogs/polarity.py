@@ -50,6 +50,7 @@ from utils.polarity_embeds import (
     _BASE_CAPACITY,
 )
 from data.warframes import WARFRAMES
+from utils.emojis import E
 
 
 # ── Max drain values from item_descriptions (for drain preview) ───────────────
@@ -138,7 +139,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
             if wf_key is None:
                 names = ", ".join(f"**{v['name']}**" for v in WARFRAMES.values())
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> Warframe `{warframe_name}` not found. "
+                    f"{E.lotus} Warframe `{warframe_name}` not found. "
                     f"Available: {names}.",
                     delete_after=10,
                 )
@@ -147,7 +148,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
             wf_name = profile.get("warframe")
             if not wf_name:
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> You haven't chosen a Warframe yet. "
+                    f"{E.lotus} You haven't chosen a Warframe yet. "
                     "Use `!warframe` first, Tenno.",
                     delete_after=8,
                 )
@@ -157,7 +158,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
             )
             if wf_key is None:
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> Warframe `{wf_name}` not found in codex. "
+                    f"{E.lotus} Warframe `{wf_name}` not found in codex. "
                     "Use `!warframe` to re-select.",
                     delete_after=8,
                 )
@@ -245,7 +246,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
         if matched_name is None:
             names = ", ".join(f"**{k}**" for k in wpn_db)
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> Weapon `{weapon_name}` not found. "
+                f"{E.lotus} Weapon `{weapon_name}` not found. "
                 f"Available: {names}.",
                 delete_after=10,
             )
@@ -253,7 +254,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
 
         slots = weapon_slot_polarities(matched_name)
         embed = discord.Embed(
-            title=f"<:wf_lotus:1499651243101126816>  {matched_name} — Mod Slots",
+            title=f"{E.lotus}  {matched_name} — Mod Slots",
             description=(
                 f"{slot_row(slots)}\n\n"
                 f"**{len(slots)} mod slots** available for this weapon."
@@ -297,12 +298,12 @@ class PolarityCog(commands.Cog, name="Polarity"):
         try:
             polarity_reload()
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> `polarities.json` reloaded successfully.",
+                f"{E.lotus} `polarities.json` reloaded successfully.",
                 delete_after=8,
             )
         except Exception as exc:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Reload failed: `{exc}`",
+                f"{E.lotus} ❌ Reload failed: `{exc}`",
                 delete_after=10,
             )
 
@@ -325,7 +326,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
     async def polarity_mod_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide a mod name. "
+                f"{E.lotus} Please provide a mod name. "
                 "Example: `!polarity mod Serration`",
                 delete_after=8,
             )
@@ -341,7 +342,7 @@ class PolarityCog(commands.Cog, name="Polarity"):
     async def polarity_weapon_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide a weapon name. "
+                f"{E.lotus} Please provide a weapon name. "
                 "Example: `!polarity weapon MK1-Braton`",
                 delete_after=8,
             )

@@ -26,19 +26,19 @@
   ],
   "warframe_level": 0,
   "mastery_rank": 0,
-  "credits": 3490,
+  "credits": 3640,
   "platinum": 0,
   "experience": 0,
-  "total_kills": 69,
-  "total_missions": 24,
-  "missions_won": 23,
+  "total_kills": 72,
+  "total_missions": 25,
+  "missions_won": 24,
   "missions_lost": 1,
   "highest_combo": 6,
-  "damage_dealt": 28695,
+  "damage_dealt": 29975,
   "inventory": {
-    "Ferrite": 4854,
+    "Ferrite": 5089,
     "Sand Yellow Pigment": 11,
-    "Rubedo": 265,
+    "Rubedo": 281,
     "Detonite Ampule": 11,
     "Neurodes": 3
   },
@@ -112,48 +112,20 @@
     "magnetize_turns": 0,
     "polarize_shards_absorbed": false,
     "mission_kills": 3,
-    "mission_damage_dealt": 1600,
+    "mission_damage_dealt": 1280,
     "mission_credits_earned": 150
   },
   "last_mission_loot": [
     {
       "name": "Ferrite",
-      "amount": 58,
+      "amount": 89,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"
     },
     {
-      "name": "Rubedo",
-      "amount": 23,
-      "emoji": "<:rubedo:1499750208022773931>",
-      "rarity": "uncommon",
-      "type": "resource"
-    },
-    {
-      "name": "Detonite Ampule",
-      "amount": 1,
-      "emoji": "<:d_ampule:1499750066913673256>",
-      "rarity": "uncommon",
-      "type": "resource"
-    },
-    {
       "name": "Ferrite",
-      "amount": 59,
-      "emoji": "<:ferrite:1499750270199009320>",
-      "rarity": "common",
-      "type": "resource"
-    },
-    {
-      "name": "Detonite Ampule",
-      "amount": 1,
-      "emoji": "<:d_ampule:1499750066913673256>",
-      "rarity": "uncommon",
-      "type": "resource"
-    },
-    {
-      "name": "Ferrite",
-      "amount": 69,
+      "amount": 96,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"
@@ -163,6 +135,13 @@
       "amount": 16,
       "emoji": "<:rubedo:1499750208022773931>",
       "rarity": "uncommon",
+      "type": "resource"
+    },
+    {
+      "name": "Ferrite",
+      "amount": 50,
+      "emoji": "<:ferrite:1499750270199009320>",
+      "rarity": "common",
       "type": "resource"
     }
   ]

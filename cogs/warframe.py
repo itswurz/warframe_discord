@@ -51,6 +51,7 @@ from data.polarity import warframe_slot_polarities
 from utils.embeds import build_entry_embed, build_warframe_embed
 from utils.polarity_embeds import slot_row
 from utils.mods_ui import build_mods_layout, get_wf_instance
+from utils.emojis import E
 
 
 # ── Colour palette ─────────────────────────────────────────────────────────────
@@ -187,8 +188,8 @@ def _modded_stat_lines(wf_instance: dict, profile: dict) -> tuple[str, str, str,
         return f"{icon} **{final}**"
 
     hp_line     = _fmt("<a:health:1499636458309423215>",              base_hp, final_hp)
-    shld_line   = _fmt("<:wf_shield:1499636531755745280>",            base_sh, final_sh)
-    armor_line  = _fmt("<:damage_reduction:1499651603945226260>",     base_ar, final_ar)
+    shld_line   = _fmt(E.shield,            base_sh, final_sh)
+    armor_line  = _fmt(E.defense,     base_ar, final_ar)
     energy_line = _fmt("<a:energy_orb:1499636329842212964>",          base_en, final_en)
 
     return hp_line, shld_line, armor_line, energy_line, extra_lines
@@ -207,10 +208,10 @@ def build_orbiter_embed(profile: dict) -> discord.Embed:
     kills     = profile.get("total_kills", 0)
 
     embed = discord.Embed(
-        title="<:wf_lotus:1499651243101126816>  ORBITER",
+        title=f"{E.lotus}  ORBITER",
         description=(
-            f"<:wf_lotus:1499651243101126816> **Mastery Rank {mr}**  ·  "
-            f"<:credits:1499637105142399087> `{credits_:,}` Credits  ·  "
+            f"{E.lotus} **Mastery Rank {mr}**  ·  "
+            f"{E.credits} `{credits_:,}` Credits  ·  "
             f"`{missions}` Missions  ·  "
             f"`{kills}` Kills"
         ),
@@ -247,15 +248,15 @@ def build_orbiter_embed(profile: dict) -> discord.Embed:
 
             value = (
                 f"{emoji} **{wf_name}**{active_tag}\n"
-                f"<:combo:1499663262520971326> `ID: {wf_id}`  ·  Acquired {date_str}\n"
+                f"{E.combo} `ID: {wf_id}`  ·  Acquired {date_str}\n"
                 f"\n"
                 f"**Level** {level}/{_MAX_LEVEL}  `{lvl_bar}`\n"
                 f"**XP**  {xp}/{_XP_PER_LVL if level < _MAX_LEVEL else '—'}  `{xp_bar}`\n"
                 f"\n"
                 f"{hp_line}   {shld_line}   {armor_line}   {energy_line}{bonus_tag}\n"
-                f"<:damage:1499651176419950622> **Mods:** {mod_tag}\n"
+                f"{E.location} **Mods:** {mod_tag}\n"
                 f"\n"
-                f"**Sell Value:** <:credits:1499637105142399087> `{sell_val:,}` Credits  ·  `!warframe sell {wf_id}` to dispose\n"
+                f"**Sell Value:** {E.credits} `{sell_val:,}` Credits  ·  `!warframe sell {wf_id}` to dispose\n"
                 f"**Mods:** `!warframe mods {wf_id}` to configure\n"
                 f"*{wf_data.get('lore', '—')[:80]}"
                 f"{'…' if len(wf_data.get('lore', '')) > 80 else ''}*"
@@ -342,8 +343,8 @@ def _build_warframe_view_embed(
         stat_label = "STATS" + (" *(with mods)*" if mod_count else "")
     else:
         hp_line     = _stat_line(wf_data, "Health",  "<a:health:1499636458309423215>")
-        shld_line   = _stat_line(wf_data, "Shields", "<:wf_shield:1499636531755745280>")
-        armor_line  = _stat_line(wf_data, "Armor",   "<:damage_reduction:1499651603945226260>")
+        shld_line   = _stat_line(wf_data, "Shields", E.shield)
+        armor_line  = _stat_line(wf_data, "Armor",   E.defense)
         energy_line = _stat_line(wf_data, "Energy",  "<a:energy_orb:1499636329842212964>")
         extra_bonuses = []
         stat_label = "BASE STATS"
@@ -376,7 +377,7 @@ def _build_warframe_view_embed(
             f"**Owner:** {owner_name}{own_tag}\n"
             f"**Acquired:** {date_str}\n"
             f"**Status:** {active_tag}\n"
-            f"**Sell Value:** <:credits:1499637105142399087> `{sell_val:,}` Credits"
+            f"**Sell Value:** {E.credits} `{sell_val:,}` Credits"
         ),
         inline=False,
     )
@@ -414,7 +415,7 @@ def _build_sell_confirm_embed(
 
     if is_last:
         embed = discord.Embed(
-            title="<:wf_lotus:1499651243101126816>  Cannot Sell Last Warframe",
+            title=f"{E.lotus}  Cannot Sell Last Warframe",
             description=(
                 f"{emoji} **{wf_name}** `[{inst_id}]` is your **only Warframe**.\n\n"
                 "The Lotus forbids abandoning your last suit, Operator — "
@@ -432,11 +433,11 @@ def _build_sell_confirm_embed(
     )
 
     embed = discord.Embed(
-        title="<:wf_lotus:1499651243101126816>  Confirm Warframe Sale",
+        title=f"{E.lotus}  Confirm Warframe Sale",
         description=(
             f"You are about to sell {emoji} **{wf_name}** `[{inst_id}]`.\n\n"
             f"**Level:** {level} / {_MAX_LEVEL}\n"
-            f"**Sale value:** <:credits:1499637105142399087> `{sell_val:,}` Credits"
+            f"**Sale value:** {E.credits} `{sell_val:,}` Credits"
             f"{mod_note}\n\n"
             "⚠️ This action is **permanent and cannot be undone**."
         ),
@@ -470,7 +471,7 @@ class SellConfirmView(discord.ui.View):
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
         if interaction.user.id != self.owner_id:
             await interaction.response.send_message(
-                "<:wf_lotus:1499651243101126816> This transaction belongs to another Operator.",
+                f"{E.lotus} This transaction belongs to another Operator.",
                 ephemeral=True,
             )
             return False
@@ -486,7 +487,7 @@ class SellConfirmView(discord.ui.View):
 
         if not any(w["instance_id"] == inst_id for w in roster):
             await interaction.response.edit_message(
-                content="<:wf_lotus:1499651243101126816> ❌ That Warframe is no longer in your roster.",
+                content=f"{E.lotus} ❌ That Warframe is no longer in your roster.",
                 embed=None, view=None,
             )
             self.stop()
@@ -494,7 +495,7 @@ class SellConfirmView(discord.ui.View):
 
         if len(roster) <= 1:
             await interaction.response.edit_message(
-                content="<:wf_lotus:1499651243101126816> ❌ You cannot sell your last Warframe.",
+                content=f"{E.lotus} ❌ You cannot sell your last Warframe.",
                 embed=None, view=None,
             )
             self.stop()
@@ -516,7 +517,7 @@ class SellConfirmView(discord.ui.View):
         removed = remove_warframe_from_roster(profile, inst_id)
         if removed is None:
             await interaction.response.edit_message(
-                content="<:wf_lotus:1499651243101126816> ❌ Warframe not found.",
+                content=f"{E.lotus} ❌ Warframe not found.",
                 embed=None, view=None,
             )
             self.stop()
@@ -530,9 +531,9 @@ class SellConfirmView(discord.ui.View):
 
         await interaction.response.edit_message(
             content=(
-                f"<:wf_lotus:1499651243101126816> {wf_emoji} **{wf_name}** "
-                f"`[{inst_id}]` sold for **{self.sell_price:,}** <:credits:1499637105142399087> Credits. "
-                f"Balance: <:credits:1499637105142399087> `{profile['credits']:,}` Credits."
+                f"{E.lotus} {wf_emoji} **{wf_name}** "
+                f"`[{inst_id}]` sold for **{self.sell_price:,}** {E.credits} Credits. "
+                f"Balance: {E.credits} `{profile['credits']:,}` Credits."
             ),
             embed=embed, view=view,
         )
@@ -542,7 +543,7 @@ class SellConfirmView(discord.ui.View):
     async def cancel_btn(self, interaction: discord.Interaction, button: discord.ui.Button) -> None:
         await interaction.response.edit_message(
             content=(
-                f"<:wf_lotus:1499651243101126816> Sale cancelled. "
+                f"{E.lotus} Sale cancelled. "
                 f"**{self.instance['warframe_name']}** remains in your roster."
             ),
             embed=None, view=None,
@@ -598,7 +599,7 @@ class TutorialChooseButton(discord.ui.Button):
 
             await interaction.response.edit_message(
                 content=(
-                    f"<:wf_lotus:1499651243101126816> "
+                    f"{E.lotus} "
                     f"**{wf_name}** confirmed, Operator. Now choose your Primary weapon."
                 ),
                 embed=embed, view=view,
@@ -693,7 +694,7 @@ class AddWarframeButton(discord.ui.Button):
 
         if len(profile.get("warframe_roster", [])) >= MAX_WARFRAME_SLOTS:
             await interaction.response.send_message(
-                f"<:wf_lotus:1499651243101126816> Your Warframe roster is full "
+                f"{E.lotus} Your Warframe roster is full "
                 f"({MAX_WARFRAME_SLOTS}/{MAX_WARFRAME_SLOTS} slots).",
                 ephemeral=True,
             )
@@ -702,7 +703,7 @@ class AddWarframeButton(discord.ui.Button):
         embed = build_entry_embed()
         view  = AcquireWarframeView()
         await interaction.response.edit_message(
-            content="<:wf_lotus:1499651243101126816> Choose a Warframe to add to your roster.",
+            content=f"{E.lotus} Choose a Warframe to add to your roster.",
             embed=embed, view=view,
         )
 
@@ -763,14 +764,14 @@ class AcquireConfirmButton(discord.ui.Button):
             existing_keys = {w["warframe_key"] for w in profile.get("warframe_roster", [])}
             if self.warframe_key in existing_keys:
                 await interaction.response.send_message(
-                    f"<:wf_lotus:1499651243101126816> **{wf_name}** is already in your roster.",
+                    f"{E.lotus} **{wf_name}** is already in your roster.",
                     ephemeral=True,
                 )
                 return
 
             if len(profile.get("warframe_roster", [])) >= MAX_WARFRAME_SLOTS:
                 await interaction.response.send_message(
-                    "<:wf_lotus:1499651243101126816> Roster is full — no empty slots.",
+                    f"{E.lotus} Roster is full — no empty slots.",
                     ephemeral=True,
                 )
                 return
@@ -786,7 +787,7 @@ class AcquireConfirmButton(discord.ui.Button):
 
             await interaction.response.edit_message(
                 content=(
-                    f"<:wf_lotus:1499651243101126816> **{wf_name}** "
+                    f"{E.lotus} **{wf_name}** "
                     f"`[{instance['instance_id']}]` added to your roster!"
                 ),
                 embed=embed, view=view,
@@ -894,7 +895,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
             view  = TutorialWarframeView()
             await ctx.send(
                 content=(
-                    "<:wf_lotus:1499651243101126816> "
+                    f"{E.lotus} "
                     "*\"Welcome, Operator. Your Warframe awaits.\"*"
                 ),
                 embed=embed, view=view,
@@ -904,7 +905,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
             view  = OrbiterView(profile)
             await ctx.send(
                 content=(
-                    "<:wf_lotus:1499651243101126816> "
+                    f"{E.lotus} "
                     f"*\"Welcome back, {ctx.author.display_name}. "
                     f"Your Orbiter is standing by.\"*"
                 ),
@@ -924,7 +925,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
         target = next((w for w in roster if w["instance_id"] == inst_id), None)
         if target is None:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Warframe `{inst_id}` was not found "
+                f"{E.lotus} ❌ Warframe `{inst_id}` was not found "
                 f"in **your** roster. Use `!warframe` to see your current roster.",
                 delete_after=12,
             )
@@ -934,7 +935,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
             wf_data  = WARFRAMES.get(target["warframe_key"], {})
             wf_emoji = wf_data.get("emoji", "")
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> {wf_emoji} **{target['warframe_name']}** "
+                f"{E.lotus} {wf_emoji} **{target['warframe_name']}** "
                 f"`[{inst_id}]` is already your active Warframe.",
                 delete_after=8,
             )
@@ -951,7 +952,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
 
         await ctx.send(
             content=(
-                f"<:wf_lotus:1499651243101126816> {wf_emoji} **{target['warframe_name']}** "
+                f"{E.lotus} {wf_emoji} **{target['warframe_name']}** "
                 f"`[{inst_id}]` is now your active Warframe."
             ),
             embed=embed, view=view,
@@ -979,7 +980,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
 
             if instance is None:
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> ❌ No Warframe with ID `{inst_id}` found.",
+                    f"{E.lotus} ❌ No Warframe with ID `{inst_id}` found.",
                     delete_after=12,
                 )
                 return
@@ -998,7 +999,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
 
         if wf_data is None:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Warframe codex entry for `{wf_key}` not found.",
+                f"{E.lotus} ❌ Warframe codex entry for `{wf_key}` not found.",
                 delete_after=10,
             )
             return
@@ -1032,7 +1033,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
         target = next((w for w in roster if w["instance_id"] == inst_id), None)
         if target is None:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Warframe `{inst_id}` is not in **your** roster.",
+                f"{E.lotus} ❌ Warframe `{inst_id}` is not in **your** roster.",
                 delete_after=12,
             )
             return
@@ -1056,7 +1057,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
         )
 
         await ctx.send(
-            content="<:wf_lotus:1499651243101126816> Sale pending confirmation — 30 seconds to decide.",
+            content=f"{E.lotus} Sale pending confirmation — 30 seconds to decide.",
             embed=embed, view=view,
         )
 
@@ -1090,7 +1091,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
             wf_inst  = get_wf_instance(profile, inst_id)
             if wf_inst is None:
                 await ctx.send(
-                    f"<:wf_lotus:1499651243101126816> ❌ Warframe `{inst_id}` not found in **your** roster.\n"
+                    f"{E.lotus} ❌ Warframe `{inst_id}` not found in **your** roster.\n"
                     f"You can only configure Warframes you own. "
                     f"Use `!warframe` to see your roster and find your IDs.",
                     delete_after=14,
@@ -1104,7 +1105,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
                 wf_inst = roster[0] if roster else None
             if wf_inst is None:
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> No Warframe found in your roster. "
+                    f"{E.lotus} No Warframe found in your roster. "
                     "Use `!warframe` first.",
                     delete_after=10,
                 )
@@ -1115,7 +1116,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
         wf_key = wf_inst.get("warframe_key", "")
         if _get_wf_codex(wf_key) is None:
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> ❌ Mod codex entry for `{wf_key}` not found. "
+                f"{E.lotus} ❌ Mod codex entry for `{wf_key}` not found. "
                 "The warframes_mods.json may need updating.",
                 delete_after=10,
             )
@@ -1143,7 +1144,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
     async def equip_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide a Warframe ID.\n"
+                f"{E.lotus} Please provide a Warframe ID.\n"
                 "Usage: `!warframe equip <ID>`  e.g. `!warframe equip B7KQ58L`",
                 delete_after=12,
             )
@@ -1156,7 +1157,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
     async def view_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide a Warframe ID.\n"
+                f"{E.lotus} Please provide a Warframe ID.\n"
                 "Usage: `!warframe view <ID>`  e.g. `!warframe view B7KQ58L`",
                 delete_after=12,
             )
@@ -1169,7 +1170,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
     async def sell_error(self, ctx: commands.Context, error) -> None:
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(
-                "<:wf_lotus:1499651243101126816> Please provide a Warframe ID.\n"
+                f"{E.lotus} Please provide a Warframe ID.\n"
                 "Usage: `!warframe sell <ID>`  e.g. `!warframe sell B7KQ58L`",
                 delete_after=12,
             )

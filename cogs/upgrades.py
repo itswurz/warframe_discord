@@ -35,6 +35,7 @@ from typing import Any
 
 import discord
 from discord.ext import commands
+from utils.emojis import E
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
@@ -220,14 +221,14 @@ def _stats_text(warframe_id: str, equipped: list[str | None]) -> str:
 
     lines = [
         f"<a:health:1499636458309423215> **HP** {s['health']}",
-        f"<:wf_shield:1499636531755745280> **Shields** {s['shields']}",
-        f"<:damage_reduction:1499651603945226260> **Armor** {s['armor']}",
+        f"{E.shield} **Shields** {s['shields']}",
+        f"{E.defense} **Armor** {s['armor']}",
         f"<a:energy_orb:1499636329842212964> **Energy** {s['energy']}",
     ]
     if s.get("ability_efficiency_bonus"):
-        lines.append(f"<:streamlinemod:1499760906576461825> **Eff. Bonus** -{s['ability_efficiency_bonus']}% cost")
+        lines.append(f"{E.mod('Streamline')} **Eff. Bonus** -{s['ability_efficiency_bonus']}% cost")
     if s.get("puncture_resist_bonus"):
-        lines.append(f"<:puncture:1499594734421803060> **Puncture Resist** +{s['puncture_resist_bonus']}%")
+        lines.append(f"{E.puncture} **Puncture Resist** +{s['puncture_resist_bonus']}%")
     return "  ".join(lines)
 
 
@@ -257,7 +258,7 @@ def _build_slot_button(
     else:
         if slot_pol == "any":
             label = "Empty Slot"
-            emoji = "<:any:1499939092811743242>"
+            emoji = E.any
         else:
             label = pol_info["display"]
             emoji = pol_info["emoji"]
@@ -475,7 +476,7 @@ def _build_layout(user_id: int, warframe_id: str) -> discord.ui.LayoutView:
 
     # ── Build header container ────────────────────────────────────────────────
     wf_name    = wf["name"]
-    lotus_line = f"<:wf_lotus:1499651243101126816>  **{wf_name}** — Mod Configuration"
+    lotus_line = f"{E.lotus}  **{wf_name}** — Mod Configuration"
 
     header_builder = (
         ContainerBuilder(accent_colour=accent)
@@ -560,7 +561,7 @@ class UpgradesCog(commands.Cog, name="Upgrades"):
             wf_name = profile.get("warframe")
             if not wf_name:
                 await ctx.send(
-                    "<:wf_lotus:1499651243101126816> No Warframe selected. "
+                    f"{E.lotus} No Warframe selected. "
                     "Use `!warframe` first, or specify an ID: `!warframe upgrades excalibur`",
                     delete_after=10,
                 )
@@ -576,7 +577,7 @@ class UpgradesCog(commands.Cog, name="Upgrades"):
         if wf is None:
             available = ", ".join(f"`{k}`" for k in _db()["warframes"])
             await ctx.send(
-                f"<:wf_lotus:1499651243101126816> Warframe `{warframe_id}` not found.\n"
+                f"{E.lotus} Warframe `{warframe_id}` not found.\n"
                 f"Available: {available}",
                 delete_after=10,
             )

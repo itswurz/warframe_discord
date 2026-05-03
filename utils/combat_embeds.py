@@ -15,6 +15,7 @@ import discord
 from combat.session import CombatSession, CombatState, MAX_ACTIONS
 from combat.status import StatusType
 from data.warframes import WARFRAMES
+from utils.emojis import E
 
 DEFAULT_COLOR  = 0x1F4E5F
 VICTORY_COLOR  = 0x1A7A3C
@@ -40,7 +41,7 @@ def _aggregate_loot(mission_loot: list[dict]) -> list[str]:
     """
     resource_totals: dict[str, dict] = {}   # name → {amount, emoji}
     endo_total = 0
-    endo_emoji = "<:endo:1499750353002954792>"
+    endo_emoji = E.endo
     mod_lines:  list[str] = []
     cosm_lines: list[str] = []
 
@@ -108,32 +109,32 @@ def build_combat_embed(
 
     operator_lines = [
         f"<a:health:1499636458309423215> HP:       `{player.hp_bar(12)}`",
-        f"<:wf_shield:1499636531755745280> Shields:  `{player.shield_bar(10)}`",
+        f"{E.shield} Shields:  `{player.shield_bar(10)}`",
         f"{energy_icon} Energy:   `{player.energy_bar(10)}`",
-        f"<:combo:1499663262520971326> Combo:    **{player.combo_gauge}** stack(s)  (+{player.combo_gauge * 5}% melee dmg)",
+        f"{E.combo} Combo:    **{player.combo_gauge}** stack(s)  (+{player.combo_gauge * 5}% melee dmg)",
     ]
 
     if player.warframe_key == "volt" and player.static_charges > 0:
         operator_lines.append(
-            f"<:electricity:1499596184958795917> Static:   **{player.static_charges}/5** charges "
+            f"{E.electricity} Static:   **{player.static_charges}/5** charges "
             f"(+{player.static_charges * 18} bonus on next attack)"
         )
 
     if player.warframe_key == "excalibur" and player.exalted_active:
         operator_lines.append(
-            "<:exalted_blade:1499575259526074468> **Exalted Blade** — ACTIVE  "
+            f"{E.exalted_blade} **Exalted Blade** — ACTIVE  "
             "(1.25 <a:energy_orb:1499636329842212964>/turn)"
         )
 
     if player.warframe_key == "mag" and player.magnetize_absorb:
         operator_lines.append(
-            f"<:magnetize:1499595149091668103> **Magnetize Absorb** — "
+            f"{E.magnetize} **Magnetize Absorb** — "
             f"{player.magnetize_stored} dmg stored"
         )
 
     status_str = player.status_icons()
     if status_str != "—":
-        operator_lines.append(f"<:wf_lotus:1499651243101126816> Status:   {status_str}")
+        operator_lines.append(f"{E.lotus} Status:   {status_str}")
 
     embed.add_field(name="OPERATOR", value="\n".join(operator_lines), inline=False)
 
@@ -142,14 +143,14 @@ def build_combat_embed(
     for enemy in session.enemies:
         if enemy.is_alive:
             hp_line = f"  <a:health:1499636458309423215> `{enemy.hp_bar(10)}`"
-            sh_line = f"\n  <:wf_shield:1499636531755745280> `{enemy.shield_bar(8)}`" if enemy.max_shields else ""
-            st_line = f"\n  <:wf_lotus:1499651243101126816> {enemy.status_icons()}"  if enemy.statuses   else ""
+            sh_line = f"\n  {E.shield} `{enemy.shield_bar(8)}`" if enemy.max_shields else ""
+            st_line = f"\n  {E.lotus} {enemy.status_icons()}"  if enemy.statuses   else ""
             block   = (
                 f"{enemy.icon} **{enemy.name}** `[{enemy.faction}]`\n"
                 f"{hp_line}{sh_line}{st_line}"
             )
         else:
-            block = f"~~{enemy.icon} {enemy.name}~~  <:down:1499663521414119535>"
+            block = f"~~{enemy.icon} {enemy.name}~~  {E.down}"
         enemy_blocks.append(block)
 
     embed.add_field(
@@ -163,17 +164,17 @@ def build_combat_embed(
 
     if session.electric_shield_active:
         elec_str = (
-            f"<:electric_shield:1499596339674349658> **Electric Shield** — "
+            f"{E.electric_shield} **Electric Shield** — "
             f"{session.electric_shield_turns}t remaining  "
             f"(×{session.electric_shield_stacks} stack)"
         )
         if session.electric_shield_electrified:
-            elec_str += "  <:electricity:1499596184958795917> **Electrified**"
+            elec_str += f"  {E.electricity} **Electrified**"
         effects.append(elec_str)
 
     if session.magnetize_target and session.magnetize_target.is_alive:
         effects.append(
-            f"<:magnetize:1499595149091668103> **Magnetize** on "
+            f"{E.magnetize} **Magnetize** on "
             f"**{session.magnetize_target.name}** — "
             f"{session.magnetize_turns}t until explosion"
         )
@@ -181,7 +182,7 @@ def build_combat_embed(
     if player.has_status(StatusType.POLARIZE_SHARD):
         shard = player.get_status(StatusType.POLARIZE_SHARD)
         effects.append(
-            f"<:polarize:1499595238786994246> **Polarize Shards** orbiting "
+            f"{E.polarize} **Polarize Shards** orbiting "
             f"({shard.duration}t) — "
             f"{int(shard.magnitude)} dmg/turn to all enemies"
         )
@@ -228,7 +229,7 @@ def build_combat_embed(
     if session.state == CombatState.VICTORY:
         embed.set_footer(text="✅  Mission Complete  ·  Ordis is proud, Operator.")
     elif session.state == CombatState.DEFEAT:
-        embed.set_footer(text="<:down:1499663521414119535>  Mission Failed  ·  The Lotus will not forget your sacrifice.")
+        embed.set_footer(text=f"{E.down}  Mission Failed  ·  The Lotus will not forget your sacrifice.")
     else:
         total = MAX_ACTIONS + session.bonus_actions
         embed.set_footer(
@@ -255,11 +256,11 @@ def build_loot_embed(session: CombatSession) -> discord.Embed:
     color = VICTORY_COLOR if is_victory else DEFEAT_COLOR
 
     if is_victory:
-        title = "<:wf_lotus:1499651243101126816>  Mission Complete — Reward Report"
+        title = f"{E.lotus}  Mission Complete — Reward Report"
         desc  = "All hostiles neutralised. The Lotus has logged your acquisitions, Operator."
     else:
         desc  = "You were defeated — but salvage teams recovered what they could."
-        title = "<:wf_lotus:1499651243101126816> Mission Failed — Salvaged Loot"
+        title = f"{E.lotus} Mission Failed — Salvaged Loot"
 
     embed = discord.Embed(title=title, description=desc, color=color)
 

@@ -1,0 +1,112 @@
+{
+  "_note": "Central emoji asset registry. All bot files must source emojis from utils/emojis.py — never hardcode IDs in Python.",
+
+  "ui": {
+    "lotus":          "<:wf_lotus:1499651243101126816>",
+    "shield":         "<:wf_shield:1499636531755745280>",
+    "credits":        "<:credits:1499637105142399087>",
+    "endo":           "<:endo:1499750353002954792>",
+    "combo":          "<:combo:1499663262520971326>",
+    "location":       "<:damage:1499651176419950622>",
+    "defense":        "<:damage_reduction:1499651603945226260>",
+    "stat_positive":  "<:stat_positive:1499636780356337715>",
+    "stat_negative":  "<:stat_negative:1499636840494399638>",
+    "down":           "<:down:1499663521414119535>",
+    "stunned":        "<:stunned:1499671616479563826>",
+    "crowd_control":  "<:crowd_control:1499605208865439744>"
+  },
+
+  "damage": {
+    "slash":          "<:slash_effect:1499584690859020459>",
+    "puncture":       "<:puncture:1499594734421803060>",
+    "impact":         "<:impact:1499636596633374780>",
+    "electricity":    "<:electricity:1499596184958795917>",
+    "magnetic":       "<:magnetic:1499594471770427472>",
+    "blast":          "<:blast:1499594820102914210>",
+    "damage":         "<:damage:1499588167655882815>"
+  },
+
+  "abilities": {
+    "slash_dash":       "<:slash_dash:1499574774429515917>",
+    "radial_blind":     "<:radial_blind:1499574926364119050>",
+    "exalted_blade":    "<:exalted_blade:1499575259526074468>",
+    "radial_javelin":   "<:radial_javelin:1499575401343877391>",
+    "magnetize":        "<:magnetize:1499595149091668103>",
+    "pull":             "<:pull:1499595083547410643>",
+    "crush":            "<:crush:1499595185888428234>",
+    "polarize":         "<:polarize:1499595238786994246>",
+    "shock":            "<:shock:1499596261375086732>",
+    "discharge":        "<:discharge:1499596381508075550>",
+    "electric_shield":  "<:electric_shield:1499596339674349658>",
+    "speed":            "<:speed:1499596301984071832>"
+  },
+
+  "rarity": {
+    "common":           "<:common:1499767200410636351>",
+    "uncommon":         "<:uncommon:1499767231926636705>",
+    "rare":             "<:rare:1499767261236297899>"
+  },
+
+  "polarity": {
+    "any":              "<:any:1499939092811743242>"
+  },
+
+  "warframes": {
+    "excalibur":        "<:excalibur_icon:1499569316138586244>",
+    "volt":             "<:volt_icon:1499569244386627694>",
+    "mag":              "<:mag_icon:1499569028916842536>"
+  },
+
+  "weapons": {
+    "braton":           "<:braton:1499699815813218325>",
+    "paris":            "<:paris:1499699912445661214>",
+    "lato":             "<:lato:1499699965109207051>",
+    "skana":            "<:skana:1499700067672526899>",
+    "kunai":            "<:kunai:1499920860344094830>",
+    "bo_staff":         "<:bo_staff:1499920804866031797>"
+  },
+
+  "enemies": {
+    "grineer_lancer":   "<:grineer_lancer:1499660127844827246>",
+    "grineer_butcher":  "<:grineer_butcher:1499660056378212573>",
+    "grineer_scorpion": "<:grineer_scorpion:1499660394686320641>"
+  },
+
+  "items": {
+    "ferrite":          "<:ferrite:1499750270199009320>",
+    "rubedo":           "<:rubedo:1499750208022773931>",
+    "neurodes":         "<:neurodes:1499750148991881366>",
+    "detonite_ampule":  "<:d_ampule:1499750066913673256>",
+    "pigment":          "<:pigment:1499751296075436062>"
+  },
+
+  "mods": {
+    "Ammo Drum":           "<:ammodrummod:1499756401784782949>",
+    "Fast Hands":          "<:fasthandsmod:1499756472383307866>",
+    "Vitality":            "<:vitalitymod:1499756591715582014>",
+    "Pressure Point":      "<:pressurepointmod:1499756641262764184>",
+    "Diamond Skin":        "<:diamondskinmod:1499756538074497197>",
+    "Heated Charge":       "<:heatedchargemod:1499760847281590343>",
+    "Rending Strike":      "<:rendingstrikemod:1499760884547981444>",
+    "Rifle Ammo Mutation": "<:rifleammomutationmod:1499760889476415539>",
+    "Streamline":          "<:streamlinemod:1499760906576461825>",
+    "Heavy Trauma":        "<:heavytraumamod:1499760852721471550>",
+    "Iron Phoenix":        "<:ironphoenixmod:1499760856530026520>",
+    "Blunderbuss":         "<:blunderbussmod:1499760830580002816>",
+    "Perpetual Agony":     "<:perpetualagonymod:1499760871574863993>",
+    "Rifle Aptitude":      "<:rifleaptitudemod:1499760893427192009>",
+    "Reflex Coil":         "<:reflexcoilmod:1499760879351234610>",
+    "North Wind":          "<:northwindmod:1499760868156510208>",
+    "Fever Strike":        "<:feverstrikemod:1499760837768908962>",
+    "Flow":                "<:flowmod:1499760842005020864>",
+    "Tranquil Cleave":     "<:tranquilcleavemod:1499760910825295982>",
+    "Focus Energy":        "<:focusenergymod:1499760844655956008>",
+    "Lightning Rod":       "<:lightningrodmod:1499760860288127208>",
+    "Serration":           "<:serrationmod:1499760898510684280>",
+    "Heavy Impact":        "<:heavyimpactmod:1499760849814945793>",
+    "Steel Fiber":         "<:steelfibermod:1499760902550065273>",
+    "Redirection":         "<:redirectionmod:1499760875291279421>",
+    "Master Thief":        "<:masterthiefmod:1499760864725827584>",
+    "Defiled Snapdragon":  "<:defiledsnapdragonmod:1499760835227029586>"
+  }
+}
