@@ -281,11 +281,51 @@ def _build_recipe_embed(item_key: str, profile: dict | None = None) -> discord.E
     return embed
 
 
+_CATEGORY_LABELS = {
+    "warframe":          "🏅 Warframes",
+    "warframe_part":     "🔧 Warframe Components",
+    "primary":           "🔫 Primary Weapons",
+    "secondary":         "🔫 Secondary Weapons",
+    "melee":             "⚔️  Melee Weapons",
+    "sentinel":          "🤖 Sentinels",
+    "craftable_resource":"⚗️  Craftable Resources",
+    "other":             "📦 Other",
+}
+
+_FIELD_LIMIT = 1000   # Discord hard limit is 1024 — keep a small safety margin
+_MAX_FIELDS  = 24     # Discord hard limit is 25 fields
+
+
+def _add_chunked_fields(embed: discord.Embed, label: str, lines: list[str]) -> None:
+    """Add lines as one or more fields, chunking at _FIELD_LIMIT chars."""
+    chunk: list[str] = []
+    current_len = 0
+    part = 1
+
+    for line in lines:
+        line_len = len(line) + 1  # +1 for newline
+        if current_len + line_len > _FIELD_LIMIT and chunk:
+            field_name = label if part == 1 else f"{label} (cont.)"
+            embed.add_field(name=field_name, value="\n".join(chunk), inline=False)
+            chunk = []
+            current_len = 0
+            part += 1
+        chunk.append(line)
+        current_len += line_len
+
+    if chunk:
+        field_name = label if part == 1 else f"{label} (cont.)"
+        embed.add_field(name=field_name, value="\n".join(chunk), inline=False)
+
+
 def _build_catalog_embed(category: str | None = None) -> discord.Embed:
-    """Show a list of all recipes, optionally filtered by category."""
+    """
+    No filter  → compact index showing each category with item count.
+    With filter → full list for that category, chunked to respect Discord limits.
+    """
     cat_filter = category.lower().strip() if category else None
 
-    # Group items by their category
+    # Group items by category
     groups: dict[str, list[tuple[str, dict]]] = {}
     for key, data in ITEMS.items():
         cat = data.get("category", data.get("type", "other"))
@@ -293,6 +333,7 @@ def _build_catalog_embed(category: str | None = None) -> discord.Embed:
             continue
         groups.setdefault(cat, []).append((key, data))
 
+    # ── No matching category ───────────────────────────────────────────────────
     if not groups:
         return discord.Embed(
             title       = "🏭 Foundry",
@@ -300,36 +341,59 @@ def _build_catalog_embed(category: str | None = None) -> discord.Embed:
             color       = 0x2C2F33,
         )
 
+    # ── No filter → show index ────────────────────────────────────────────────
+    if not cat_filter:
+        embed = discord.Embed(
+            title = "🏭  FOUNDRY CATALOG",
+            description = (
+                "Filter by category to see recipes:\n\n"
+                "`!foundry warframe`        — Warframe blueprints\n"
+                "`!foundry warframe_part`   — Warframe components\n"
+                "`!foundry primary`         — Primary weapons\n"
+                "`!foundry secondary`       — Secondary weapons\n"
+                "`!foundry melee`           — Melee weapons\n"
+                "`!foundry sentinel`        — Sentinels\n"
+                "`!foundry craftable_resource` — Craftable resources\n\n"
+                "Or look up a specific item: `!foundry <item name>`\n"
+                "To build: `!craft <item name>`"
+            ),
+            color = 0x4A90D9,
+        )
+        summary_lines = []
+        for cat, items_in_cat in sorted(groups.items()):
+            label   = _CATEGORY_LABELS.get(cat, cat.replace("_", " ").title())
+            v_count = sum(1 for _, d in items_in_cat if d.get("wiki_verified"))
+            summary_lines.append(
+                f"{label} — **{len(items_in_cat)}** items  *(✅ {v_count} verified)*"
+            )
+        embed.add_field(
+            name  = "📋 Available Categories",
+            value = "\n".join(summary_lines),
+            inline= False,
+        )
+        embed.set_footer(text=f"Total craftable items: {len(ITEMS)}  ·  ✅ = wiki-verified")
+        return embed
+
+    # ── Category filter → full list ───────────────────────────────────────────
     embed = discord.Embed(
-        title       = "🏭  FOUNDRY CATALOG",
-        description = (
-            "Browse craftable items. Use `!foundry <category>` to filter.\n"
-            "Categories: `warframe` · `warframe_part` · `primary` · `secondary` · `melee`\n\n"
-            "Use `!craft <item name>` to build an item."
-        ),
-        color = 0x4A90D9,
+        title       = f"🏭  FOUNDRY — {cat_filter.replace('_',' ').upper()}",
+        description = "Use `!craft <item name>` to build.  `!foundry <item>` for full recipe.",
+        color       = 0x4A90D9,
     )
 
-    category_labels = {
-        "warframe":      "🏅 Warframes",
-        "warframe_part": "🔧 Warframe Components",
-        "primary":       "🔫 Primary Weapons",
-        "secondary":     "🔫 Secondary Weapons",
-        "melee":         "⚔️  Melee Weapons",
-        "other":         "📦 Other",
-    }
-
-    for cat, items in sorted(groups.items()):
-        label = category_labels.get(cat, cat.replace("_", " ").title())
+    for cat, items_in_cat in sorted(groups.items()):
+        label = _CATEGORY_LABELS.get(cat, cat.replace("_", " ").title())
         lines = []
-        for key, data in items:
-            em        = _emoji(key)
-            secs      = _calc_craft_time(key)
-            verified  = "✅" if data.get("wiki_verified") else "⚠️"
+        for key, data in items_in_cat:
+            em       = _emoji(key)
+            secs     = _calc_craft_time(key)
+            verified = "✅" if data.get("wiki_verified") else "⚠️"
             lines.append(
                 f"{em} **{data['name']}** — ⏱ `{_fmt_time(secs)}`  {verified}"
             )
-        embed.add_field(name=label, value="\n".join(lines), inline=False)
+        _add_chunked_fields(embed, label, lines)
+        if len(embed.fields) >= _MAX_FIELDS:
+            break
 
     embed.set_footer(text="✅ = wiki-verified  ·  ⚠️ = approximate data")
     return embed
