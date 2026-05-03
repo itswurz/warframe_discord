@@ -101,80 +101,8 @@ def build_display_items(profile: dict, item_db: dict) -> list[dict]:
     the total count and individual UUIDs with their ranks inline.
     """
     items: list[dict] = []
-    mod_db      = item_db.get("mods", {})
     resource_db = item_db.get("resources", {})
     cosmetic_db = item_db.get("cosmetics", {})
-
-    # ── Mods: stack by name, show all UUIDs and ranks ──────────────────────────
-    # Build groups keyed by mod name
-    mod_groups: dict[str, dict] = {}
-
-    for instance in profile.get("mod_collection", []):
-        name   = instance["name"]
-        rarity = instance.get("rarity", "common")
-        uuid   = instance["uuid"]
-        rank   = instance.get("rank", 0)
-        max_r  = instance.get("max_rank", 5)
-        eq_on  = instance.get("equipped_on_warframe")
-
-        if name not in mod_groups:
-            mod_meta = mod_db.get(name, {})
-            mod_groups[name] = {
-                "rarity":   rarity,
-                "category": mod_meta.get("category", ""),
-                "copies":   [],
-                "count":    0,
-            }
-        mod_groups[name]["count"] += 1
-        mod_groups[name]["copies"].append({
-            "uuid":  uuid,
-            "rank":  rank,
-            "max_r": max_r,
-            "eq_on": eq_on,
-        })
-
-    for name, gdata in mod_groups.items():
-        mod_meta = mod_db.get(name, {})
-        rarity   = gdata["rarity"]
-        re       = _rarity_emoji(rarity)
-        cat_ico  = _category_icon(gdata["category"])
-        count    = gdata["count"]
-
-        # Build compact UUID list — each copy on its own segment
-        copy_parts: list[str] = []
-        for c in gdata["copies"]:
-            eq_tag = " 🔧" if c["eq_on"] else ""
-            if c["max_r"] > 0:
-                rk_tag = f" R{c['rank']}/{c['max_r']}"
-            else:
-                rk_tag = ""
-            copy_parts.append(f"`{c['uuid']}`{rk_tag}{eq_tag}")
-
-        # Show max 4 UUIDs inline to avoid line overflow; note remainder
-        display_copies = copy_parts[:4]
-        remainder      = count - len(display_copies)
-        copies_line    = "  ".join(display_copies)
-        if remainder > 0:
-            copies_line += f"  *+{remainder} more*"
-
-        # Max-rank stat preview from item_descriptions if available
-        effect_hint = ""
-        if mod_meta:
-            effect_hint = f" — *{mod_meta.get('max_effect', '')}*" if mod_meta.get("max_effect") else ""
-
-        detail = (
-            f"{re} {cat_ico} **{name}** ×{count}{effect_hint}\n"
-            f"  {copies_line}"
-        )
-
-        items.append({
-            "name":     name,
-            "emoji":    re,
-            "category": "mod",
-            "rarity":   rarity,
-            "count":    count,
-            "detail":   detail,
-        })
 
     # ── Inventory items (resources, endo, cosmetics) ──────────────────────────
     for name, amount in profile.get("inventory", {}).items():
@@ -230,12 +158,10 @@ def build_display_items(profile: dict, item_db: dict) -> list[dict]:
                 "detail":   f"📦 **{name}** ×{amount:,}",
             })
 
-    # Sort: mods first by rarity (rare→common), then resources, endo, cosmetics
-    order     = {"rare": 0, "uncommon": 1, "common": 2, "cosmetic": 3}
-    cat_order = {"mod": 0, "endo": 1, "resource": 2, "cosmetic": 3}
+    # Sort: endo first, then resources, then cosmetics
+    cat_order = {"endo": 0, "resource": 1, "cosmetic": 2}
     items.sort(key=lambda x: (
         cat_order.get(x["category"], 9),
-        order.get(x["rarity"], 9),
         x["name"],
     ))
     return items
@@ -245,14 +171,6 @@ def apply_filter(items: list[dict], filter_key: str) -> list[dict]:
     """Filter the flat item list by the user-selected category."""
     if filter_key == "all":
         return items
-    if filter_key == "mods":
-        return [i for i in items if i["category"] == "mod"]
-    if filter_key == "mods_common":
-        return [i for i in items if i["category"] == "mod" and i["rarity"] == "common"]
-    if filter_key == "mods_uncommon":
-        return [i for i in items if i["category"] == "mod" and i["rarity"] == "uncommon"]
-    if filter_key == "mods_rare":
-        return [i for i in items if i["category"] == "mod" and i["rarity"] == "rare"]
     if filter_key == "resources":
         return [i for i in items if i["category"] == "resource"]
     if filter_key == "endo":
@@ -263,14 +181,10 @@ def apply_filter(items: list[dict], filter_key: str) -> list[dict]:
 
 
 FILTER_LABELS: dict[str, str] = {
-    "all":          "All Items",
-    "mods":         "All Mods",
-    "mods_common":  f"{E.common} Common Mods",
-    "mods_uncommon":f"{E.uncommon} Uncommon Mods",
-    "mods_rare":    f"{E.rare} Rare Mods",
-    "resources":    "Resources",
-    "endo":         "Endo",
-    "cosmetics":    "Cosmetics",
+    "all":       "All Items",
+    "resources": "Resources",
+    "endo":      "Endo",
+    "cosmetics": "Cosmetics",
 }
 
 
@@ -293,11 +207,6 @@ def build_inventory_embed(
     mr    = profile.get("mastery_rank", 0)
     label = FILTER_LABELS.get(filter_key, filter_key)
 
-    # Count total mods as individual instances, not stacked groups
-    total_mod_instances = sum(
-        i["count"] for i in items if i["category"] == "mod"
-    )
-
     whose = "Your" if is_self else f"{owner_name}'s"
     embed = discord.Embed(
         title=f"{E.lotus}  {whose} Inventory",
@@ -316,7 +225,6 @@ def build_inventory_embed(
         )
         embed.set_footer(
             text=(
-                "Use !mods to view your full mod collection  ·  "
                 "Use !item <name> to inspect any item  ·  Warframe © Digital Extremes"
             )
         )
@@ -337,11 +245,10 @@ def build_inventory_embed(
     if right:
         embed.add_field(name="\u200b", value=format_col(right), inline=True)
 
-    total_unique = sum(1 for i in items if i["category"] == "mod")
     embed.set_footer(
         text=(
-            f"{len(items)} unique item type(s)  ·  {total_mod_instances} mod instance(s)  ·  "
-            f"!mods for full mod list  ·  !item <name> to inspect  ·  Warframe © Digital Extremes"
+            f"{len(items)} unique item type(s)  ·  "
+            f"!item <name> to inspect  ·  Warframe © Digital Extremes"
         )
     )
     return embed

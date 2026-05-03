@@ -121,30 +121,6 @@ class FilterSelect(discord.ui.Select):
                 default=(current_filter == "all"),
             ),
             discord.SelectOption(
-                label="Mods — All",
-                value="mods",
-                emoji=E.location,
-                default=(current_filter == "mods"),
-            ),
-            discord.SelectOption(
-                label="Mods — Common",
-                value="mods_common",
-                emoji=E.common,
-                default=(current_filter == "mods_common"),
-            ),
-            discord.SelectOption(
-                label="Mods — Uncommon",
-                value="mods_uncommon",
-                emoji=E.uncommon,
-                default=(current_filter == "mods_uncommon"),
-            ),
-            discord.SelectOption(
-                label="Mods — Rare",
-                value="mods_rare",
-                emoji=E.rare,
-                default=(current_filter == "mods_rare"),
-            ),
-            discord.SelectOption(
                 label="Resources",
                 value="resources",
                 emoji=E.ferrite,
