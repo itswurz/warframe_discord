@@ -492,48 +492,52 @@ _RARITY_COLOUR = {"rare": 0xD4AF37, "uncommon": 0x4B9CDB, "common": 0x888888}
 
 
 def _upgrade_confirm_embed(
-    name: str, icon: str, rarity: str,
+    name: str, icon: str, rarity: str, mod_uuid: str,
     cur_rank: int, max_rank: int,
     cur_str: str, next_str: str,
     endo_cost: int, credit_cost: int,
     endo_have: int, credits_have: int,
+    cdn_url: Optional[str] = None,
 ) -> discord.Embed:
     can_endo    = endo_have >= endo_cost
     can_credits = credits_have >= credit_cost
     colour      = _RARITY_COLOUR.get(rarity, 0x1F4E5F)
+    re_em       = E.rarity(rarity)
 
     em = discord.Embed(
-        title=f"{icon}  Upgrade — {name}",
+        title=f"⬆️  Upgrade — {name}",
+        description=f"{icon}  {re_em} **{rarity.capitalize()}**  ·  `{mod_uuid}`",
         colour=colour,
     )
+    if cdn_url:
+        em.set_thumbnail(url=cdn_url)
+
     em.add_field(
-        name="Rarity",
-        value=f"{E.rarity(rarity)} {rarity.capitalize()}",
+        name="Rank Progress",
+        value=(
+            f"**{cur_rank}** → **{cur_rank + 1}**  /  {max_rank}\n"
+            f"{_rank_bar(cur_rank, max_rank)}"
+        ),
+        inline=False,
+    )
+    em.add_field(
+        name=f"Current  (Rank {cur_rank})",
+        value=cur_str or "—",
         inline=True,
     )
     em.add_field(
-        name="Current Rank",
-        value=_rank_bar(cur_rank, max_rank),
+        name=f"⬆️  After  (Rank {cur_rank + 1})",
+        value=next_str or "—",
         inline=True,
     )
     em.add_field(name="\u200b", value="\u200b", inline=False)
     em.add_field(
-        name=f"Stats at Rank {cur_rank}",
-        value=cur_str or "—",
-        inline=False,
-    )
-    em.add_field(
-        name=f"After Upgrade  (Rank {cur_rank + 1})",
-        value=next_str or "—",
-        inline=False,
-    )
-    em.add_field(
-        name=f"{E.endo} Endo",
+        name=f"{E.endo}  Endo",
         value=f"Cost  `{endo_cost:,}`\nHave  `{endo_have:,}` {'✅' if can_endo else '❌'}",
         inline=True,
     )
     em.add_field(
-        name=f"{E.credits} Credits",
+        name=f"{E.credits}  Credits",
         value=f"Cost  `{credit_cost:,}`\nHave  `{credits_have:,}` {'✅' if can_credits else '❌'}",
         inline=True,
     )
@@ -541,22 +545,31 @@ def _upgrade_confirm_embed(
 
 
 def _upgrade_result_embed(
-    name: str, icon: str, rarity: str,
+    name: str, icon: str, rarity: str, mod_uuid: str,
     new_rank: int, max_rank: int,
     stat_block: str,
     rem_endo: int, rem_credits: int,
     next_endo: int, next_credits: int,
+    cdn_url: Optional[str] = None,
 ) -> discord.Embed:
-    colour = _RARITY_COLOUR.get(rarity, 0x1F4E5F)
     maxed  = new_rank >= max_rank
+    colour = 0x00C851 if maxed else _RARITY_COLOUR.get(rarity, 0x1F4E5F)
+    re_em  = E.rarity(rarity)
 
     em = discord.Embed(
-        title=f"{icon}  {name} — Rank {new_rank}{'  ✅ MAX' if maxed else ''}",
-        colour=0x00C851 if maxed else colour,
+        title=f"{'✅  MAX — ' if maxed else '⬆️  Upgraded — '}{name}",
+        description=f"{icon}  {re_em} **{rarity.capitalize()}**  ·  `{mod_uuid}`",
+        colour=colour,
     )
+    if cdn_url:
+        em.set_thumbnail(url=cdn_url)
+
     em.add_field(
-        name="Rank",
-        value=_rank_bar(new_rank, max_rank),
+        name="New Rank",
+        value=(
+            f"**{new_rank}**  /  {max_rank}\n"
+            f"{_rank_bar(new_rank, max_rank)}"
+        ),
         inline=False,
     )
     em.add_field(
@@ -564,13 +577,14 @@ def _upgrade_result_embed(
         value=stat_block or "—",
         inline=False,
     )
+    em.add_field(name="\u200b", value="\u200b", inline=False)
     em.add_field(
-        name=f"{E.endo} Endo Remaining",
+        name=f"{E.endo}  Endo Remaining",
         value=f"`{rem_endo:,}`",
         inline=True,
     )
     em.add_field(
-        name=f"{E.credits} Credits Remaining",
+        name=f"{E.credits}  Credits Remaining",
         value=f"`{rem_credits:,}`",
         inline=True,
     )
@@ -578,6 +592,12 @@ def _upgrade_result_embed(
         em.add_field(
             name="Next Upgrade Cost",
             value=f"{E.endo} `{next_endo:,}` Endo  ·  {E.credits} `{next_credits:,}` Credits",
+            inline=False,
+        )
+    else:
+        em.add_field(
+            name="✨  Fully Upgraded",
+            value="This mod has reached its maximum potential.",
             inline=False,
         )
     return em
@@ -703,23 +723,25 @@ class UpgradeConfirmView(discord.ui.View):
 
         new_rank     = mod_inst["rank"]
         new_stats    = _stat_at_rank(cm, new_rank) if cm else {}
-        stat_block   = ", ".join(_fmt_stat(k, v) for k, v in new_stats.items()) or "—"
+        stat_block   = "\n".join(_fmt_stat(k, v) for k, v in new_stats.items()) or "—"
         rem_endo     = profile.get("inventory", {}).get("Endo", 0)
         rem_credits  = profile.get("credits", 0)
         next_endo    = _endo_cost_at_rank(cm, new_rank, mod_rarity) if new_rank < max_rank else 0
         next_credits = _credit_cost_at_rank(cm, new_rank, mod_rarity) if new_rank < max_rank else 0
 
         result_em = _upgrade_result_embed(
-            name        = self.mod_name,
-            icon        = self.mod_icon,
-            rarity      = mod_rarity,
-            new_rank    = new_rank,
-            max_rank    = max_rank,
-            stat_block  = stat_block,
-            rem_endo    = rem_endo,
-            rem_credits = rem_credits,
-            next_endo   = next_endo,
-            next_credits= next_credits,
+            name         = self.mod_name,
+            icon         = self.mod_icon,
+            rarity       = mod_rarity,
+            mod_uuid     = self.mod_uuid,
+            new_rank     = new_rank,
+            max_rank     = max_rank,
+            stat_block   = stat_block,
+            rem_endo     = rem_endo,
+            rem_credits  = rem_credits,
+            next_endo    = next_endo,
+            next_credits = next_credits,
+            cdn_url      = _mod_cdn_url(self.mod_name),
         )
         await interaction.response.edit_message(embed=result_em, view=None)
         self.stop()
@@ -800,10 +822,25 @@ class ModsCog(commands.Cog, name="Mods"):
         icon     = E.mod(name, rarity)
 
         if cur_rank >= max_rank:
-            await ctx.send(
-                f"{icon} **{name}** `[{mod_uuid}]` is already at **max rank** ({max_rank}).",
-                delete_after=10,
+            cdn_url = _mod_cdn_url(name)
+            re_em   = E.rarity(rarity)
+            colour  = _RARITY_COLOUR.get(rarity, 0x1F4E5F)
+            em = discord.Embed(
+                title=f"✅  MAX — {name}",
+                description=(
+                    f"{icon}  {re_em} **{rarity.capitalize()}**  ·  `{mod_uuid}`\n"
+                    f"Already at max rank **{max_rank}**."
+                ),
+                colour=0x00C851,
             )
+            if cdn_url:
+                em.set_thumbnail(url=cdn_url)
+            em.add_field(
+                name="Rank",
+                value=f"**{max_rank}**  /  {max_rank}\n{_rank_bar(max_rank, max_rank)}",
+                inline=False,
+            )
+            await ctx.send(embed=em, delete_after=12)
             return
 
         endo_have    = profile.get("inventory", {}).get("Endo", 0)
@@ -812,32 +849,33 @@ class ModsCog(commands.Cog, name="Mods"):
         credit_cost  = _credit_cost_at_rank(cm, cur_rank, rarity)
 
         if cm and cur_rank == 0:
-            # Show base_effect (what the mod does unranked) and what rank 1 gives
             base_eff   = cm.get("base_effect", cm.get("description", "—"))
-            cur_str    = f"*{base_eff}* (base — already applied when equipped)"
+            cur_str    = f"*{base_eff}*\n*(base — already applied when equipped)*"
             r1_stats   = _stat_at_rank(cm, 1)
             next_stats = r1_stats
         elif cm:
             cur_stats  = _stat_at_rank(cm, cur_rank)
             next_stats = _stat_at_rank(cm, cur_rank + 1)
-            cur_str    = ", ".join(_fmt_stat(k, v) for k, v in cur_stats.items()) or "—"
+            cur_str    = "\n".join(_fmt_stat(k, v) for k, v in cur_stats.items()) or "—"
         else:
             cur_stats  = {}
             next_stats = {}
             cur_str    = "—"
         next_str = (
-            ", ".join(_fmt_stat(k, v) for k, v in next_stats.items())
+            "\n".join(_fmt_stat(k, v) for k, v in next_stats.items())
             if next_stats else "—"
         )
 
         can_endo    = endo_have >= endo_cost
         can_credits = credits_have >= credit_cost
         can_rank    = can_endo and can_credits
+        cdn_url     = _mod_cdn_url(name)
 
         confirm_em = _upgrade_confirm_embed(
             name         = name,
             icon         = icon,
             rarity       = rarity,
+            mod_uuid     = mod_uuid,
             cur_rank     = cur_rank,
             max_rank     = max_rank,
             cur_str      = cur_str,
@@ -846,6 +884,7 @@ class ModsCog(commands.Cog, name="Mods"):
             credit_cost  = credit_cost,
             endo_have    = endo_have,
             credits_have = credits_have,
+            cdn_url      = cdn_url,
         )
 
         if not can_rank:
