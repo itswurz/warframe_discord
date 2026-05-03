@@ -486,6 +486,104 @@ def _build_mod_view_layout(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Upgrade embed helpers
+
+_RARITY_COLOUR = {"rare": 0xD4AF37, "uncommon": 0x4B9CDB, "common": 0x888888}
+
+
+def _upgrade_confirm_embed(
+    name: str, icon: str, rarity: str,
+    cur_rank: int, max_rank: int,
+    cur_str: str, next_str: str,
+    endo_cost: int, credit_cost: int,
+    endo_have: int, credits_have: int,
+) -> discord.Embed:
+    can_endo    = endo_have >= endo_cost
+    can_credits = credits_have >= credit_cost
+    colour      = _RARITY_COLOUR.get(rarity, 0x1F4E5F)
+
+    em = discord.Embed(
+        title=f"{icon}  Upgrade — {name}",
+        colour=colour,
+    )
+    em.add_field(
+        name="Rarity",
+        value=f"{E.rarity(rarity)} {rarity.capitalize()}",
+        inline=True,
+    )
+    em.add_field(
+        name="Current Rank",
+        value=_rank_bar(cur_rank, max_rank),
+        inline=True,
+    )
+    em.add_field(name="\u200b", value="\u200b", inline=False)
+    em.add_field(
+        name=f"Stats at Rank {cur_rank}",
+        value=cur_str or "—",
+        inline=False,
+    )
+    em.add_field(
+        name=f"After Upgrade  (Rank {cur_rank + 1})",
+        value=next_str or "—",
+        inline=False,
+    )
+    em.add_field(
+        name=f"{E.endo} Endo",
+        value=f"Cost  `{endo_cost:,}`\nHave  `{endo_have:,}` {'✅' if can_endo else '❌'}",
+        inline=True,
+    )
+    em.add_field(
+        name=f"{E.credits} Credits",
+        value=f"Cost  `{credit_cost:,}`\nHave  `{credits_have:,}` {'✅' if can_credits else '❌'}",
+        inline=True,
+    )
+    return em
+
+
+def _upgrade_result_embed(
+    name: str, icon: str, rarity: str,
+    new_rank: int, max_rank: int,
+    stat_block: str,
+    rem_endo: int, rem_credits: int,
+    next_endo: int, next_credits: int,
+) -> discord.Embed:
+    colour = _RARITY_COLOUR.get(rarity, 0x1F4E5F)
+    maxed  = new_rank >= max_rank
+
+    em = discord.Embed(
+        title=f"{icon}  {name} — Rank {new_rank}{'  ✅ MAX' if maxed else ''}",
+        colour=0x00C851 if maxed else colour,
+    )
+    em.add_field(
+        name="Rank",
+        value=_rank_bar(new_rank, max_rank),
+        inline=False,
+    )
+    em.add_field(
+        name=f"Stats at Rank {new_rank}",
+        value=stat_block or "—",
+        inline=False,
+    )
+    em.add_field(
+        name=f"{E.endo} Endo Remaining",
+        value=f"`{rem_endo:,}`",
+        inline=True,
+    )
+    em.add_field(
+        name=f"{E.credits} Credits Remaining",
+        value=f"`{rem_credits:,}`",
+        inline=True,
+    )
+    if not maxed:
+        em.add_field(
+            name="Next Upgrade Cost",
+            value=f"{E.endo} `{next_endo:,}` Endo  ·  {E.credits} `{next_credits:,}` Credits",
+            inline=False,
+        )
+    return em
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # !mods upgrade  (confirmation view)
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -572,24 +670,22 @@ class UpgradeConfirmView(discord.ui.View):
         cred_cost    = _credit_cost_at_rank(cm, cur_rank, mod_rarity)
 
         if endo_have < endo_cost:
-            await interaction.response.edit_message(
-                content=(
-                    f"❌ Not enough Endo.\n"
-                    f"Need **{endo_cost:,}**, have **{endo_have:,}**."
-                ),
-                view=None,
+            err = discord.Embed(
+                title="❌ Not Enough Endo",
+                description=f"Need `{endo_cost:,}` — you have `{endo_have:,}`.",
+                colour=0xE74C3C,
             )
+            await interaction.response.edit_message(embed=err, view=None)
             self.stop()
             return
 
         if credits_have < cred_cost:
-            await interaction.response.edit_message(
-                content=(
-                    f"{E.credits} ❌ Not enough Credits.\n"
-                    f"Need **{cred_cost:,}**, have **{credits_have:,}**."
-                ),
-                view=None,
+            err = discord.Embed(
+                title=f"{E.credits} Not Enough Credits",
+                description=f"Need `{cred_cost:,}` — you have `{credits_have:,}`.",
+                colour=0xE74C3C,
             )
+            await interaction.response.edit_message(embed=err, view=None)
             self.stop()
             return
 
@@ -605,31 +701,27 @@ class UpgradeConfirmView(discord.ui.View):
         mod_inst["rank"] = cur_rank + 1
         await save_player(profile)
 
-        new_rank    = mod_inst["rank"]
-        new_stats   = _stat_at_rank(cm, new_rank) if cm else {}
-        stat_strs   = [_fmt_stat(k, v) for k, v in new_stats.items()]
-        stat_block  = ", ".join(stat_strs) or "—"
-        rem_endo    = profile.get("inventory", {}).get("Endo", 0)
-        rem_credits = profile.get("credits", 0)
-
+        new_rank     = mod_inst["rank"]
+        new_stats    = _stat_at_rank(cm, new_rank) if cm else {}
+        stat_block   = ", ".join(_fmt_stat(k, v) for k, v in new_stats.items()) or "—"
+        rem_endo     = profile.get("inventory", {}).get("Endo", 0)
+        rem_credits  = profile.get("credits", 0)
         next_endo    = _endo_cost_at_rank(cm, new_rank, mod_rarity) if new_rank < max_rank else 0
         next_credits = _credit_cost_at_rank(cm, new_rank, mod_rarity) if new_rank < max_rank else 0
-        next_msg     = (
-            f"\nNext rank: `{next_endo:,}` Endo + `{next_credits:,}` Credits."
-            if new_rank < max_rank else "\n✅ **Max rank reached!**"
-        )
 
-        await interaction.response.edit_message(
-            content=(
-                f"{self.mod_icon} **{self.mod_name}** `[{self.mod_uuid}]` upgraded to "
-                f"**Rank {new_rank}/{max_rank}**!\n"
-                f"Stats: {stat_block}\n"
-                f"{E.endo} Endo remaining: `{rem_endo:,}`  ·  "
-                f"{E.credits} Credits remaining: `{rem_credits:,}`"
-                f"{next_msg}"
-            ),
-            view=None,
+        result_em = _upgrade_result_embed(
+            name        = self.mod_name,
+            icon        = self.mod_icon,
+            rarity      = mod_rarity,
+            new_rank    = new_rank,
+            max_rank    = max_rank,
+            stat_block  = stat_block,
+            rem_endo    = rem_endo,
+            rem_credits = rem_credits,
+            next_endo   = next_endo,
+            next_credits= next_credits,
         )
+        await interaction.response.edit_message(embed=result_em, view=None)
         self.stop()
 
     async def _cancel_cb(self, interaction: discord.Interaction) -> None:
@@ -738,21 +830,22 @@ class ModsCog(commands.Cog, name="Mods"):
             if next_stats else "—"
         )
 
-        rk_bar      = _rank_bar(cur_rank, max_rank)
         can_endo    = endo_have >= endo_cost
         can_credits = credits_have >= credit_cost
         can_rank    = can_endo and can_credits
 
-        re = E.rarity(rarity)
-        content = (
-            f"{icon} **{name}** `[{mod_uuid}]` — {re} {rarity.capitalize()}\n"
-            f"Rank: {rk_bar}\n\n"
-            f"**Current stats (Rank {cur_rank}):** {cur_str}\n"
-            f"**After upgrade (Rank {cur_rank + 1}):** {next_str}\n\n"
-            f"{E.endo} **Endo needed:** `{endo_cost:,}`  ·  "
-            f"**You have:** `{endo_have:,}` {'✅' if can_endo else '❌'}\n"
-            f"{E.credits} **Credits needed:** `{credit_cost:,}`  ·  "
-            f"**You have:** `{credits_have:,}` {'✅' if can_credits else '❌'}"
+        confirm_em = _upgrade_confirm_embed(
+            name         = name,
+            icon         = icon,
+            rarity       = rarity,
+            cur_rank     = cur_rank,
+            max_rank     = max_rank,
+            cur_str      = cur_str,
+            next_str     = next_str,
+            endo_cost    = endo_cost,
+            credit_cost  = credit_cost,
+            endo_have    = endo_have,
+            credits_have = credits_have,
         )
 
         if not can_rank:
@@ -761,13 +854,11 @@ class ModsCog(commands.Cog, name="Mods"):
                 missing_parts.append(f"`{endo_cost - endo_have:,}` more Endo")
             if not can_credits:
                 missing_parts.append(f"`{credit_cost - credits_have:,}` more Credits")
-            await ctx.send(
-                content + f"\n\n❌ **Cannot upgrade.** Need {' and '.join(missing_parts)}.",
-                delete_after=15,
-            )
+            confirm_em.set_footer(text=f"❌ Cannot upgrade — need {' and '.join(missing_parts)}.")
+            await ctx.send(embed=confirm_em, delete_after=20)
             return
 
-        # UpgradeConfirmView is a plain legacy discord.ui.View — content= is fine here
+        confirm_em.set_footer(text="⚠️ Confirm to spend Endo + Credits — 30 seconds to decide.")
         view = UpgradeConfirmView(
             owner_id     = ctx.author.id,
             mod_uuid     = mod_uuid,
@@ -781,10 +872,7 @@ class ModsCog(commands.Cog, name="Mods"):
             endo_have    = endo_have,
             credits_have = credits_have,
         )
-        await ctx.send(
-            content=content + f"\n\n⚠️ Confirm to spend Endo + {E.credits} Credits — **30 seconds to decide.**",
-            view=view,
-        )
+        await ctx.send(embed=confirm_em, view=view)
 
     # ── !mods view / !mod view <uuid> ─────────────────────────────────────────
 
