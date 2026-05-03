@@ -589,6 +589,7 @@ class TutorialChooseButton(discord.ui.Button):
                     w["is_active"] = (w["warframe_key"] == self.warframe_key)
                 profile["warframe"] = wf_name
 
+            profile["tutorial_step"] = "primary_select"
             await persistence.save_player(profile)
 
             from cogs.weapon import WeaponView
@@ -891,15 +892,64 @@ class WarframeCog(commands.Cog, name="Warframe"):
         profile = await persistence.load_player(ctx.author.id)
 
         if not profile.get("initialized", False):
-            embed = build_entry_embed()
-            view  = TutorialWarframeView()
-            await ctx.send(
-                content=(
-                    f"{E.lotus} "
-                    "*\"Welcome, Operator. Your Warframe awaits.\"*"
-                ),
-                embed=embed, view=view,
-            )
+            step = profile.get("tutorial_step")
+
+            if step == "primary_select":
+                from cogs.weapon import WeaponView
+                from utils.weapon_embeds import build_weapon_entry_embed
+                embed = build_weapon_entry_embed()
+                view  = WeaponView()
+                await ctx.send(
+                    content=(
+                        f"{E.lotus} "
+                        "*\"Continue your preparation, Operator. Choose your Primary weapon.\"*"
+                    ),
+                    embed=embed, view=view,
+                )
+            elif step == "secondary_select":
+                from cogs.secondary import SecondaryView
+                from utils.weapon_embeds import build_secondary_entry_embed
+                embed = build_secondary_entry_embed()
+                view  = SecondaryView()
+                await ctx.send(
+                    content=(
+                        f"{E.lotus} "
+                        "*\"Continue, Operator. Choose your Secondary weapon.\"*"
+                    ),
+                    embed=embed, view=view,
+                )
+            elif step == "melee_select":
+                from cogs.melee import MeleeView
+                from utils.weapon_embeds import build_melee_entry_embed
+                embed = build_melee_entry_embed()
+                view  = MeleeView()
+                await ctx.send(
+                    content=(
+                        f"{E.lotus} "
+                        "*\"One final choice, Operator. Choose your Melee weapon.\"*"
+                    ),
+                    embed=embed, view=view,
+                )
+            elif step == "awakening_mission":
+                await ctx.send(
+                    content=(
+                        f"{E.lotus} "
+                        "*\"The Awakening is in progress, Operator. "
+                        "Use `!combat` to rejoin your mission, "
+                        "or `!abort` to abandon it and try again.\"*"
+                    ),
+                    delete_after=15,
+                )
+            else:
+                embed = build_entry_embed()
+                view  = TutorialWarframeView()
+                await ctx.send(
+                    content=(
+                        f"{E.lotus} "
+                        "*\"Welcome, Operator. Your Warframe awaits.\"*"
+                    ),
+                    embed=embed, view=view,
+                )
         else:
             embed = build_orbiter_embed(profile)
             view  = OrbiterView(profile)

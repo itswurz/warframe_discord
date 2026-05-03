@@ -20,17 +20,18 @@
   ],
   "warframe_level": 0,
   "mastery_rank": 0,
-  "credits": 150,
+  "credits": 300,
   "platinum": 0,
   "experience": 0,
-  "total_kills": 3,
-  "total_missions": 1,
-  "missions_won": 1,
+  "total_kills": 6,
+  "total_missions": 2,
+  "missions_won": 2,
   "missions_lost": 0,
   "highest_combo": 1,
-  "damage_dealt": 1280,
+  "damage_dealt": 2240,
   "inventory": {
-    "Ferrite": 237
+    "Ferrite": 377,
+    "Rubedo": 48
   },
   "mod_collection": [],
   "equipped_mods": {
@@ -79,27 +80,34 @@
     "magnetize_turns": 0,
     "polarize_shards_absorbed": false,
     "mission_kills": 3,
-    "mission_damage_dealt": 1280,
+    "mission_damage_dealt": 960,
     "mission_credits_earned": 150
   },
   "last_mission_loot": [
     {
+      "name": "Rubedo",
+      "amount": 23,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
+      "type": "resource"
+    },
+    {
       "name": "Ferrite",
-      "amount": 52,
+      "amount": 77,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"
     },
     {
-      "name": "Ferrite",
-      "amount": 92,
-      "emoji": "<:ferrite:1499750270199009320>",
-      "rarity": "common",
+      "name": "Rubedo",
+      "amount": 25,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
       "type": "resource"
     },
     {
       "name": "Ferrite",
-      "amount": 93,
+      "amount": 63,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"

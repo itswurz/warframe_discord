@@ -1,0 +1,84 @@
+{
+  "id": "vors_prize",
+  "name": "Vor's Prize",
+  "subtitle": "A Grineer commander is hunting you.",
+  "description": "Captain Vor, a Grineer commander obsessed with Orokin technology, intercepted your awakening signal. You must fight through his forces before he can claim you as his prize.",
+  "faction": "Grineer",
+  "recommended_mastery": 0,
+  "arcs": [
+    {
+      "id": "arc_1",
+      "name": "Awakening",
+      "description": "You have awoken from stasis aboard a derelict Grineer vessel. Vor's forces close in from all sides.",
+      "missions": [
+        {
+          "id": "awakening",
+          "name": "Awakening",
+          "location": "Galatea, Neptune",
+          "tileset": "Grineer Galleon",
+          "description": "Escape the Grineer Galleon. Your Warframe's systems are still coming online — rely on your weapons. Abilities are offline.",
+          "tutorial": true,
+          "restrict_mods": true,
+          "restrict_abilities": true,
+          "no_loot": true,
+          "enemies": ["grineer_lancer", "grineer_butcher", "grineer_scorpion"],
+          "enemy_count": 3,
+          "rewards": null,
+          "dialogue": {
+            "intro": [
+              "Lotus: \"You've been sleeping for a very long time, Operator.\"",
+              "Lotus: \"I'm sorry to wake you this way — but they've found you.\"",
+              "Lotus: \"The Grineer are here. We must move quickly.\"",
+              "Vor: \"I know what you are. I know what sleeps inside you. Bring it to me.\""
+            ],
+            "mid": [
+              "Lotus: \"Your Warframe's systems are still coming online. Use your weapons — abilities are unavailable for now.\"",
+              "Vor: \"Hah! Look at it. Stumbling about like a child.\""
+            ],
+            "outro": [
+              "Lotus: \"Well done, Operator. But Vor will not stop here.\"",
+              "Lotus: \"He has deployed forces to Mercury to intercept you. Your journey has only just begun.\""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "arc_2",
+      "name": "The Prize",
+      "description": "Captain Vor pursues you to Mercury. You must deal with his forces before he can use the Janus Key.",
+      "missions": [
+        {
+          "id": "tolstoj",
+          "name": "Tolstoj",
+          "location": "Mercury",
+          "tileset": "Grineer Settlement",
+          "description": "Vor has deployed Grineer forces to Mercury to intercept you. Clear the settlement and prove you are ready to face the Origin System.",
+          "tutorial": false,
+          "restrict_mods": false,
+          "restrict_abilities": false,
+          "no_loot": false,
+          "enemies": ["grineer_lancer", "grineer_butcher", "grineer_scorpion"],
+          "enemy_count": 3,
+          "rewards": {
+            "credits": 1000,
+            "xp": 500,
+            "items": []
+          },
+          "dialogue": {
+            "intro": [
+              "Vor: \"There is nowhere to run, Tenno. I have what I need to control you.\"",
+              "Lotus: \"Vor has activated the Janus Key, Operator. We need to move — now.\""
+            ],
+            "mid": [
+              "Lotus: \"Watch out — Vor's Janus Key is interfering with your Warframe's systems. Keep pushing.\""
+            ],
+            "outro": [
+              "Lotus: \"Excellent work. But Vor has not given up. Stay alert, Operator.\""
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

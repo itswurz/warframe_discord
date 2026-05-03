@@ -51,6 +51,9 @@ class ChooseMeleeButton(discord.ui.Button):
             profile     = await persistence.load_player(interaction.user.id)
             weapon_name = WEAPONS[self.weapon_key]["name"]
             profile["melee_weapon"] = weapon_name
+            is_tutorial = not profile.get("initialized", False)
+            if is_tutorial:
+                profile["tutorial_step"] = "awakening_mission"
             await persistence.save_player(profile)
 
             # ── 2. Resolve saved Warframe ─────────────────────────────────────
@@ -101,21 +104,35 @@ class ChooseMeleeButton(discord.ui.Button):
                 melee_name = SLOT_DEFAULTS["melee"]
 
             # ── 5. Create and register the session ────────────────────────────
-            session = CombatSession(
-                warframe_key     = wf_key,
-                warframe_data    = WARFRAMES[wf_key],
-                user_id          = interaction.user.id,
-                primary_weapon   = primary_name,
-                secondary_weapon = secondary_name,
-                melee_weapon     = melee_name,
-                profile          = profile,
-            )
+            # Tutorial sessions use base stats only (no mods) and award no loot.
+            if is_tutorial:
+                session = CombatSession(
+                    warframe_key     = wf_key,
+                    warframe_data    = WARFRAMES[wf_key],
+                    user_id          = interaction.user.id,
+                    primary_weapon   = primary_name,
+                    secondary_weapon = secondary_name,
+                    melee_weapon     = melee_name,
+                    profile          = None,
+                    tutorial         = True,
+                )
+            else:
+                session = CombatSession(
+                    warframe_key     = wf_key,
+                    warframe_data    = WARFRAMES[wf_key],
+                    user_id          = interaction.user.id,
+                    primary_weapon   = primary_name,
+                    secondary_weapon = secondary_name,
+                    melee_weapon     = melee_name,
+                    profile          = profile,
+                )
             ACTIVE_SESSIONS[interaction.user.id] = session
 
-            # ── 6. Mark the player as initialized (tutorial complete) ─────────
-            # Deferred import to avoid circular dependency
-            from cogs.warframe import mark_player_initialized
-            await mark_player_initialized(interaction.user.id)
+            # ── 6. For the normal post-tutorial re-run, mark initialized ──────
+            # Tutorial completion is handled by _finish_tutorial in combat.py.
+            if not is_tutorial:
+                from cogs.warframe import mark_player_initialized
+                await mark_player_initialized(interaction.user.id)
 
             # ── 7. Build and send the combat embed ────────────────────────────
             from utils.combat_embeds import build_combat_embed
@@ -125,13 +142,18 @@ class ChooseMeleeButton(discord.ui.Button):
             sw = WEAPON_STATS.get(secondary_name, {})
             mw = WEAPON_STATS.get(melee_name,     {})
 
+            deploy_note = (
+                "Awakening mission deploying — abilities offline, no loot."
+                if is_tutorial else "Deploying now."
+            )
+
             embed = build_combat_embed(session, session.log[-10:])
             view  = CombatView(session)
             session._active_view = view
 
             await interaction.response.edit_message(
                 content=(
-                    f"{E.lotus} Loadout locked, Operator. Deploying now.\n"
+                    f"{E.lotus} Loadout locked, Operator. {deploy_note}\n"
                     f"{pw.get('emoji', '')} **{primary_name}**  ·  "
                     f"{sw.get('emoji', '')} **{secondary_name}**  ·  "
                     f"{mw.get('emoji', '')} **{melee_name}**"

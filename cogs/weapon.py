@@ -48,6 +48,8 @@ class ChooseWeaponButton(discord.ui.Button):
             profile     = await persistence.load_player(interaction.user.id)
             weapon_name = WEAPONS[self.weapon_key]["name"]
             profile["weapon"] = weapon_name
+            if not profile.get("initialized", False):
+                profile["tutorial_step"] = "secondary_select"
             await persistence.save_player(profile)
 
             # ── 2. Transition to secondary weapon selector ────────────────────

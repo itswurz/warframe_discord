@@ -86,16 +86,19 @@ class CombatSession:
         melee_weapon:      str  = "Skana",
         secondary_weapon:  str  = "Lato",
         profile:           dict | None = None,
+        tutorial:          bool = False,
     ) -> None:
-        self.user_id = user_id
+        self.user_id  = user_id
+        self.tutorial = tutorial
 
         # ── Resolve mod bonuses from equipped mods ────────────────────────────
         # If a full player profile is supplied, look up the active warframe
         # instance and compute the final stats (HP/shields/armor/energy) after
         # all equipped mods have been applied.  Falls back to base stats when
         # no profile is provided (e.g. tests, legacy !combat command).
+        # Mod bonuses are always skipped in tutorial mode.
         mod_stats: dict | None = None
-        if profile:
+        if profile and not tutorial:
             try:
                 from utils.mods_ui import get_active_stat_bonuses, get_wf_instance
                 from data.persistence import get_active_warframe_instance
@@ -241,6 +244,9 @@ class CombatSession:
     # ── Drop collection ────────────────────────────────────────────────────────
 
     def _collect_drops(self) -> None:
+        if self.tutorial:
+            return
+
         from data.drops import roll_drops
 
         for enemy in self.enemies:

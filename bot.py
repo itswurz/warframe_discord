@@ -12,6 +12,30 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 
+# ── Global command guard ──────────────────────────────────────────────────────
+# Uninitialized players (still in tutorial) may only use !warframe and its
+# subcommands.  Every other command is blocked with a friendly redirect.
+
+@bot.check
+async def require_initialized(ctx: commands.Context) -> bool:
+    if ctx.command is None:
+        return True
+    qualified = ctx.command.qualified_name
+    if qualified.startswith("warframe"):
+        return True
+    from data import persistence
+    profile = await persistence.load_player(ctx.author.id)
+    if not profile.get("initialized", False):
+        await ctx.send(
+            f"<:wf_lotus:1499651243101126816> "
+            f"*\"Complete your training first, Operator.\"*\n"
+            "Use `!warframe` to begin the tutorial.",
+            delete_after=12,
+        )
+        return False
+    return True
+
+
 # ── Load Cogs ─────────────────────────────────────────────────────────────────
 async def main():
     async with bot:
@@ -23,6 +47,7 @@ async def main():
         await bot.load_extension("cogs.inventory")   # Inventory + item viewer
         await bot.load_extension("cogs.mods")        # Mod collection, upgrade, view
         await bot.load_extension("cogs.polarity")    # Polarity system
+        await bot.load_extension("cogs.quests")      # Quest log + progression
         await bot.start(TOKEN)
 
 

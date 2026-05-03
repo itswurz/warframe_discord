@@ -83,6 +83,55 @@ _MELEE_OVERRIDE_FLAG: dict[str, str] = {
 }
 
 
+# ── Tutorial completion helper ────────────────────────────────────────────────
+
+async def _finish_tutorial(
+    interaction: discord.Interaction,
+    session:     CombatSession,
+) -> None:
+    """Mark the player initialized, unlock Vor's Prize, and send the completion embed."""
+    from cogs.warframe import mark_player_initialized
+    await mark_player_initialized(session.user_id)
+
+    profile = await persistence.load_player(session.user_id)
+    profile["tutorial_step"]  = None
+    profile["current_quest"]  = "vors_prize"
+    profile["current_mission"] = "tolstoj"
+    await persistence.save_player(profile)
+
+    if session.state == CombatState.VICTORY:
+        color       = 0x1A7A3C
+        title       = f"{E.lotus}  AWAKENING — COMPLETE"
+        description = (
+            "*\"Well done, Operator. The Grineer have been driven back — for now.\"*\n\n"
+            "*\"But Captain Vor will not give up so easily. "
+            "His prize — you — remains unclaimed.\"*\n\n"
+            "*\"Your training is complete. The Origin System awaits you.\"*\n\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+            f"**Quest unlocked:** **Vor's Prize**\n"
+            "Use `!quests` to view your Quest Log.\n"
+            "Use `!warframe` to access your Orbiter."
+        )
+    else:
+        color       = 0x7B1515
+        title       = f"{E.lotus}  AWAKENING — DEFEATED"
+        description = (
+            "*\"You have been overwhelmed, Operator. But do not despair.\"*\n\n"
+            "*\"Your Warframe will recover. The Grineer have not yet found you.\"*\n\n"
+            "Use `!warframe` to re-arm and try the Awakening again."
+        )
+        profile2 = await persistence.load_player(session.user_id)
+        profile2["initialized"]    = False
+        profile2["tutorial_step"]  = "awakening_mission"
+        profile2["current_quest"]  = None
+        profile2["current_mission"] = None
+        await persistence.save_player(profile2)
+
+    embed = discord.Embed(title=title, description=description, color=color)
+    embed.set_footer(text="Tutorial complete  ·  Warframe © Digital Extremes")
+    await interaction.followup.send(embed=embed)
+
+
 # ── Helper — rebuild embed + view, edit the message, send loot on end ──────────
 
 async def _refresh(
@@ -111,6 +160,10 @@ async def _refresh(
     if session.is_over and not session.loot_posted:
         session.loot_posted = True
         ACTIVE_SESSIONS.pop(session.user_id, None)
+
+        if session.tutorial:
+            await _finish_tutorial(interaction, session)
+            return
 
         try:
             from data.global_state import commit_session_to_profile
@@ -208,6 +261,7 @@ class AbilityButton(discord.ui.Button):
             or session.actions_remaining <= 0
             or session.player.energy < cost
             or session.is_over
+            or session.tutorial
         )
 
         super().__init__(
@@ -367,6 +421,7 @@ class HoldCastButton(discord.ui.Button):
             or session.actions_remaining <= 0
             or session.player.energy < cost
             or session.is_over
+            or session.tutorial
         )
         super().__init__(
             style=discord.ButtonStyle.secondary,
