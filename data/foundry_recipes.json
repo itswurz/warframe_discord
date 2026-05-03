@@ -1,1282 +1,4469 @@
 {
   "_meta": {
-    "version": "3.0",
+    "version": "4.0",
     "wiki_source": "warframe.fandom.com",
     "craft_times_note": "base_time is a compressed gameplay unit (NOT raw seconds). Components (12h)=300, weapons (12h)=360, weapons (1d)=480, warframe main (1d)=480, warframe main (3d)=720, resources (3d)=720. Quest warframes with 1-min build use base_time=30. All values clamped [30,900] by the foundry cog.",
     "verification": "wiki_verified=true means quantities were fetched live from warframe.fandom.com. wiki_verified=false means training-data fallback — verify and correct as needed.",
-    "entry_count": "157 entries: 27 warframes (×4 each), 22 primary, 14 secondary, 13 melee, 1 sentinel, 3 craftable resources"
+    "entry_count": "230 entries: 45 warframes (×4 each = 180 component entries), 23 primaries, 14 secondaries, 13 melee, 1 sentinel, 3 craftable resources"
   },
-
   "rarity_weights": {
-    "common":    1,
-    "uncommon":  2,
-    "rare":      3,
+    "common": 1,
+    "uncommon": 2,
+    "rare": 3,
     "legendary": 5
   },
-
   "resource_rarities": {
-    "Ferrite":           "common",
-    "Salvage":           "common",
-    "Alloy Plate":       "common",
-    "Nano Spores":       "common",
-    "Polymer Bundle":    "common",
-    "Circuits":          "common",
-    "Rubedo":            "common",
-    "Plastids":          "uncommon",
-    "Oxium":             "uncommon",
-    "Cryotic":           "uncommon",
-    "Detonite Ampule":   "uncommon",
-    "Fieldron Sample":   "uncommon",
-    "Neural Sensors":    "rare",
-    "Control Module":    "rare",
-    "Morphics":          "rare",
-    "Neurodes":          "rare",
-    "Gallium":           "rare",
-    "Tellurium":         "rare",
+    "Ferrite": "common",
+    "Salvage": "common",
+    "Alloy Plate": "common",
+    "Nano Spores": "common",
+    "Polymer Bundle": "common",
+    "Circuits": "common",
+    "Rubedo": "common",
+    "Plastids": "uncommon",
+    "Oxium": "uncommon",
+    "Cryotic": "uncommon",
+    "Detonite Ampule": "uncommon",
+    "Fieldron Sample": "uncommon",
+    "Neural Sensors": "rare",
+    "Control Module": "rare",
+    "Morphics": "rare",
+    "Neurodes": "rare",
+    "Gallium": "rare",
+    "Tellurium": "rare",
     "Detonite Injector": "rare",
-    "Fieldron":          "rare",
-    "Orokin Cell":       "legendary",
-    "Argon Crystal":     "legendary",
-    "Nitain Extract":    "legendary",
-    "Forma":             "legendary",
-
-    "Volt Neuroptics":   "rare",
-    "Ember Neuroptics":  "rare",
-    "Frost Chassis":     "rare",
-    "Saryn Systems":     "rare",
-    "Furis":             "rare",
-    "Bronco":            "rare",
-    "Magnus":            "rare",
-    "Vasto":             "rare",
-    "Kunai":             "rare",
-    "Bo":                "rare"
+    "Fieldron": "rare",
+    "Orokin Cell": "legendary",
+    "Argon Crystal": "legendary",
+    "Nitain Extract": "legendary",
+    "Forma": "legendary",
+    "Volt Neuroptics": "rare",
+    "Ember Neuroptics": "rare",
+    "Frost Chassis": "rare",
+    "Saryn Systems": "rare",
+    "Furis": "rare",
+    "Bronco": "rare",
+    "Magnus": "rare",
+    "Vasto": "rare",
+    "Kunai": "rare",
+    "Bo": "rare",
+    "Mutagen Sample": "uncommon",
+    "Kuva": "uncommon",
+    "Hexenon": "uncommon",
+    "Kavat Genetic Code": "rare",
+    "Kuaka Spinal Claw": "uncommon",
+    "Iradite": "uncommon",
+    "Intact Sentient Core": "rare",
+    "Cetus Wisp": "rare",
+    "Vega Toroid": "rare",
+    "Calda Toroid": "rare",
+    "Sola Toroid": "rare",
+    "Star Amarast": "uncommon",
+    "Axidrol Alloy": "uncommon",
+    "Radiant Zodian": "uncommon",
+    "Travocyte Alloy": "uncommon",
+    "Marquise Thyst": "uncommon",
+    "Venerdo Alloy": "uncommon",
+    "Hespazym Alloy": "uncommon",
+    "Synathid Ecosynth Analyzer": "rare",
+    "Tromyzon Entroplasma": "uncommon",
+    "Lazulite Toroid": "rare",
+    "Mytocardia Spore": "uncommon",
+    "Thermal Sludge": "uncommon",
+    "Gorgaricus Spore": "uncommon",
+    "Radian Sentirum": "uncommon",
+    "Heart Nyth": "uncommon",
+    "Star Crimzian": "uncommon",
+    "Grokdrul": "common",
+    "Condroc Wing": "uncommon",
+    "Tralok Eyes": "uncommon",
+    "Murkray Liver": "uncommon",
+    "Fish Meat": "common",
+    "Fish Oil": "common",
+    "Cubic Diodes": "uncommon",
+    "Carbides": "uncommon",
+    "Titanium": "uncommon",
+    "Mandachord": "legendary",
+    "Thaumic Distillate": "uncommon",
+    "Sharrac Teeth": "uncommon",
+    "Esher Devar": "uncommon",
+    "Gyromag Systems": "rare",
+    "Spinal Core Section": "rare",
+    "Lucent Teroglobe": "uncommon",
+    "Breath Of The Eidolon": "rare",
+    "Scintillant": "rare",
+    "Pustulite": "uncommon",
+    "Ganglion": "uncommon",
+    "Trapezium Xenorhast": "uncommon",
+    "Cabochon Embolos": "uncommon",
+    "Heart Noctrul": "uncommon",
+    "Scrubber Exa Brain": "rare",
+    "Nullstones": "rare",
+    "Asterite": "uncommon"
   },
-
   "items": {
-
     "excalibur_neuroptics": {
-      "name": "Excalibur Neuroptics", "type": "component", "category": "warframe_part", "part_of": "excalibur",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Excalibur",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "excalibur_neuroptics", "result_name": "Excalibur Neuroptics", "result_type": "component"
+      "name": "Excalibur Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "excalibur",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Excalibur",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "excalibur_neuroptics",
+      "result_name": "Excalibur Neuroptics",
+      "result_type": "component"
     },
     "excalibur_chassis": {
-      "name": "Excalibur Chassis", "type": "component", "category": "warframe_part", "part_of": "excalibur",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Excalibur",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "excalibur_chassis", "result_name": "Excalibur Chassis", "result_type": "component"
+      "name": "Excalibur Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "excalibur",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Excalibur",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "excalibur_chassis",
+      "result_name": "Excalibur Chassis",
+      "result_type": "component"
     },
     "excalibur_systems": {
-      "name": "Excalibur Systems", "type": "component", "category": "warframe_part", "part_of": "excalibur",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Excalibur",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "excalibur_systems", "result_name": "Excalibur Systems", "result_type": "component"
+      "name": "Excalibur Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "excalibur",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Excalibur",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "excalibur_systems",
+      "result_name": "Excalibur Systems",
+      "result_type": "component"
     },
     "excalibur": {
-      "name": "Excalibur", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Excalibur",
-      "ingredients": { "excalibur_neuroptics": 1, "excalibur_chassis": 1, "excalibur_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "excalibur", "result_name": "Excalibur", "result_type": "warframe", "warframe_key": "excalibur"
+      "name": "Excalibur",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Excalibur",
+      "ingredients": {
+        "excalibur_neuroptics": 1,
+        "excalibur_chassis": 1,
+        "excalibur_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "excalibur",
+      "result_name": "Excalibur",
+      "result_type": "warframe",
+      "warframe_key": "excalibur"
     },
-
     "rhino_neuroptics": {
-      "name": "Rhino Neuroptics", "type": "component", "category": "warframe_part", "part_of": "rhino",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Rhino",
-      "ingredients": { "Alloy Plate": 150, "Morphics": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "rhino_neuroptics", "result_name": "Rhino Neuroptics", "result_type": "component"
+      "name": "Rhino Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "rhino",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rhino",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Morphics": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "rhino_neuroptics",
+      "result_name": "Rhino Neuroptics",
+      "result_type": "component"
     },
     "rhino_chassis": {
-      "name": "Rhino Chassis", "type": "component", "category": "warframe_part", "part_of": "rhino",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Rhino",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "rhino_chassis", "result_name": "Rhino Chassis", "result_type": "component"
+      "name": "Rhino Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "rhino",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rhino",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "rhino_chassis",
+      "result_name": "Rhino Chassis",
+      "result_type": "component"
     },
     "rhino_systems": {
-      "name": "Rhino Systems", "type": "component", "category": "warframe_part", "part_of": "rhino",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Rhino",
-      "ingredients": { "Gallium": 1, "Morphics": 1, "Salvage": 500, "Plastids": 600 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "rhino_systems", "result_name": "Rhino Systems", "result_type": "component"
+      "name": "Rhino Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "rhino",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rhino",
+      "ingredients": {
+        "Gallium": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 600
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "rhino_systems",
+      "result_name": "Rhino Systems",
+      "result_type": "component"
     },
     "rhino": {
-      "name": "Rhino", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Rhino",
+      "name": "Rhino",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rhino",
       "_note": "Main BP uses Gallium (not Orokin Cell) and builds in 1 day, not 3.",
-      "ingredients": { "rhino_neuroptics": 1, "rhino_chassis": 1, "rhino_systems": 1, "Gallium": 1 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "rhino", "result_name": "Rhino", "result_type": "warframe", "warframe_key": "rhino"
+      "ingredients": {
+        "rhino_neuroptics": 1,
+        "rhino_chassis": 1,
+        "rhino_systems": 1,
+        "Gallium": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "rhino",
+      "result_name": "Rhino",
+      "result_type": "warframe",
+      "warframe_key": "rhino"
     },
-
     "frost_neuroptics": {
-      "name": "Frost Neuroptics", "type": "component", "category": "warframe_part", "part_of": "frost",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Frost",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "frost_neuroptics", "result_name": "Frost Neuroptics", "result_type": "component"
+      "name": "Frost Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "frost",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Frost",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "frost_neuroptics",
+      "result_name": "Frost Neuroptics",
+      "result_type": "component"
     },
     "frost_chassis": {
-      "name": "Frost Chassis", "type": "component", "category": "warframe_part", "part_of": "frost",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Frost",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "frost_chassis", "result_name": "Frost Chassis", "result_type": "component"
+      "name": "Frost Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "frost",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Frost",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "frost_chassis",
+      "result_name": "Frost Chassis",
+      "result_type": "component"
     },
     "frost_systems": {
-      "name": "Frost Systems", "type": "component", "category": "warframe_part", "part_of": "frost",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Frost",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "frost_systems", "result_name": "Frost Systems", "result_type": "component"
+      "name": "Frost Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "frost",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Frost",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "frost_systems",
+      "result_name": "Frost Systems",
+      "result_type": "component"
     },
     "frost": {
-      "name": "Frost", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Frost",
-      "ingredients": { "frost_neuroptics": 1, "frost_chassis": 1, "frost_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "frost", "result_name": "Frost", "result_type": "warframe", "warframe_key": "frost"
+      "name": "Frost",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Frost",
+      "ingredients": {
+        "frost_neuroptics": 1,
+        "frost_chassis": 1,
+        "frost_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "frost",
+      "result_name": "Frost",
+      "result_type": "warframe",
+      "warframe_key": "frost"
     },
-
     "mag_neuroptics": {
-      "name": "Mag Neuroptics", "type": "component", "category": "warframe_part", "part_of": "mag",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mag",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mag_neuroptics", "result_name": "Mag Neuroptics", "result_type": "component"
+      "name": "Mag Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mag",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mag",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mag_neuroptics",
+      "result_name": "Mag Neuroptics",
+      "result_type": "component"
     },
     "mag_chassis": {
-      "name": "Mag Chassis", "type": "component", "category": "warframe_part", "part_of": "mag",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mag",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mag_chassis", "result_name": "Mag Chassis", "result_type": "component"
+      "name": "Mag Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mag",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mag",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mag_chassis",
+      "result_name": "Mag Chassis",
+      "result_type": "component"
     },
     "mag_systems": {
-      "name": "Mag Systems", "type": "component", "category": "warframe_part", "part_of": "mag",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mag",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mag_systems", "result_name": "Mag Systems", "result_type": "component"
+      "name": "Mag Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mag",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mag",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mag_systems",
+      "result_name": "Mag Systems",
+      "result_type": "component"
     },
     "mag": {
-      "name": "Mag", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mag",
-      "ingredients": { "mag_neuroptics": 1, "mag_chassis": 1, "mag_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "mag", "result_name": "Mag", "result_type": "warframe", "warframe_key": "mag"
+      "name": "Mag",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mag",
+      "ingredients": {
+        "mag_neuroptics": 1,
+        "mag_chassis": 1,
+        "mag_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "mag",
+      "result_name": "Mag",
+      "result_type": "warframe",
+      "warframe_key": "mag"
     },
-
     "volt_neuroptics": {
-      "name": "Volt Neuroptics", "type": "component", "category": "warframe_part", "part_of": "volt",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Volt",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "volt_neuroptics", "result_name": "Volt Neuroptics", "result_type": "component"
+      "name": "Volt Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "volt",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Volt",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "volt_neuroptics",
+      "result_name": "Volt Neuroptics",
+      "result_type": "component"
     },
     "volt_chassis": {
-      "name": "Volt Chassis", "type": "component", "category": "warframe_part", "part_of": "volt",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Volt",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "volt_chassis", "result_name": "Volt Chassis", "result_type": "component"
+      "name": "Volt Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "volt",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Volt",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "volt_chassis",
+      "result_name": "Volt Chassis",
+      "result_type": "component"
     },
     "volt_systems": {
-      "name": "Volt Systems", "type": "component", "category": "warframe_part", "part_of": "volt",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Volt",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "volt_systems", "result_name": "Volt Systems", "result_type": "component"
+      "name": "Volt Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "volt",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Volt",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "volt_systems",
+      "result_name": "Volt Systems",
+      "result_type": "component"
     },
     "volt": {
-      "name": "Volt", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Volt",
-      "ingredients": { "volt_neuroptics": 1, "volt_chassis": 1, "volt_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "volt", "result_name": "Volt", "result_type": "warframe", "warframe_key": "volt"
+      "name": "Volt",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Volt",
+      "ingredients": {
+        "volt_neuroptics": 1,
+        "volt_chassis": 1,
+        "volt_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "volt",
+      "result_name": "Volt",
+      "result_type": "warframe",
+      "warframe_key": "volt"
     },
-
     "ember_neuroptics": {
-      "name": "Ember Neuroptics", "type": "component", "category": "warframe_part", "part_of": "ember",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ember",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ember_neuroptics", "result_name": "Ember Neuroptics", "result_type": "component"
+      "name": "Ember Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ember",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ember",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ember_neuroptics",
+      "result_name": "Ember Neuroptics",
+      "result_type": "component"
     },
     "ember_chassis": {
-      "name": "Ember Chassis", "type": "component", "category": "warframe_part", "part_of": "ember",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ember",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ember_chassis", "result_name": "Ember Chassis", "result_type": "component"
+      "name": "Ember Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ember",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ember",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ember_chassis",
+      "result_name": "Ember Chassis",
+      "result_type": "component"
     },
     "ember_systems": {
-      "name": "Ember Systems", "type": "component", "category": "warframe_part", "part_of": "ember",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ember",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ember_systems", "result_name": "Ember Systems", "result_type": "component"
+      "name": "Ember Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ember",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ember",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ember_systems",
+      "result_name": "Ember Systems",
+      "result_type": "component"
     },
     "ember": {
-      "name": "Ember", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ember",
-      "ingredients": { "ember_neuroptics": 1, "ember_chassis": 1, "ember_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "ember", "result_name": "Ember", "result_type": "warframe", "warframe_key": "ember"
+      "name": "Ember",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ember",
+      "ingredients": {
+        "ember_neuroptics": 1,
+        "ember_chassis": 1,
+        "ember_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "ember",
+      "result_name": "Ember",
+      "result_type": "warframe",
+      "warframe_key": "ember"
     },
-
     "trinity_neuroptics": {
-      "name": "Trinity Neuroptics", "type": "component", "category": "warframe_part", "part_of": "trinity",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Trinity",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "trinity_neuroptics", "result_name": "Trinity Neuroptics", "result_type": "component"
+      "name": "Trinity Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "trinity",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Trinity",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "trinity_neuroptics",
+      "result_name": "Trinity Neuroptics",
+      "result_type": "component"
     },
     "trinity_chassis": {
-      "name": "Trinity Chassis", "type": "component", "category": "warframe_part", "part_of": "trinity",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Trinity",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "trinity_chassis", "result_name": "Trinity Chassis", "result_type": "component"
+      "name": "Trinity Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "trinity",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Trinity",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "trinity_chassis",
+      "result_name": "Trinity Chassis",
+      "result_type": "component"
     },
     "trinity_systems": {
-      "name": "Trinity Systems", "type": "component", "category": "warframe_part", "part_of": "trinity",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Trinity",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "trinity_systems", "result_name": "Trinity Systems", "result_type": "component"
+      "name": "Trinity Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "trinity",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Trinity",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "trinity_systems",
+      "result_name": "Trinity Systems",
+      "result_type": "component"
     },
     "trinity": {
-      "name": "Trinity", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Trinity",
-      "ingredients": { "trinity_neuroptics": 1, "trinity_chassis": 1, "trinity_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "trinity", "result_name": "Trinity", "result_type": "warframe", "warframe_key": "trinity"
+      "name": "Trinity",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Trinity",
+      "ingredients": {
+        "trinity_neuroptics": 1,
+        "trinity_chassis": 1,
+        "trinity_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "trinity",
+      "result_name": "Trinity",
+      "result_type": "warframe",
+      "warframe_key": "trinity"
     },
-
     "saryn_neuroptics": {
-      "name": "Saryn Neuroptics", "type": "component", "category": "warframe_part", "part_of": "saryn",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Saryn",
+      "name": "Saryn Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "saryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Saryn",
       "_note": "Uses Circuits instead of Alloy Plate.",
-      "ingredients": { "Circuits": 150, "Neural Sensors": 1, "Polymer Bundle": 300, "Salvage": 400 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "saryn_neuroptics", "result_name": "Saryn Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Circuits": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 300,
+        "Salvage": 400
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "saryn_neuroptics",
+      "result_name": "Saryn Neuroptics",
+      "result_type": "component"
     },
     "saryn_chassis": {
-      "name": "Saryn Chassis", "type": "component", "category": "warframe_part", "part_of": "saryn",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Saryn",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 50 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "saryn_chassis", "result_name": "Saryn Chassis", "result_type": "component"
+      "name": "Saryn Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "saryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Saryn",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "saryn_chassis",
+      "result_name": "Saryn Chassis",
+      "result_type": "component"
     },
     "saryn_systems": {
-      "name": "Saryn Systems", "type": "component", "category": "warframe_part", "part_of": "saryn",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Saryn",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 550, "Plastids": 350 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "saryn_systems", "result_name": "Saryn Systems", "result_type": "component"
+      "name": "Saryn Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "saryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Saryn",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 550,
+        "Plastids": 350
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "saryn_systems",
+      "result_name": "Saryn Systems",
+      "result_type": "component"
     },
     "saryn": {
-      "name": "Saryn", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Saryn",
-      "ingredients": { "saryn_neuroptics": 1, "saryn_chassis": 1, "saryn_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "saryn", "result_name": "Saryn", "result_type": "warframe", "warframe_key": "saryn"
+      "name": "Saryn",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Saryn",
+      "ingredients": {
+        "saryn_neuroptics": 1,
+        "saryn_chassis": 1,
+        "saryn_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "saryn",
+      "result_name": "Saryn",
+      "result_type": "warframe",
+      "warframe_key": "saryn"
     },
-
     "nova_neuroptics": {
-      "name": "Nova Neuroptics", "type": "component", "category": "warframe_part", "part_of": "nova",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nova",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nova_neuroptics", "result_name": "Nova Neuroptics", "result_type": "component"
+      "name": "Nova Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nova",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nova",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nova_neuroptics",
+      "result_name": "Nova Neuroptics",
+      "result_type": "component"
     },
     "nova_chassis": {
-      "name": "Nova Chassis", "type": "component", "category": "warframe_part", "part_of": "nova",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nova",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nova_chassis", "result_name": "Nova Chassis", "result_type": "component"
+      "name": "Nova Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nova",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nova",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nova_chassis",
+      "result_name": "Nova Chassis",
+      "result_type": "component"
     },
     "nova_systems": {
-      "name": "Nova Systems", "type": "component", "category": "warframe_part", "part_of": "nova",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nova",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 600 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nova_systems", "result_name": "Nova Systems", "result_type": "component"
+      "name": "Nova Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nova",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nova",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 600
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nova_systems",
+      "result_name": "Nova Systems",
+      "result_type": "component"
     },
     "nova": {
-      "name": "Nova", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nova",
-      "ingredients": { "nova_neuroptics": 1, "nova_chassis": 1, "nova_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "nova", "result_name": "Nova", "result_type": "warframe", "warframe_key": "nova"
+      "name": "Nova",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nova",
+      "ingredients": {
+        "nova_neuroptics": 1,
+        "nova_chassis": 1,
+        "nova_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "nova",
+      "result_name": "Nova",
+      "result_type": "warframe",
+      "warframe_key": "nova"
     },
-
     "nyx_neuroptics": {
-      "name": "Nyx Neuroptics", "type": "component", "category": "warframe_part", "part_of": "nyx",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nyx",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nyx_neuroptics", "result_name": "Nyx Neuroptics", "result_type": "component"
+      "name": "Nyx Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nyx",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nyx",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nyx_neuroptics",
+      "result_name": "Nyx Neuroptics",
+      "result_type": "component"
     },
     "nyx_chassis": {
-      "name": "Nyx Chassis", "type": "component", "category": "warframe_part", "part_of": "nyx",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nyx",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nyx_chassis", "result_name": "Nyx Chassis", "result_type": "component"
+      "name": "Nyx Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nyx",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nyx",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nyx_chassis",
+      "result_name": "Nyx Chassis",
+      "result_type": "component"
     },
     "nyx_systems": {
-      "name": "Nyx Systems", "type": "component", "category": "warframe_part", "part_of": "nyx",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nyx",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nyx_systems", "result_name": "Nyx Systems", "result_type": "component"
+      "name": "Nyx Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nyx",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nyx",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nyx_systems",
+      "result_name": "Nyx Systems",
+      "result_type": "component"
     },
     "nyx": {
-      "name": "Nyx", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nyx",
-      "ingredients": { "nyx_neuroptics": 1, "nyx_chassis": 1, "nyx_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "nyx", "result_name": "Nyx", "result_type": "warframe", "warframe_key": "nyx"
+      "name": "Nyx",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nyx",
+      "ingredients": {
+        "nyx_neuroptics": 1,
+        "nyx_chassis": 1,
+        "nyx_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "nyx",
+      "result_name": "Nyx",
+      "result_type": "warframe",
+      "warframe_key": "nyx"
     },
-
     "loki_neuroptics": {
-      "name": "Loki Neuroptics", "type": "component", "category": "warframe_part", "part_of": "loki",
-      "wiki_verified": false, "_unverified_note": "Wiki component pages use templates that did not render; training-data values matching early-frame pattern.",
+      "name": "Loki Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "loki",
+      "wiki_verified": false,
+      "_unverified_note": "Wiki component pages use templates that did not render; training-data values matching early-frame pattern.",
       "wiki_source": "warframe.fandom.com/wiki/Loki",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "loki_neuroptics", "result_name": "Loki Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "loki_neuroptics",
+      "result_name": "Loki Neuroptics",
+      "result_type": "component"
     },
     "loki_chassis": {
-      "name": "Loki Chassis", "type": "component", "category": "warframe_part", "part_of": "loki",
-      "wiki_verified": false, "_unverified_note": "Wiki component pages use templates that did not render; training-data fallback.",
+      "name": "Loki Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "loki",
+      "wiki_verified": false,
+      "_unverified_note": "Wiki component pages use templates that did not render; training-data fallback.",
       "wiki_source": "warframe.fandom.com/wiki/Loki",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "loki_chassis", "result_name": "Loki Chassis", "result_type": "component"
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "loki_chassis",
+      "result_name": "Loki Chassis",
+      "result_type": "component"
     },
     "loki_systems": {
-      "name": "Loki Systems", "type": "component", "category": "warframe_part", "part_of": "loki",
-      "wiki_verified": false, "_unverified_note": "Wiki component pages use templates that did not render; training-data fallback.",
+      "name": "Loki Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "loki",
+      "wiki_verified": false,
+      "_unverified_note": "Wiki component pages use templates that did not render; training-data fallback.",
       "wiki_source": "warframe.fandom.com/wiki/Loki",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "loki_systems", "result_name": "Loki Systems", "result_type": "component"
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "loki_systems",
+      "result_name": "Loki Systems",
+      "result_type": "component"
     },
     "loki": {
-      "name": "Loki", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Loki",
-      "ingredients": { "loki_neuroptics": 1, "loki_chassis": 1, "loki_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "loki", "result_name": "Loki", "result_type": "warframe", "warframe_key": "loki"
+      "name": "Loki",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Loki",
+      "ingredients": {
+        "loki_neuroptics": 1,
+        "loki_chassis": 1,
+        "loki_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "loki",
+      "result_name": "Loki",
+      "result_type": "warframe",
+      "warframe_key": "loki"
     },
-
     "ash_neuroptics": {
-      "name": "Ash Neuroptics", "type": "component", "category": "warframe_part", "part_of": "ash",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ash",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ash_neuroptics", "result_name": "Ash Neuroptics", "result_type": "component"
+      "name": "Ash Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ash",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ash",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ash_neuroptics",
+      "result_name": "Ash Neuroptics",
+      "result_type": "component"
     },
     "ash_chassis": {
-      "name": "Ash Chassis", "type": "component", "category": "warframe_part", "part_of": "ash",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ash",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ash_chassis", "result_name": "Ash Chassis", "result_type": "component"
+      "name": "Ash Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ash",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ash",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ash_chassis",
+      "result_name": "Ash Chassis",
+      "result_type": "component"
     },
     "ash_systems": {
-      "name": "Ash Systems", "type": "component", "category": "warframe_part", "part_of": "ash",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ash",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ash_systems", "result_name": "Ash Systems", "result_type": "component"
+      "name": "Ash Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ash",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ash",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ash_systems",
+      "result_name": "Ash Systems",
+      "result_type": "component"
     },
     "ash": {
-      "name": "Ash", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ash",
-      "ingredients": { "ash_neuroptics": 1, "ash_chassis": 1, "ash_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "ash", "result_name": "Ash", "result_type": "warframe", "warframe_key": "ash"
+      "name": "Ash",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ash",
+      "ingredients": {
+        "ash_neuroptics": 1,
+        "ash_chassis": 1,
+        "ash_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "ash",
+      "result_name": "Ash",
+      "result_type": "warframe",
+      "warframe_key": "ash"
     },
-
     "oberon_neuroptics": {
-      "name": "Oberon Neuroptics", "type": "component", "category": "warframe_part", "part_of": "oberon",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Oberon",
-      "ingredients": { "Alloy Plate": 150, "Control Module": 1, "Polymer Bundle": 150, "Circuits": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "oberon_neuroptics", "result_name": "Oberon Neuroptics", "result_type": "component"
+      "name": "Oberon Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "oberon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Oberon",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Control Module": 1,
+        "Polymer Bundle": 150,
+        "Circuits": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "oberon_neuroptics",
+      "result_name": "Oberon Neuroptics",
+      "result_type": "component"
     },
     "oberon_chassis": {
-      "name": "Oberon Chassis", "type": "component", "category": "warframe_part", "part_of": "oberon",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Oberon",
-      "ingredients": { "Gallium": 1, "Polymer Bundle": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "oberon_chassis", "result_name": "Oberon Chassis", "result_type": "component"
+      "name": "Oberon Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "oberon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Oberon",
+      "ingredients": {
+        "Gallium": 1,
+        "Polymer Bundle": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "oberon_chassis",
+      "result_name": "Oberon Chassis",
+      "result_type": "component"
     },
     "oberon_systems": {
-      "name": "Oberon Systems", "type": "component", "category": "warframe_part", "part_of": "oberon",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Oberon",
-      "ingredients": { "Orokin Cell": 1, "Gallium": 1, "Polymer Bundle": 500, "Alloy Plate": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "oberon_systems", "result_name": "Oberon Systems", "result_type": "component"
+      "name": "Oberon Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "oberon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Oberon",
+      "ingredients": {
+        "Orokin Cell": 1,
+        "Gallium": 1,
+        "Polymer Bundle": 500,
+        "Alloy Plate": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "oberon_systems",
+      "result_name": "Oberon Systems",
+      "result_type": "component"
     },
     "oberon": {
-      "name": "Oberon", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Oberon",
-      "ingredients": { "oberon_neuroptics": 1, "oberon_chassis": 1, "oberon_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "oberon", "result_name": "Oberon", "result_type": "warframe", "warframe_key": "oberon"
+      "name": "Oberon",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Oberon",
+      "ingredients": {
+        "oberon_neuroptics": 1,
+        "oberon_chassis": 1,
+        "oberon_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "oberon",
+      "result_name": "Oberon",
+      "result_type": "warframe",
+      "warframe_key": "oberon"
     },
-
     "valkyr_neuroptics": {
-      "name": "Valkyr Neuroptics", "type": "component", "category": "warframe_part", "part_of": "valkyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Valkyr",
+      "name": "Valkyr Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "valkyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Valkyr",
       "_note": "Uses Circuits instead of Alloy Plate.",
-      "ingredients": { "Circuits": 150, "Neural Sensors": 1, "Polymer Bundle": 200, "Salvage": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "valkyr_neuroptics", "result_name": "Valkyr Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Circuits": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 200,
+        "Salvage": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "valkyr_neuroptics",
+      "result_name": "Valkyr Neuroptics",
+      "result_type": "component"
     },
     "valkyr_chassis": {
-      "name": "Valkyr Chassis", "type": "component", "category": "warframe_part", "part_of": "valkyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Valkyr",
-      "ingredients": { "Morphics": 1, "Ferrite": 900, "Rubedo": 50 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "valkyr_chassis", "result_name": "Valkyr Chassis", "result_type": "component"
+      "name": "Valkyr Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "valkyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Valkyr",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 900,
+        "Rubedo": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "valkyr_chassis",
+      "result_name": "Valkyr Chassis",
+      "result_type": "component"
     },
     "valkyr_systems": {
-      "name": "Valkyr Systems", "type": "component", "category": "warframe_part", "part_of": "valkyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Valkyr",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 400 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "valkyr_systems", "result_name": "Valkyr Systems", "result_type": "component"
+      "name": "Valkyr Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "valkyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Valkyr",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 400
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "valkyr_systems",
+      "result_name": "Valkyr Systems",
+      "result_type": "component"
     },
     "valkyr": {
-      "name": "Valkyr", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Valkyr",
-      "ingredients": { "valkyr_neuroptics": 1, "valkyr_chassis": 1, "valkyr_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "valkyr", "result_name": "Valkyr", "result_type": "warframe", "warframe_key": "valkyr"
+      "name": "Valkyr",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Valkyr",
+      "ingredients": {
+        "valkyr_neuroptics": 1,
+        "valkyr_chassis": 1,
+        "valkyr_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "valkyr",
+      "result_name": "Valkyr",
+      "result_type": "warframe",
+      "warframe_key": "valkyr"
     },
-
     "nekros_neuroptics": {
-      "name": "Nekros Neuroptics", "type": "component", "category": "warframe_part", "part_of": "nekros",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nekros",
-      "ingredients": { "Alloy Plate": 150, "Neural Sensors": 1, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nekros_neuroptics", "result_name": "Nekros Neuroptics", "result_type": "component"
+      "name": "Nekros Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nekros",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nekros",
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nekros_neuroptics",
+      "result_name": "Nekros Neuroptics",
+      "result_type": "component"
     },
     "nekros_chassis": {
-      "name": "Nekros Chassis", "type": "component", "category": "warframe_part", "part_of": "nekros",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nekros",
-      "ingredients": { "Morphics": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nekros_chassis", "result_name": "Nekros Chassis", "result_type": "component"
+      "name": "Nekros Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nekros",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nekros",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nekros_chassis",
+      "result_name": "Nekros Chassis",
+      "result_type": "component"
     },
     "nekros_systems": {
-      "name": "Nekros Systems", "type": "component", "category": "warframe_part", "part_of": "nekros",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nekros",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "nekros_systems", "result_name": "Nekros Systems", "result_type": "component"
+      "name": "Nekros Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nekros",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nekros",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nekros_systems",
+      "result_name": "Nekros Systems",
+      "result_type": "component"
     },
     "nekros": {
-      "name": "Nekros", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Nekros",
+      "name": "Nekros",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nekros",
       "_note": "Requires 3 Orokin Cells — wiki-confirmed.",
-      "ingredients": { "nekros_neuroptics": 1, "nekros_chassis": 1, "nekros_systems": 1, "Orokin Cell": 3 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "nekros", "result_name": "Nekros", "result_type": "warframe", "warframe_key": "nekros"
+      "ingredients": {
+        "nekros_neuroptics": 1,
+        "nekros_chassis": 1,
+        "nekros_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "nekros",
+      "result_name": "Nekros",
+      "result_type": "warframe",
+      "warframe_key": "nekros"
     },
-
     "banshee_neuroptics": {
-      "name": "Banshee Neuroptics", "type": "component", "category": "warframe_part", "part_of": "banshee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Banshee",
-      "ingredients": { "Circuits": 150, "Neural Sensors": 1, "Polymer Bundle": 200, "Salvage": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "banshee_neuroptics", "result_name": "Banshee Neuroptics", "result_type": "component"
+      "name": "Banshee Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "banshee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Banshee",
+      "ingredients": {
+        "Circuits": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 200,
+        "Salvage": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "banshee_neuroptics",
+      "result_name": "Banshee Neuroptics",
+      "result_type": "component"
     },
     "banshee_chassis": {
-      "name": "Banshee Chassis", "type": "component", "category": "warframe_part", "part_of": "banshee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Banshee",
-      "ingredients": { "Morphics": 1, "Ferrite": 900, "Rubedo": 50 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "banshee_chassis", "result_name": "Banshee Chassis", "result_type": "component"
+      "name": "Banshee Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "banshee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Banshee",
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 900,
+        "Rubedo": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "banshee_chassis",
+      "result_name": "Banshee Chassis",
+      "result_type": "component"
     },
     "banshee_systems": {
-      "name": "Banshee Systems", "type": "component", "category": "warframe_part", "part_of": "banshee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Banshee",
-      "ingredients": { "Control Module": 1, "Morphics": 1, "Salvage": 500, "Plastids": 400 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "banshee_systems", "result_name": "Banshee Systems", "result_type": "component"
+      "name": "Banshee Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "banshee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Banshee",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Salvage": 500,
+        "Plastids": 400
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "banshee_systems",
+      "result_name": "Banshee Systems",
+      "result_type": "component"
     },
     "banshee": {
-      "name": "Banshee", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Banshee",
-      "ingredients": { "banshee_neuroptics": 1, "banshee_chassis": 1, "banshee_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "banshee", "result_name": "Banshee", "result_type": "warframe", "warframe_key": "banshee"
+      "name": "Banshee",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Banshee",
+      "ingredients": {
+        "banshee_neuroptics": 1,
+        "banshee_chassis": 1,
+        "banshee_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "banshee",
+      "result_name": "Banshee",
+      "result_type": "warframe",
+      "warframe_key": "banshee"
     },
-
     "hydroid_neuroptics": {
-      "name": "Hydroid Neuroptics", "type": "component", "category": "warframe_part", "part_of": "hydroid",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hydroid",
+      "name": "Hydroid Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hydroid",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hydroid",
       "_note": "Uses Argon Crystal in place of Neural Sensors.",
-      "ingredients": { "Alloy Plate": 150, "Control Module": 1, "Polymer Bundle": 150, "Argon Crystal": 2 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "hydroid_neuroptics", "result_name": "Hydroid Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Control Module": 1,
+        "Polymer Bundle": 150,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hydroid_neuroptics",
+      "result_name": "Hydroid Neuroptics",
+      "result_type": "component"
     },
     "hydroid_chassis": {
-      "name": "Hydroid Chassis", "type": "component", "category": "warframe_part", "part_of": "hydroid",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hydroid",
-      "ingredients": { "Argon Crystal": 2, "Polymer Bundle": 1000, "Rubedo": 300, "Nano Spores": 1200 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "hydroid_chassis", "result_name": "Hydroid Chassis", "result_type": "component"
+      "name": "Hydroid Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hydroid",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hydroid",
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Polymer Bundle": 1000,
+        "Rubedo": 300,
+        "Nano Spores": 1200
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hydroid_chassis",
+      "result_name": "Hydroid Chassis",
+      "result_type": "component"
     },
     "hydroid_systems": {
-      "name": "Hydroid Systems", "type": "component", "category": "warframe_part", "part_of": "hydroid",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hydroid",
-      "ingredients": { "Orokin Cell": 1, "Gallium": 4, "Polymer Bundle": 500, "Alloy Plate": 220 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "hydroid_systems", "result_name": "Hydroid Systems", "result_type": "component"
+      "name": "Hydroid Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hydroid",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hydroid",
+      "ingredients": {
+        "Orokin Cell": 1,
+        "Gallium": 4,
+        "Polymer Bundle": 500,
+        "Alloy Plate": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hydroid_systems",
+      "result_name": "Hydroid Systems",
+      "result_type": "component"
     },
     "hydroid": {
-      "name": "Hydroid", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hydroid",
-      "ingredients": { "hydroid_neuroptics": 1, "hydroid_chassis": 1, "hydroid_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "hydroid", "result_name": "Hydroid", "result_type": "warframe", "warframe_key": "hydroid"
+      "name": "Hydroid",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hydroid",
+      "ingredients": {
+        "hydroid_neuroptics": 1,
+        "hydroid_chassis": 1,
+        "hydroid_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "hydroid",
+      "result_name": "Hydroid",
+      "result_type": "warframe",
+      "warframe_key": "hydroid"
     },
-
     "zephyr_neuroptics": {
-      "name": "Zephyr Neuroptics", "type": "component", "category": "warframe_part", "part_of": "zephyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Zephyr",
-      "ingredients": { "Circuits": 150, "Oxium": 200, "Polymer Bundle": 200, "Salvage": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "zephyr_neuroptics", "result_name": "Zephyr Neuroptics", "result_type": "component"
+      "name": "Zephyr Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "zephyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Zephyr",
+      "ingredients": {
+        "Circuits": 150,
+        "Oxium": 200,
+        "Polymer Bundle": 200,
+        "Salvage": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "zephyr_neuroptics",
+      "result_name": "Zephyr Neuroptics",
+      "result_type": "component"
     },
     "zephyr_chassis": {
-      "name": "Zephyr Chassis", "type": "component", "category": "warframe_part", "part_of": "zephyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Zephyr",
-      "ingredients": { "Oxium": 200, "Nano Spores": 900, "Rubedo": 50 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "zephyr_chassis", "result_name": "Zephyr Chassis", "result_type": "component"
+      "name": "Zephyr Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "zephyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Zephyr",
+      "ingredients": {
+        "Oxium": 200,
+        "Nano Spores": 900,
+        "Rubedo": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "zephyr_chassis",
+      "result_name": "Zephyr Chassis",
+      "result_type": "component"
     },
     "zephyr_systems": {
-      "name": "Zephyr Systems", "type": "component", "category": "warframe_part", "part_of": "zephyr",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Zephyr",
-      "ingredients": { "Control Module": 1, "Oxium": 200, "Polymer Bundle": 500, "Plastids": 400 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "zephyr_systems", "result_name": "Zephyr Systems", "result_type": "component"
+      "name": "Zephyr Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "zephyr",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Zephyr",
+      "ingredients": {
+        "Control Module": 1,
+        "Oxium": 200,
+        "Polymer Bundle": 500,
+        "Plastids": 400
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "zephyr_systems",
+      "result_name": "Zephyr Systems",
+      "result_type": "component"
     },
     "zephyr": {
-      "name": "Zephyr", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Zephyr",
-      "ingredients": { "zephyr_neuroptics": 1, "zephyr_chassis": 1, "zephyr_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "zephyr", "result_name": "Zephyr", "result_type": "warframe", "warframe_key": "zephyr"
+      "name": "Zephyr",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Zephyr",
+      "ingredients": {
+        "zephyr_neuroptics": 1,
+        "zephyr_chassis": 1,
+        "zephyr_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "zephyr",
+      "result_name": "Zephyr",
+      "result_type": "warframe",
+      "warframe_key": "zephyr"
     },
-
     "mesa_neuroptics": {
-      "name": "Mesa Neuroptics", "type": "component", "category": "warframe_part", "part_of": "mesa",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mesa",
-      "ingredients": { "Alloy Plate": 1500, "Neural Sensors": 2, "Polymer Bundle": 350, "Plastids": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mesa_neuroptics", "result_name": "Mesa Neuroptics", "result_type": "component"
+      "name": "Mesa Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mesa",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mesa",
+      "ingredients": {
+        "Alloy Plate": 1500,
+        "Neural Sensors": 2,
+        "Polymer Bundle": 350,
+        "Plastids": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mesa_neuroptics",
+      "result_name": "Mesa Neuroptics",
+      "result_type": "component"
     },
     "mesa_chassis": {
-      "name": "Mesa Chassis", "type": "component", "category": "warframe_part", "part_of": "mesa",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mesa",
-      "ingredients": { "Morphics": 1, "Oxium": 50, "Plastids": 300, "Nano Spores": 1000 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mesa_chassis", "result_name": "Mesa Chassis", "result_type": "component"
+      "name": "Mesa Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mesa",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mesa",
+      "ingredients": {
+        "Morphics": 1,
+        "Oxium": 50,
+        "Plastids": 300,
+        "Nano Spores": 1000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mesa_chassis",
+      "result_name": "Mesa Chassis",
+      "result_type": "component"
     },
     "mesa_systems": {
-      "name": "Mesa Systems", "type": "component", "category": "warframe_part", "part_of": "mesa",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mesa",
-      "ingredients": { "Argon Crystal": 1, "Nano Spores": 1600, "Polymer Bundle": 300, "Circuits": 500 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mesa_systems", "result_name": "Mesa Systems", "result_type": "component"
+      "name": "Mesa Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mesa",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mesa",
+      "ingredients": {
+        "Argon Crystal": 1,
+        "Nano Spores": 1600,
+        "Polymer Bundle": 300,
+        "Circuits": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mesa_systems",
+      "result_name": "Mesa Systems",
+      "result_type": "component"
     },
     "mesa": {
-      "name": "Mesa", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mesa",
-      "ingredients": { "mesa_neuroptics": 1, "mesa_chassis": 1, "mesa_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "mesa", "result_name": "Mesa", "result_type": "warframe", "warframe_key": "mesa"
+      "name": "Mesa",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mesa",
+      "ingredients": {
+        "mesa_neuroptics": 1,
+        "mesa_chassis": 1,
+        "mesa_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "mesa",
+      "result_name": "Mesa",
+      "result_type": "warframe",
+      "warframe_key": "mesa"
     },
-
     "mirage_neuroptics": {
-      "name": "Mirage Neuroptics", "type": "component", "category": "warframe_part", "part_of": "mirage",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mirage",
-      "ingredients": { "Alloy Plate": 250, "Neurodes": 1, "Polymer Bundle": 400, "Orokin Cell": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mirage_neuroptics", "result_name": "Mirage Neuroptics", "result_type": "component"
+      "name": "Mirage Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mirage",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mirage",
+      "ingredients": {
+        "Alloy Plate": 250,
+        "Neurodes": 1,
+        "Polymer Bundle": 400,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mirage_neuroptics",
+      "result_name": "Mirage Neuroptics",
+      "result_type": "component"
     },
     "mirage_chassis": {
-      "name": "Mirage Chassis", "type": "component", "category": "warframe_part", "part_of": "mirage",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mirage",
-      "ingredients": { "Orokin Cell": 1, "Ferrite": 2500, "Plastids": 450, "Gallium": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mirage_chassis", "result_name": "Mirage Chassis", "result_type": "component"
+      "name": "Mirage Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mirage",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mirage",
+      "ingredients": {
+        "Orokin Cell": 1,
+        "Ferrite": 2500,
+        "Plastids": 450,
+        "Gallium": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mirage_chassis",
+      "result_name": "Mirage Chassis",
+      "result_type": "component"
     },
     "mirage_systems": {
-      "name": "Mirage Systems", "type": "component", "category": "warframe_part", "part_of": "mirage",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mirage",
-      "ingredients": { "Control Module": 1, "Circuits": 250, "Polymer Bundle": 650, "Orokin Cell": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "mirage_systems", "result_name": "Mirage Systems", "result_type": "component"
+      "name": "Mirage Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "mirage",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mirage",
+      "ingredients": {
+        "Control Module": 1,
+        "Circuits": 250,
+        "Polymer Bundle": 650,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "mirage_systems",
+      "result_name": "Mirage Systems",
+      "result_type": "component"
     },
     "mirage": {
-      "name": "Mirage", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Mirage",
+      "name": "Mirage",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mirage",
       "_note": "Main BP uses Argon Crystal instead of Orokin Cell — wiki-confirmed. Components each require an Orokin Cell.",
-      "ingredients": { "mirage_neuroptics": 1, "mirage_chassis": 1, "mirage_systems": 1, "Argon Crystal": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "mirage", "result_name": "Mirage", "result_type": "warframe", "warframe_key": "mirage"
+      "ingredients": {
+        "mirage_neuroptics": 1,
+        "mirage_chassis": 1,
+        "mirage_systems": 1,
+        "Argon Crystal": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "mirage",
+      "result_name": "Mirage",
+      "result_type": "warframe",
+      "warframe_key": "mirage"
     },
-
     "chroma_neuroptics": {
-      "name": "Chroma Neuroptics", "type": "component", "category": "warframe_part", "part_of": "chroma",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Chroma",
+      "name": "Chroma Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "chroma",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Chroma",
       "_note": "Requires a built Ember Neuroptics component — Chroma uses other frames' parts.",
-      "ingredients": { "Plastids": 200, "Neural Sensors": 2, "Polymer Bundle": 350, "Ember Neuroptics": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "chroma_neuroptics", "result_name": "Chroma Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Plastids": 200,
+        "Neural Sensors": 2,
+        "Polymer Bundle": 350,
+        "Ember Neuroptics": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "chroma_neuroptics",
+      "result_name": "Chroma Neuroptics",
+      "result_type": "component"
     },
     "chroma_chassis": {
-      "name": "Chroma Chassis", "type": "component", "category": "warframe_part", "part_of": "chroma",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Chroma",
+      "name": "Chroma Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "chroma",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Chroma",
       "_note": "Requires a built Frost Chassis component.",
-      "ingredients": { "Neurodes": 2, "Salvage": 900, "Plastids": 50, "Frost Chassis": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "chroma_chassis", "result_name": "Chroma Chassis", "result_type": "component"
+      "ingredients": {
+        "Neurodes": 2,
+        "Salvage": 900,
+        "Plastids": 50,
+        "Frost Chassis": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "chroma_chassis",
+      "result_name": "Chroma Chassis",
+      "result_type": "component"
     },
     "chroma_systems": {
-      "name": "Chroma Systems", "type": "component", "category": "warframe_part", "part_of": "chroma",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Chroma",
+      "name": "Chroma Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "chroma",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Chroma",
       "_note": "Requires a built Saryn Systems component.",
-      "ingredients": { "Oxium": 400, "Argon Crystal": 2, "Neurodes": 1, "Saryn Systems": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "chroma_systems", "result_name": "Chroma Systems", "result_type": "component"
+      "ingredients": {
+        "Oxium": 400,
+        "Argon Crystal": 2,
+        "Neurodes": 1,
+        "Saryn Systems": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "chroma_systems",
+      "result_name": "Chroma Systems",
+      "result_type": "component"
     },
     "chroma": {
-      "name": "Chroma", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Chroma",
+      "name": "Chroma",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Chroma",
       "_note": "Main BP uses Volt Neuroptics instead of Orokin Cell — unique mechanic requiring another Warframe's component.",
-      "ingredients": { "chroma_neuroptics": 1, "chroma_chassis": 1, "chroma_systems": 1, "Volt Neuroptics": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "chroma", "result_name": "Chroma", "result_type": "warframe", "warframe_key": "chroma"
+      "ingredients": {
+        "chroma_neuroptics": 1,
+        "chroma_chassis": 1,
+        "chroma_systems": 1,
+        "Volt Neuroptics": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "chroma",
+      "result_name": "Chroma",
+      "result_type": "warframe",
+      "warframe_key": "chroma"
     },
-
     "limbo_neuroptics": {
-      "name": "Limbo Neuroptics", "type": "component", "category": "warframe_part", "part_of": "limbo",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Limbo",
+      "name": "Limbo Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "limbo",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Limbo",
       "_note": "Quest warframe — components build in 1 minute (not 12 hours).",
-      "ingredients": { "Alloy Plate": 150, "Neurodes": 2, "Polymer Bundle": 150, "Rubedo": 500 },
-      "credit_cost": 15000, "base_time": 30,
-      "result_key": "limbo_neuroptics", "result_name": "Limbo Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Alloy Plate": 150,
+        "Neurodes": 2,
+        "Polymer Bundle": 150,
+        "Rubedo": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 30,
+      "result_key": "limbo_neuroptics",
+      "result_name": "Limbo Neuroptics",
+      "result_type": "component"
     },
     "limbo_chassis": {
-      "name": "Limbo Chassis", "type": "component", "category": "warframe_part", "part_of": "limbo",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Limbo",
+      "name": "Limbo Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "limbo",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Limbo",
       "_note": "Quest warframe — builds in 1 minute.",
-      "ingredients": { "Neural Sensors": 1, "Ferrite": 1000, "Rubedo": 300, "Argon Crystal": 1 },
-      "credit_cost": 15000, "base_time": 30,
-      "result_key": "limbo_chassis", "result_name": "Limbo Chassis", "result_type": "component"
+      "ingredients": {
+        "Neural Sensors": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300,
+        "Argon Crystal": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 30,
+      "result_key": "limbo_chassis",
+      "result_name": "Limbo Chassis",
+      "result_type": "component"
     },
     "limbo_systems": {
-      "name": "Limbo Systems", "type": "component", "category": "warframe_part", "part_of": "limbo",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Limbo",
+      "name": "Limbo Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "limbo",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Limbo",
       "_note": "Quest warframe — builds in 1 minute.",
-      "ingredients": { "Control Module": 1, "Morphics": 3, "Salvage": 500, "Plastids": 220 },
-      "credit_cost": 15000, "base_time": 30,
-      "result_key": "limbo_systems", "result_name": "Limbo Systems", "result_type": "component"
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 3,
+        "Salvage": 500,
+        "Plastids": 220
+      },
+      "credit_cost": 15000,
+      "base_time": 30,
+      "result_key": "limbo_systems",
+      "result_name": "Limbo Systems",
+      "result_type": "component"
     },
     "limbo": {
-      "name": "Limbo", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Limbo",
+      "name": "Limbo",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Limbo",
       "_note": "Quest warframe (The Limbo Theorem) — main assembles in 1 minute. Requires 3 Orokin Cells.",
-      "ingredients": { "limbo_neuroptics": 1, "limbo_chassis": 1, "limbo_systems": 1, "Orokin Cell": 3 },
-      "credit_cost": 25000, "base_time": 30,
-      "result_key": "limbo", "result_name": "Limbo", "result_type": "warframe", "warframe_key": "limbo"
+      "ingredients": {
+        "limbo_neuroptics": 1,
+        "limbo_chassis": 1,
+        "limbo_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 30,
+      "result_key": "limbo",
+      "result_name": "Limbo",
+      "result_type": "warframe",
+      "warframe_key": "limbo"
     },
-
     "atlas_neuroptics": {
-      "name": "Atlas Neuroptics", "type": "component", "category": "warframe_part", "part_of": "atlas",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Atlas",
-      "ingredients": { "Polymer Bundle": 1400, "Alloy Plate": 1100, "Circuits": 800, "Neurodes": 5 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "atlas_neuroptics", "result_name": "Atlas Neuroptics", "result_type": "component"
+      "name": "Atlas Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "atlas",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Atlas",
+      "ingredients": {
+        "Polymer Bundle": 1400,
+        "Alloy Plate": 1100,
+        "Circuits": 800,
+        "Neurodes": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "atlas_neuroptics",
+      "result_name": "Atlas Neuroptics",
+      "result_type": "component"
     },
     "atlas_chassis": {
-      "name": "Atlas Chassis", "type": "component", "category": "warframe_part", "part_of": "atlas",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Atlas",
-      "ingredients": { "Nano Spores": 1800, "Cryotic": 1300, "Rubedo": 700, "Argon Crystal": 2 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "atlas_chassis", "result_name": "Atlas Chassis", "result_type": "component"
+      "name": "Atlas Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "atlas",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Atlas",
+      "ingredients": {
+        "Nano Spores": 1800,
+        "Cryotic": 1300,
+        "Rubedo": 700,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "atlas_chassis",
+      "result_name": "Atlas Chassis",
+      "result_type": "component"
     },
     "atlas_systems": {
-      "name": "Atlas Systems", "type": "component", "category": "warframe_part", "part_of": "atlas",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Atlas",
-      "ingredients": { "Ferrite": 4600, "Polymer Bundle": 1700, "Morphics": 5, "Orokin Cell": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "atlas_systems", "result_name": "Atlas Systems", "result_type": "component"
+      "name": "Atlas Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "atlas",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Atlas",
+      "ingredients": {
+        "Ferrite": 4600,
+        "Polymer Bundle": 1700,
+        "Morphics": 5,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "atlas_systems",
+      "result_name": "Atlas Systems",
+      "result_type": "component"
     },
     "atlas": {
-      "name": "Atlas", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Atlas",
+      "name": "Atlas",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Atlas",
       "_note": "Main BP costs 30,000 credits — wiki-confirmed.",
-      "ingredients": { "atlas_neuroptics": 1, "atlas_chassis": 1, "atlas_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 30000, "base_time": 720,
-      "result_key": "atlas", "result_name": "Atlas", "result_type": "warframe", "warframe_key": "atlas"
+      "ingredients": {
+        "atlas_neuroptics": 1,
+        "atlas_chassis": 1,
+        "atlas_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 30000,
+      "base_time": 720,
+      "result_key": "atlas",
+      "result_name": "Atlas",
+      "result_type": "warframe",
+      "warframe_key": "atlas"
     },
-
     "ivara_neuroptics": {
-      "name": "Ivara Neuroptics", "type": "component", "category": "warframe_part", "part_of": "ivara",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ivara",
-      "ingredients": { "Neurodes": 5, "Plastids": 800, "Polymer Bundle": 2600, "Argon Crystal": 2 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ivara_neuroptics", "result_name": "Ivara Neuroptics", "result_type": "component"
+      "name": "Ivara Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ivara",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ivara",
+      "ingredients": {
+        "Neurodes": 5,
+        "Plastids": 800,
+        "Polymer Bundle": 2600,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ivara_neuroptics",
+      "result_name": "Ivara Neuroptics",
+      "result_type": "component"
     },
     "ivara_chassis": {
-      "name": "Ivara Chassis", "type": "component", "category": "warframe_part", "part_of": "ivara",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ivara",
+      "name": "Ivara Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ivara",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ivara",
       "_note": "Requires Nitain Extract — rare Nightwave/Alert resource.",
-      "ingredients": { "Morphics": 5, "Cryotic": 2000, "Rubedo": 700, "Nitain Extract": 4 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ivara_chassis", "result_name": "Ivara Chassis", "result_type": "component"
+      "ingredients": {
+        "Morphics": 5,
+        "Cryotic": 2000,
+        "Rubedo": 700,
+        "Nitain Extract": 4
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ivara_chassis",
+      "result_name": "Ivara Chassis",
+      "result_type": "component"
     },
     "ivara_systems": {
-      "name": "Ivara Systems", "type": "component", "category": "warframe_part", "part_of": "ivara",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ivara",
+      "name": "Ivara Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "ivara",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ivara",
       "_note": "Requires Nitain Extract — rare Nightwave/Alert resource.",
-      "ingredients": { "Control Module": 5, "Rubedo": 1000, "Nitain Extract": 5, "Argon Crystal": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "ivara_systems", "result_name": "Ivara Systems", "result_type": "component"
+      "ingredients": {
+        "Control Module": 5,
+        "Rubedo": 1000,
+        "Nitain Extract": 5,
+        "Argon Crystal": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "ivara_systems",
+      "result_name": "Ivara Systems",
+      "result_type": "component"
     },
     "ivara": {
-      "name": "Ivara", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ivara",
-      "ingredients": { "ivara_neuroptics": 1, "ivara_chassis": 1, "ivara_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "ivara", "result_name": "Ivara", "result_type": "warframe", "warframe_key": "ivara"
+      "name": "Ivara",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ivara",
+      "ingredients": {
+        "ivara_neuroptics": 1,
+        "ivara_chassis": 1,
+        "ivara_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "ivara",
+      "result_name": "Ivara",
+      "result_type": "warframe",
+      "warframe_key": "ivara"
     },
-
     "equinox_day_neuroptics": {
-      "name": "Equinox Day Neuroptics", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": false, "_unverified_note": "Training-data values; Equinox component pages use complex templates.",
+      "name": "Equinox Day Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": false,
+      "_unverified_note": "Training-data values; Equinox component pages use complex templates.",
       "wiki_source": "warframe.fandom.com/wiki/Equinox",
-      "ingredients": { "Circuits": 150, "Neural Sensors": 1, "Polymer Bundle": 300, "Nano Spores": 250 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_day_neuroptics", "result_name": "Equinox Day Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Circuits": 150,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 300,
+        "Nano Spores": 250
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_day_neuroptics",
+      "result_name": "Equinox Day Neuroptics",
+      "result_type": "component"
     },
     "equinox_day_chassis": {
-      "name": "Equinox Day Chassis", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "name": "Equinox Day Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
       "_note": "Gallium×1+Ferrite×1000+Rubedo×300 confirmed from wiki render.",
-      "ingredients": { "Gallium": 1, "Ferrite": 1000, "Rubedo": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_day_chassis", "result_name": "Equinox Day Chassis", "result_type": "component"
+      "ingredients": {
+        "Gallium": 1,
+        "Ferrite": 1000,
+        "Rubedo": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_day_chassis",
+      "result_name": "Equinox Day Chassis",
+      "result_type": "component"
     },
     "equinox_day_systems": {
-      "name": "Equinox Day Systems", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": false, "_unverified_note": "Training-data values.",
+      "name": "Equinox Day Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": false,
+      "_unverified_note": "Training-data values.",
       "wiki_source": "warframe.fandom.com/wiki/Equinox",
-      "ingredients": { "Control Module": 1, "Alloy Plate": 900, "Rubedo": 500, "Polymer Bundle": 600 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_day_systems", "result_name": "Equinox Day Systems", "result_type": "component"
+      "ingredients": {
+        "Control Module": 1,
+        "Alloy Plate": 900,
+        "Rubedo": 500,
+        "Polymer Bundle": 600
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_day_systems",
+      "result_name": "Equinox Day Systems",
+      "result_type": "component"
     },
     "equinox_night_neuroptics": {
-      "name": "Equinox Night Neuroptics", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": false, "_unverified_note": "Training-data values.",
+      "name": "Equinox Night Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": false,
+      "_unverified_note": "Training-data values.",
       "wiki_source": "warframe.fandom.com/wiki/Equinox",
-      "ingredients": { "Morphics": 1, "Alloy Plate": 600, "Salvage": 600, "Plastids": 300 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_night_neuroptics", "result_name": "Equinox Night Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Morphics": 1,
+        "Alloy Plate": 600,
+        "Salvage": 600,
+        "Plastids": 300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_night_neuroptics",
+      "result_name": "Equinox Night Neuroptics",
+      "result_type": "component"
     },
     "equinox_night_chassis": {
-      "name": "Equinox Night Chassis", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": false, "_unverified_note": "Training-data values.",
+      "name": "Equinox Night Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": false,
+      "_unverified_note": "Training-data values.",
       "wiki_source": "warframe.fandom.com/wiki/Equinox",
-      "ingredients": { "Neurodes": 1, "Alloy Plate": 600, "Nano Spores": 600, "Rubedo": 600 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_night_chassis", "result_name": "Equinox Night Chassis", "result_type": "component"
+      "ingredients": {
+        "Neurodes": 1,
+        "Alloy Plate": 600,
+        "Nano Spores": 600,
+        "Rubedo": 600
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_night_chassis",
+      "result_name": "Equinox Night Chassis",
+      "result_type": "component"
     },
     "equinox_night_systems": {
-      "name": "Equinox Night Systems", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": false, "_unverified_note": "Training-data values.",
+      "name": "Equinox Night Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": false,
+      "_unverified_note": "Training-data values.",
       "wiki_source": "warframe.fandom.com/wiki/Equinox",
-      "ingredients": { "Control Module": 1, "Circuits": 750, "Nano Spores": 500, "Orokin Cell": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "equinox_night_systems", "result_name": "Equinox Night Systems", "result_type": "component"
+      "ingredients": {
+        "Control Module": 1,
+        "Circuits": 750,
+        "Nano Spores": 500,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "equinox_night_systems",
+      "result_name": "Equinox Night Systems",
+      "result_type": "component"
     },
     "equinox_day_form": {
-      "name": "Equinox Day Form", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "name": "Equinox Day Form",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
       "_note": "Intermediate assembly — must be built before main Equinox.",
-      "ingredients": { "equinox_day_neuroptics": 1, "equinox_day_chassis": 1, "equinox_day_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "equinox_day_form", "result_name": "Equinox Day Form", "result_type": "component"
+      "ingredients": {
+        "equinox_day_neuroptics": 1,
+        "equinox_day_chassis": 1,
+        "equinox_day_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "equinox_day_form",
+      "result_name": "Equinox Day Form",
+      "result_type": "component"
     },
     "equinox_night_form": {
-      "name": "Equinox Night Form", "type": "component", "category": "warframe_part", "part_of": "equinox",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "name": "Equinox Night Form",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "equinox",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
       "_note": "Intermediate assembly — must be built before main Equinox.",
-      "ingredients": { "equinox_night_neuroptics": 1, "equinox_night_chassis": 1, "equinox_night_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "equinox_night_form", "result_name": "Equinox Night Form", "result_type": "component"
+      "ingredients": {
+        "equinox_night_neuroptics": 1,
+        "equinox_night_chassis": 1,
+        "equinox_night_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "equinox_night_form",
+      "result_name": "Equinox Night Form",
+      "result_type": "component"
     },
     "equinox": {
-      "name": "Equinox", "type": "warframe", "category": "warframe",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "name": "Equinox",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
       "_note": "Unique 9-step build. Main BP requires Equinox Day Form + Equinox Night Form + Forma×1 instead of standard 3 components.",
-      "ingredients": { "equinox_day_form": 1, "equinox_night_form": 1, "Forma": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "equinox", "result_name": "Equinox", "result_type": "warframe", "warframe_key": "equinox"
+      "ingredients": {
+        "equinox_day_form": 1,
+        "equinox_night_form": 1,
+        "Forma": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "equinox",
+      "result_name": "Equinox",
+      "result_type": "warframe",
+      "warframe_key": "equinox"
     },
-
     "wukong_neuroptics": {
-      "name": "Wukong Neuroptics", "type": "component", "category": "warframe_part", "part_of": "wukong",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback — verify at warframe.fandom.com/wiki/Wukong",
+      "name": "Wukong Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wukong",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Wukong",
-      "ingredients": { "Alloy Plate": 650, "Neural Sensors": 1, "Polymer Bundle": 500, "Nano Spores": 2400 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "wukong_neuroptics", "result_name": "Wukong Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Circuits": 1400,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 2600,
+        "Nitain Extract": 2
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wukong_neuroptics",
+      "result_name": "Wukong Neuroptics",
+      "result_type": "component"
     },
     "wukong_chassis": {
-      "name": "Wukong Chassis", "type": "component", "category": "warframe_part", "part_of": "wukong",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback.",
+      "name": "Wukong Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wukong",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Wukong",
-      "ingredients": { "Morphics": 2, "Oxium": 40, "Nano Spores": 900, "Rubedo": 100 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "wukong_chassis", "result_name": "Wukong Chassis", "result_type": "component"
+      "ingredients": {
+        "Morphics": 1,
+        "Ferrite": 900,
+        "Rubedo": 50,
+        "Nitain Extract": 4
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wukong_chassis",
+      "result_name": "Wukong Chassis",
+      "result_type": "component"
     },
     "wukong_systems": {
-      "name": "Wukong Systems", "type": "component", "category": "warframe_part", "part_of": "wukong",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback.",
+      "name": "Wukong Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wukong",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Wukong",
-      "ingredients": { "Circuits": 500, "Control Module": 1, "Salvage": 1500, "Plastids": 150 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "wukong_systems", "result_name": "Wukong Systems", "result_type": "component"
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Neurodes": 2,
+        "Salvage": 8000,
+        "Plastids": 4000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wukong_systems",
+      "result_name": "Wukong Systems",
+      "result_type": "component"
     },
     "wukong": {
-      "name": "Wukong", "type": "warframe", "category": "warframe",
-      "wiki_verified": false, "_unverified_note": "Wiki page truncated during fetch; using training-data values.",
+      "name": "Wukong",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Wukong",
-      "ingredients": { "wukong_neuroptics": 1, "wukong_chassis": 1, "wukong_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "wukong", "result_name": "Wukong", "result_type": "warframe", "warframe_key": "wukong"
+      "ingredients": {
+        "wukong_neuroptics": 1,
+        "wukong_chassis": 1,
+        "wukong_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "wukong",
+      "result_name": "Wukong",
+      "result_type": "warframe",
+      "warframe_key": "wukong"
     },
-
     "inaros_neuroptics": {
-      "name": "Inaros Neuroptics", "type": "component", "category": "warframe_part", "part_of": "inaros",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback — verify at warframe.fandom.com/wiki/Inaros",
+      "name": "Inaros Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "inaros",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Inaros",
-      "ingredients": { "Alloy Plate": 650, "Neurodes": 1, "Polymer Bundle": 500, "Nano Spores": 900 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "inaros_neuroptics", "result_name": "Inaros Neuroptics", "result_type": "component"
+      "ingredients": {
+        "Alloy Plate": 1500,
+        "Nitain Extract": 2,
+        "Polymer Bundle": 350,
+        "Plastids": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "inaros_neuroptics",
+      "result_name": "Inaros Neuroptics",
+      "result_type": "component"
     },
     "inaros_chassis": {
-      "name": "Inaros Chassis", "type": "component", "category": "warframe_part", "part_of": "inaros",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback.",
+      "name": "Inaros Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "inaros",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Inaros",
-      "ingredients": { "Morphics": 1, "Rubedo": 1000, "Ferrite": 800, "Control Module": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "inaros_chassis", "result_name": "Inaros Chassis", "result_type": "component"
+      "ingredients": {
+        "Neurodes": 3,
+        "Nano Spores": 1000,
+        "Plastids": 300,
+        "Oxium": 100
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "inaros_chassis",
+      "result_name": "Inaros Chassis",
+      "result_type": "component"
     },
     "inaros_systems": {
-      "name": "Inaros Systems", "type": "component", "category": "warframe_part", "part_of": "inaros",
-      "wiki_verified": false, "_unverified_note": "Training-data fallback.",
+      "name": "Inaros Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "inaros",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Inaros",
-      "ingredients": { "Neural Sensors": 1, "Circuits": 500, "Salvage": 900, "Orokin Cell": 1 },
-      "credit_cost": 15000, "base_time": 300,
-      "result_key": "inaros_systems", "result_name": "Inaros Systems", "result_type": "component"
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Polymer Bundle": 300,
+        "Nano Spores": 1600,
+        "Circuits": 500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "inaros_systems",
+      "result_name": "Inaros Systems",
+      "result_type": "component"
     },
     "inaros": {
-      "name": "Inaros", "type": "warframe", "category": "warframe",
-      "wiki_verified": false, "_unverified_note": "Quest warframe (Sands of Inaros); wiki page truncated during fetch.",
+      "name": "Inaros",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Inaros",
-      "ingredients": { "inaros_neuroptics": 1, "inaros_chassis": 1, "inaros_systems": 1, "Orokin Cell": 1 },
-      "credit_cost": 25000, "base_time": 720,
-      "result_key": "inaros", "result_name": "Inaros", "result_type": "warframe", "warframe_key": "inaros"
+      "ingredients": {
+        "inaros_neuroptics": 1,
+        "inaros_chassis": 1,
+        "inaros_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "inaros",
+      "result_name": "Inaros",
+      "result_type": "warframe",
+      "warframe_key": "inaros"
     },
-
     "boltor": {
-      "name": "Boltor", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Boltor",
-      "ingredients": { "Neurodes": 2, "Alloy Plate": 100, "Salvage": 900, "Polymer Bundle": 600 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Boltor", "result_name": "Boltor", "result_type": "weapon_primary"
+      "name": "Boltor",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Boltor",
+      "ingredients": {
+        "Neurodes": 2,
+        "Alloy Plate": 100,
+        "Salvage": 900,
+        "Polymer Bundle": 600
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Boltor",
+      "result_name": "Boltor",
+      "result_type": "weapon_primary"
     },
-
     "paris": {
-      "name": "Paris", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Paris",
-      "ingredients": { "Morphics": 3, "Plastids": 600, "Polymer Bundle": 700, "Nano Spores": 2000 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Paris", "result_name": "Paris", "result_type": "weapon_primary"
+      "name": "Paris",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Paris",
+      "ingredients": {
+        "Morphics": 3,
+        "Plastids": 600,
+        "Polymer Bundle": 700,
+        "Nano Spores": 2000
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Paris",
+      "result_name": "Paris",
+      "result_type": "weapon_primary"
     },
-
     "hek": {
-      "name": "Hek", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hek",
-      "ingredients": { "Neurodes": 5, "Circuits": 900, "Salvage": 1200, "Rubedo": 1000 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Hek", "result_name": "Hek", "result_type": "weapon_primary"
+      "name": "Hek",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hek",
+      "ingredients": {
+        "Neurodes": 5,
+        "Circuits": 900,
+        "Salvage": 1200,
+        "Rubedo": 1000
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Hek",
+      "result_name": "Hek",
+      "result_type": "weapon_primary"
     },
-
     "latron": {
-      "name": "Latron", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Latron",
-      "ingredients": { "Morphics": 5, "Plastids": 800, "Alloy Plate": 1000, "Salvage": 900 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Latron", "result_name": "Latron", "result_type": "weapon_primary"
+      "name": "Latron",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Latron",
+      "ingredients": {
+        "Morphics": 5,
+        "Plastids": 800,
+        "Alloy Plate": 1000,
+        "Salvage": 900
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Latron",
+      "result_name": "Latron",
+      "result_type": "weapon_primary"
     },
-
     "grakata": {
-      "name": "Grakata", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Grakata",
-      "ingredients": { "Neurodes": 2, "Alloy Plate": 400, "Salvage": 900, "Polymer Bundle": 100 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Grakata", "result_name": "Grakata", "result_type": "weapon_primary"
+      "name": "Grakata",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grakata",
+      "ingredients": {
+        "Neurodes": 2,
+        "Alloy Plate": 400,
+        "Salvage": 900,
+        "Polymer Bundle": 100
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Grakata",
+      "result_name": "Grakata",
+      "result_type": "weapon_primary"
     },
-
     "karak": {
-      "name": "Karak", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Karak",
-      "ingredients": { "Neurodes": 2, "Alloy Plate": 400, "Salvage": 900, "Polymer Bundle": 100 },
-      "credit_cost": 30000, "base_time": 480,
-      "result_key": "Karak", "result_name": "Karak", "result_type": "weapon_primary"
+      "name": "Karak",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Karak",
+      "ingredients": {
+        "Neurodes": 2,
+        "Alloy Plate": 400,
+        "Salvage": 900,
+        "Polymer Bundle": 100
+      },
+      "credit_cost": 30000,
+      "base_time": 480,
+      "result_key": "Karak",
+      "result_name": "Karak",
+      "result_type": "weapon_primary"
     },
-
     "soma": {
-      "name": "Soma", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Soma",
-      "ingredients": { "Morphics": 7, "Plastids": 850, "Rubedo": 1200, "Salvage": 8000 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Soma", "result_name": "Soma", "result_type": "weapon_primary"
+      "name": "Soma",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Soma",
+      "ingredients": {
+        "Morphics": 7,
+        "Plastids": 850,
+        "Rubedo": 1200,
+        "Salvage": 8000
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Soma",
+      "result_name": "Soma",
+      "result_type": "weapon_primary"
     },
-
     "tigris": {
-      "name": "Tigris", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Tigris",
-      "ingredients": { "Orokin Cell": 3, "Circuits": 900, "Salvage": 1200, "Rubedo": 1200 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Tigris", "result_name": "Tigris", "result_type": "weapon_primary"
+      "name": "Tigris",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Tigris",
+      "ingredients": {
+        "Orokin Cell": 3,
+        "Circuits": 900,
+        "Salvage": 1200,
+        "Rubedo": 1200
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Tigris",
+      "result_name": "Tigris",
+      "result_type": "weapon_primary"
     },
-
     "ignis": {
-      "name": "Ignis", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ignis",
+      "name": "Ignis",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ignis",
       "_note": "Requires Detonite Injector (craft from Detonite Ampules) and Forma.",
-      "ingredients": { "Detonite Injector": 2, "Nano Spores": 5000, "Ferrite": 5000, "Forma": 1 },
-      "credit_cost": 30000, "base_time": 480,
-      "result_key": "Ignis", "result_name": "Ignis", "result_type": "weapon_primary"
+      "ingredients": {
+        "Detonite Injector": 2,
+        "Nano Spores": 5000,
+        "Ferrite": 5000,
+        "Forma": 1
+      },
+      "credit_cost": 30000,
+      "base_time": 480,
+      "result_key": "Ignis",
+      "result_name": "Ignis",
+      "result_type": "weapon_primary"
     },
-
     "vulkar": {
-      "name": "Vulkar", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Vulkar",
-      "ingredients": { "Morphics": 5, "Circuits": 800, "Salvage": 1200, "Plastids": 800 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Vulkar", "result_name": "Vulkar", "result_type": "weapon_primary"
+      "name": "Vulkar",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Vulkar",
+      "ingredients": {
+        "Morphics": 5,
+        "Circuits": 800,
+        "Salvage": 1200,
+        "Plastids": 800
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Vulkar",
+      "result_name": "Vulkar",
+      "result_type": "weapon_primary"
     },
-
     "vectis": {
-      "name": "Vectis", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Vectis",
-      "ingredients": { "Neurodes": 4, "Orokin Cell": 4, "Nano Spores": 3000, "Rubedo": 2500 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Vectis", "result_name": "Vectis", "result_type": "weapon_primary"
+      "name": "Vectis",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Vectis",
+      "ingredients": {
+        "Neurodes": 4,
+        "Orokin Cell": 4,
+        "Nano Spores": 3000,
+        "Rubedo": 2500
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Vectis",
+      "result_name": "Vectis",
+      "result_type": "weapon_primary"
     },
-
     "dread": {
-      "name": "Dread", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Dread",
+      "name": "Dread",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Dread",
       "_note": "Blueprint drops from the Stalker.",
-      "ingredients": { "Morphics": 6, "Circuits": 900, "Polymer Bundle": 750, "Plastids": 900 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Dread", "result_name": "Dread", "result_type": "weapon_primary"
+      "ingredients": {
+        "Morphics": 6,
+        "Circuits": 900,
+        "Polymer Bundle": 750,
+        "Plastids": 900
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Dread",
+      "result_name": "Dread",
+      "result_type": "weapon_primary"
     },
-
     "tonkor": {
-      "name": "Tonkor", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Tonkor",
+      "name": "Tonkor",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Tonkor",
       "_note": "High credit cost (60,000) — Dojo research weapon.",
-      "ingredients": { "Salvage": 1500, "Oxium": 200, "Cryotic": 800, "Argon Crystal": 2 },
-      "credit_cost": 60000, "base_time": 480,
-      "result_key": "Tonkor", "result_name": "Tonkor", "result_type": "weapon_primary"
+      "ingredients": {
+        "Salvage": 1500,
+        "Oxium": 200,
+        "Cryotic": 800,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 60000,
+      "base_time": 480,
+      "result_key": "Tonkor",
+      "result_name": "Tonkor",
+      "result_type": "weapon_primary"
     },
-
     "buzlok": {
-      "name": "Buzlok", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Buzlok",
+      "name": "Buzlok",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Buzlok",
       "_note": "Dojo weapon. Requires Detonite Injector×2 and Forma×1.",
-      "ingredients": { "Detonite Injector": 2, "Salvage": 5000, "Circuits": 600, "Forma": 1 },
-      "credit_cost": 30000, "base_time": 480,
-      "result_key": "Buzlok", "result_name": "Buzlok", "result_type": "weapon_primary"
+      "ingredients": {
+        "Detonite Injector": 2,
+        "Salvage": 5000,
+        "Circuits": 600,
+        "Forma": 1
+      },
+      "credit_cost": 30000,
+      "base_time": 480,
+      "result_key": "Buzlok",
+      "result_name": "Buzlok",
+      "result_type": "weapon_primary"
     },
-
     "opticor": {
-      "name": "Opticor", "type": "weapon", "category": "primary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Opticor",
+      "name": "Opticor",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Opticor",
       "_note": "Dojo weapon. Requires Fieldron×5 (craft from Fieldron Samples) and Forma×1.",
-      "ingredients": { "Fieldron": 5, "Gallium": 20, "Cryotic": 600, "Forma": 1 },
-      "credit_cost": 30000, "base_time": 480,
-      "result_key": "Opticor", "result_name": "Opticor", "result_type": "weapon_primary"
+      "ingredients": {
+        "Fieldron": 5,
+        "Gallium": 20,
+        "Cryotic": 600,
+        "Forma": 1
+      },
+      "credit_cost": 30000,
+      "base_time": 480,
+      "result_key": "Opticor",
+      "result_name": "Opticor",
+      "result_type": "weapon_primary"
     },
-
     "furis": {
-      "name": "Furis", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Furis",
-      "ingredients": { "Ferrite": 750, "Alloy Plate": 300, "Salvage": 400, "Neurodes": 4 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Furis", "result_name": "Furis", "result_type": "weapon_secondary"
+      "name": "Furis",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Furis",
+      "ingredients": {
+        "Ferrite": 750,
+        "Alloy Plate": 300,
+        "Salvage": 400,
+        "Neurodes": 4
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Furis",
+      "result_name": "Furis",
+      "result_type": "weapon_secondary"
     },
-
     "bronco": {
-      "name": "Bronco", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Bronco",
-      "ingredients": { "Neurodes": 2, "Alloy Plate": 1200, "Ferrite": 700, "Polymer Bundle": 800 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Bronco", "result_name": "Bronco", "result_type": "weapon_secondary"
+      "name": "Bronco",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Bronco",
+      "ingredients": {
+        "Neurodes": 2,
+        "Alloy Plate": 1200,
+        "Ferrite": 700,
+        "Polymer Bundle": 800
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Bronco",
+      "result_name": "Bronco",
+      "result_type": "weapon_secondary"
     },
-
     "magnus": {
-      "name": "Magnus", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Magnus",
-      "ingredients": { "Orokin Cell": 2, "Alloy Plate": 400, "Salvage": 900, "Ferrite": 100 },
-      "credit_cost": 25000, "base_time": 480,
-      "result_key": "Magnus", "result_name": "Magnus", "result_type": "weapon_secondary"
+      "name": "Magnus",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Magnus",
+      "ingredients": {
+        "Orokin Cell": 2,
+        "Alloy Plate": 400,
+        "Salvage": 900,
+        "Ferrite": 100
+      },
+      "credit_cost": 25000,
+      "base_time": 480,
+      "result_key": "Magnus",
+      "result_name": "Magnus",
+      "result_type": "weapon_secondary"
     },
-
     "vasto": {
-      "name": "Vasto", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Vasto",
-      "ingredients": { "Neurodes": 4, "Alloy Plate": 1200, "Ferrite": 700, "Polymer Bundle": 1000 },
-      "credit_cost": 30000, "base_time": 360,
-      "result_key": "Vasto", "result_name": "Vasto", "result_type": "weapon_secondary"
+      "name": "Vasto",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Vasto",
+      "ingredients": {
+        "Neurodes": 4,
+        "Alloy Plate": 1200,
+        "Ferrite": 700,
+        "Polymer Bundle": 1000
+      },
+      "credit_cost": 30000,
+      "base_time": 360,
+      "result_key": "Vasto",
+      "result_name": "Vasto",
+      "result_type": "weapon_secondary"
     },
-
     "akstiletto": {
-      "name": "Akstiletto", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Akstiletto",
-      "ingredients": { "Gallium": 2, "Salvage": 800, "Alloy Plate": 200, "Forma": 1 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Akstiletto", "result_name": "Akstiletto", "result_type": "weapon_secondary"
+      "name": "Akstiletto",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Akstiletto",
+      "ingredients": {
+        "Gallium": 2,
+        "Salvage": 800,
+        "Alloy Plate": 200,
+        "Forma": 1
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Akstiletto",
+      "result_name": "Akstiletto",
+      "result_type": "weapon_secondary"
     },
-
     "afuris": {
-      "name": "Afuris", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Afuris",
+      "name": "Afuris",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Afuris",
       "_note": "Requires 2 built Furis weapons — craft and claim Furis twice first.",
-      "ingredients": { "Furis": 2, "Orokin Cell": 1 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Afuris", "result_name": "Afuris", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Furis": 2,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Afuris",
+      "result_name": "Afuris",
+      "result_type": "weapon_secondary"
     },
-
     "akbronco": {
-      "name": "Akbronco", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Akbronco",
+      "name": "Akbronco",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Akbronco",
       "_note": "Requires 2 built Bronco weapons — craft and claim Bronco twice first.",
-      "ingredients": { "Bronco": 2, "Orokin Cell": 1 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Akbronco", "result_name": "Akbronco", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Bronco": 2,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Akbronco",
+      "result_name": "Akbronco",
+      "result_type": "weapon_secondary"
     },
-
     "kunai": {
-      "name": "Kunai", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Kunai",
+      "name": "Kunai",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Kunai",
       "_note": "Required to craft Tipedo. Previous entry had incorrect ingredients — now wiki-verified.",
-      "ingredients": { "Morphics": 5, "Ferrite": 3000, "Nano Spores": 4000, "Salvage": 4000 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Kunai", "result_name": "Kunai", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Morphics": 5,
+        "Ferrite": 3000,
+        "Nano Spores": 4000,
+        "Salvage": 4000
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Kunai",
+      "result_name": "Kunai",
+      "result_type": "weapon_secondary"
     },
-
     "hikou": {
-      "name": "Hikou", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hikou",
-      "ingredients": { "Morphics": 5, "Plastids": 500, "Rubedo": 600, "Salvage": 4000 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Hikou", "result_name": "Hikou", "result_type": "weapon_secondary"
+      "name": "Hikou",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hikou",
+      "ingredients": {
+        "Morphics": 5,
+        "Plastids": 500,
+        "Rubedo": 600,
+        "Salvage": 4000
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Hikou",
+      "result_name": "Hikou",
+      "result_type": "weapon_secondary"
     },
-
     "despair": {
-      "name": "Despair", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Despair",
+      "name": "Despair",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Despair",
       "_note": "Blueprint drops from the Stalker.",
-      "ingredients": { "Morphics": 10, "Ferrite": 5000, "Alloy Plate": 800, "Salvage": 4500 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Despair", "result_name": "Despair", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Morphics": 10,
+        "Ferrite": 5000,
+        "Alloy Plate": 800,
+        "Salvage": 4500
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Despair",
+      "result_name": "Despair",
+      "result_type": "weapon_secondary"
     },
-
     "akmagnus": {
-      "name": "Akmagnus", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Akmagnus",
+      "name": "Akmagnus",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Akmagnus",
       "_note": "Requires 2 built Magnus weapons — craft and claim Magnus twice first.",
-      "ingredients": { "Magnus": 2, "Orokin Cell": 2 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Akmagnus", "result_name": "Akmagnus", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Magnus": 2,
+        "Orokin Cell": 2
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Akmagnus",
+      "result_name": "Akmagnus",
+      "result_type": "weapon_secondary"
     },
-
     "akvasto": {
-      "name": "Akvasto", "type": "weapon", "category": "secondary",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Akvasto",
+      "name": "Akvasto",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Akvasto",
       "_note": "Requires 2 built Vasto weapons — craft and claim Vasto twice first.",
-      "ingredients": { "Vasto": 2, "Orokin Cell": 2 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Akvasto", "result_name": "Akvasto", "result_type": "weapon_secondary"
+      "ingredients": {
+        "Vasto": 2,
+        "Orokin Cell": 2
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Akvasto",
+      "result_name": "Akvasto",
+      "result_type": "weapon_secondary"
     },
-
     "skana": {
-      "name": "Skana", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Skana",
-      "ingredients": { "Salvage": 750, "Plastids": 500, "Alloy Plate": 1100, "Morphics": 3 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Skana", "result_name": "Skana", "result_type": "weapon_melee"
+      "name": "Skana",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Skana",
+      "ingredients": {
+        "Salvage": 750,
+        "Plastids": 500,
+        "Alloy Plate": 1100,
+        "Morphics": 3
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Skana",
+      "result_name": "Skana",
+      "result_type": "weapon_melee"
     },
-
     "bo": {
-      "name": "Bo", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Bo",
-      "ingredients": { "Orokin Cell": 1, "Salvage": 900, "Ferrite": 600, "Alloy Plate": 150 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Bo", "result_name": "Bo", "result_type": "weapon_melee"
+      "name": "Bo",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Bo",
+      "ingredients": {
+        "Orokin Cell": 1,
+        "Salvage": 900,
+        "Ferrite": 600,
+        "Alloy Plate": 150
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Bo",
+      "result_name": "Bo",
+      "result_type": "weapon_melee"
     },
-
     "dual_skana": {
-      "name": "Dual Skana", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Dual_Skana",
-      "ingredients": { "Morphics": 2, "Polymer Bundle": 300, "Ferrite": 850, "Alloy Plate": 300 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Dual Skana", "result_name": "Dual Skana", "result_type": "weapon_melee"
+      "name": "Dual Skana",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Dual_Skana",
+      "ingredients": {
+        "Morphics": 2,
+        "Polymer Bundle": 300,
+        "Ferrite": 850,
+        "Alloy Plate": 300
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Dual Skana",
+      "result_name": "Dual Skana",
+      "result_type": "weapon_melee"
     },
-
     "fragor": {
-      "name": "Fragor", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Fragor",
-      "ingredients": { "Gallium": 3, "Salvage": 750, "Rubedo": 300, "Alloy Plate": 80 },
-      "credit_cost": 30000, "base_time": 360,
-      "result_key": "Fragor", "result_name": "Fragor", "result_type": "weapon_melee"
+      "name": "Fragor",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Fragor",
+      "ingredients": {
+        "Gallium": 3,
+        "Salvage": 750,
+        "Rubedo": 300,
+        "Alloy Plate": 80
+      },
+      "credit_cost": 30000,
+      "base_time": 360,
+      "result_key": "Fragor",
+      "result_name": "Fragor",
+      "result_type": "weapon_melee"
     },
-
     "gram": {
-      "name": "Gram", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Gram",
-      "ingredients": { "Gallium": 3, "Salvage": 750, "Rubedo": 300, "Alloy Plate": 80 },
-      "credit_cost": 30000, "base_time": 360,
-      "result_key": "Gram", "result_name": "Gram", "result_type": "weapon_melee"
+      "name": "Gram",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gram",
+      "ingredients": {
+        "Gallium": 3,
+        "Salvage": 750,
+        "Rubedo": 300,
+        "Alloy Plate": 80
+      },
+      "credit_cost": 30000,
+      "base_time": 360,
+      "result_key": "Gram",
+      "result_name": "Gram",
+      "result_type": "weapon_melee"
     },
-
     "orthos": {
-      "name": "Orthos", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Orthos",
-      "ingredients": { "Morphics": 4, "Polymer Bundle": 500, "Ferrite": 850, "Alloy Plate": 700 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Orthos", "result_name": "Orthos", "result_type": "weapon_melee"
+      "name": "Orthos",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Orthos",
+      "ingredients": {
+        "Morphics": 4,
+        "Polymer Bundle": 500,
+        "Ferrite": 850,
+        "Alloy Plate": 700
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Orthos",
+      "result_name": "Orthos",
+      "result_type": "weapon_melee"
     },
-
     "dual_ether": {
-      "name": "Dual Ether", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Dual_Ether",
-      "ingredients": { "Morphics": 3, "Salvage": 900, "Ferrite": 850, "Polymer Bundle": 800 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Dual Ether", "result_name": "Dual Ether", "result_type": "weapon_melee"
+      "name": "Dual Ether",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Dual_Ether",
+      "ingredients": {
+        "Morphics": 3,
+        "Salvage": 900,
+        "Ferrite": 850,
+        "Polymer Bundle": 800
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Dual Ether",
+      "result_name": "Dual Ether",
+      "result_type": "weapon_melee"
     },
-
     "furax": {
-      "name": "Furax", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Furax",
-      "ingredients": { "Nano Spores": 1000, "Salvage": 900, "Ferrite": 600, "Alloy Plate": 500 },
-      "credit_cost": 30000, "base_time": 360,
-      "result_key": "Furax", "result_name": "Furax", "result_type": "weapon_melee"
+      "name": "Furax",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Furax",
+      "ingredients": {
+        "Nano Spores": 1000,
+        "Salvage": 900,
+        "Ferrite": 600,
+        "Alloy Plate": 500
+      },
+      "credit_cost": 30000,
+      "base_time": 360,
+      "result_key": "Furax",
+      "result_name": "Furax",
+      "result_type": "weapon_melee"
     },
-
     "kronen": {
-      "name": "Kronen", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Kronen",
-      "ingredients": { "Ferrite": 1500, "Nano Spores": 2000, "Plastids": 1000, "Argon Crystal": 2 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Kronen", "result_name": "Kronen", "result_type": "weapon_melee"
+      "name": "Kronen",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Kronen",
+      "ingredients": {
+        "Ferrite": 1500,
+        "Nano Spores": 2000,
+        "Plastids": 1000,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Kronen",
+      "result_name": "Kronen",
+      "result_type": "weapon_melee"
     },
-
     "atterax": {
-      "name": "Atterax", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Atterax",
-      "ingredients": { "Salvage": 1500, "Polymer Bundle": 800, "Rubedo": 200, "Argon Crystal": 2 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Atterax", "result_name": "Atterax", "result_type": "weapon_melee"
+      "name": "Atterax",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Atterax",
+      "ingredients": {
+        "Salvage": 1500,
+        "Polymer Bundle": 800,
+        "Rubedo": 200,
+        "Argon Crystal": 2
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Atterax",
+      "result_name": "Atterax",
+      "result_type": "weapon_melee"
     },
-
     "galatine": {
-      "name": "Galatine", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Galatine",
-      "ingredients": { "Gallium": 4, "Salvage": 750, "Rubedo": 500, "Alloy Plate": 200 },
-      "credit_cost": 30000, "base_time": 360,
-      "result_key": "Galatine", "result_name": "Galatine", "result_type": "weapon_melee"
+      "name": "Galatine",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Galatine",
+      "ingredients": {
+        "Gallium": 4,
+        "Salvage": 750,
+        "Rubedo": 500,
+        "Alloy Plate": 200
+      },
+      "credit_cost": 30000,
+      "base_time": 360,
+      "result_key": "Galatine",
+      "result_name": "Galatine",
+      "result_type": "weapon_melee"
     },
-
     "hate": {
-      "name": "Hate", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Hate",
+      "name": "Hate",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hate",
       "_note": "Blueprint drops from the Stalker.",
-      "ingredients": { "Morphics": 10, "Ferrite": 5000, "Nano Spores": 6000, "Salvage": 4500 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Hate", "result_name": "Hate", "result_type": "weapon_melee"
+      "ingredients": {
+        "Morphics": 10,
+        "Ferrite": 5000,
+        "Nano Spores": 6000,
+        "Salvage": 4500
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Hate",
+      "result_name": "Hate",
+      "result_type": "weapon_melee"
     },
-
     "tipedo": {
-      "name": "Tipedo", "type": "weapon", "category": "melee",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Tipedo",
+      "name": "Tipedo",
+      "type": "weapon",
+      "category": "melee",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Tipedo",
       "_note": "Requires 1 built Bo and 1 built Kunai — craft and claim both first.",
-      "ingredients": { "Neural Sensors": 2, "Polymer Bundle": 1600, "Kunai": 1, "Bo": 1 },
-      "credit_cost": 20000, "base_time": 360,
-      "result_key": "Tipedo", "result_name": "Tipedo", "result_type": "weapon_melee"
+      "ingredients": {
+        "Neural Sensors": 2,
+        "Polymer Bundle": 1600,
+        "Kunai": 1,
+        "Bo": 1
+      },
+      "credit_cost": 20000,
+      "base_time": 360,
+      "result_key": "Tipedo",
+      "result_name": "Tipedo",
+      "result_type": "weapon_melee"
     },
-
     "carrier": {
-      "name": "Carrier", "type": "weapon", "category": "sentinel",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Carrier",
+      "name": "Carrier",
+      "type": "weapon",
+      "category": "sentinel",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Carrier",
       "_note": "Sentinel companion — not a weapon, but craftable in the Foundry.",
-      "ingredients": { "Alloy Plate": 1000, "Circuits": 400, "Nano Spores": 1500, "Control Module": 3 },
-      "credit_cost": 15000, "base_time": 480,
-      "result_key": "Carrier", "result_name": "Carrier", "result_type": "sentinel"
+      "ingredients": {
+        "Alloy Plate": 1000,
+        "Circuits": 400,
+        "Nano Spores": 1500,
+        "Control Module": 3
+      },
+      "credit_cost": 15000,
+      "base_time": 480,
+      "result_key": "Carrier",
+      "result_name": "Carrier",
+      "result_type": "sentinel"
     },
-
     "detonite_injector": {
-      "name": "Detonite Injector", "type": "resource", "category": "craftable_resource",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Ignis",
+      "name": "Detonite Injector",
+      "type": "resource",
+      "category": "craftable_resource",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ignis",
       "_note": "Crafted from Invasion-reward Detonite Ampules. Required for Ignis×2 and Buzlok×2.",
-      "ingredients": { "Detonite Ampule": 10, "Ferrite": 400, "Plastids": 150, "Polymer Bundle": 500 },
-      "credit_cost": 5000, "base_time": 720,
-      "result_key": "Detonite Injector", "result_name": "Detonite Injector", "result_type": "resource"
+      "ingredients": {
+        "Detonite Ampule": 10,
+        "Ferrite": 400,
+        "Plastids": 150,
+        "Polymer Bundle": 500
+      },
+      "credit_cost": 5000,
+      "base_time": 720,
+      "result_key": "Detonite Injector",
+      "result_name": "Detonite Injector",
+      "result_type": "resource"
     },
-
     "fieldron": {
-      "name": "Fieldron", "type": "resource", "category": "craftable_resource",
-      "wiki_verified": true, "wiki_source": "warframe.fandom.com/wiki/Fieldron",
+      "name": "Fieldron",
+      "type": "resource",
+      "category": "craftable_resource",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Fieldron",
       "_note": "Crafted from Fieldron Samples (Invasion rewards from Corpus missions). Required for Opticor×5.",
-      "ingredients": { "Fieldron Sample": 10, "Control Module": 1, "Salvage": 500, "Plastids": 250 },
-      "credit_cost": 15000, "base_time": 360,
-      "result_key": "Fieldron", "result_name": "Fieldron", "result_type": "resource"
+      "ingredients": {
+        "Fieldron Sample": 10,
+        "Control Module": 1,
+        "Salvage": 500,
+        "Plastids": 250
+      },
+      "credit_cost": 15000,
+      "base_time": 360,
+      "result_key": "Fieldron",
+      "result_name": "Fieldron",
+      "result_type": "resource"
     },
-
     "forma": {
-      "name": "Forma", "type": "resource", "category": "craftable_resource",
-      "wiki_verified": false, "_unverified_note": "Crafting table on wiki uses a template that did not render; ingredient amounts from training data. Verify at warframe.fandom.com/wiki/Forma.",
+      "name": "Forma",
+      "type": "resource",
+      "category": "craftable_resource",
+      "wiki_verified": true,
       "wiki_source": "warframe.fandom.com/wiki/Forma",
-      "ingredients": { "Morphics": 1, "Neural Sensors": 1, "Orokin Cell": 1 },
-      "credit_cost": 35000, "base_time": 480,
-      "result_key": "Forma", "result_name": "Forma", "result_type": "resource"
+      "_note": "23-hour build. Required by Ignis, Buzlok, Opticor, Akstiletto and more.",
+      "ingredients": {
+        "Morphics": 1,
+        "Neural Sensors": 1,
+        "Neurodes": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 35000,
+      "base_time": 480,
+      "result_key": "Forma",
+      "result_name": "Forma",
+      "result_type": "resource"
+    },
+    "nezha_neuroptics": {
+      "name": "Nezha Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nezha",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nezha",
+      "ingredients": {
+        "Argon Crystal": 1,
+        "Neural Sensors": 1,
+        "Polymer Bundle": 2100,
+        "Salvage": 4500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nezha_neuroptics",
+      "result_name": "Nezha Neuroptics",
+      "result_type": "component"
+    },
+    "nezha_chassis": {
+      "name": "Nezha Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nezha",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nezha",
+      "ingredients": {
+        "Morphics": 2,
+        "Ferrite": 3200,
+        "Rubedo": 600,
+        "Argon Crystal": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nezha_chassis",
+      "result_name": "Nezha Chassis",
+      "result_type": "component"
+    },
+    "nezha_systems": {
+      "name": "Nezha Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nezha",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nezha",
+      "ingredients": {
+        "Control Module": 1,
+        "Morphics": 1,
+        "Ferrite": 5000,
+        "Plastids": 4200
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nezha_systems",
+      "result_name": "Nezha Systems",
+      "result_type": "component"
+    },
+    "nezha": {
+      "name": "Nezha",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nezha",
+      "_note": "Tenno Lab Dojo research frame.",
+      "ingredients": {
+        "nezha_neuroptics": 1,
+        "nezha_chassis": 1,
+        "nezha_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "nezha",
+      "result_name": "Nezha",
+      "result_type": "warframe",
+      "warframe_key": "nezha"
+    },
+    "titania_neuroptics": {
+      "name": "Titania Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "titania",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Titania",
+      "ingredients": {
+        "Alloy Plate": 1500,
+        "Neurodes": 2,
+        "Polymer Bundle": 2500,
+        "Circuits": 700
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "titania_neuroptics",
+      "result_name": "Titania Neuroptics",
+      "result_type": "component"
+    },
+    "titania_chassis": {
+      "name": "Titania Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "titania",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Titania",
+      "ingredients": {
+        "Nitain Extract": 3,
+        "Ferrite": 3000,
+        "Rubedo": 900,
+        "Tellurium": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "titania_chassis",
+      "result_name": "Titania Chassis",
+      "result_type": "component"
+    },
+    "titania_systems": {
+      "name": "Titania Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "titania",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Titania",
+      "ingredients": {
+        "Control Module": 1,
+        "Plastids": 800,
+        "Cryotic": 2200,
+        "Tellurium": 1
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "titania_systems",
+      "result_name": "Titania Systems",
+      "result_type": "component"
+    },
+    "titania": {
+      "name": "Titania",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Titania",
+      "_note": "Quest: The Silver Grove. Blueprint from quest rewards.",
+      "ingredients": {
+        "titania_neuroptics": 1,
+        "titania_chassis": 1,
+        "titania_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "titania",
+      "result_name": "Titania",
+      "result_type": "warframe",
+      "warframe_key": "titania"
+    },
+    "nidus_neuroptics": {
+      "name": "Nidus Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nidus",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nidus",
+      "ingredients": {
+        "Mutagen Sample": 10,
+        "Polymer Bundle": 2600,
+        "Plastids": 1000,
+        "Neural Sensors": 3
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nidus_neuroptics",
+      "result_name": "Nidus Neuroptics",
+      "result_type": "component"
+    },
+    "nidus_chassis": {
+      "name": "Nidus Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nidus",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nidus",
+      "ingredients": {
+        "Polymer Bundle": 6000,
+        "Nano Spores": 5000,
+        "Plastids": 1400,
+        "Neurodes": 3
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nidus_chassis",
+      "result_name": "Nidus Chassis",
+      "result_type": "component"
+    },
+    "nidus_systems": {
+      "name": "Nidus Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "nidus",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nidus",
+      "ingredients": {
+        "Nano Spores": 6000,
+        "Circuits": 3500,
+        "Morphics": 14,
+        "Orokin Cell": 6
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "nidus_systems",
+      "result_name": "Nidus Systems",
+      "result_type": "component"
+    },
+    "nidus": {
+      "name": "Nidus",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nidus",
+      "_note": "Quest: The Glast Gambit. Main BP requires Kuva×2000 instead of Orokin Cell.",
+      "ingredients": {
+        "nidus_neuroptics": 1,
+        "nidus_chassis": 1,
+        "nidus_systems": 1,
+        "Kuva": 2000
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "nidus",
+      "result_name": "Nidus",
+      "result_type": "warframe",
+      "warframe_key": "nidus"
+    },
+    "octavia_neuroptics": {
+      "name": "Octavia Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "octavia",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Octavia",
+      "ingredients": {
+        "Oxium": 1000,
+        "Polymer Bundle": 4800,
+        "Plastids": 2600,
+        "Neural Sensors": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "octavia_neuroptics",
+      "result_name": "Octavia Neuroptics",
+      "result_type": "component"
+    },
+    "octavia_chassis": {
+      "name": "Octavia Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "octavia",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Octavia",
+      "ingredients": {
+        "Polymer Bundle": 6000,
+        "Salvage": 25000,
+        "Plastids": 1500,
+        "Neurodes": 3
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "octavia_chassis",
+      "result_name": "Octavia Chassis",
+      "result_type": "component"
+    },
+    "octavia_systems": {
+      "name": "Octavia Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "octavia",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Octavia",
+      "ingredients": {
+        "Kuva": 2000,
+        "Circuits": 3000,
+        "Morphics": 20,
+        "Orokin Cell": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "octavia_systems",
+      "result_name": "Octavia Systems",
+      "result_type": "component"
+    },
+    "octavia": {
+      "name": "Octavia",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Octavia",
+      "_note": "Quest: Octavia's Anthem. Main BP requires crafted Mandachord instead of Orokin Cell.",
+      "ingredients": {
+        "octavia_neuroptics": 1,
+        "octavia_chassis": 1,
+        "octavia_systems": 1,
+        "Mandachord": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "octavia",
+      "result_name": "Octavia",
+      "result_type": "warframe",
+      "warframe_key": "octavia"
+    },
+    "harrow_neuroptics": {
+      "name": "Harrow Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "harrow",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Harrow",
+      "ingredients": {
+        "Rubedo": 1500,
+        "Polymer Bundle": 4000,
+        "Plastids": 2000,
+        "Neural Sensors": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "harrow_neuroptics",
+      "result_name": "Harrow Neuroptics",
+      "result_type": "component"
+    },
+    "harrow_chassis": {
+      "name": "Harrow Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "harrow",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Harrow",
+      "ingredients": {
+        "Alloy Plate": 20000,
+        "Salvage": 25000,
+        "Oxium": 800,
+        "Orokin Cell": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "harrow_chassis",
+      "result_name": "Harrow Chassis",
+      "result_type": "component"
+    },
+    "harrow_systems": {
+      "name": "Harrow Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "harrow",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Harrow",
+      "ingredients": {
+        "Circuits": 2500,
+        "Cryotic": 1000,
+        "Ferrite": 25000,
+        "Control Module": 15
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "harrow_systems",
+      "result_name": "Harrow Systems",
+      "result_type": "component"
+    },
+    "harrow": {
+      "name": "Harrow",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Harrow",
+      "_note": "Quest: Chains of Harrow. Main BP requires Kuva×2000.",
+      "ingredients": {
+        "harrow_neuroptics": 1,
+        "harrow_chassis": 1,
+        "harrow_systems": 1,
+        "Kuva": 2000
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "harrow",
+      "result_name": "Harrow",
+      "result_type": "warframe",
+      "warframe_key": "harrow"
+    },
+    "khora_neuroptics": {
+      "name": "Khora Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "khora",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Khora",
+      "ingredients": {
+        "Kavat Genetic Code": 2,
+        "Kuaka Spinal Claw": 35,
+        "Polymer Bundle": 1500,
+        "Salvage": 16000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "khora_neuroptics",
+      "result_name": "Khora Neuroptics",
+      "result_type": "component"
+    },
+    "khora_chassis": {
+      "name": "Khora Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "khora",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Khora",
+      "ingredients": {
+        "Kavat Genetic Code": 5,
+        "Iradite": 65,
+        "Alloy Plate": 12250,
+        "Rubedo": 4300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "khora_chassis",
+      "result_name": "Khora Chassis",
+      "result_type": "component"
+    },
+    "khora_systems": {
+      "name": "Khora Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "khora",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Khora",
+      "ingredients": {
+        "Kavat Genetic Code": 2,
+        "Plastids": 1000,
+        "Circuits": 2600,
+        "Ferrite": 11500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "khora_systems",
+      "result_name": "Khora Systems",
+      "result_type": "component"
+    },
+    "khora": {
+      "name": "Khora",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Khora",
+      "_note": "Drops from Sanctuary Onslaught. All components need Kavat Genetic Codes.",
+      "ingredients": {
+        "khora_neuroptics": 1,
+        "khora_chassis": 1,
+        "khora_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "khora",
+      "result_name": "Khora",
+      "result_type": "warframe",
+      "warframe_key": "khora"
+    },
+    "revenant_neuroptics": {
+      "name": "Revenant Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "revenant",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Revenant",
+      "ingredients": {
+        "Neural Sensors": 3,
+        "Intact Sentient Core": 15,
+        "Polymer Bundle": 6000,
+        "Rubedo": 2200
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "revenant_neuroptics",
+      "result_name": "Revenant Neuroptics",
+      "result_type": "component"
+    },
+    "revenant_chassis": {
+      "name": "Revenant Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "revenant",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Revenant",
+      "ingredients": {
+        "Morphics": 3,
+        "Intact Sentient Core": 10,
+        "Rubedo": 1500,
+        "Iradite": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "revenant_chassis",
+      "result_name": "Revenant Chassis",
+      "result_type": "component"
+    },
+    "revenant_systems": {
+      "name": "Revenant Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "revenant",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Revenant",
+      "ingredients": {
+        "Control Module": 3,
+        "Cetus Wisp": 3,
+        "Salvage": 8000,
+        "Polymer Bundle": 3000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "revenant_systems",
+      "result_name": "Revenant Systems",
+      "result_type": "component"
+    },
+    "revenant": {
+      "name": "Revenant",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Revenant",
+      "_note": "Plains of Eidolon/Quills faction frame. Needs Intact Sentient Cores from Eidolons.",
+      "ingredients": {
+        "revenant_neuroptics": 1,
+        "revenant_chassis": 1,
+        "revenant_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "revenant",
+      "result_name": "Revenant",
+      "result_type": "warframe",
+      "warframe_key": "revenant"
+    },
+    "garuda_neuroptics": {
+      "name": "Garuda Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "garuda",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Garuda",
+      "ingredients": {
+        "Vega Toroid": 2,
+        "Star Amarast": 6,
+        "Axidrol Alloy": 40,
+        "Nano Spores": 5000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "garuda_neuroptics",
+      "result_name": "Garuda Neuroptics",
+      "result_type": "component"
+    },
+    "garuda_chassis": {
+      "name": "Garuda Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "garuda",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Garuda",
+      "ingredients": {
+        "Calda Toroid": 2,
+        "Radiant Zodian": 3,
+        "Travocyte Alloy": 40,
+        "Alloy Plate": 2200
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "garuda_chassis",
+      "result_name": "Garuda Chassis",
+      "result_type": "component"
+    },
+    "garuda_systems": {
+      "name": "Garuda Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "garuda",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Garuda",
+      "ingredients": {
+        "Sola Toroid": 2,
+        "Marquise Thyst": 3,
+        "Venerdo Alloy": 40,
+        "Polymer Bundle": 2400
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "garuda_systems",
+      "result_name": "Garuda Systems",
+      "result_type": "component"
+    },
+    "garuda": {
+      "name": "Garuda",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Garuda",
+      "_note": "Orb Vallis / Fortuna frame. Main BP requires Kuva×3500. All parts use Toroid resources.",
+      "ingredients": {
+        "garuda_neuroptics": 1,
+        "garuda_chassis": 1,
+        "garuda_systems": 1,
+        "Kuva": 3500
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "garuda",
+      "result_name": "Garuda",
+      "result_type": "warframe",
+      "warframe_key": "garuda"
+    },
+    "baruuk_neuroptics": {
+      "name": "Baruuk Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "baruuk",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Baruuk",
+      "ingredients": {
+        "Sola Toroid": 3,
+        "Alloy Plate": 2850,
+        "Hespazym Alloy": 50,
+        "Synathid Ecosynth Analyzer": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "baruuk_neuroptics",
+      "result_name": "Baruuk Neuroptics",
+      "result_type": "component"
+    },
+    "baruuk_chassis": {
+      "name": "Baruuk Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "baruuk",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Baruuk",
+      "ingredients": {
+        "Vega Toroid": 3,
+        "Salvage": 3250,
+        "Hespazym Alloy": 100,
+        "Marquise Thyst": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "baruuk_chassis",
+      "result_name": "Baruuk Chassis",
+      "result_type": "component"
+    },
+    "baruuk_systems": {
+      "name": "Baruuk Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "baruuk",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Baruuk",
+      "ingredients": {
+        "Calda Toroid": 3,
+        "Ferrite": 2500,
+        "Tromyzon Entroplasma": 10,
+        "Radiant Zodian": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "baruuk_systems",
+      "result_name": "Baruuk Systems",
+      "result_type": "component"
+    },
+    "baruuk": {
+      "name": "Baruuk",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Baruuk",
+      "_note": "Orb Vallis / Vox Solaris frame. All components use Toroid and Orb Vallis resources.",
+      "ingredients": {
+        "baruuk_neuroptics": 1,
+        "baruuk_chassis": 1,
+        "baruuk_systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "baruuk",
+      "result_name": "Baruuk",
+      "result_type": "warframe",
+      "warframe_key": "baruuk"
+    },
+    "hildryn_neuroptics": {
+      "name": "Hildryn Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hildryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hildryn",
+      "ingredients": {
+        "Lazulite Toroid": 2,
+        "Argon Crystal": 1,
+        "Mytocardia Spore": 85,
+        "Circuits": 1600
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hildryn_neuroptics",
+      "result_name": "Hildryn Neuroptics",
+      "result_type": "component"
+    },
+    "hildryn_chassis": {
+      "name": "Hildryn Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hildryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hildryn",
+      "ingredients": {
+        "Lazulite Toroid": 2,
+        "Nitain Extract": 2,
+        "Thermal Sludge": 90,
+        "Rubedo": 2300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hildryn_chassis",
+      "result_name": "Hildryn Chassis",
+      "result_type": "component"
+    },
+    "hildryn_systems": {
+      "name": "Hildryn Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "hildryn",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hildryn",
+      "ingredients": {
+        "Lazulite Toroid": 2,
+        "Tellurium": 2,
+        "Gorgaricus Spore": 95,
+        "Plastids": 1500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "hildryn_systems",
+      "result_name": "Hildryn Systems",
+      "result_type": "component"
+    },
+    "hildryn": {
+      "name": "Hildryn",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hildryn",
+      "_note": "Orb Vallis / Vox Solaris frame. All components require Lazulite Toroids.",
+      "ingredients": {
+        "hildryn_neuroptics": 1,
+        "hildryn_chassis": 1,
+        "hildryn_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "hildryn",
+      "result_name": "Hildryn",
+      "result_type": "warframe",
+      "warframe_key": "hildryn"
+    },
+    "gauss_neuroptics": {
+      "name": "Gauss Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "gauss",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gauss",
+      "ingredients": {
+        "Argon Crystal": 1,
+        "Rubedo": 1600,
+        "Salvage": 6200,
+        "Alloy Plate": 2950
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "gauss_neuroptics",
+      "result_name": "Gauss Neuroptics",
+      "result_type": "component"
+    },
+    "gauss_chassis": {
+      "name": "Gauss Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "gauss",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gauss",
+      "ingredients": {
+        "Radian Sentirum": 3,
+        "Heart Nyth": 3,
+        "Star Crimzian": 6,
+        "Grokdrul": 55
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "gauss_chassis",
+      "result_name": "Gauss Chassis",
+      "result_type": "component"
+    },
+    "gauss_systems": {
+      "name": "Gauss Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "gauss",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gauss",
+      "ingredients": {
+        "Radiant Zodian": 3,
+        "Marquise Thyst": 3,
+        "Mytocardia Spore": 70,
+        "Thermal Sludge": 85
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "gauss_systems",
+      "result_name": "Gauss Systems",
+      "result_type": "component"
+    },
+    "gauss": {
+      "name": "Gauss",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gauss",
+      "_note": "Drops from Disruption (Sedna - Kelpie). Chassis uses Fortuna gem resources.",
+      "ingredients": {
+        "gauss_neuroptics": 1,
+        "gauss_chassis": 1,
+        "gauss_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "gauss",
+      "result_name": "Gauss",
+      "result_type": "warframe",
+      "warframe_key": "gauss"
+    },
+    "wisp_neuroptics": {
+      "name": "Wisp Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wisp",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Wisp",
+      "ingredients": {
+        "Hexenon": 300,
+        "Tellurium": 2,
+        "Plastids": 950,
+        "Polymer Bundle": 2200
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wisp_neuroptics",
+      "result_name": "Wisp Neuroptics",
+      "result_type": "component"
+    },
+    "wisp_chassis": {
+      "name": "Wisp Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wisp",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Wisp",
+      "ingredients": {
+        "Hexenon": 500,
+        "Argon Crystal": 1,
+        "Oxium": 700,
+        "Alloy Plate": 2750
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wisp_chassis",
+      "result_name": "Wisp Chassis",
+      "result_type": "component"
+    },
+    "wisp_systems": {
+      "name": "Wisp Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "wisp",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Wisp",
+      "ingredients": {
+        "Hexenon": 400,
+        "Nitain Extract": 2,
+        "Rubedo": 950,
+        "Salvage": 10000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "wisp_systems",
+      "result_name": "Wisp Systems",
+      "result_type": "component"
+    },
+    "wisp": {
+      "name": "Wisp",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Wisp",
+      "_note": "Drops from the Ropalolyst (Ganymede). All components need Hexenon (Jupiter resource).",
+      "ingredients": {
+        "wisp_neuroptics": 1,
+        "wisp_chassis": 1,
+        "wisp_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "wisp",
+      "result_name": "Wisp",
+      "result_type": "warframe",
+      "warframe_key": "wisp"
+    },
+    "grendel_neuroptics": {
+      "name": "Grendel Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "grendel",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grendel",
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Control Module": 5,
+        "Ferrite": 3500,
+        "Alloy Plate": 3800
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "grendel_neuroptics",
+      "result_name": "Grendel Neuroptics",
+      "result_type": "component"
+    },
+    "grendel_chassis": {
+      "name": "Grendel Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "grendel",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grendel",
+      "ingredients": {
+        "Condroc Wing": 25,
+        "Kuaka Spinal Claw": 30,
+        "Tralok Eyes": 20,
+        "Murkray Liver": 15
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "grendel_chassis",
+      "result_name": "Grendel Chassis",
+      "result_type": "component"
+    },
+    "grendel_systems": {
+      "name": "Grendel Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "grendel",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grendel",
+      "ingredients": {
+        "Circuits": 1125,
+        "Morphics": 10,
+        "Fish Meat": 125,
+        "Fish Oil": 100
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "grendel_systems",
+      "result_name": "Grendel Systems",
+      "result_type": "component"
+    },
+    "grendel": {
+      "name": "Grendel",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grendel",
+      "_note": "Parts locked behind Arbitrations Grendel missions (need Vitus Essence to unlock). Chassis/Systems need Plains of Eidolon hunt/fish resources.",
+      "ingredients": {
+        "grendel_neuroptics": 1,
+        "grendel_chassis": 1,
+        "grendel_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "grendel",
+      "result_name": "Grendel",
+      "result_type": "warframe",
+      "warframe_key": "grendel"
+    },
+    "protea_neuroptics": {
+      "name": "Protea Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "protea",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Protea",
+      "ingredients": {
+        "Salvage": 11500,
+        "Polymer Bundle": 5150,
+        "Cubic Diodes": 1250,
+        "Neural Sensors": 5
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "protea_neuroptics",
+      "result_name": "Protea Neuroptics",
+      "result_type": "component"
+    },
+    "protea_chassis": {
+      "name": "Protea Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "protea",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Protea",
+      "ingredients": {
+        "Alloy Plate": 20000,
+        "Carbides": 2750,
+        "Oxium": 550,
+        "Morphics": 12
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "protea_chassis",
+      "result_name": "Protea Chassis",
+      "result_type": "component"
+    },
+    "protea_systems": {
+      "name": "Protea Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "protea",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Protea",
+      "ingredients": {
+        "Ferrite": 13400,
+        "Cryotic": 1000,
+        "Titanium": 1750,
+        "Control Module": 10
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "protea_systems",
+      "result_name": "Protea Systems",
+      "result_type": "component"
+    },
+    "protea": {
+      "name": "Protea",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Protea",
+      "_note": "Quest: The Deadlock Protocol. Parts from Granum Void. Chassis/Systems use Corpus Railjack resources.",
+      "ingredients": {
+        "protea_neuroptics": 1,
+        "protea_chassis": 1,
+        "protea_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "protea",
+      "result_name": "Protea",
+      "result_type": "warframe",
+      "warframe_key": "protea"
+    },
+    "xaku_neuroptics": {
+      "name": "Xaku Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "xaku",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Xaku",
+      "ingredients": {
+        "Neural Sensors": 10,
+        "Thaumic Distillate": 60,
+        "Sharrac Teeth": 20,
+        "Esher Devar": 40
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "xaku_neuroptics",
+      "result_name": "Xaku Neuroptics",
+      "result_type": "component"
+    },
+    "xaku_chassis": {
+      "name": "Xaku Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "xaku",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Xaku",
+      "ingredients": {
+        "Gyromag Systems": 5,
+        "Spinal Core Section": 3,
+        "Venerdo Alloy": 50,
+        "Lucent Teroglobe": 50
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "xaku_chassis",
+      "result_name": "Xaku Chassis",
+      "result_type": "component"
+    },
+    "xaku_systems": {
+      "name": "Xaku Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "xaku",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Xaku",
+      "ingredients": {
+        "Breath Of The Eidolon": 10,
+        "Scintillant": 5,
+        "Pustulite": 45,
+        "Ganglion": 60
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "xaku_systems",
+      "result_name": "Xaku Systems",
+      "result_type": "component"
+    },
+    "xaku": {
+      "name": "Xaku",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Xaku",
+      "_note": "Community-designed frame. Components use mixed Deimos/Orb Vallis/Eidolon resources.",
+      "ingredients": {
+        "xaku_neuroptics": 1,
+        "xaku_chassis": 1,
+        "xaku_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "xaku",
+      "result_name": "Xaku",
+      "result_type": "warframe",
+      "warframe_key": "xaku"
+    },
+    "lavos_neuroptics": {
+      "name": "Lavos Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "lavos",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Lavos",
+      "ingredients": {
+        "Trapezium Xenorhast": 6,
+        "Titanium": 2000,
+        "Oxium": 750,
+        "Rubedo": 2750
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "lavos_neuroptics",
+      "result_name": "Lavos Neuroptics",
+      "result_type": "component"
+    },
+    "lavos_chassis": {
+      "name": "Lavos Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "lavos",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Lavos",
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Nitain Extract": 5,
+        "Cryotic": 1500,
+        "Polymer Bundle": 5500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "lavos_chassis",
+      "result_name": "Lavos Chassis",
+      "result_type": "component"
+    },
+    "lavos_systems": {
+      "name": "Lavos Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "lavos",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Lavos",
+      "ingredients": {
+        "Cabochon Embolos": 6,
+        "Nano Spores": 5500,
+        "Hexenon": 550,
+        "Circuits": 3000
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "lavos_systems",
+      "result_name": "Lavos Systems",
+      "result_type": "component"
+    },
+    "lavos": {
+      "name": "Lavos",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Lavos",
+      "_note": "Drops from Orphix Venom / Isolation Vault bounties (Deimos). Uses Deimos and Corpus resources.",
+      "ingredients": {
+        "lavos_neuroptics": 1,
+        "lavos_chassis": 1,
+        "lavos_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "lavos",
+      "result_name": "Lavos",
+      "result_type": "warframe",
+      "warframe_key": "lavos"
+    },
+    "yareli_neuroptics": {
+      "name": "Yareli Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "yareli",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Yareli",
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Plastids": 150,
+        "Salvage": 875,
+        "Heart Noctrul": 10
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "yareli_neuroptics",
+      "result_name": "Yareli Neuroptics",
+      "result_type": "component"
+    },
+    "yareli_chassis": {
+      "name": "Yareli Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "yareli",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Yareli",
+      "ingredients": {
+        "Tellurium": 2,
+        "Venerdo Alloy": 20,
+        "Circuits": 350,
+        "Nano Spores": 1500
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "yareli_chassis",
+      "result_name": "Yareli Chassis",
+      "result_type": "component"
+    },
+    "yareli_systems": {
+      "name": "Yareli Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "yareli",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Yareli",
+      "ingredients": {
+        "Nitain Extract": 2,
+        "Cryotic": 350,
+        "Scrubber Exa Brain": 5,
+        "Alloy Plate": 1750
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "yareli_systems",
+      "result_name": "Yareli Systems",
+      "result_type": "component"
+    },
+    "yareli": {
+      "name": "Yareli",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Yareli",
+      "_note": "Ventkids Bash Lab Dojo research frame. All components from Dojo research.",
+      "ingredients": {
+        "yareli_neuroptics": 1,
+        "yareli_chassis": 1,
+        "yareli_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "yareli",
+      "result_name": "Yareli",
+      "result_type": "warframe",
+      "warframe_key": "yareli"
+    },
+    "sevagoth_neuroptics": {
+      "name": "Sevagoth Neuroptics",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "sevagoth",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Sevagoth",
+      "ingredients": {
+        "Neural Sensors": 6,
+        "Titanium": 1200,
+        "Rubedo": 750,
+        "Salvage": 2750
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "sevagoth_neuroptics",
+      "result_name": "Sevagoth Neuroptics",
+      "result_type": "component"
+    },
+    "sevagoth_chassis": {
+      "name": "Sevagoth Chassis",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "sevagoth",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Sevagoth",
+      "ingredients": {
+        "Morphics": 8,
+        "Cryotic": 650,
+        "Nullstones": 2,
+        "Alloy Plate": 3300
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "sevagoth_chassis",
+      "result_name": "Sevagoth Chassis",
+      "result_type": "component"
+    },
+    "sevagoth_systems": {
+      "name": "Sevagoth Systems",
+      "type": "component",
+      "category": "warframe_part",
+      "part_of": "sevagoth",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Sevagoth",
+      "ingredients": {
+        "Argon Crystal": 2,
+        "Oxium": 250,
+        "Asterite": 15,
+        "Nano Spores": 2950
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "sevagoth_systems",
+      "result_name": "Sevagoth Systems",
+      "result_type": "component"
+    },
+    "sevagoth": {
+      "name": "Sevagoth",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Sevagoth",
+      "_note": "Quest: Call of the Tempestarii (Railjack). Blueprint from void storm missions.",
+      "ingredients": {
+        "sevagoth_neuroptics": 1,
+        "sevagoth_chassis": 1,
+        "sevagoth_systems": 1,
+        "Orokin Cell": 3
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "sevagoth",
+      "result_name": "Sevagoth",
+      "result_type": "warframe",
+      "warframe_key": "sevagoth"
+    },
+    "gorgon": {
+      "name": "Gorgon",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gorgon",
+      "_note": "Grineer heavy machine gun. Single-step build.",
+      "ingredients": {
+        "Morphics": 5,
+        "Ferrite": 5000,
+        "Salvage": 6000,
+        "Circuits": 1000
+      },
+      "credit_cost": 25000,
+      "base_time": 360,
+      "result_key": "Gorgon",
+      "result_name": "Gorgon",
+      "result_type": "weapon_primary"
     }
-
   }
 }
