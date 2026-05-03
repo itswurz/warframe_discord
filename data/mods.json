@@ -1586,6 +1586,1991 @@
       ],
       "stance_weapon": "Various",
       "weapon_class": "Melee"
+    },
+    "Fast Deflection": {
+      "_wiki": "https://wiki.warframe.com/w/Fast_Deflection",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+5%…R5=+25% (+5%/rank) Shield Recharge Rate. Drain: R0=2, R5=7. Vazarin.",
+      "uuid": "CDX-FDL-036",
+      "name": "Fast Deflection",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "vazarin",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "shield_recharge_percent": 25
+      },
+      "rank_scaling": {
+        "shield_recharge_percent": {
+          "per_rank": 5
+        }
+      },
+      "description": "Accelerates the recovery rate of the Warframe's shields, reducing the delay before they begin regenerating after taking damage.",
+      "base_effect": "+5% Shield Recharge Rate",
+      "max_effect": "+25% Shield Recharge Rate",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Reduces the number of turns before your shield recharge starts. At max rank, shields begin recovering 1 turn sooner after taking hits. Synergizes with Redirection on high-shield frames.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Vigor": {
+      "_wiki": "https://wiki.warframe.com/w/Vigor",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+24%…R5=+120% Health AND Shields simultaneously. Drain: R0=4, R5=9. Vazarin.",
+      "uuid": "CDX-VIG-037",
+      "name": "Vigor",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "health_percent": 120,
+        "shields_percent": 120
+      },
+      "rank_scaling": {
+        "health_percent": {
+          "per_rank": 24
+        },
+        "shields_percent": {
+          "per_rank": 24
+        }
+      },
+      "description": "A dual-purpose enhancement that simultaneously boosts both the Warframe's Health and Shield Capacity. Sacrifices specialization for broad survivability coverage.",
+      "base_effect": "+24% Health & +24% Shield Capacity",
+      "max_effect": "+120% Health & +120% Shield Capacity",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Provides a smaller bonus than dedicated Vitality or Redirection but covers both HP and shields simultaneously. At max rank adds +120% to both pools — great for balanced survivability in a single mod slot.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Armored Agility": {
+      "_wiki": "https://wiki.warframe.com/w/Armored_Agility",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+9%…R5=+45% Armor. Drain: R0=2, R5=7. Naramon.",
+      "uuid": "CDX-AAG-038",
+      "name": "Armored Agility",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "armor_percent": 45
+      },
+      "rank_scaling": {
+        "armor_percent": {
+          "per_rank": 9
+        }
+      },
+      "description": "Weaves micro-alloy fibers throughout the Warframe's frame to improve damage absorption while keeping the suit agile and responsive.",
+      "base_effect": "+9% Armor",
+      "max_effect": "+45% Armor",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Increases armor damage reduction. At max rank +45%, Excalibur's 240 armor becomes 348 — improving damage reduction from ~44.4% to ~53.7%. Pairs well with Steel Fiber for stacking armor builds.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Rush": {
+      "_wiki": "https://wiki.warframe.com/w/Rush",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. +10%/rank Sprint Speed. TB adaptation: bonus dodge chance. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-RUS-039",
+      "name": "Rush",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "sprint_speed_percent": 50
+      },
+      "rank_scaling": {
+        "sprint_speed_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Overcharges the Warframe's motor servos for burst-speed movement. Originally designed for extraction-speed runs, it also proves useful in rapid flanking maneuvers.",
+      "base_effect": "+10% Sprint Speed",
+      "max_effect": "+50% Sprint Speed",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "In TB, Sprint Speed translates to a +10% chance per 10% bonus to dodge an incoming attack (max +50% at rank 5). Excalibur with Rush max-ranked has a 50% dodge roll added to his base dodge. Does not stack with Slash Dash evasion.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Quick Thinking": {
+      "_wiki": "https://wiki.warframe.com/w/Quick_Thinking",
+      "_wiki_note": "Wiki: Rare, max rank 5. Converts Energy to Health on lethal hit. +60%/rank efficiency. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-QTH-040",
+      "name": "Quick Thinking",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "energy_to_health_percent": 300
+      },
+      "rank_scaling": {
+        "energy_to_health_percent": {
+          "per_rank": 60
+        }
+      },
+      "description": "An emergency survival mod that intercepts a killing blow and instead drains the Warframe's Energy reserves to absorb the damage. When energy runs out, the protection ends.",
+      "base_effect": "+60% Energy-to-Health Conversion",
+      "max_effect": "+300% Energy-to-Health Conversion",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "When a hit would reduce you to 0 HP, spend Energy instead at a 1-Energy-per-HP rate (modified by rank). At max rank, 150 Energy can absorb 450 HP of overflow damage. Triggers once per combat — the mod deactivates if you survive the intercept.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Rage": {
+      "_wiki": "https://wiki.warframe.com/w/Rage",
+      "_wiki_note": "Wiki: Rare, max rank 5. Converts damage taken to Energy. +2%/rank. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-RAG-041",
+      "name": "Rage",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "health_to_energy_percent": 10
+      },
+      "rank_scaling": {
+        "health_to_energy_percent": {
+          "per_rank": 2
+        }
+      },
+      "description": "Taps into the Warframe's pain response to generate energy. Every hit taken is partially converted into usable ability fuel — the more damage absorbed, the more energy produced.",
+      "base_effect": "+2% Damage to Energy Conversion",
+      "max_effect": "+10% Damage to Energy Conversion",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "After taking Health damage (not shield), convert 10% of the damage taken into Energy at max rank. E.g. taking 100 HP damage gives +10 Energy. Synergizes with Quick Thinking. Pairs with high-HP Warframes who can afford to take hits.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Natural Talent": {
+      "_wiki": "https://wiki.warframe.com/w/Natural_Talent",
+      "_wiki_note": "Wiki: Rare, max rank 3. +25%/rank cast speed. Drain: R0=6, R3=9. Any polarity.",
+      "uuid": "CDX-NTA-042",
+      "name": "Natural Talent",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "any",
+      "base_drain": 6,
+      "max_drain": 9,
+      "max_rank": 3,
+      "stats": {
+        "cast_speed_percent": 75
+      },
+      "rank_scaling": {
+        "cast_speed_percent": {
+          "per_rank": 25
+        }
+      },
+      "description": "Refines the neural pathways that initiate ability activation, dramatically reducing the animation commitment of Warframe powers.",
+      "base_effect": "+25% Cast Speed",
+      "max_effect": "+75% Cast Speed",
+      "endo_costs_per_rank": [30, 60, 120],
+      "credit_costs_per_rank": [1449, 2898, 5796],
+      "tb_effect": "In TB, abilities activated with Natural Talent equipped do not cost an action (can be cast as a bonus action, once per turn, at max rank). Lower ranks reduce cast time instead. Excellent for Excalibur's Radial Blind setup.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Constitution": {
+      "_wiki": "https://wiki.warframe.com/w/Constitution",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. +10%/rank Ability Duration, +8%/rank Knockdown Recovery. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-CST-043",
+      "name": "Constitution",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "ability_duration_percent": 50,
+        "knockdown_recovery_percent": 40
+      },
+      "rank_scaling": {
+        "ability_duration_percent": {
+          "per_rank": 10
+        },
+        "knockdown_recovery_percent": {
+          "per_rank": 8
+        }
+      },
+      "description": "Toughens the Warframe's physical and neurological resilience. Ability effects last longer and the frame recovers from destabilizing impacts faster.",
+      "base_effect": "+10% Ability Duration, +8% Knockdown Recovery",
+      "max_effect": "+50% Ability Duration, +40% Knockdown Recovery",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Increases timed ability durations by 50% at max rank and reduces the Knockdown debuff duration by 1 additional turn (at max rank). Stacks with Continuity for extreme duration builds.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Fleeting Expertise": {
+      "_wiki": "https://wiki.warframe.com/w/Fleeting_Expertise",
+      "_wiki_note": "Wiki: Rare, max rank 5. +10%/rank Ability Efficiency (capped at 75%), -10%/rank Ability Duration. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-FEX-044",
+      "name": "Fleeting Expertise",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "ability_efficiency_percent": 50,
+        "ability_duration_percent": -50
+      },
+      "rank_scaling": {
+        "ability_efficiency_percent": {
+          "per_rank": 10
+        },
+        "ability_duration_percent": {
+          "per_rank": -10
+        }
+      },
+      "description": "Strips unnecessary overhead from ability execution routines, slashing energy costs at the expense of how long effects persist. A trade of duration for sustainability.",
+      "base_effect": "+10% Efficiency, -10% Duration",
+      "max_effect": "+50% Efficiency, -50% Duration",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "At max rank, reduces ability energy cost by 50% (a 100-Energy ability costs 50) but also halves ability duration. Combine with Continuity/Constitution to offset the duration penalty while keeping the efficiency gain.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Enemy Sense": {
+      "_wiki": "https://wiki.warframe.com/w/Enemy_Sense",
+      "_wiki_note": "Wiki: Common, max rank 5. +6m/rank Enemy Detection Radius. TB: bonus preemptive strike chance. Drain: R0=2, R5=7. Naramon.",
+      "uuid": "CDX-ENS-045",
+      "name": "Enemy Sense",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "enemy_detection_percent": 30
+      },
+      "rank_scaling": {
+        "enemy_detection_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Amplifies the Warframe's environmental awareness systems, displaying nearby enemy positions on the minimap at greater range. Invaluable in stealth or ambush scenarios.",
+      "base_effect": "+6% Enemy Detection Range",
+      "max_effect": "+30% Enemy Detection Range",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "In TB, grants a +6% chance per rank (max +30%) to get a free preemptive strike action at the start of combat before enemies act. The bonus strike uses your equipped weapon at half damage. Does not trigger abilities.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Animal Instinct": {
+      "_wiki": "https://wiki.warframe.com/w/Animal_Instinct",
+      "_wiki_note": "Wiki: Uncommon, max rank 3. Enemy Loot Radar + increased detection. Drain: R0=2, R3=5. Naramon.",
+      "uuid": "CDX-ANI-046",
+      "name": "Animal Instinct",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 5,
+      "max_rank": 3,
+      "stats": {
+        "loot_radar_percent": 30
+      },
+      "rank_scaling": {
+        "loot_radar_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Heightens the Warframe's sensory integration through feral pattern recognition algorithms, detecting both life signs and resource deposits at greater range.",
+      "base_effect": "+10% Loot Radar Range",
+      "max_effect": "+30% Loot Radar Range",
+      "endo_costs_per_rank": [20, 40, 80],
+      "credit_costs_per_rank": [966, 1932, 3864],
+      "tb_effect": "At max rank, improves the quality tier of one random enemy drop per mission by one step (e.g. Common→Uncommon). Does not guarantee rare drops but consistently upgrades lower-tier loot rolls.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Power Drift": {
+      "_wiki": "https://wiki.warframe.com/w/Power_Drift",
+      "_wiki_note": "Wiki: Uncommon (Exilus mod), max rank 3. +15%/rank Ability Strength, +30%/rank knockdown resist. Drain: R0=2, R3=5. Vazarin.",
+      "uuid": "CDX-PWD-047",
+      "name": "Power Drift",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 2,
+      "max_drain": 5,
+      "max_rank": 3,
+      "stats": {
+        "ability_strength_percent": 45,
+        "knockdown_resist_percent": 90
+      },
+      "rank_scaling": {
+        "ability_strength_percent": {
+          "per_rank": 15
+        },
+        "knockdown_resist_percent": {
+          "per_rank": 30
+        }
+      },
+      "description": "A Drift-class mod tuned for combat endurance. Amplifies ability output while hardening the neural link against physical destabilization from impact forces.",
+      "base_effect": "+15% Ability Strength, +30% Knockdown Resist",
+      "max_effect": "+45% Ability Strength, +90% Knockdown Resist",
+      "endo_costs_per_rank": [20, 40, 80],
+      "credit_costs_per_rank": [966, 1932, 3864],
+      "tb_effect": "Provides +45% ability strength at max rank (stacks with Intensify) and reduces Knockdown debuff duration by 1 turn. Full knockdown immunity requires both Power Drift and Constitution equipped together.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Hellfire": {
+      "_wiki": "https://wiki.warframe.com/w/Hellfire",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Heat Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-HFR-048",
+      "name": "Hellfire",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "heat_damage_percent": 90
+      },
+      "rank_scaling": {
+        "heat_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Superheats rifle rounds using a thermite-tipped coating, adding a scorching Heat component to each shot. Targets engulfed in flames suffer burning damage beyond the initial impact.",
+      "base_effect": "+15% Heat Damage",
+      "max_effect": "+90% Heat Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Heat damage to your MK1-Braton or Paris shots. Heat procs deal 12 dmg/turn for 2 turns and halve enemy armor while burning. Combine with Infected Clip (Toxin) to create Gas — AoE Toxin cloud on proc. Equip in a Primary slot.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Infected Clip": {
+      "_wiki": "https://wiki.warframe.com/w/Infected_Clip",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Toxin Damage. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-IFC-049",
+      "name": "Infected Clip",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "toxin_damage_percent": 90
+      },
+      "rank_scaling": {
+        "toxin_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Loads the rifle's magazine with biologically contaminated rounds carrying a virulent compound. The toxin bypasses shield systems entirely, poisoning the bloodstream on contact.",
+      "base_effect": "+15% Toxin Damage",
+      "max_effect": "+90% Toxin Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Toxin damage to your rifle. Toxin bypasses both shields and armor, hitting HP directly. Procs deal 14 dmg/turn for 2 turns. Combine with Cryo Rounds (Cold) to create Viral — halves effective enemy HP for 2 turns.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Cryo Rounds": {
+      "_wiki": "https://wiki.warframe.com/w/Cryo_Rounds",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Cold Damage. Drain: R0=6, R5=11. Vazarin.",
+      "uuid": "CDX-CRY-050",
+      "name": "Cryo Rounds",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "cold_damage_percent": 90
+      },
+      "rank_scaling": {
+        "cold_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Cryogenic rounds that flash-freeze on impact, adding Cold elemental damage to every shot. Cold procs slow targets and reduce their offensive output.",
+      "base_effect": "+15% Cold Damage",
+      "max_effect": "+90% Cold Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Cold damage to your rifle. Cold procs reduce the target's outgoing damage by -30% for 2 turns. Combine with Infected Clip (Toxin) to create Viral — one of the strongest elemental combos, halving effective HP.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Stormbringer": {
+      "_wiki": "https://wiki.warframe.com/w/Stormbringer",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Electricity Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-STB-051",
+      "name": "Stormbringer",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "electricity_damage_percent": 90
+      },
+      "rank_scaling": {
+        "electricity_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Charges rifle rounds with high-voltage electrical energy, delivering a shock with every hit. Chain discharge arcs can leap between nearby enemies, making dense formations especially vulnerable.",
+      "base_effect": "+15% Electricity Damage",
+      "max_effect": "+90% Electricity Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Electricity damage to your rifle. Electricity procs chain-stun: on proc, target and a random second enemy are both Stunned for 1 turn. Combine with Hellfire (Heat) to create Radiation — confuses enemies into friendly fire.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Piercing Hit": {
+      "_wiki": "https://wiki.warframe.com/w/Piercing_Hit",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+15%…R5=+90% Puncture Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-PIH-052",
+      "name": "Piercing Hit",
+      "category": "Rifle",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "puncture_damage_percent": 90
+      },
+      "rank_scaling": {
+        "puncture_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Sharpens rifle rounds to armor-piercing tips that punch through protective plating, reducing the damage reduction of heavily armored targets on proc.",
+      "base_effect": "+15% Puncture Damage",
+      "max_effect": "+90% Puncture Damage",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Adds Puncture damage to your rifle. Puncture procs reduce the target's outgoing damage by -30% for 1 turn (stagger effect). Excellent against Grineer Lancers — the -30% damage debuff also reduces their Heavy Gunner bonus attacks.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Hammer Shot": {
+      "_wiki": "https://wiki.warframe.com/w/Hammer_Shot",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0: +20% Crit Damage, +10% Status…R5: +100% Crit Damage, +40% Status. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-HMS-053",
+      "name": "Hammer Shot",
+      "category": "Rifle",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "crit_damage_percent": 100,
+        "status_chance_percent": 40
+      },
+      "rank_scaling": {
+        "crit_damage_percent": {
+          "per_rank": 20
+        },
+        "status_chance_percent": {
+          "per_rank": 8
+        }
+      },
+      "description": "A hybrid precision-round that concentrates mass at the tip for maximum kinetic transfer on critical strikes, while the disintegrating casing showers the target with status-triggering fragments.",
+      "base_effect": "+20% Crit Damage, +8% Status Chance",
+      "max_effect": "+100% Crit Damage, +40% Status Chance",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "Doubles critical hit damage multiplier of your rifle at max rank AND increases elemental proc rates. Pairing with Point Strike and Split Chamber creates a devastating crit-status hybrid build.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Malignant Force": {
+      "_wiki": "https://wiki.warframe.com/w/Malignant_Force",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15% Toxin, +10% Status…R5=+90% Toxin, +60% Status. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-MAL-054",
+      "name": "Malignant Force",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "toxin_damage_percent": 90,
+        "status_chance_percent": 60
+      },
+      "rank_scaling": {
+        "toxin_damage_percent": {
+          "per_rank": 18
+        },
+        "status_chance_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "Combines an aggressive bioweapon payload with a high-dispersion delivery mechanism, maximizing both toxin dose and status application frequency.",
+      "base_effect": "+15% Toxin, +10% Status Chance",
+      "max_effect": "+90% Toxin, +60% Status Chance",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Toxin damage and dramatically increases proc frequency. At max rank, nearly guarantees a Toxin proc on each hit while adding +90% base Toxin damage. Best on fast-firing MK1-Braton for near-100% proc coverage.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Rime Rounds": {
+      "_wiki": "https://wiki.warframe.com/w/Rime_Rounds",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15% Cold, +10% Status…R5=+90% Cold, +60% Status. Drain: R0=6, R5=11. Vazarin.",
+      "uuid": "CDX-RIM-055",
+      "name": "Rime Rounds",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "cold_damage_percent": 90,
+        "status_chance_percent": 60
+      },
+      "rank_scaling": {
+        "cold_damage_percent": {
+          "per_rank": 18
+        },
+        "status_chance_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "Dual-layered cryo rounds with an outer shatter-dispersion coating. The immediate Cold impact is followed by a micro-crystal cloud that sustains the proc duration.",
+      "base_effect": "+15% Cold, +10% Status Chance",
+      "max_effect": "+90% Cold, +60% Status Chance",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Cold damage and high status chance to your rifle. Cold procs reliably slow targets. Combine with Infected Clip for near-guaranteed Viral procs — consistently halving enemy effective HP pool.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "High Caliber": {
+      "_wiki": "https://wiki.warframe.com/w/High_Caliber",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+20%…R5=+110% Rifle Damage, with accuracy penalty. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-HCL-056",
+      "name": "High Caliber",
+      "category": "Rifle",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "rifle_damage_percent": 110
+      },
+      "rank_scaling": {
+        "rifle_damage_percent": {
+          "per_rank": 22
+        }
+      },
+      "description": "Dramatically up-sizes the rifle's bore and ammunition, delivering massive damage increases at the cost of shot precision. Best used in close-quarters where accuracy matters less.",
+      "base_effect": "+20% Rifle Damage (−Accuracy)",
+      "max_effect": "+110% Rifle Damage (−Accuracy)",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "Stacks with Serration for extreme rifle damage totals. In TB, the accuracy penalty reduces hit chance by 15% (max rank), which is mitigated by the game's base accuracy. Net result: more damage, slightly lower hit frequency — still a strong DPS mod.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Vigilante Armaments": {
+      "_wiki": "https://wiki.warframe.com/w/Vigilante_Armaments",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Multishot. Drain: R0=4, R5=9. Any polarity.",
+      "uuid": "CDX-VGA-057",
+      "name": "Vigilante Armaments",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "any",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "multishot_percent": 90
+      },
+      "rank_scaling": {
+        "multishot_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Overloads the rifle's firing mechanism to launch multiple rounds per trigger pull. A less extreme but more energy-efficient alternative to Split Chamber.",
+      "base_effect": "+15% Multishot",
+      "max_effect": "+90% Multishot",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds a 90% chance per hit roll to fire an additional projectile at max rank. Effectively +0.9 hits per action. Lower than Split Chamber's 150% but uses less mod capacity. Good choice when capacity is tight.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Shred": {
+      "_wiki": "https://wiki.warframe.com/w/Shred",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+5% Fire Rate, +0.2 Punch Through…R5=+30% Fire Rate, +1.2 Punch Through. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-SHR-058",
+      "name": "Shred",
+      "category": "Rifle",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "fire_rate_percent": 30,
+        "punch_through": 1
+      },
+      "rank_scaling": {
+        "fire_rate_percent": {
+          "per_rank": 6
+        },
+        "punch_through": {
+          "per_rank": 0
+        }
+      },
+      "description": "Optimizes the rifle's cyclic rate and installs a hyper-dense penetrator tip, allowing rounds to punch through multiple targets and armor panels simultaneously.",
+      "base_effect": "+5% Fire Rate, Punch Through",
+      "max_effect": "+30% Fire Rate, Full Punch Through",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "In TB, Punch Through grants a 25% chance per rank (max +125%) that a rifle hit applies to a second enemy simultaneously. At max rank, effectively hits two targets per action, doubling damage output against grouped enemies.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Point Blank": {
+      "_wiki": "https://wiki.warframe.com/w/Point_Blank",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+15%…R5=+90% Shotgun Damage. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-PTB-059",
+      "name": "Point Blank",
+      "category": "Shotgun",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "shotgun_damage_percent": 90
+      },
+      "rank_scaling": {
+        "shotgun_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Optimizes the spread pattern for close engagements, ensuring pellet concentration on target. The shotgun equivalent of Serration for base damage.",
+      "base_effect": "+15% Shotgun Damage",
+      "max_effect": "+90% Shotgun Damage",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Multiplies your Shotgun's base damage by up to +90% at max rank. The foundational shotgun damage mod — equip this before any other shotgun mod when using a shotgun weapon.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Hell's Chamber": {
+      "_wiki": "https://wiki.warframe.com/w/Hell's_Chamber",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+20%…R5=+120% Multishot. Drain: R0=6, R5=11. Any polarity.",
+      "uuid": "CDX-HLC-060",
+      "name": "Hell's Chamber",
+      "category": "Shotgun",
+      "rarity": "rare",
+      "polarity": "any",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "multishot_percent": 120
+      },
+      "rank_scaling": {
+        "multishot_percent": {
+          "per_rank": 24
+        }
+      },
+      "description": "Modifies the shotgun chamber to eject a second volley of pellets on each trigger pull. The shotgun equivalent of Split Chamber — an essential damage multiplier.",
+      "base_effect": "+20% Multishot",
+      "max_effect": "+120% Multishot",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "At max rank, each shotgun attack has a +120% chance to fire an extra volley. Effectively +1.2 additional hit rolls per action — highest DPS multiplier available for shotguns.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Chilling Grasp": {
+      "_wiki": "https://wiki.warframe.com/w/Chilling_Grasp",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Cold Damage. Drain: R0=6, R5=11. Vazarin.",
+      "uuid": "CDX-CHG-061",
+      "name": "Chilling Grasp",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "cold_damage_percent": 90
+      },
+      "rank_scaling": {
+        "cold_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Packed with frozen pellets that flash-chill on impact, adding Cold damage to shotgun blasts. Targets struck by multiple pellets are slowed more severely.",
+      "base_effect": "+15% Cold Damage",
+      "max_effect": "+90% Cold Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Cold damage to your shotgun. Cold procs reduce enemy outgoing damage by -30% for 2 turns. Multiple-pellet hits in one action multiply proc chances — shotguns are excellent proc appliers.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Contagious Spread": {
+      "_wiki": "https://wiki.warframe.com/w/Contagious_Spread",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Toxin Damage. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-COS-062",
+      "name": "Contagious Spread",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "toxin_damage_percent": 90
+      },
+      "rank_scaling": {
+        "toxin_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Bioactive pellets that rupture on impact and release a cloud of bio-toxin. The wide spread of shotgun fire makes this especially effective at blanketing multiple enemies.",
+      "base_effect": "+15% Toxin Damage",
+      "max_effect": "+90% Toxin Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Toxin damage to your shotgun. Toxin bypasses shields and armor. Combine with Charged Shell (Electricity) to create Corrosive — strips enemy armor entirely on proc. Best anti-Grineer shotgun setup.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Charged Shell": {
+      "_wiki": "https://wiki.warframe.com/w/Charged_Shell",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Electricity Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-CHS-063",
+      "name": "Charged Shell",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "electricity_damage_percent": 90
+      },
+      "rank_scaling": {
+        "electricity_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Electrostatically charged pellets that deliver a jolt on impact. Each pellet can independently arc to adjacent enemies, making this devastating against clustered targets.",
+      "base_effect": "+15% Electricity Damage",
+      "max_effect": "+90% Electricity Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Electricity damage to your shotgun. Electricity procs stun target and a random second enemy for 1 turn. Combine with Contagious Spread (Toxin) to create Corrosive — strips armor permanently on proc.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Toxic Barrage": {
+      "_wiki": "https://wiki.warframe.com/w/Toxic_Barrage",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15% Toxin, +10% Status…R5=+90% Toxin, +60% Status. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-TXB-064",
+      "name": "Toxic Barrage",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "toxin_damage_percent": 90,
+        "status_chance_percent": 60
+      },
+      "rank_scaling": {
+        "toxin_damage_percent": {
+          "per_rank": 18
+        },
+        "status_chance_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "A high-concentration bioweapon shell optimized for wide-area contamination. Each pellet independently carries a full payload, dramatically increasing Toxin status coverage.",
+      "base_effect": "+15% Toxin, +10% Status Chance",
+      "max_effect": "+90% Toxin, +60% Status Chance",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Combines Toxin damage with status generation. Multiple pellets per shot means each fires a status roll — shotguns apply statuses faster than any other weapon type. Near-guaranteed Toxin procs at max rank.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Shotgun Ammo Mutation": {
+      "_wiki": "https://wiki.warframe.com/w/Shotgun_Ammo_Mutation",
+      "_wiki_note": "Wiki: Uncommon, max rank 3. +25%/rank ammo pickup conversion. Drain: R0=4, R3=7. Any polarity.",
+      "uuid": "CDX-SAM-065",
+      "name": "Shotgun Ammo Mutation",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "any",
+      "base_drain": 4,
+      "max_drain": 7,
+      "max_rank": 3,
+      "stats": {
+        "ammo_conversion_ratio": 75
+      },
+      "rank_scaling": {
+        "ammo_conversion_ratio": {
+          "per_rank": 25
+        }
+      },
+      "description": "Installs a micro-refiner that converts incompatible ammunition types into usable shotgun shells. Prevents ammo starvation on long missions.",
+      "base_effect": "+25% Ammo Pickup Conversion",
+      "max_effect": "+75% Ammo Conversion Efficiency",
+      "endo_costs_per_rank": [20, 40, 80],
+      "credit_costs_per_rank": [966, 1932, 3864],
+      "tb_effect": "In TB, grants +1 additional shotgun ammo per enemy defeated at max rank. Useful in prolonged multi-wave encounters where normal drops may not keep pace with consumption.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Flechette": {
+      "_wiki": "https://wiki.warframe.com/w/Flechette",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+15%…R5=+90% Puncture Damage. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-FLE-066",
+      "name": "Flechette",
+      "category": "Shotgun",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "puncture_damage_percent": 90
+      },
+      "rank_scaling": {
+        "puncture_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Replaces standard pellets with hyper-dense needle-shaped flechette projectiles that punch through armor plating. Ideal against hardened Grineer targets.",
+      "base_effect": "+15% Puncture Damage",
+      "max_effect": "+90% Puncture Damage",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Adds Puncture damage to your shotgun. Puncture procs reduce enemy outgoing damage by -30% for 1 turn and reduce their armor by 15% for the proc duration. Best against Grineer Ballistas and Lancers.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Accelerated Blast": {
+      "_wiki": "https://wiki.warframe.com/w/Accelerated_Blast",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+5% Fire Rate, +15% Puncture…R5=+30% Fire Rate, +90% Puncture. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-ACB-067",
+      "name": "Accelerated Blast",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "fire_rate_percent": 30,
+        "puncture_damage_percent": 90
+      },
+      "rank_scaling": {
+        "fire_rate_percent": {
+          "per_rank": 6
+        },
+        "puncture_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "A dual-enhancement mod that upgrades the shot cycle speed and loads armor-piercing flechettes simultaneously. Combines offense and utility in a single slot.",
+      "base_effect": "+5% Fire Rate, +15% Puncture",
+      "max_effect": "+30% Fire Rate, +90% Puncture",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Increases shotgun actions per turn (fire rate) and adds Puncture damage simultaneously. In TB, +30% fire rate translates to a +30% chance of an extra attack action per turn at max rank.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Lethal Torrent": {
+      "_wiki": "https://wiki.warframe.com/w/Lethal_Torrent",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+6% Fire Rate, +12% Multishot…R5=+30% Fire Rate, +60% Multishot. Drain: R0=6, R5=11. Any polarity.",
+      "uuid": "CDX-LTR-068",
+      "name": "Lethal Torrent",
+      "category": "Pistol",
+      "rarity": "rare",
+      "polarity": "any",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "fire_rate_percent": 30,
+        "multishot_percent": 60
+      },
+      "rank_scaling": {
+        "fire_rate_percent": {
+          "per_rank": 6
+        },
+        "multishot_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "Overclocks the pistol's trigger mechanism and chamber cycling simultaneously, producing both a higher rate of fire and a higher projectile volume per trigger pull.",
+      "base_effect": "+6% Fire Rate, +12% Multishot",
+      "max_effect": "+30% Fire Rate, +60% Multishot",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "Dual-DPS pistol mod. In TB, +30% fire rate adds a 30% chance of an extra secondary attack, while +60% multishot adds a 60% chance of an extra projectile per hit. Together, nearly double pistol DPS output.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato", "Kunai"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Quickdraw": {
+      "_wiki": "https://wiki.warframe.com/w/Quickdraw",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Reload Speed. Drain: R0=2, R5=7. Naramon.",
+      "uuid": "CDX-QKD-069",
+      "name": "Quickdraw",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "reload_speed_percent": 90
+      },
+      "rank_scaling": {
+        "reload_speed_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "A spring-loaded magazine system and reduced-friction grip enable blazing-fast pistol reloads. Eliminates the primary vulnerability of pistols in sustained engagements.",
+      "base_effect": "+15% Reload Speed",
+      "max_effect": "+90% Reload Speed",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Reduces pistol reload turns. At max rank, the Lato never needs a dedicated reload action — after emptying the magazine, it automatically reloads as a free action. Provides seamless sustained combat.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Pistol Gambit": {
+      "_wiki": "https://wiki.warframe.com/w/Pistol_Gambit",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+20%…R5=+120% Critical Chance. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-PSG-070",
+      "name": "Pistol Gambit",
+      "category": "Pistol",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "crit_chance_percent": 120
+      },
+      "rank_scaling": {
+        "crit_chance_percent": {
+          "per_rank": 24
+        }
+      },
+      "description": "Recalibrates the pistol's barrel harmonics and sight alignment for maximum critical hit potential. The gambit is accepting slightly higher recoil in exchange for dramatically improved hit quality.",
+      "base_effect": "+20% Critical Chance",
+      "max_effect": "+120% Critical Chance",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Dramatically increases Lato's critical hit rate. At max rank, each Lato hit has +120% additional crit chance on top of its base 10% — effectively guaranteeing crits with every shot in most builds.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Target Cracker": {
+      "_wiki": "https://wiki.warframe.com/w/Target_Cracker",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Critical Multiplier. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-TRC-071",
+      "name": "Target Cracker",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "crit_damage_percent": 90
+      },
+      "rank_scaling": {
+        "crit_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Hollow-point ammunition with a fragmentation core that explodes outward on critical strikes, devastating organic tissue beyond the point of impact.",
+      "base_effect": "+15% Critical Multiplier",
+      "max_effect": "+90% Critical Multiplier",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Increases the damage multiplier of Lato critical hits at max rank by +90% (e.g. 2.0x becomes 2.9x before other crits multipliers). Pair with Pistol Gambit to ensure both high crit rate and high crit damage.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Pathogen Rounds": {
+      "_wiki": "https://wiki.warframe.com/w/Pathogen_Rounds",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Toxin Damage. Drain: R0=6, R5=11. Naramon.",
+      "uuid": "CDX-PAR-072",
+      "name": "Pathogen Rounds",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "toxin_damage_percent": 90
+      },
+      "rank_scaling": {
+        "toxin_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Pistol rounds packed with a virulent biological payload that bypasses shielding to attack biological systems directly. Especially effective against unshielded targets.",
+      "base_effect": "+15% Toxin Damage",
+      "max_effect": "+90% Toxin Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Toxin damage to your Lato or Kunai. Toxin bypasses both shields and armor, dealing direct HP damage. Combine with Deep Freeze (Cold) to create Viral for devastating anti-infantry effectiveness.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato", "Kunai"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Pistol Ammo Mutation": {
+      "_wiki": "https://wiki.warframe.com/w/Pistol_Ammo_Mutation",
+      "_wiki_note": "Wiki: Uncommon, max rank 3. +25%/rank ammo pickup conversion. Drain: R0=4, R3=7. Any polarity.",
+      "uuid": "CDX-PAM-073",
+      "name": "Pistol Ammo Mutation",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "any",
+      "base_drain": 4,
+      "max_drain": 7,
+      "max_rank": 3,
+      "stats": {
+        "ammo_conversion_ratio": 75
+      },
+      "rank_scaling": {
+        "ammo_conversion_ratio": {
+          "per_rank": 25
+        }
+      },
+      "description": "Converts incompatible ammo types into pistol rounds through a miniaturized onboard fabricator, ensuring a steady supply of Secondary ammunition even when drops are scarce.",
+      "base_effect": "+25% Ammo Pickup Conversion",
+      "max_effect": "+75% Ammo Conversion Efficiency",
+      "endo_costs_per_rank": [20, 40, 80],
+      "credit_costs_per_rank": [966, 1932, 3864],
+      "tb_effect": "Grants +1 pistol ammo per enemy kill at max rank. In TB, prevents running dry mid-combat. Most useful in extended multi-wave encounters or when Kunai's limited magazine is a constraint.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato", "Kunai"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Convulsion": {
+      "_wiki": "https://wiki.warframe.com/w/Convulsion",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Electricity Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-CVL-074",
+      "name": "Convulsion",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "electricity_damage_percent": 90
+      },
+      "rank_scaling": {
+        "electricity_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Electrifies the pistol's rounds using a compact galvanic charger. The discharge disrupts nervous systems and electrical components on impact.",
+      "base_effect": "+15% Electricity Damage",
+      "max_effect": "+90% Electricity Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Electricity damage to your pistol. Electricity procs stun target and chain to a random second enemy for 1 turn. Excellent disruption tool. Combine with Pathogen Rounds (Toxin) for Corrosive against armored Grineer.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Deep Freeze": {
+      "_wiki": "https://wiki.warframe.com/w/Deep_Freeze",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Cold Damage. Drain: R0=6, R5=11. Vazarin.",
+      "uuid": "CDX-DPF-075",
+      "name": "Deep Freeze",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "cold_damage_percent": 90
+      },
+      "rank_scaling": {
+        "cold_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Cryogenic pistol ammunition that releases expanding cryo-gel on impact, adding a Cold component to each shot. Multiple hits can freeze targets solid.",
+      "base_effect": "+15% Cold Damage",
+      "max_effect": "+90% Cold Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Cold damage to your pistol. Cold procs reduce enemy outgoing damage by -30% for 2 turns. Combine with Pathogen Rounds (Toxin) to create Viral — an excellent Corpus and Grineer secondary loadout.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato", "Kunai"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Scorch": {
+      "_wiki": "https://wiki.warframe.com/w/Scorch",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Heat Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-SCH-076",
+      "name": "Scorch",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "heat_damage_percent": 90
+      },
+      "rank_scaling": {
+        "heat_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "A thermite-based pistol round that burns through organic and synthetic material alike, adding a sustained Heat component to each shot.",
+      "base_effect": "+15% Heat Damage",
+      "max_effect": "+90% Heat Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Heat damage to your pistol. Heat procs deal 12 dmg/turn for 2 turns and reduce enemy armor by 50% while burning. Stacks 4×. Excellent against Grineer who rely on armor mitigation.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Slip Magazine": {
+      "_wiki": "https://wiki.warframe.com/w/Slip_Magazine",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+5%…R5=+30% Magazine Capacity. Drain: R0=2, R5=7. Any polarity.",
+      "uuid": "CDX-SLM-077",
+      "name": "Slip Magazine",
+      "category": "Pistol",
+      "rarity": "common",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "ammo_max_percent": 30
+      },
+      "rank_scaling": {
+        "ammo_max_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Extended magazine housing that increases the pistol's ammo capacity per reload cycle, enabling more shots per action sequence before a reload becomes necessary.",
+      "base_effect": "+5% Magazine Capacity",
+      "max_effect": "+30% Magazine Capacity",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Increases max magazine size by 30% at rank 5. For the Lato (18 rounds), this adds ~5 additional rounds per magazine. Reduces forced reload frequency in sustained fights. Budget utility mod for Secondary slots.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Sure Shot": {
+      "_wiki": "https://wiki.warframe.com/w/Sure_Shot",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+10%…R5=+60% Status Chance. Drain: R0=2, R5=7. Any polarity.",
+      "uuid": "CDX-SUS-078",
+      "name": "Sure Shot",
+      "category": "Pistol",
+      "rarity": "common",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "status_chance_percent": 60
+      },
+      "rank_scaling": {
+        "status_chance_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "Reconfigures the pistol round's dispersion pattern for maximum surface contact on each impact, improving the probability that elemental payloads activate on hit.",
+      "base_effect": "+10% Status Chance",
+      "max_effect": "+60% Status Chance",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Greatly increases the chance of triggering elemental procs with every pistol hit. At max rank, pairs with any elemental pistol mod (Scorch, Deep Freeze, etc.) to guarantee proc application. A cheap status enabler.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato", "Kunai"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Molten Impact": {
+      "_wiki": "https://wiki.warframe.com/w/Molten_Impact",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Heat Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-MOI-079",
+      "name": "Molten Impact",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "heat_damage_percent": 90
+      },
+      "rank_scaling": {
+        "heat_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Infuses the melee weapon with superheated plasma, causing each blow to leave scorching burns in addition to physical trauma.",
+      "base_effect": "+15% Heat Damage",
+      "max_effect": "+90% Heat Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Heat damage to your melee weapon. Heat procs deal 12 dmg/turn for 2 turns and halve enemy armor. Combine with Shocking Touch (Electricity) to create Radiation — confuses enemies for 2 turns, forcing friendly fire.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Shocking Touch": {
+      "_wiki": "https://wiki.warframe.com/w/Shocking_Touch",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Electricity Damage. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-SHT-080",
+      "name": "Shocking Touch",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "electricity_damage_percent": 90
+      },
+      "rank_scaling": {
+        "electricity_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Channels the Warframe's bioelectric field through the melee weapon, delivering shocking jolts on each strike that can chain to nearby enemies.",
+      "base_effect": "+15% Electricity Damage",
+      "max_effect": "+90% Electricity Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Electricity damage to melee. Electricity procs stun target and arc to a random second enemy for 1 turn — exceptionally strong in TB since it effectively crowd-controls two enemies simultaneously.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Killing Blow": {
+      "_wiki": "https://wiki.warframe.com/w/Killing_Blow",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+20%…R5=+120% Heavy Attack Damage. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-KLB-081",
+      "name": "Killing Blow",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "heavy_attack_damage_percent": 120
+      },
+      "rank_scaling": {
+        "heavy_attack_damage_percent": {
+          "per_rank": 24
+        }
+      },
+      "description": "Recalibrates the melee actuators for maximum power delivery on heavy, committed strikes. Trades the flexibility of light attacks for devastating focused blows.",
+      "base_effect": "+20% Heavy Attack Damage",
+      "max_effect": "+120% Heavy Attack Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "In TB, Exalted Blade energy waves (heavy attack equivalent) deal +120% more damage at max rank. Converts Excalibur's melee burst into an extremely high-damage finisher for low-HP targets.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Spoiled Strike": {
+      "_wiki": "https://wiki.warframe.com/w/Spoiled_Strike",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+25%…R5=+100% Melee Damage, -10%/rank Attack Speed. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-SPS-082",
+      "name": "Spoiled Strike",
+      "category": "Melee",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "melee_damage_percent": 100,
+        "attack_speed_percent": -50
+      },
+      "rank_scaling": {
+        "melee_damage_percent": {
+          "per_rank": 20
+        },
+        "attack_speed_percent": {
+          "per_rank": -10
+        }
+      },
+      "description": "Weights the melee weapon with dense kinetic mass for maximum striking force, at the cost of swing speed. Every blow lands with devastating power — but you can only land so many per turn.",
+      "base_effect": "+25% Melee Damage, -10% Attack Speed",
+      "max_effect": "+100% Melee Damage, -50% Attack Speed",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "At max rank adds +100% melee damage (stacks with Pressure Point) but reduces attacks per turn by 1 (minimum 1). Net result: fewer, much harder hits. Best on Bo staff builds that proc Combo gauge quickly from high single-hit impact.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Volcanic Edge": {
+      "_wiki": "https://wiki.warframe.com/w/Volcanic_Edge",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15% Heat, +10% Status…R5=+90% Heat, +60% Status. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-VCE-083",
+      "name": "Volcanic Edge",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "heat_damage_percent": 90,
+        "status_chance_percent": 60
+      },
+      "rank_scaling": {
+        "heat_damage_percent": {
+          "per_rank": 18
+        },
+        "status_chance_percent": {
+          "per_rank": 12
+        }
+      },
+      "description": "A molten-core melee enhancement that combines extreme Heat output with high-dispersion impact geometry to maximize fire proc coverage per swing.",
+      "base_effect": "+15% Heat, +10% Status Chance",
+      "max_effect": "+90% Heat, +60% Status Chance",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Near-guarantees Heat procs on every melee hit at max rank while adding substantial fire damage. Best used on Bo staff where the wide sweep can hit multiple enemies in one swing, spreading burns.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Jagged Edge": {
+      "_wiki": "https://wiki.warframe.com/w/Jagged_Edge",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Slash Damage. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-JGE-084",
+      "name": "Jagged Edge",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "slash_damage_percent": 90
+      },
+      "rank_scaling": {
+        "slash_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Serrates the melee weapon's edge to a micro-tooth profile that tears rather than cuts, dramatically increasing Slash damage output and bleeding proc frequency.",
+      "base_effect": "+15% Slash Damage",
+      "max_effect": "+90% Slash Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Slash damage to your melee. Slash procs bypass armor entirely — dealing 35 HP/turn for 2 turns ignoring all mitigation. Excellent against high-armor Grineer. Stacks with Rending Strike for combined Slash+Puncture damage boost.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Sundering Strike": {
+      "_wiki": "https://wiki.warframe.com/w/Sundering_Strike",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+15%…R5=+90% Puncture Damage. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-SNS-085",
+      "name": "Sundering Strike",
+      "category": "Melee",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "puncture_damage_percent": 90
+      },
+      "rank_scaling": {
+        "puncture_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Hardens and reshapes the weapon tip into an armor-piercing profile, adding significant Puncture damage that penetrates hardened Grineer plating.",
+      "base_effect": "+15% Puncture Damage",
+      "max_effect": "+90% Puncture Damage",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Adds Puncture damage to melee. Puncture procs reduce enemy outgoing damage by -30% for 1 turn. Pairs with Jagged Edge to cover two IPS types simultaneously — apply Slash Bleed + Puncture debuff in a single swing.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Organ Shatter": {
+      "_wiki": "https://wiki.warframe.com/w/Organ_Shatter",
+      "_wiki_note": "Wiki: Rare, max rank 3. R0=+45%…R3=+135% Critical Multiplier. Drain: R0=4, R3=7. Madurai.",
+      "uuid": "CDX-OGS-086",
+      "name": "Organ Shatter",
+      "category": "Melee",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 7,
+      "max_rank": 3,
+      "stats": {
+        "crit_damage_percent": 135
+      },
+      "rank_scaling": {
+        "crit_damage_percent": {
+          "per_rank": 45
+        }
+      },
+      "description": "A biomechanical strike enhancer that targets anatomical weak points with terminal precision. Critical hits deliver catastrophic internal trauma far exceeding surface damage.",
+      "base_effect": "+45% Critical Multiplier",
+      "max_effect": "+135% Critical Multiplier",
+      "endo_costs_per_rank": [30, 60, 120],
+      "credit_costs_per_rank": [1449, 2898, 5796],
+      "tb_effect": "At max rank, multiplies melee critical damage by +135% (e.g. a 2.0x crit hit becomes a 3.35x hit). Combined with True Steel, Excalibur's Exalted Blade becomes a one-hit kill machine against non-boss enemies.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "True Steel": {
+      "_wiki": "https://wiki.warframe.com/w/True_Steel",
+      "_wiki_note": "Wiki: Uncommon, max rank 3. R0=+30%…R3=+120% Critical Chance. Drain: R0=4, R3=7. Madurai.",
+      "uuid": "CDX-TRS-087",
+      "name": "True Steel",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 7,
+      "max_rank": 3,
+      "stats": {
+        "crit_chance_percent": 120
+      },
+      "rank_scaling": {
+        "crit_chance_percent": {
+          "per_rank": 40
+        }
+      },
+      "description": "Reconfigures the weapon's balance and strike geometry for maximum probability of landing critical hits. Each swing finds the optimal angle for vital targeting.",
+      "base_effect": "+30% Critical Chance",
+      "max_effect": "+120% Critical Chance",
+      "endo_costs_per_rank": [20, 40, 80],
+      "credit_costs_per_rank": [966, 1932, 3864],
+      "tb_effect": "At max rank, dramatically increases melee crit chance. Skana with True Steel max-ranked has reliable crits on nearly every swing. Pair with Organ Shatter to stack both crit chance and crit multiplier for explosive damage output.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Reach": {
+      "_wiki": "https://wiki.warframe.com/w/Reach",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+0.3m…R5=+1.5m Range. TB: hits additional target per range tier. Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-RCH-088",
+      "name": "Reach",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "melee_range_percent": 50
+      },
+      "rank_scaling": {
+        "melee_range_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Extends the melee weapon's effective strike zone through micro-actuated blade elongation and improved arc geometry. Allows engaging targets that would otherwise be out of reach.",
+      "base_effect": "+10% Melee Range",
+      "max_effect": "+50% Melee Range",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "In TB, each 10% range bonus adds a +10% chance to hit a second enemy simultaneously with melee attacks. At max rank (+50%), your Skana swings have a 50% chance to hit a second target for the same damage (before damage mods).",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Body Count": {
+      "_wiki": "https://wiki.warframe.com/w/Body_Count",
+      "_wiki_note": "Wiki: Common, max rank 5. R0=+1s…R5=+6s Combo Duration. TB: combo stacks persist longer. Drain: R0=2, R5=7. Naramon.",
+      "uuid": "CDX-BDC-089",
+      "name": "Body Count",
+      "category": "Melee",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "combo_duration_percent": 100
+      },
+      "rank_scaling": {
+        "combo_duration_percent": {
+          "per_rank": 20
+        }
+      },
+      "description": "A momentum-sustaining mod that extends the decay timer on the Combo Gauge between strikes, allowing more hits before the multiplier resets.",
+      "base_effect": "+1s Combo Duration",
+      "max_effect": "+6s Combo Duration",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "In TB, combo stacks decay 1 turn later per 20% bonus (max +5 turns at rank 5). Without Body Count, combo resets after 2 turns of no melee. With max Body Count, combo persists for 7 turns — letting you build massive multipliers over several combat rounds.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Life Strike": {
+      "_wiki": "https://wiki.warframe.com/w/Life_Strike",
+      "_wiki_note": "Wiki: Rare, max rank 3. R0=+10%…R3=+40% Health per Heavy Attack. Drain: R0=4, R3=7. Madurai.",
+      "uuid": "CDX-LFS-090",
+      "name": "Life Strike",
+      "category": "Melee",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 7,
+      "max_rank": 3,
+      "stats": {
+        "heavy_attack_lifesteal_percent": 40
+      },
+      "rank_scaling": {
+        "heavy_attack_lifesteal_percent": {
+          "per_rank": 13
+        }
+      },
+      "description": "A life-drain enchantment that siphons a portion of damage dealt by heavy attacks back into the Warframe as healing. Converts offensive momentum into survivability.",
+      "base_effect": "+10% Heavy Attack Lifesteal",
+      "max_effect": "+40% Heavy Attack Lifesteal",
+      "endo_costs_per_rank": [30, 60, 120],
+      "credit_costs_per_rank": [1449, 2898, 5796],
+      "tb_effect": "When Exalted Blade energy waves deal damage, restore 40% of that damage as HP at max rank (costs 5 Combo stacks to activate). E.g. a 500-damage Exalted Blade wave restores 200 HP. A powerful sustain option for Excalibur in long fights.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Shimmering Blight": {
+      "_wiki": "https://wiki.warframe.com/w/Shimmering_Blight",
+      "_wiki_note": "Wiki: Rare Polearm stance mod. Max rank 0. Drain: 2. Madurai.",
+      "uuid": "CDX-SHB-091",
+      "name": "Shimmering Blight",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "description": "A Polearm Combat Discipline focused on fluid, sweeping attacks that disorient and debilitate opponents. Each strike flows into the next in a continuous arc of rotating blade.",
+      "base_effect": "Unlocks Shimmering Blight combo tree for Polearms",
+      "max_effect": "Unlocks Shimmering Blight combo tree for Polearms",
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "tb_effect": "Stance for Polearm-class melee (future weapons). Passive: Polearm attacks have a +15% chance to apply a random elemental proc in addition to IPS damage. Excellent proc spreader.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": "Polearm",
+      "weapon_class": "Melee"
+    },
+    "Bleeding Willow": {
+      "_wiki": "https://wiki.warframe.com/w/Bleeding_Willow",
+      "_wiki_note": "Wiki: Rare Polearm stance mod. Max rank 0. Drain: 2. Naramon.",
+      "uuid": "CDX-BLW-092",
+      "name": "Bleeding Willow",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "description": "A Polearm discipline that leverages the weapon's length for extended-range attacks and disabling stabs. The willow metaphor captures the technique's flexible, bending guard posture.",
+      "base_effect": "Unlocks Bleeding Willow combo tree for Polearms",
+      "max_effect": "Unlocks Bleeding Willow combo tree for Polearms",
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "tb_effect": "Alternative Polearm stance (future weapons). Passive: Every third consecutive melee action in the same combat turn deals a guaranteed Slash proc (Bleed) bypassing normal status chance. Great for sustained damage scenarios.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": "Polearm",
+      "weapon_class": "Melee"
+    },
+    "Clashing Forest": {
+      "_wiki": "https://wiki.warframe.com/w/Clashing_Forest",
+      "_wiki_note": "Wiki: Rare Staff stance mod. Max rank 0. Drain: 2. Naramon.",
+      "uuid": "CDX-CLF-093",
+      "name": "Clashing Forest",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "description": "A Staff Combat Discipline that uses crossing, parrying strikes to first stagger targets before delivering powerful follow-up blows. The clashing of staves creates a disorienting rhythm.",
+      "base_effect": "Unlocks Clashing Forest combo tree for Staves",
+      "max_effect": "Unlocks Clashing Forest combo tree for Staves",
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "tb_effect": "Stance for Staff-class melee (Bo). Passive: On landing a Puncture proc via staff, the affected enemy loses their next action (stunned). Synergizes with Sundering Strike for guaranteed stun combos.",
+      "thumbnail": null,
+      "compatible_weapons": ["Bo"],
+      "stance_weapon": "Staff",
+      "weapon_class": "Melee"
+    },
+    "Flailing Branch": {
+      "_wiki": "https://wiki.warframe.com/w/Flailing_Branch",
+      "_wiki_note": "Wiki: Rare Staff stance mod. Max rank 0. Drain: 2. Vazarin.",
+      "uuid": "CDX-FLB-094",
+      "name": "Flailing Branch",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "vazarin",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "description": "An unorthodox Staff discipline that favors unpredictable, whipping attacks at full extension. The erratic motion makes the practitioner difficult to target while generating high-energy sweeping strikes.",
+      "base_effect": "Unlocks Flailing Branch combo tree for Staves",
+      "max_effect": "Unlocks Flailing Branch combo tree for Staves",
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "tb_effect": "Alternative Staff stance (Bo). Passive: Bo attacks gain a +20% chance to hit all enemies in the encounter simultaneously instead of just the primary target. Exceptional for multi-enemy combat rooms.",
+      "thumbnail": null,
+      "compatible_weapons": ["Bo"],
+      "stance_weapon": "Staff",
+      "weapon_class": "Melee"
+    },
+    "Tainted Mag": {
+      "_wiki": "https://wiki.warframe.com/w/Tainted_Mag",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+10% Mag Size, -5% Fire Rate…R5=+66% Mag Size, -30% Fire Rate. Drain: R0=4, R5=9. Vazarin.",
+      "uuid": "CDX-TMA-095",
+      "name": "Tainted Mag",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "ammo_max_percent": 66,
+        "fire_rate_percent": -30
+      },
+      "rank_scaling": {
+        "ammo_max_percent": {
+          "per_rank": 13
+        },
+        "fire_rate_percent": {
+          "per_rank": -6
+        }
+      },
+      "description": "A high-capacity but poorly balanced magazine that crams significantly more rounds at the expense of handling speed. Useful for sustained fire in long engagements.",
+      "base_effect": "+10% Mag Capacity, -5% Fire Rate",
+      "max_effect": "+66% Mag Capacity, -30% Fire Rate",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Tradeoff mod: more ammo per reload cycle at the cost of firing speed. At max rank Lato carries ~30 rounds per mag instead of 18, but fires 30% slower. Best when paired with Quickdraw to offset the reload penalty.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Gunslinger": {
+      "_wiki": "https://wiki.warframe.com/w/Gunslinger",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+12%…R5=+72% Fire Rate. Drain: R0=4, R5=9. Madurai.",
+      "uuid": "CDX-GUN-096",
+      "name": "Gunslinger",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "fire_rate_percent": 72
+      },
+      "rank_scaling": {
+        "fire_rate_percent": {
+          "per_rank": 14
+        }
+      },
+      "description": "Dramatically overclocks the pistol's trigger mechanism and cycling assembly, transforming even a modest sidearm into a high-speed burst weapon.",
+      "base_effect": "+12% Fire Rate",
+      "max_effect": "+72% Fire Rate",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "In TB, every 10% fire rate bonus grants a +10% chance of an extra pistol attack per action. At +72%, this means a 72% chance of firing twice per secondary action — nearly doubling effective DPS output.",
+      "thumbnail": null,
+      "compatible_weapons": ["Lato"],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Critical Delay": {
+      "_wiki": "https://wiki.warframe.com/w/Critical_Delay",
+      "_wiki_note": "Wiki: Rare, max rank 5. R0=+25% Crit Chance, -10% Fire Rate…R5=+150% Crit Chance, -36% Fire Rate. Drain: R0=6, R5=11. Madurai.",
+      "uuid": "CDX-CRD-097",
+      "name": "Critical Delay",
+      "category": "Rifle",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 6,
+      "max_drain": 11,
+      "max_rank": 5,
+      "stats": {
+        "crit_chance_percent": 150,
+        "fire_rate_percent": -36
+      },
+      "rank_scaling": {
+        "crit_chance_percent": {
+          "per_rank": 30
+        },
+        "fire_rate_percent": {
+          "per_rank": -7
+        }
+      },
+      "description": "A crit-specialization mod that sharpens targeting algorithms for maximum precision, at the cost of cycling speed. Every fired round has dramatically higher critical potential.",
+      "base_effect": "+25% Crit Chance, -10% Fire Rate",
+      "max_effect": "+150% Crit Chance, -36% Fire Rate",
+      "endo_costs_per_rank": [30, 60, 120, 240, 480],
+      "credit_costs_per_rank": [1449, 2898, 5796, 11592, 23184],
+      "tb_effect": "Alternative to Point Strike for builds that want maximum crit chance. At +150% crit chance, nearly every shot is a critical hit. The fire rate penalty reduces chances of an extra hit per action. Best on high-damage-per-shot weapons.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Seeker": {
+      "_wiki": "https://wiki.warframe.com/w/Seeker",
+      "_wiki_note": "Wiki: Uncommon, max rank 5. R0=+15%…R5=+90% Puncture Damage (Shotgun). Drain: R0=4, R5=9. Naramon.",
+      "uuid": "CDX-SEK-098",
+      "name": "Seeker",
+      "category": "Shotgun",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "puncture_damage_percent": 90
+      },
+      "rank_scaling": {
+        "puncture_damage_percent": {
+          "per_rank": 18
+        }
+      },
+      "description": "Modifies the shot pattern of a shotgun to include penetrating slug-style pellets that pierce cover and armor simultaneously. Exceptional against hardened infantry.",
+      "base_effect": "+15% Puncture Damage",
+      "max_effect": "+90% Puncture Damage",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Adds Puncture damage to your shotgun. Puncture procs reduce enemy damage output by -30% for 1 turn. Combine with Flechette for double Puncture stacking, maximizing armor mitigation against Grineer enemies.",
+      "thumbnail": null,
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Bleeding Wound": {
+      "_wiki_note": "TB-original melee mod. Not in base Warframe. Adds passive Slash proc chance to all melee hits.",
+      "uuid": "CDX-BLD-099",
+      "name": "Bleeding Wound",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "slash_proc_chance_percent": 30
+      },
+      "rank_scaling": {
+        "slash_proc_chance_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Applies a serrated micro-edge treatment to melee weapons that passively causes bleeding wounds on every strike, independent of the weapon's base status chance.",
+      "base_effect": "+6% Passive Slash Proc Chance",
+      "max_effect": "+30% Passive Slash Proc Chance",
+      "endo_costs_per_rank": [20, 40, 80, 160, 320],
+      "credit_costs_per_rank": [966, 1932, 3864, 7728, 15456],
+      "tb_effect": "Each melee hit has a flat +30% chance (at max rank) to apply a Slash Bleed proc regardless of weapon status chance. This proc deals 35 HP/turn for 2 turns and bypasses armor. Very effective in long fights with high hit counts.",
+      "thumbnail": null,
+      "compatible_weapons": ["Skana", "Bo"],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Rifle Ammo Drum": {
+      "_wiki": "https://wiki.warframe.com/w/Rifle_Ammo_Drum",
+      "_wiki_note": "TB-supplemental. Common ammo capacity mod for rifles. +5%/rank max ammo. Drain: R0=2, R5=7.",
+      "uuid": "CDX-RAD-100",
+      "name": "Rifle Ammo Drum",
+      "category": "Rifle",
+      "rarity": "common",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 7,
+      "max_rank": 5,
+      "stats": {
+        "ammo_max_percent": 30
+      },
+      "rank_scaling": {
+        "ammo_max_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Installs an extended drum magazine housing in the rifle's receiver, expanding total ammo reserve capacity without requiring frequent resupply.",
+      "base_effect": "+5% Ammo Maximum",
+      "max_effect": "+30% Ammo Maximum",
+      "endo_costs_per_rank": [10, 20, 40, 80, 160],
+      "credit_costs_per_rank": [483, 966, 1932, 3864, 7728],
+      "tb_effect": "Increases rifle ammo reserves by 30% at max rank. Provides more sustained firepower before requiring drops or ammo pickups. Low cost makes it a useful budget filler mod when mod capacity is available.",
+      "thumbnail": null,
+      "compatible_weapons": ["MK1-Braton", "Paris"],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
     }
   }
 }
