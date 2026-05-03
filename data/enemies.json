@@ -40,6 +40,111 @@
       "tb_use": "Used to rank up Mods from 0 to their maximum rank. Higher mod ranks require exponentially more Endo. A mod at rank 10 costs 8,145 total Endo to fully upgrade.",
       "emoji": "<:endo:1499750353002954792>",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883867551568053/Endo.png?ex=69f66b34&is=69f519b4&hm=60c77a5b559a2d42e7262792688ac5dfe74109a442b767d41af25ed003ec9a88&"
+    },
+    "Alloy Plate": {
+      "description": "Dense sheets of compressed Grineer alloy, harvested from manufacturing facilities across Venus, Jupiter, and Sedna. One of the most common structural materials in the Origin System.",
+      "source": "Venus, Jupiter, Sedna, Ceres, Phobos, Pluto",
+      "tb_use": "Common crafting material. Used in a wide range of Warframe and weapon blueprints. Farm freely — you will always need more.",
+      "emoji": "\ud83d\udd29",
+      "thumbnail": ""
+    },
+    "Salvage": {
+      "description": "Scavenged scrap metal and mechanical components recovered from Grineer and Corpus wreckage. Salvage is abundant on Mars and Jupiter, where battlefield detritus is plentiful.",
+      "source": "Mars, Jupiter, Sedna",
+      "tb_use": "Common crafting material. Required in large quantities for many weapon blueprints. Stockpile from Grineer-heavy missions.",
+      "emoji": "\u2699\ufe0f",
+      "thumbnail": ""
+    },
+    "Polymer Bundle": {
+      "description": "Flexible synthetic polymer filaments produced by Corpus manufacturing plants on Venus and Uranus. Used in insulation, circuitry housings, and structural reinforcement.",
+      "source": "Venus, Mercury, Uranus",
+      "tb_use": "Common crafting material. Used extensively in Warframe components and most primary weapons. Farm on Venus or Mercury.",
+      "emoji": "\ud83e\uddf5",
+      "thumbnail": ""
+    },
+    "Circuits": {
+      "description": "Integrated circuit boards salvaged from Corpus electronics and Grineer communication arrays. Found in abundance on Venus and Ceres.",
+      "source": "Venus, Ceres",
+      "tb_use": "Common crafting material. Required for Saryn, Banshee, Valkyr components and several weapons. Farm on Venus.",
+      "emoji": "\ud83d\udca1",
+      "thumbnail": ""
+    },
+    "Nano Spores": {
+      "description": "Microscopic Infested spores shed by Infested organisms on Saturn, Neptune, and Eris. Despite their biological origin they are widely used as a binding agent in Tenno manufacturing.",
+      "source": "Saturn, Neptune, Eris, Deimos",
+      "tb_use": "Common crafting material. Required for Paris, Furax, Ignis, Kronen, and Hydroid components. Farm on Saturn.",
+      "emoji": "\ud83e\udda0",
+      "thumbnail": ""
+    },
+    "Plastids": {
+      "description": "Organic polymer secreted by Infested organisms and harvested for use as a flexible building material. Found on Saturn, Phobos, Pluto, and Eris.",
+      "source": "Saturn, Phobos, Pluto, Eris",
+      "tb_use": "Uncommon crafting material. Used in nearly every Warframe Systems blueprint and many weapons. Prioritise farming.",
+      "emoji": "\ud83e\udd8a",
+      "thumbnail": ""
+    },
+    "Oxium": {
+      "description": "Ultra-light structural compound produced by Corpus Oxium Osprey drones. Notoriously difficult to farm — Ospreys must be killed before they self-destruct.",
+      "source": "Corpus Oxium Ospreys (Europa, Io, Outer Terminus)",
+      "tb_use": "Uncommon crafting material. Required for certain Corpus-themed blueprints. Kill Ospreys quickly to prevent destruction.",
+      "emoji": "\ud83d\udfe1",
+      "thumbnail": ""
+    },
+    "Neural Sensors": {
+      "description": "Exotic neural interface components recovered from Corpus Sapping Ospreys and high-value targets on Jupiter. These densely packed micro-processors bridge organic and synthetic intelligence.",
+      "source": "Jupiter (Themisto, Io), Corpus high-value targets",
+      "tb_use": "Rare crafting material. Used in Warframe Neuroptics across most frames and in Tipedo. Do not sell \u2014 always in demand.",
+      "emoji": "\ud83e\udde0",
+      "thumbnail": ""
+    },
+    "Control Module": {
+      "description": "Advanced Orokin-era control hardware recovered from Void caches and high-level Corpus units on Neptune. These modules manage the complex feedback systems inside Warframe suits.",
+      "source": "Neptune, Void",
+      "tb_use": "Rare crafting material. Required for Warframe Systems blueprints. Farm Neptune missions or Void Exterminate.",
+      "emoji": "\ud83c\udfdb\ufe0f",
+      "thumbnail": ""
+    },
+    "Morphics": {
+      "description": "Malleable Orokin-era material that shifts between solid and semi-liquid states under electromagnetic stress. Found throughout Mercury, Mars, Europa, and Pluto.",
+      "source": "Mercury, Mars, Europa, Pluto",
+      "tb_use": "Rare crafting material. Required in nearly every Warframe Chassis blueprint and many weapon recipes. Farm Mercury or Mars.",
+      "emoji": "\ud83d\udd2e",
+      "thumbnail": ""
+    },
+    "Orokin Cell": {
+      "description": "Ancient Orokin power cells containing a near-inexhaustible energy source. Recovered from Orokin Derelicts, Orokin Towers, and powerful bosses across the Origin System.",
+      "source": "Saturn (Tethys), Ceres (Seimeni), Orokin Derelicts, Boss drops",
+      "tb_use": "Legendary crafting material. Required to assemble every Warframe main blueprint. Critically important \u2014 never sell. Farm Saturn or Ceres.",
+      "emoji": "\u2728",
+      "thumbnail": ""
+    },
+    "Gallium": {
+      "description": "A rare metallic element with an extremely low melting point. Gallium pools in cavities of Grineer-occupied terrain on Mars and Uranus, where it is harvested for its heat-transfer properties.",
+      "source": "Mars, Uranus",
+      "tb_use": "Rare crafting material. Required for Rhino (main blueprint), Oberon, Hydroid Systems, Fragor, Galatine, and Akstiletto. Farm Mars.",
+      "emoji": "\ud83d\udca0",
+      "thumbnail": ""
+    },
+    "Argon Crystal": {
+      "description": "A crystalline energy matrix found only within Orokin Void fissures. Argon Crystals decay at a rate of 50% per day \u2014 use them immediately after acquisition.",
+      "source": "Orokin Void (fissure missions, storage containers)",
+      "tb_use": "Legendary crafting material. Required for Hydroid Neuroptics/Chassis, Kronen, and Atterax. DECAYS \u2014 only farm when you are ready to craft.",
+      "emoji": "\ud83d\udd37",
+      "thumbnail": ""
+    },
+    "Detonite Injector": {
+      "description": "A pressurised injector loaded with refined Detonite compound. Produced by processing raw Detonite Ampules in the Foundry. Essential for Grineer-tier incendiary weapons.",
+      "source": "Craft from Detonite Ampules \u00d710 + Ferrite\u00d7400 + Plastids\u00d7150 + Polymer Bundle\u00d7500",
+      "tb_use": "Rare craftable component. Required \u00d72 for Ignis. Must be crafted in the Foundry before use \u2014 cannot be farmed directly.",
+      "emoji": "\ud83d\udc89",
+      "thumbnail": ""
+    },
+    "Forma": {
+      "description": "A powerful Orokin catalyst that restructures a weapon or Warframe's polarities, allowing more mod capacity. Forma blueprints drop from Void missions and Nightwave rewards.",
+      "source": "Void missions, Nightwave rewards, Sortie rewards",
+      "tb_use": "Legendary craftable component. Required for Ignis and Akstiletto. Very rare \u2014 only craft these weapons when you have Forma to spare.",
+      "emoji": "\u26a1",
+      "thumbnail": ""
     }
   },
   "cosmetics": {
