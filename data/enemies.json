@@ -142,8 +142,43 @@
     "Forma": {
       "description": "A powerful Orokin catalyst that restructures a weapon or Warframe's polarities, allowing more mod capacity. Forma blueprints drop from Void missions and Nightwave rewards.",
       "source": "Void missions, Nightwave rewards, Sortie rewards",
-      "tb_use": "Legendary craftable component. Required for Ignis and Akstiletto. Very rare \u2014 only craft these weapons when you have Forma to spare.",
-      "emoji": "\u26a1",
+      "tb_use": "Legendary craftable component. Required for Ignis, Buzlok, Opticor, and Akstiletto. Very rare — only craft these weapons when you have Forma to spare.",
+      "emoji": "⚡",
+      "thumbnail": ""
+    },
+    "Cryotic": {
+      "description": "A deep-frozen crystalline mineral mined exclusively through Excavation missions. Cryotic is harvested from Excavators as they drill into subterranean ice formations — the colder the planet, the richer the yield.",
+      "source": "Excavation missions (Earth, Europa, Pluto, Sedna)",
+      "tb_use": "Uncommon crafting material. Required for Tonkor, Atlas Chassis, and Ivara Chassis. Farm Excavation missions.",
+      "emoji": "🧊",
+      "thumbnail": ""
+    },
+    "Fieldron Sample": {
+      "description": "Unstable energy capsules recovered from Corpus laboratories and Invasion caches. Each sample contains a fragment of a Corpus energy field matrix — ten must be stabilised to produce a usable Fieldron.",
+      "source": "Corpus Invasion rewards, Corpus Caches, Orokin Derelict",
+      "tb_use": "Uncommon crafting material. Combine 10 Fieldron Samples in the Foundry to produce one Fieldron — required for Opticor.",
+      "emoji": "🔋",
+      "thumbnail": ""
+    },
+    "Fieldron": {
+      "description": "A refined Corpus energy matrix produced from ten Fieldron Samples. Used as a component in advanced Corpus-derived Energy Lab weapons. Cannot be purchased — must be crafted in the Foundry.",
+      "source": "Craft from Fieldron Sample×10 + Control Module×1 + Salvage×500 + Plastids×250",
+      "tb_use": "Rare craftable component. Required ×5 for Opticor. Plan ahead — each Fieldron takes 12 hours to build.",
+      "emoji": "⚙️",
+      "thumbnail": ""
+    },
+    "Nitain Extract": {
+      "description": "A volatile refined compound extracted from Grineer chemical silos. Originally secured behind high-level Alert missions, Nitain Extract is now primarily obtained through Nightwave Cred purchases.",
+      "source": "Nightwave Cred Offerings, Reactor Sabotage (Grineer), Ghoul Purge bounties",
+      "tb_use": "Legendary crafting material. Required for Ivara Chassis (×4) and Ivara Systems (×5). Extremely limited supply — treat every unit as precious.",
+      "emoji": "🧪",
+      "thumbnail": ""
+    },
+    "Tellurium": {
+      "description": "An extremely rare metalloid found only in the anomalous physics of Archwing combat zones and aquatic Uranus missions. Tellurium decays rapidly once separated from its host environment.",
+      "source": "Archwing missions, Uranus (Ophelia), Sebekar Interception",
+      "tb_use": "Rare crafting material. Required for advanced Archwing and Amp components. Very scarce — farm Archwing Exterminate on Uranus.",
+      "emoji": "🔩",
       "thumbnail": ""
     }
   },
