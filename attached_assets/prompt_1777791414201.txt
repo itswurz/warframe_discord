@@ -1,0 +1,227 @@
+Build a full Warframe-style Foundry system for a Discord bot using Python (discord.py 2.6 or latest stable).
+
+PREFIX:
+All commands must use the prefix "!"
+
+CORE REQUIREMENTS:
+- Everything MUST be data-driven using JSON files (no hardcoded items, recipes, or costs in code logic)
+- System must support crafting, inventory, and time-based builds like Warframe Foundry
+- Must be modular, clean, and scalable
+- Use async/await properly
+
+IMPORTANT CONTENT REQUIREMENT:
+You MUST implement the FULL Warframe crafting recipe system as accurately as possible, including real Warframe items such as:
+- Warframes (e.g. Rhino, Excalibur, Mag, Volt, etc.)
+- Weapons (primary, secondary, melee)
+- Components (neuroptics, systems, chassis, barrels, receivers, stocks, etc.)
+- Resources (ferrite, plastids, alloy plate, neurodes, rubedo, etc.)
+
+All recipes must reflect real Warframe crafting logic:
+- Warframes require 3 components (Neuroptics, Chassis, Systems) + final assembly
+- Weapons require proper sub-components where applicable
+- Components may require resources or other sub-components
+
+----------------------------------------
+
+FOUNDARY SYSTEM FEATURES:
+
+1. FULL WARFRAME RECIPES (JSON-DRIVEN)
+Each item must include:
+- name
+- type (warframe / weapon / component / resource)
+- ingredients (dictionary of item: amount)
+- base_time (seconds)
+
+Example:
+{
+  "rhino_chassis": {
+    "name": "Rhino Chassis",
+    "type": "component",
+    "ingredients": {
+      "ferrite": 1500,
+      "rubedo": 300
+    },
+    "base_time": 600
+  }
+}
+
+Warframes must be assembled from components:
+- neuroptics
+- chassis
+- systems
+- final warframe craft step
+
+----------------------------------------
+
+2. CRAFTING TIME SYSTEM (FAST GAME BALANCE)
+
+Use this formula:
+final_craft_time = base_time + (total_material_value × multiplier)
+
+Where:
+- base_time = 30 to 600 seconds
+- multiplier = 1 to 5 seconds per unit value
+- total_material_value = sum of (quantity × rarity_weight)
+
+RARITY WEIGHTS:
+- common = 1
+- uncommon = 2
+- rare = 3
+- legendary = 5
+
+FINAL LIMITS:
+- Minimum craft time: 30 seconds
+- Maximum craft time: 15 minutes (900 seconds)
+- Resources should be fastest (30–120 seconds)
+- Components moderate (2–8 minutes)
+- Warframes longest (8–15 minutes)
+
+----------------------------------------
+
+3. INVENTORY SYSTEM
+- Per-user inventory stored in JSON
+- Must support:
+  - add_items(user_id, item, amount)
+  - remove_items(user_id, item, amount)
+  - check_balance(user_id, item)
+
+----------------------------------------
+
+4. FOUNDRY QUEUE SYSTEM
+Each entry:
+- user_id
+- item_name
+- start_time (timestamp)
+- finish_time (timestamp)
+- claimed (bool)
+
+RULES:
+- Deduct materials immediately when crafting starts
+- Reject crafting if insufficient materials
+- Allow multiple active builds (configurable limit per user)
+
+----------------------------------------
+
+5. COMMANDS (PREFIX: !)
+
+!foundry
+→ Show all Warframe items, weapons, components, and full recipes
+
+!craft <item>
+→ Start crafting if valid and materials exist
+
+!queue
+→ Show active and completed builds
+
+!claim
+→ Claim finished items
+
+----------------------------------------
+
+6. TIME SYSTEM
+- Use Unix timestamps (time.time())
+- Compare current time vs finish_time
+- Must continue working after bot restart
+- Prevent early claiming
+
+----------------------------------------
+
+7. ENFORCEMENT RULES
+- No crafting without required materials
+- No bypassing timers
+- All validation must be server-side only
+- Never trust user input
+- Prevent JSON corruption with safe file handling
+
+----------------------------------------
+
+GOAL:
+Create a FULL Warframe Foundry simulation system:
+- Real Warframe-style crafting hierarchy (resources → components → warframes/weapons)
+- Fully expandable via JSON only
+- Fast, playable crafting times (minutes, not hours/days)
+- Accurate Warframe-inspired progression and structure
+
+Add support for emojis in the system using a separate emoji JSON file.
+
+IMPORTANT REQUIREMENT:
+Create an emoji system where all items, resources, components, and warframes can optionally have emojis assigned via a JSON file (example: /data/emojis.json).
+
+EMOJI SYSTEM RULES:
+- If an item has an emoji defined in the emoji JSON, display it next to the item name in all embeds/messages.
+- If an item does NOT have an emoji assigned, use a safe placeholder instead of breaking or showing nothing.
+
+PLACEHOLDER RULE:
+- Use a default placeholder like:
+  "⬜" or "❔"
+  (choose one consistent fallback emoji)
+
+EMOJI JSON FORMAT EXAMPLE:
+{
+  "ferrite": "🪨",
+  "rubedo": "🔴",
+  "rhino": "🦏"
+}
+
+BEHAVIOR:
+- Always check emoji JSON first
+- If missing key → use placeholder emoji
+- Never crash or return null/empty emoji values
+- Ensure formatting always stays visually consistent in embeds and messages
+
+GOAL:
+Make the UI visually clean and robust even when emojis are missing or incomplete.
+
+Add support for thumbnails (CDN images) using a separate JSON file.
+
+IMPORTANT REQUIREMENT:
+Create a thumbnail system where all items, resources, components, weapons, and warframes can optionally have thumbnail image URLs assigned via a JSON file (example: /data/thumbnails.json).
+
+THUMBNAIL SYSTEM RULES:
+- If an item has a thumbnail URL defined in the thumbnail JSON, use it as the embed thumbnail when displaying that item (foundry, inventory, queue, recipes).
+- If an item does NOT have a thumbnail assigned, use a safe placeholder image instead of breaking or leaving it empty.
+
+PLACEHOLDER RULE:
+- Use a default fallback image URL such as:
+  "https://via.placeholder.com/128?text=No+Image"
+  (must always be used if no thumbnail exists)
+
+THUMBNAIL JSON FORMAT EXAMPLE:
+{
+  "ferrite": "https://cdn.example.com/images/ferrite.png",
+  "rubedo": "https://cdn.example.com/images/rubedo.png",
+  "rhino": "https://cdn.example.com/images/rhino.png"
+}
+
+BEHAVIOR:
+- Always check thumbnail JSON first
+- If missing key → use placeholder image URL
+- Never crash or return null/empty thumbnail values
+- Ensure embeds always display a valid image or fallback
+
+USAGE RULES:
+- Foundry item display embeds must include thumbnail if available
+- Inventory embeds must include thumbnails if available
+- Queue/recipe embeds must include thumbnails if available
+- Maintain consistent formatting across all embeds
+
+GOAL:
+Make all UI embeds visually rich and consistent, with guaranteed fallback images so nothing ever breaks or appears empty.
+
+IMPORTANT FINAL INSTRUCTION (NON-NEGOTIABLE):
+
+You MUST always fact-check all Warframe-related data against the official Warframe Wiki (or equivalent reliable Warframe database sources) before finalizing recipes, item structures, or component requirements.
+
+RULES:
+- Do NOT guess or invent Warframe recipes, components, or drop/crafting requirements.
+- Always verify:
+  - Warframe parts (Neuroptics, Chassis, Systems)
+  - Weapon blueprints and sub-components
+  - Resource costs and crafting requirements
+- If any data is uncertain or missing:
+  - Mark it clearly as "UNVERIFIED"
+  - Do NOT fabricate values
+- Prioritize accuracy over completeness
+
+GOAL:
+Ensure all crafting recipes and progression systems match real Warframe data as closely as possible by referencing the Warframe Wiki before implementation.

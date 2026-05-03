@@ -159,6 +159,13 @@ class CombatSession:
         # Guards the post-mission commit + loot embed so they fire exactly once
         self.loot_posted: bool = False
 
+        # ── Affinity / XP tracking ────────────────────────────────────────────
+        # Updated just before _collect_drops() so _record_kill_affinity() knows
+        # which slot killed each newly-dead enemy.
+        self._last_kill_type: str = "primary"   # "primary"|"melee"|"secondary"|"ability"
+        self.mission_warframe_xp: int = 0
+        self.mission_weapon_xp: dict[str, int] = {}   # weapon_name → xp earned
+
         # ── Session-level field effect flags ──────────────────────────────────
         self.player_untargetable:         bool  = False
         self.electric_shield_active:      bool  = False
@@ -291,6 +298,34 @@ class CombatSession:
 
     # ── Drop collection ────────────────────────────────────────────────────────
 
+    def _record_kill_affinity(self, enemy: "EnemyEntity") -> None:
+        """
+        Accumulate affinity from one kill, split by kill type.
+
+        Wiki rules (warframe.fandom.com/wiki/Affinity):
+          - Weapon kill: 50 % to Warframe, 50 % to the weapon that landed the kill.
+          - Ability kill: 100 % to Warframe.
+        Applied with a ×2.25 victory bonus at commit time.
+        """
+        xp = getattr(enemy, "xp_reward", 0)
+        if xp <= 0:
+            return
+
+        if self._last_kill_type == "ability":
+            self.mission_warframe_xp += xp
+        else:
+            wf_share = xp // 2
+            wp_share = xp - wf_share
+            self.mission_warframe_xp += wf_share
+            weapon_name = {
+                "primary":   self.primary_weapon_name,
+                "melee":     self.melee_weapon_name,
+                "secondary": self.secondary_weapon_name,
+            }.get(self._last_kill_type, self.primary_weapon_name)
+            self.mission_weapon_xp[weapon_name] = (
+                self.mission_weapon_xp.get(weapon_name, 0) + wp_share
+            )
+
     def _collect_drops(self) -> None:
         if self.tutorial or self.mission_no_loot:
             return
@@ -302,6 +337,7 @@ class CombatSession:
                 continue
 
             enemy.drops_rolled = True
+            self._record_kill_affinity(enemy)
             drops = roll_drops(enemy.enemy_key)
 
             if not drops:
@@ -388,6 +424,7 @@ class CombatSession:
                     f"**{self.player.ability_flags['static_charges']}/5** charges built."
                 )
 
+        self._last_kill_type = "ability" if ability_index is not None else "primary"
         self.log.extend(result.log)
         self._collect_drops()
         self._check_boss_phase()
@@ -408,6 +445,7 @@ class CombatSession:
         self.actions_used += 1
         self._record_damage(result.dealt_damage)
 
+        self._last_kill_type = "melee"
         self.log.extend(result.log)
         self._collect_drops()
         self._check_boss_phase()
@@ -428,6 +466,7 @@ class CombatSession:
         self.actions_used += 1
         self._record_damage(result.dealt_damage)
 
+        self._last_kill_type = "secondary"
         self.log.extend(result.log)
         self._collect_drops()
         self._check_boss_phase()

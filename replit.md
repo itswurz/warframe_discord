@@ -10,7 +10,7 @@ A turn-based Warframe game implemented as a Discord bot.
 ### Cogs (`cogs/`)
 | File | Commands | Notes |
 |------|----------|-------|
-| `warframe.py` | `!warframe` — roster, equip, sell, mods UI | Also drives tutorial step resume |
+| `warframe.py` | `!warframe` — roster, equip, sell, mods UI; `!mastery` / `!mr` | Also drives tutorial step resume |
 | `weapon.py` | weapon select (tutorial step 2) | Sets `tutorial_step = secondary_select` |
 | `secondary.py` | secondary select (tutorial step 3) | Sets `tutorial_step = melee_select` |
 | `melee.py` | melee select (tutorial step 4 → launches combat) | Detects tutorial; creates restricted `CombatSession` |
@@ -20,6 +20,7 @@ A turn-based Warframe game implemented as a Discord bot.
 | `mods.py` | `!mods`, `!mods upgrade`, `!mods view` | |
 | `inventory.py` | `!inventory`, `!item` | |
 | `polarity.py` | `!polarity` — slot overview, mod/weapon polarity | |
+| `foundry.py` | `!foundry`, `!craft`, `!queue`, `!claim` | Time-based crafting; queue in player profile; max 3 slots |
 
 ### Tutorial + Quest flow
 
@@ -70,13 +71,25 @@ Player state: `current_quest`, `current_mission`, `completed_quests` in player p
 | `data/enemies.json` | Enemy combat stats + drop tables + resources + cosmetics item metadata |
 | `data/emojis.json` | Discord emoji ID registry |
 | `data/quests/*.json` | Quest definitions: arcs, missions, enemies, dialogue, rewards |
+| `data/foundry_recipes.json` | All craftable items (warframes, components, weapons) with ingredients, credit cost, craft time, wiki source |
+| `data/foundry_emojis.json` | Emoji overrides per foundry item key |
+| `data/foundry_thumbnails.json` | CDN thumbnail URLs per foundry item key |
 
-#### Player profile schema (v6 + tutorial fields)
-New fields added (all migrate safely via `setdefault`):
+#### Player profile schema (v7)
+All fields migrate safely via `setdefault`.
+
+**Tutorial / quest fields:**
 - `tutorial_step` — `None | "primary_select" | "secondary_select" | "melee_select" | "awakening_mission"`
 - `current_quest` — active quest ID string or `None`
 - `current_mission` — active mission ID string or `None`
-- `completed_quests` — list of completed quest ID strings
+- `completed_quests` — list of completed quest IDs
+
+**Affinity / Mastery Rank fields (v7):**
+- `mastery_rank` — int 0–30; computed from `mastery_points` at session end
+- `mastery_points` — cumulative MP total (200 per WF rank, 100 per weapon rank)
+- `mastery_awarded` — `{item_key: max_rank_awarded}` — prevents double-dipping MP
+- `weapon_xp` — `{weapon_name: {level, xp}}` — per-weapon rank progress
+- `foundry_queue` — list of `{item_key, item_name, start_time, finish_time, claimed}`
 
 #### Python loaders
 | File | Role |

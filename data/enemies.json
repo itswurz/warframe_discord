@@ -461,42 +461,41 @@
       "faction": "Grineer",
       "hp": 100,
       "shields": 0,
-      "armor": 200,
+      "armor": 100,
       "base_level": 1,
       "behavior": "aggressive",
       "icon_key": "frontier_lancer",
       "xp_reward": 50,
-      "_wiki": "Frontier Grineer variant on Earth (Grineer Forest tileset). HP=100, Armor=200. Equips Karak rifle (accurate burst fire) and Sheev dagger. Same base stats as standard Lancer but with forest camouflage and Karak instead of Grakata.",
+      "_wiki": "Frontier Lancer — Earth, Grineer Forest tileset. HP=100, Armor=100 (Alloy Armor). Equips Grakata (NOT Karak — Karak is the Elite Frontier Lancer). Sheev dagger as backup. Source: warframe.fandom.com/wiki/Lancer/Frontier_Lancer",
       "abilities": [
         {
-          "name": "Karak Burst",
-          "damage": 30,
+          "name": "Grakata Burst",
+          "damage": 25,
           "damage_type": "impact",
           "effect": null,
           "target": "front",
           "chance": 1.0,
-          "description": "Accurate burst fire from the Karak rifle — consistent Impact damage."
+          "description": "Rapid Grakata fire — moderate Impact damage per burst."
         },
         {
           "name": "Suppressive Volley",
-          "damage": 22,
+          "damage": 18,
           "damage_type": "impact",
           "effect": "knockdown",
           "target": "front",
           "chance": 0.30,
-          "description": "Sustained raking fire that staggers and knocks the target down."
+          "description": "Sustained Grakata fire that staggers and knocks the target down."
         }
       ],
       "drops": {
         "mods": [
-          { "name": "Ammo Drum",        "chance": 0.0114, "rarity": "common"   },
-          { "name": "Vitality",          "chance": 0.0114, "rarity": "common"   },
           { "name": "Pressure Point",    "chance": 0.0114, "rarity": "common"   },
-          { "name": "Diamond Skin",      "chance": 0.0033, "rarity": "uncommon" },
+          { "name": "Vitality",          "chance": 0.0114, "rarity": "common"   },
           { "name": "Heated Charge",     "chance": 0.0033, "rarity": "uncommon" },
-          { "name": "Rending Strike",    "chance": 0.0022, "rarity": "uncommon" },
-          { "name": "Streamline",        "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Diamond Skin",      "chance": 0.0033, "rarity": "uncommon" },
           { "name": "Heavy Trauma",      "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Streamline",        "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Iron Phoenix",      "chance": 0.0001, "rarity": "rare"     },
           { "name": "Endo", "amount": 80, "chance": 0.0001, "rarity": "uncommon", "type": "endo" }
         ],
         "resources": {
@@ -568,14 +567,14 @@
     "frontier_heavy_gunner": {
       "name": "Frontier Heavy Gunner",
       "faction": "Grineer",
-      "hp": 300,
+      "hp": 350,
       "shields": 0,
       "armor": 500,
-      "base_level": 8,
+      "base_level": 1,
       "behavior": "aggressive",
       "icon_key": "frontier_heavy_gunner",
-      "xp_reward": 200,
-      "_wiki": "Frontier Heavy Gunner — Earth variant. HP=300, Armor=500 (base level 8). Equips Gorgon minigun — extremely high armor makes her durable. Slow but devastating. Can restore her own shields in a pinch.",
+      "xp_reward": 500,
+      "_wiki": "Frontier Heavy Gunner — Earth, Grineer Forest tileset. HP=350, Armor=500, base_level=1, Affinity=500. Equips Gorgon minigun. Deals mostly Slash damage. Radial knockdown when player is too close. Source: wiki.warframe.com/w/Heavy_Gunner",
       "abilities": [
         {
           "name": "Gorgon Minigun",

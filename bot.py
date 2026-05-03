@@ -55,6 +55,7 @@ async def main():
         await bot.load_extension("cogs.mods")        # Mod collection, upgrade, view
         await bot.load_extension("cogs.polarity")    # Polarity system
         await bot.load_extension("cogs.quests")      # Quest log + progression
+        await bot.load_extension("cogs.foundry")     # Foundry crafting system
         await bot.start(TOKEN)
 
 

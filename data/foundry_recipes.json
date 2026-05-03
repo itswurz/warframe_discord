@@ -1,0 +1,390 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "wiki_source": "warframe.fandom.com",
+    "craft_times_note": "Times scaled for bot gameplay (max 900s / 15 min). Real game: components=12h, warframe=72h.",
+    "verification": "All ingredient quantities verified against warframe.fandom.com/wiki/<item>"
+  },
+
+  "rarity_weights": {
+    "common":    1,
+    "uncommon":  2,
+    "rare":      3,
+    "legendary": 5
+  },
+
+  "resource_rarities": {
+    "Ferrite":         "common",
+    "Salvage":         "common",
+    "Alloy Plate":     "common",
+    "Nano Spores":     "common",
+    "Polymer Bundle":  "common",
+    "Circuits":        "common",
+    "Rubedo":          "common",
+    "Plastids":        "uncommon",
+    "Oxium":           "uncommon",
+    "Neural Sensors":  "rare",
+    "Control Module":  "rare",
+    "Morphics":        "rare",
+    "Neurodes":        "rare",
+    "Orokin Cell":     "legendary",
+    "Argon Crystal":   "legendary"
+  },
+
+  "items": {
+
+    "excalibur_neuroptics": {
+      "name":         "Excalibur Neuroptics",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "excalibur",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Excalibur",
+      "ingredients":  {
+        "Salvage":         150,
+        "Ferrite":         150,
+        "Circuits":        500,
+        "Neural Sensors":  1
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "excalibur_neuroptics",
+      "result_name":  "Excalibur Neuroptics",
+      "result_type":  "component"
+    },
+
+    "excalibur_chassis": {
+      "name":         "Excalibur Chassis",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "excalibur",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Excalibur",
+      "ingredients":  {
+        "Alloy Plate":  150,
+        "Ferrite":      500,
+        "Morphics":     1
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "excalibur_chassis",
+      "result_name":  "Excalibur Chassis",
+      "result_type":  "component"
+    },
+
+    "excalibur_systems": {
+      "name":         "Excalibur Systems",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "excalibur",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Excalibur",
+      "ingredients":  {
+        "Salvage":      500,
+        "Alloy Plate":  220,
+        "Plastids":     65,
+        "Morphics":     1
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "excalibur_systems",
+      "result_name":  "Excalibur Systems",
+      "result_type":  "component"
+    },
+
+    "excalibur": {
+      "name":         "Excalibur",
+      "type":         "warframe",
+      "category":     "warframe",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Excalibur",
+      "ingredients":  {
+        "excalibur_neuroptics": 1,
+        "excalibur_chassis":    1,
+        "excalibur_systems":    1,
+        "Orokin Cell":          1
+      },
+      "credit_cost":  25000,
+      "base_time":    720,
+      "result_key":   "excalibur",
+      "result_name":  "Excalibur",
+      "result_type":  "warframe",
+      "warframe_key": "excalibur"
+    },
+
+    "volt_neuroptics": {
+      "name":         "Volt Neuroptics",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "volt",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Volt",
+      "ingredients":  {
+        "Neural Sensors":  1,
+        "Salvage":         150,
+        "Rubedo":          500,
+        "Polymer Bundle":  500
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "volt_neuroptics",
+      "result_name":  "Volt Neuroptics",
+      "result_type":  "component"
+    },
+
+    "volt_chassis": {
+      "name":         "Volt Chassis",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "volt",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Volt",
+      "ingredients":  {
+        "Morphics":     1,
+        "Alloy Plate":  400,
+        "Salvage":      1000,
+        "Ferrite":      1000
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "volt_chassis",
+      "result_name":  "Volt Chassis",
+      "result_type":  "component"
+    },
+
+    "volt_systems": {
+      "name":         "Volt Systems",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "volt",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Volt",
+      "ingredients":  {
+        "Control Module":  1,
+        "Circuits":        500,
+        "Polymer Bundle":  220,
+        "Nano Spores":     500
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "volt_systems",
+      "result_name":  "Volt Systems",
+      "result_type":  "component"
+    },
+
+    "volt": {
+      "name":         "Volt",
+      "type":         "warframe",
+      "category":     "warframe",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Volt",
+      "ingredients":  {
+        "volt_neuroptics": 1,
+        "volt_chassis":    1,
+        "volt_systems":    1,
+        "Orokin Cell":     1
+      },
+      "credit_cost":  25000,
+      "base_time":    720,
+      "result_key":   "volt",
+      "result_name":  "Volt",
+      "result_type":  "warframe",
+      "warframe_key": "volt"
+    },
+
+    "mag_neuroptics": {
+      "name":         "Mag Neuroptics",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "mag",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Mag",
+      "ingredients":  {
+        "Circuits":        500,
+        "Ferrite":         150,
+        "Salvage":         150,
+        "Neural Sensors":  1
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "mag_neuroptics",
+      "result_name":  "Mag Neuroptics",
+      "result_type":  "component"
+    },
+
+    "mag_chassis": {
+      "name":         "Mag Chassis",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "mag",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Mag",
+      "ingredients":  {
+        "Ferrite":      500,
+        "Alloy Plate":  150,
+        "Morphics":     1
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "mag_chassis",
+      "result_name":  "Mag Chassis",
+      "result_type":  "component"
+    },
+
+    "mag_systems": {
+      "name":         "Mag Systems",
+      "type":         "component",
+      "category":     "warframe_part",
+      "part_of":      "mag",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Mag",
+      "ingredients":  {
+        "Control Module":  1,
+        "Polymer Bundle":  500,
+        "Rubedo":          220
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "mag_systems",
+      "result_name":  "Mag Systems",
+      "result_type":  "component"
+    },
+
+    "mag": {
+      "name":         "Mag",
+      "type":         "warframe",
+      "category":     "warframe",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Mag",
+      "ingredients":  {
+        "mag_neuroptics": 1,
+        "mag_chassis":    1,
+        "mag_systems":    1,
+        "Orokin Cell":    1
+      },
+      "credit_cost":  25000,
+      "base_time":    720,
+      "result_key":   "mag",
+      "result_name":  "Mag",
+      "result_type":  "warframe",
+      "warframe_key": "mag"
+    },
+
+    "braton": {
+      "name":         "Braton",
+      "type":         "weapon",
+      "category":     "primary",
+      "wiki_verified": true,
+      "wiki_source":  "warframe.fandom.com/wiki/Braton",
+      "ingredients":  {
+        "Salvage":         600,
+        "Polymer Bundle":  500,
+        "Circuits":        150,
+        "Alloy Plate":     200
+      },
+      "credit_cost":  25000,
+      "base_time":    360,
+      "result_key":   "Braton",
+      "result_name":  "Braton",
+      "result_type":  "weapon_primary"
+    },
+
+    "karak": {
+      "name":         "Karak",
+      "type":         "weapon",
+      "category":     "primary",
+      "wiki_verified": false,
+      "_unverified_note": "Ingredient amounts approximate — verify at warframe.fandom.com/wiki/Karak",
+      "wiki_source":  "warframe.fandom.com/wiki/Karak",
+      "ingredients":  {
+        "Circuits":        50,
+        "Polymer Bundle":  450,
+        "Ferrite":         900
+      },
+      "credit_cost":  15000,
+      "base_time":    360,
+      "result_key":   "Karak",
+      "result_name":  "Karak",
+      "result_type":  "weapon_primary"
+    },
+
+    "paris": {
+      "name":         "Paris",
+      "type":         "weapon",
+      "category":     "primary",
+      "wiki_verified": false,
+      "_unverified_note": "Ingredient amounts approximate — verify at warframe.fandom.com/wiki/Paris",
+      "wiki_source":  "warframe.fandom.com/wiki/Paris",
+      "ingredients":  {
+        "Rubedo":    300,
+        "Circuits":  60,
+        "Morphics":  2,
+        "Salvage":   100
+      },
+      "credit_cost":  15000,
+      "base_time":    360,
+      "result_key":   "Paris",
+      "result_name":  "Paris",
+      "result_type":  "weapon_primary"
+    },
+
+    "bo": {
+      "name":         "Bo",
+      "type":         "weapon",
+      "category":     "melee",
+      "wiki_verified": false,
+      "_unverified_note": "Approximate — verify at warframe.fandom.com/wiki/Bo",
+      "wiki_source":  "warframe.fandom.com/wiki/Bo",
+      "ingredients":  {
+        "Salvage":     900,
+        "Circuits":    300,
+        "Polymer Bundle": 150
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "Bo",
+      "result_name":  "Bo",
+      "result_type":  "weapon_melee"
+    },
+
+    "dual_skana": {
+      "name":         "Dual Skana",
+      "type":         "weapon",
+      "category":     "melee",
+      "wiki_verified": false,
+      "_unverified_note": "Approximate — verify at warframe.fandom.com/wiki/Dual_Skana",
+      "wiki_source":  "warframe.fandom.com/wiki/Dual_Skana",
+      "ingredients":  {
+        "Ferrite":   500,
+        "Circuits":  200,
+        "Rubedo":    50
+      },
+      "credit_cost":  15000,
+      "base_time":    300,
+      "result_key":   "Dual Skana",
+      "result_name":  "Dual Skana",
+      "result_type":  "weapon_melee"
+    },
+
+    "furis": {
+      "name":         "Furis",
+      "type":         "weapon",
+      "category":     "secondary",
+      "wiki_verified": false,
+      "_unverified_note": "Approximate — verify at warframe.fandom.com/wiki/Furis",
+      "wiki_source":  "warframe.fandom.com/wiki/Furis",
+      "ingredients":  {
+        "Ferrite":         1000,
+        "Circuits":        500,
+        "Polymer Bundle":  50,
+        "Morphics":        1
+      },
+      "credit_cost":  15000,
+      "base_time":    360,
+      "result_key":   "Furis",
+      "result_name":  "Furis",
+      "result_type":  "weapon_secondary"
+    }
+
+  }
+}

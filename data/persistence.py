@@ -40,7 +40,7 @@ PLAYERS_DIR        = "./data/players"
 CACHE_DIR          = "./data/cache"
 GLOBAL_STATE_PATH  = "./data/global_state.json"
 
-SCHEMA_VERSION_PLAYER = 6   # bumped: 7-char mod UUIDs + rank/max_rank fields
+SCHEMA_VERSION_PLAYER = 7   # v7: weapon_xp, mastery_points, mastery_awarded, foundry_queue
 SCHEMA_VERSION_GLOBAL = 1
 
 MAX_WARFRAME_SLOTS = 3
@@ -232,6 +232,11 @@ def _default_profile(user_id: int | str) -> dict:
             "warframe_1":  None, "warframe_2":  None,
         },
         "trade_history": [],
+        # v7 — Affinity / Mastery / Foundry
+        "weapon_xp":        {},   # {weapon_name: {"level": int, "xp": int}}
+        "mastery_points":   0,    # lifetime Mastery Points accumulated
+        "mastery_awarded":  {},   # {item_key: max_rank_that_already_gave_MP}
+        "foundry_queue":    [],   # list of in-progress / completed build entries
     }
 
 
@@ -627,6 +632,12 @@ def _migrate_player(data: dict) -> dict:
     data.setdefault("current_mission",    None)
     data.setdefault("completed_quests",   [])
     data.setdefault("completed_missions", [])
+
+    # v7 — Affinity / Mastery / Foundry fields
+    data.setdefault("weapon_xp",       {})
+    data.setdefault("mastery_points",  0)
+    data.setdefault("mastery_awarded", {})
+    data.setdefault("foundry_queue",   [])
 
     data["schema_version"] = SCHEMA_VERSION_PLAYER
     return data

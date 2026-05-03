@@ -62,8 +62,18 @@ _COLOR_DANGER   = 0x7B1515   # red   — destructive actions
 _COLOR_GOLD     = 0xC8A951   # gold  — sell confirmation
 
 # ── Level / XP constants ───────────────────────────────────────────────────────
-_MAX_LEVEL   = 30
-_XP_PER_LVL  = 1000
+_MAX_LEVEL      = 30
+_XP_PER_LVL     = 1000   # XP per Warframe rank (matches global_state._WF_XP_PER_LEVEL)
+_WP_XP_PER_LVL  = 500    # XP per Weapon rank   (matches global_state._WP_XP_PER_LEVEL)
+
+# Cumulative Mastery Points to reach each MR (wiki: warframe.fandom.com/wiki/Mastery_Rank)
+_MR_THRESHOLDS: list[int] = [
+    0, 2_500, 7_500, 17_500, 33_750, 58_750, 93_750, 141_250, 203_750,
+    283_750, 383_750, 505_000, 648_750, 816_250, 1_008_750, 1_228_750,
+    1_478_750, 1_760_000, 2_073_750, 2_423_750, 2_812_500, 3_243_750,
+    3_720_000, 4_243_750, 4_818_750, 5_447_500, 6_133_750, 6_881_250,
+    7_693_750, 8_575_000, 9_528_750,
+]
 
 # ── Sell economy ───────────────────────────────────────────────────────────────
 _SELL_BASE      = 500    # base credits for any Warframe
@@ -1175,6 +1185,138 @@ class WarframeCog(commands.Cog, name="Warframe"):
         layout = build_mods_layout(ctx.author.id, profile, wf_inst)
 
         await ctx.send(view=layout)
+
+    # ── !mastery ──────────────────────────────────────────────────────────────
+
+    @commands.command(name="mastery", aliases=["mr", "rank"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def mastery_cmd(self, ctx: commands.Context) -> None:
+        """
+        Show your Mastery Rank, total Mastery Points, and per-item XP progress.
+
+          !mastery  (or  !mr  or  !rank)
+        """
+        profile  = await persistence.load_player(ctx.author.id)
+        mr       = profile.get("mastery_rank",  0)
+        mp       = profile.get("mastery_points", 0)
+
+        # Progress toward next MR
+        if mr < len(_MR_THRESHOLDS) - 1:
+            next_threshold = _MR_THRESHOLDS[mr + 1]
+            prev_threshold = _MR_THRESHOLDS[mr]
+            span           = next_threshold - prev_threshold
+            progress_in_span = mp - prev_threshold
+            ratio          = min(1.0, progress_in_span / span) if span > 0 else 1.0
+            bar_len        = 16
+            filled         = round(ratio * bar_len)
+            bar            = f"{'█' * filled}{'░' * (bar_len - filled)}"
+            pct            = f"{ratio * 100:.1f}%"
+            mr_line        = (
+                f"`{bar}` {pct}\n"
+                f"**{mp:,}** / **{next_threshold:,}** MP  →  MR **{mr + 1}**"
+            )
+        else:
+            mr_line = f"**{mp:,} MP**  ·  Maximum Mastery Rank achieved!"
+
+        embed = discord.Embed(
+            title       = f"🏆  MASTERY RANK {mr}",
+            description = mr_line,
+            color       = 0xC8A951,
+        )
+
+        # ── Active Warframe XP ────────────────────────────────────────────────
+        roster   = profile.get("warframe_roster", [])
+        active   = next((w for w in roster if w.get("is_active")), None)
+        if active:
+            wf_key   = active.get("warframe_key", "")
+            wf_name  = active.get("warframe_name", "Warframe")
+            wf_level = active.get("level", 0)
+            wf_xp    = active.get("xp",   0)
+            from data.warframes import WARFRAMES
+            wf_em    = WARFRAMES.get(wf_key, {}).get("emoji", "")
+            if wf_level < _MAX_LEVEL:
+                ratio  = min(1.0, wf_xp / _XP_PER_LVL)
+                filled = round(ratio * 10)
+                bar    = f"{'█' * filled}{'░' * (10 - filled)}"
+                xp_str = f"{wf_xp:,} / {_XP_PER_LVL:,} XP"
+            else:
+                bar    = "██████████"
+                xp_str = "MAX RANK"
+            wf_line = (
+                f"{wf_em} **{wf_name}** — Rank **{wf_level}** / {_MAX_LEVEL}\n"
+                f"`{bar}` {xp_str}"
+            )
+            embed.add_field(name="Active Warframe", value=wf_line, inline=False)
+
+        # ── Weapon XP ─────────────────────────────────────────────────────────
+        wp_store    = profile.get("weapon_xp", {})
+        wp_slots    = [
+            ("Primary",   profile.get("weapon",           "—")),
+            ("Secondary", profile.get("secondary_weapon", "—")),
+            ("Melee",     profile.get("melee_weapon",     "—")),
+        ]
+        wp_lines = []
+        for slot_label, wp_name in wp_slots:
+            if not wp_name or wp_name == "—":
+                wp_lines.append(f"**{slot_label}:** —")
+                continue
+            wp_data  = wp_store.get(wp_name, {"level": 0, "xp": 0})
+            wp_level = wp_data.get("level", 0)
+            wp_xp    = wp_data.get("xp",    0)
+            if wp_level < _MAX_LEVEL:
+                ratio  = min(1.0, wp_xp / _WP_XP_PER_LVL)
+                filled = round(ratio * 8)
+                bar    = f"{'█' * filled}{'░' * (8 - filled)}"
+                xp_str = f"{wp_xp:,} / {_WP_XP_PER_LVL:,} XP"
+            else:
+                bar    = "████████"
+                xp_str = "MAX RANK"
+            wp_lines.append(
+                f"**{slot_label}:** {wp_name} — Rank **{wp_level}** / {_MAX_LEVEL}\n"
+                f"`{bar}` {xp_str}"
+            )
+
+        embed.add_field(
+            name  = "Weapons",
+            value = "\n".join(wp_lines) or "No weapons equipped.",
+            inline = False,
+        )
+
+        # ── Mastery Points breakdown ──────────────────────────────────────────
+        wf_mp_total = sum(
+            v for k, v in profile.get("mastery_awarded", {}).items()
+            if k.startswith("warframe_")
+        ) * 200
+        wp_mp_total = sum(
+            v for k, v in profile.get("mastery_awarded", {}).items()
+            if k.startswith("weapon_")
+        ) * 100
+
+        embed.add_field(
+            name  = "Mastery Breakdown",
+            value = (
+                f"Warframes: **{wf_mp_total:,}** MP  "
+                f"*(200 MP / rank)*\n"
+                f"Weapons:   **{wp_mp_total:,}** MP  "
+                f"*(100 MP / rank)*"
+            ),
+            inline = False,
+        )
+
+        embed.set_footer(
+            text=(
+                "Affinity gained on victory — 50% to Warframe, 50% to weapon used  "
+                "·  Abilities grant 100% to Warframe"
+            )
+        )
+        await ctx.send(embed=embed)
+
+    @mastery_cmd.error
+    async def mastery_error(self, ctx: commands.Context, error) -> None:
+        if isinstance(error, commands.CommandOnCooldown):
+            await ctx.send(f"⏳ Try again in `{error.retry_after:.1f}s`.", delete_after=5)
+        else:
+            raise error
 
     # ── Error handlers ────────────────────────────────────────────────────────
 

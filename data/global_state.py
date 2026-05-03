@@ -130,6 +130,8 @@
 
 from __future__ import annotations
 
+import json
+import os
 from datetime import datetime, timezone
 from typing import TYPE_CHECKING, Optional
 
@@ -146,6 +148,54 @@ from data.persistence import (
 if TYPE_CHECKING:
     from combat.session import CombatSession
     from combat.entities import WarframeEntity
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Affinity / XP constants  (wiki: warframe.fandom.com/wiki/Affinity)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_WF_XP_PER_LEVEL  = 1000   # flat XP needed per Warframe rank (bot-simplified)
+_WP_XP_PER_LEVEL  = 500    # flat XP needed per Weapon rank
+_WF_MAX_RANK      = 30
+_WP_MAX_RANK      = 30
+_WF_MP_PER_RANK   = 200    # Mastery Points per Warframe rank (wiki: 200)
+_WP_MP_PER_RANK   = 100    # Mastery Points per Weapon rank  (wiki: 100)
+_VICTORY_BONUS    = 2.25   # ×2.25 = base + 125 % mission completion bonus
+
+# Cumulative Mastery Points required to reach each MR.
+# Source: warframe.fandom.com/wiki/Mastery_Rank
+_MR_THRESHOLDS: list[int] = [
+    0,        # MR 0 → base
+    2_500,    # MR 1
+    7_500,    # MR 2
+    17_500,   # MR 3
+    33_750,   # MR 4
+    58_750,   # MR 5
+    93_750,   # MR 6
+    141_250,  # MR 7
+    203_750,  # MR 8
+    283_750,  # MR 9
+    383_750,  # MR 10
+    505_000,  # MR 11
+    648_750,  # MR 12
+    816_250,  # MR 13
+    1_008_750,# MR 14
+    1_228_750,# MR 15
+    1_478_750,# MR 16
+    1_760_000,# MR 17
+    2_073_750,# MR 18
+    2_423_750,# MR 19
+    2_812_500,# MR 20
+    3_243_750,# MR 21
+    3_720_000,# MR 22
+    4_243_750,# MR 23
+    4_818_750,# MR 24
+    5_447_500,# MR 25
+    6_133_750,# MR 26
+    6_881_250,# MR 27
+    7_693_750,# MR 28
+    8_575_000,# MR 29
+    9_528_750,# MR 30
+]
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -349,6 +399,221 @@ def _commit_loot_to_profile(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# 5a.  Affinity / XP commit
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _commit_affinity_to_profile(
+    profile:         dict,
+    warframe_key:    str,
+    wf_xp_raw:       int,
+    weapon_xp_raw:   dict[str, int],
+    is_victory:      bool,
+) -> tuple[list[str], int, dict[str, int]]:
+    """
+    Apply earned affinity to the active Warframe instance + each weapon.
+
+    Victory applies the ×2.25 mission-completion bonus
+    (warframe.fandom.com/wiki/Affinity — "125 % bonus").
+    Defeat earns no affinity.
+
+    Returns:
+        (rank_up_messages, final_wf_xp, final_weapon_xp)
+    """
+    if not is_victory:
+        return [], 0, {}
+
+    bonus       = _VICTORY_BONUS
+    wf_xp       = int(wf_xp_raw  * bonus)
+    weapon_xp   = {k: int(v * bonus) for k, v in weapon_xp_raw.items()}
+    rank_ups: list[str] = []
+
+    # ── Warframe XP ──────────────────────────────────────────────────────────
+    roster      = profile.get("warframe_roster", [])
+    wf_instance = next(
+        (wf for wf in roster
+         if wf.get("is_active") and wf.get("warframe_key") == warframe_key),
+        None,
+    )
+    if wf_instance and wf_xp > 0:
+        wf_instance["xp"] = wf_instance.get("xp", 0) + wf_xp
+        while (
+            wf_instance.get("level", 0) < _WF_MAX_RANK
+            and wf_instance["xp"] >= _WF_XP_PER_LEVEL
+        ):
+            wf_instance["xp"]   -= _WF_XP_PER_LEVEL
+            wf_instance["level"] = wf_instance.get("level", 0) + 1
+            new_rank = wf_instance["level"]
+            wf_name  = wf_instance.get("warframe_name", warframe_key.title())
+
+            # Mastery Points — no double-dipping per item per rank
+            awarded  = profile.setdefault("mastery_awarded", {})
+            item_key = f"warframe_{warframe_key}"
+            prev_max = awarded.get(item_key, 0)
+            if new_rank > prev_max:
+                mp = (new_rank - prev_max) * _WF_MP_PER_RANK
+                profile["mastery_points"] = profile.get("mastery_points", 0) + mp
+                awarded[item_key] = new_rank
+
+            rank_ups.append(
+                f"🔺 **{wf_name}** reached Rank **{new_rank}** / {_WF_MAX_RANK}!"
+            )
+
+    # ── Weapon XP ─────────────────────────────────────────────────────────────
+    wp_store = profile.setdefault("weapon_xp", {})
+    for weapon_name, xp_amount in weapon_xp.items():
+        if xp_amount <= 0 or not weapon_name:
+            continue
+        wp = wp_store.setdefault(weapon_name, {"level": 0, "xp": 0})
+        wp["xp"] += xp_amount
+
+        while (
+            wp["level"] < _WP_MAX_RANK
+            and wp["xp"] >= _WP_XP_PER_LEVEL
+        ):
+            wp["xp"]   -= _WP_XP_PER_LEVEL
+            wp["level"] += 1
+            new_rank = wp["level"]
+
+            awarded  = profile.setdefault("mastery_awarded", {})
+            item_key = f"weapon_{weapon_name}"
+            prev_max = awarded.get(item_key, 0)
+            if new_rank > prev_max:
+                mp = (new_rank - prev_max) * _WP_MP_PER_RANK
+                profile["mastery_points"] = profile.get("mastery_points", 0) + mp
+                awarded[item_key] = new_rank
+
+            rank_ups.append(
+                f"🔺 **{weapon_name}** reached Rank **{new_rank}** / {_WP_MAX_RANK}!"
+            )
+
+    # ── Mastery Rank check ────────────────────────────────────────────────────
+    current_mp = profile.get("mastery_points", 0)
+    current_mr = profile.get("mastery_rank",  0)
+    while (
+        current_mr < len(_MR_THRESHOLDS) - 1
+        and current_mp >= _MR_THRESHOLDS[current_mr + 1]
+    ):
+        current_mr += 1
+        profile["mastery_rank"] = current_mr
+        rank_ups.append(f"🏆 **MASTERY RANK {current_mr} UNLOCKED!**")
+
+    return rank_ups, wf_xp, weapon_xp
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5b.  Quest mission reward commit
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _commit_quest_rewards(
+    profile:          dict,
+    quest_id:         str | None,
+    quest_mission_id: str | None,
+    is_victory:       bool,
+) -> tuple[list[str], int]:
+    """
+    Grant mod + credit rewards for a completed quest mission.
+
+    Returns:
+        (granted_mod_names, credits_awarded)
+    """
+    if not is_victory or not quest_id or not quest_mission_id:
+        return [], 0
+
+    quest_path = os.path.join(".", "data", "quests", f"{quest_id}.json")
+    if not os.path.exists(quest_path):
+        return [], 0
+
+    try:
+        with open(quest_path, "r", encoding="utf-8") as fh:
+            quest_data = json.load(fh)
+    except Exception:
+        return [], 0
+
+    # Walk arcs → missions to find the matching mission
+    mission_data = None
+    for arc in quest_data.get("arcs", []):
+        for mission in arc.get("missions", []):
+            if mission.get("id") == quest_mission_id:
+                mission_data = mission
+                break
+        if mission_data:
+            break
+
+    if not mission_data:
+        return [], 0
+
+    rewards    = mission_data.get("rewards", {})
+    credits    = rewards.get("credits", 0)
+    mod_names  = rewards.get("mods", [])
+
+    if not mod_names and not credits:
+        return [], 0
+
+    # Grant credits
+    if credits:
+        profile["credits"] = profile.get("credits", 0) + credits
+
+    # Check which mods have already been awarded for this mission to prevent
+    # double-grants across multiple completions.
+    awarded_key  = f"quest_rewards_{quest_id}_{quest_mission_id}"
+    already_done = profile.setdefault("mastery_awarded", {}).get(awarded_key, False)
+    if already_done:
+        return [], credits  # credits still granted, mods only once
+
+    # Grant mod instances
+    granted_mods: list[str] = []
+    if mod_names:
+        existing_ids = {m.get("uuid") for m in profile.get("mod_collection", [])}
+
+        # Look up rarity from persistence codex; fall back to "uncommon"
+        try:
+            from data.persistence import _get_codex_max_rank as _cmr
+        except ImportError:
+            _cmr = lambda n: 5  # noqa: E731
+
+        # Build a name→rarity map from existing collection for guidance
+        _known_rarity = {
+            m["name"]: m["rarity"]
+            for m in profile.get("mod_collection", [])
+            if "name" in m and "rarity" in m
+        }
+        _default_rarities: dict[str, str] = {
+            "Pressure Point": "common", "Fury":         "common",
+            "Steel Fiber":    "common", "Enemy Sense":  "uncommon",
+            "Stretch":        "common", "Intensify":    "uncommon",
+            "Vitality":       "common", "Redirection":  "common",
+            "Serration":      "common", "Hornet Strike":"common",
+        }
+
+        for mod_name in mod_names:
+            new_id = persistence.generate_mod_id(existing_ids)
+            existing_ids.add(new_id)
+            rarity = (
+                _known_rarity.get(mod_name)
+                or _default_rarities.get(mod_name)
+                or "uncommon"
+            )
+            instance = {
+                "uuid":               new_id,
+                "name":               mod_name,
+                "rarity":             rarity,
+                "rank":               0,
+                "max_rank":           _cmr(mod_name),
+                "acquired_at":        datetime.now(timezone.utc).isoformat(),
+                "source":             f"quest:{quest_id}:{quest_mission_id}",
+                "tradeable":          True,
+                "equipped_on_warframe": None,
+            }
+            profile.setdefault("mod_collection", []).append(instance)
+            granted_mods.append(mod_name)
+
+        # Mark mods as already granted for this mission
+        profile["mastery_awarded"][awarded_key] = True
+
+    return granted_mods, credits
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # 5.  Main commit entry point
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -420,10 +685,36 @@ async def commit_session_to_profile(
         credits_earned = credits_earned,
     )
 
-    # ── 7. Save player profile ────────────────────────────────────────────────
+    # ── 7. Affinity / XP commit (victory only) ───────────────────────────────
+    rank_up_msgs, _, _ = _commit_affinity_to_profile(
+        profile      = profile,
+        warframe_key = player.warframe_key,
+        wf_xp_raw    = getattr(session, "mission_warframe_xp", 0),
+        weapon_xp_raw= getattr(session, "mission_weapon_xp",   {}),
+        is_victory   = is_victory,
+    )
+    if rank_up_msgs:
+        profile.setdefault("last_rank_ups", [])
+        profile["last_rank_ups"] = rank_up_msgs   # cogs can display these
+
+    # ── 8. Quest mission rewards (mod + credit grants) ────────────────────────
+    granted_mods, quest_credits = _commit_quest_rewards(
+        profile          = profile,
+        quest_id         = session.quest_id,
+        quest_mission_id = session.quest_mission_id,
+        is_victory       = is_victory,
+    )
+    if granted_mods:
+        profile.setdefault("last_quest_rewards", {})
+        profile["last_quest_rewards"] = {
+            "mods":    granted_mods,
+            "credits": quest_credits,
+        }
+
+    # ── 9. Save player profile ────────────────────────────────────────────────
     await save_player(profile)
 
-    # ── 8. Update global state ────────────────────────────────────────────────
+    # ── 10. Update global state ───────────────────────────────────────────────
     await _update_global(
         user_id      = user_id,
         profile      = profile,
