@@ -530,7 +530,6 @@ def _upgrade_confirm_embed(
         value=next_str or "—",
         inline=True,
     )
-    em.add_field(name="\u200b", value="\u200b", inline=False)
     em.add_field(
         name=f"{E.endo}  Endo",
         value=f"Cost  `{endo_cost:,}`\nHave  `{endo_have:,}` {'✅' if can_endo else '❌'}",
@@ -577,7 +576,6 @@ def _upgrade_result_embed(
         value=stat_block or "—",
         inline=False,
     )
-    em.add_field(name="\u200b", value="\u200b", inline=False)
     em.add_field(
         name=f"{E.endo}  Endo Remaining",
         value=f"`{rem_endo:,}`",
