@@ -99,6 +99,32 @@ _RARITY_EMOJI = {
 }
 _RARITY_TAG = {"rare": "R", "uncommon": "U", "common": "C"}
 
+# ── Mod icon map from drops.json ───────────────────────────────────────────────
+def _load_drops_emojis() -> dict[str, str]:
+    path = os.path.join(os.path.dirname(__file__), "..", "data", "drops.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f).get("emojis", {})
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+_DROPS_EMOJIS: dict[str, str] = _load_drops_emojis()
+
+
+def _mod_icon(name: str, rarity: str, codex_mod: Optional[dict] = None) -> str:
+    """
+    Resolve the correct emoji for a mod using the full priority chain:
+      1. codex_mod["icon"]  (warframes_mods.json — Warframe mods)
+      2. drops.json emojis  (covers weapon/stance mods like Heated Charge)
+      3. Rarity emoji fallback  (Mod_Common / Mod_Uncommon / Mod_Rare)
+    """
+    if codex_mod and codex_mod.get("icon"):
+        return codex_mod["icon"]
+    from_drops = _DROPS_EMOJIS.get(name)
+    if from_drops:
+        return from_drops
+    return _DROPS_EMOJIS.get(f"Mod_{rarity.capitalize()}", "📦")
+
 PAGE_SIZE = 6  # mod groups per page
 
 
@@ -290,7 +316,7 @@ def _build_mods_list_layout(
         re    = _RARITY_EMOJI.get(g["rarity"], "📦")
         rtag  = _RARITY_TAG.get(g["rarity"], "?")
         # Use the mod's own icon; never substitute a rarity emoji as the mod icon
-        icon  = cm["icon"] if cm else "📦"
+        icon  = _mod_icon(g["name"], g["rarity"], cm)
         count = g["count"]
 
         # Show each copy's UUID + rank inline
@@ -391,7 +417,7 @@ def _build_mod_view_layout(
     re_em  = _RARITY_EMOJI.get(rarity, "📦")
     rtag   = rarity.capitalize()
     # Use the mod's own icon; fall back to a neutral 📦 — never a rarity emoji
-    icon   = codex_mod["icon"] if codex_mod else "📦"
+    icon   = _mod_icon(name, rarity, codex_mod)
 
     accent = {"rare": 0xD4AF37, "uncommon": 0x4B9CDB, "common": 0x888888}.get(rarity, 0x1F4E5F)
 
@@ -711,7 +737,7 @@ class ModsCog(commands.Cog, name="Mods"):
         max_rank = mod_inst.get("max_rank", 5)
         rarity   = mod_inst.get("rarity", "common")
         cm       = _get_codex_mod(name)
-        icon     = cm["icon"] if cm else "📦"
+        icon     = _mod_icon(name, rarity, cm)
 
         if cur_rank >= max_rank:
             await ctx.send(
