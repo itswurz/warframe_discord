@@ -41,7 +41,7 @@ WARFRAMES = {
     "excalibur": {
         "name": "Excalibur",
         "role": "Damage",
-        "play_style": f"{E.damage} Damage",
+        "play_style": f"{E.damage('damage')} Damage",
         "color": 0x1F4E5F,
         "icon_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
@@ -240,7 +240,7 @@ WARFRAMES = {
     "volt": {
         "name": "Volt",
         "role": "Damage",
-        "play_style": f"{E.damage} Damage",
+        "play_style": f"{E.damage('damage')} Damage",
         "color": 0x1F4E5F,
         "icon_url": (
             "https://cdn.discordapp.com/attachments/1499564077075267617"
