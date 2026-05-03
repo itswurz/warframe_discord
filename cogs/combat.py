@@ -89,17 +89,20 @@ async def _finish_tutorial(
     interaction: discord.Interaction,
     session:     CombatSession,
 ) -> None:
-    """Mark the player initialized, unlock Vor's Prize, and send the completion embed."""
-    from cogs.warframe import mark_player_initialized
-    await mark_player_initialized(session.user_id)
+    """Update the player profile and send the tutorial completion embed.
 
+    Single load → single save per outcome so there is no intermediate state
+    that a migration pass could corrupt between writes.
+    """
     profile = await persistence.load_player(session.user_id)
-    profile["tutorial_step"]  = None
-    profile["current_quest"]  = "vors_prize"
-    profile["current_mission"] = "tolstoj"
-    await persistence.save_player(profile)
 
     if session.state == CombatState.VICTORY:
+        profile["initialized"]    = True
+        profile["tutorial_step"]  = None
+        profile["current_quest"]  = "vors_prize"
+        profile["current_mission"] = "tolstoj"
+        await persistence.save_player(profile)
+
         color       = 0x1A7A3C
         title       = f"{E.lotus}  AWAKENING — COMPLETE"
         description = (
@@ -113,6 +116,12 @@ async def _finish_tutorial(
             "Use `!warframe` to access your Orbiter."
         )
     else:
+        profile["initialized"]    = False
+        profile["tutorial_step"]  = "melee_select"
+        profile["current_quest"]  = None
+        profile["current_mission"] = None
+        await persistence.save_player(profile)
+
         color       = 0x7B1515
         title       = f"{E.lotus}  AWAKENING — DEFEATED"
         description = (
@@ -120,12 +129,6 @@ async def _finish_tutorial(
             "*\"Your Warframe will recover. The Grineer have not yet found you.\"*\n\n"
             "Use `!warframe` to re-arm and try the Awakening again."
         )
-        profile2 = await persistence.load_player(session.user_id)
-        profile2["initialized"]    = False
-        profile2["tutorial_step"]  = "melee_select"
-        profile2["current_quest"]  = None
-        profile2["current_mission"] = None
-        await persistence.save_player(profile2)
 
     embed = discord.Embed(title=title, description=description, color=color)
     embed.set_footer(text="Tutorial complete  ·  Warframe © Digital Extremes")

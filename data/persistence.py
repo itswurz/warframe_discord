@@ -567,8 +567,10 @@ def _migrate_player(data: dict) -> dict:
     data.setdefault("warframe_roster",  [])
     data.setdefault("initialized",      False)
 
-    # v3 → v4: synthesise roster entry if player has a warframe but no roster
-    if data.get("warframe") and not data["warframe_roster"]:
+    # v3 → v4: synthesise roster entry if player has a warframe but no roster.
+    # Only run for already-initialized players — tutorial players have "warframe"
+    # set before completing initialization and must not be affected here.
+    if data.get("warframe") and not data["warframe_roster"] and data.get("initialized", False):
         wf_name = data["warframe"]
         try:
             from data.warframes import WARFRAMES
