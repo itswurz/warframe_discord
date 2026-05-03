@@ -1,0 +1,49 @@
+{
+  "schema_version": 6,
+  "user_id": "976787314175012914",
+  "initialized": false,
+  "tutorial_step": "awakening_mission",
+  "current_quest": null,
+  "current_mission": null,
+  "completed_quests": [],
+  "warframe": "Excalibur",
+  "weapon": "Paris",
+  "secondary_weapon": "Lato",
+  "melee_weapon": "Skana",
+  "warframe_roster": [
+    {
+      "instance_id": "RXWBQ9H",
+      "warframe_key": "excalibur",
+      "warframe_name": "Excalibur",
+      "level": 0,
+      "xp": 0,
+      "acquired_at": "2026-05-03T05:28:26.673708+00:00",
+      "is_active": true,
+      "equipped_mods": {}
+    }
+  ],
+  "warframe_level": 0,
+  "mastery_rank": 0,
+  "credits": 0,
+  "platinum": 0,
+  "experience": 0,
+  "total_kills": 0,
+  "total_missions": 0,
+  "missions_won": 0,
+  "missions_lost": 0,
+  "highest_combo": 0,
+  "damage_dealt": 0,
+  "inventory": {},
+  "mod_collection": [],
+  "equipped_mods": {
+    "primary_1": null,
+    "primary_2": null,
+    "secondary_1": null,
+    "secondary_2": null,
+    "melee_1": null,
+    "melee_2": null,
+    "warframe_1": null,
+    "warframe_2": null
+  },
+  "trade_history": []
+}

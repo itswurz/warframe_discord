@@ -21,7 +21,7 @@ async def require_initialized(ctx: commands.Context) -> bool:
     if ctx.command is None:
         return True
     qualified = ctx.command.qualified_name
-    if qualified.startswith("warframe"):
+    if qualified.startswith("warframe") or qualified == "abort":
         return True
     from data import persistence
     profile = await persistence.load_player(ctx.author.id)
@@ -34,6 +34,13 @@ async def require_initialized(ctx: commands.Context) -> bool:
         )
         return False
     return True
+
+
+@bot.event
+async def on_command_error(ctx: commands.Context, error) -> None:
+    if isinstance(error, commands.CheckFailure):
+        return
+    raise error
 
 
 # ── Load Cogs ─────────────────────────────────────────────────────────────────

@@ -122,7 +122,7 @@ async def _finish_tutorial(
         )
         profile2 = await persistence.load_player(session.user_id)
         profile2["initialized"]    = False
-        profile2["tutorial_step"]  = "awakening_mission"
+        profile2["tutorial_step"]  = "melee_select"
         profile2["current_quest"]  = None
         profile2["current_mission"] = None
         await persistence.save_player(profile2)
@@ -551,109 +551,6 @@ class CombatCog(commands.Cog, name="Combat"):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-
-    @commands.command(name="combat", aliases=["mission", "fight", "deploy"])
-    @commands.cooldown(1, 10, commands.BucketType.user)
-    async def combat_cmd(self, ctx: commands.Context) -> None:
-        """Deploy your Warframe and weapon into the Origin System and begin combat."""
-
-        # 1. Guard — already in combat?
-        if ctx.author.id in ACTIVE_SESSIONS:
-            existing = ACTIVE_SESSIONS[ctx.author.id]
-            if not existing.is_over:
-                await ctx.send(
-                    "⚔️ Tenno, you are already in combat! "
-                    "Finish your current mission first.",
-                    delete_after=8,
-                )
-                return
-            del ACTIVE_SESSIONS[ctx.author.id]
-
-        # 2. Load player profile
-        player_data = await persistence.load_player(ctx.author.id)
-        wf_name     = player_data.get("warframe")
-
-        if not wf_name:
-            await ctx.send(
-                "🔒 No Warframe selected, Tenno.\n"
-                "Use `!warframe` to browse and choose your Warframe first.",
-                delete_after=12,
-            )
-            return
-
-        # 3. Resolve Warframe key
-        wf_key = next(
-            (k for k, v in WARFRAMES.items() if v["name"] == wf_name), None
-        )
-        if wf_key is None:
-            await ctx.send(
-                f"❌ Warframe `{wf_name}` not found in the Codex. "
-                "Use `!warframe` to re-select.",
-                delete_after=10,
-            )
-            return
-
-        wf_data = WARFRAMES[wf_key]
-
-        # 4. Resolve Primary weapon (falls back to MK1-Braton)
-        weapon_name = player_data.get("weapon") or "MK1-Braton"
-        if weapon_name not in WEAPON_STATS:
-            weapon_name = "MK1-Braton"
-
-        # 5. Default melee / secondary (always Skana / Lato for now)
-        melee_name     = "Skana"
-        secondary_name = "Lato"
-
-        # 6. Create and register session
-        session = CombatSession(
-            warframe_key     = wf_key,
-            warframe_data    = wf_data,
-            user_id          = ctx.author.id,
-            primary_weapon   = weapon_name,
-            melee_weapon     = melee_name,
-            secondary_weapon = secondary_name,
-            profile          = player_data,
-        )
-        ACTIVE_SESSIONS[ctx.author.id] = session
-
-        # 7. Resolve emojis from WEAPON_STATS for the header
-        pw = WEAPON_STATS.get(weapon_name, {})
-        mw = WEAPON_STATS.get(melee_name,  {})
-        sw = WEAPON_STATS.get(secondary_name, {})
-
-        no_weapon_note = (
-            "\n⚠️ No Primary selected — deploying with **MK1-Braton** (default).\n"
-            "Use `!weapon` after the mission to choose your loadout."
-            if player_data.get("weapon") is None
-            else ""
-        )
-
-        embed = build_combat_embed(session, session.log[-10:])
-        view  = CombatView(session)
-        session._active_view = view
-
-        await ctx.send(
-            content=(
-                f"**{ctx.author.display_name}** deploys **{wf_name}** — "
-                f"{pw.get('emoji', '')} **{weapon_name}**  ·  "
-                f"{sw.get('emoji', '')} **{secondary_name}**  ·  "
-                f"{mw.get('emoji', '')} **{melee_name}**"
-                f"{no_weapon_note}"
-            ),
-            embed=embed,
-            view=view,
-        )
-
-    @combat_cmd.error
-    async def combat_error(self, ctx: commands.Context, error) -> None:
-        if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send(
-                f"⏳ Ordis is calibrating deployment systems. "
-                f"Try again in `{error.retry_after:.1f}s`, Tenno.",
-                delete_after=6,
-            )
-        else:
-            raise error
 
     @commands.command(name="abort", aliases=["retreat", "forfeit"])
     async def abort_cmd(self, ctx: commands.Context) -> None:
