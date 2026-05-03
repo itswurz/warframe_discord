@@ -292,28 +292,57 @@ _CATEGORY_LABELS = {
 
 _FIELD_LIMIT = 1000   # Discord hard limit is 1024 — keep a small safety margin
 _MAX_FIELDS  = 24     # Discord hard limit is 25 fields
+_EMBED_LIMIT = 5800   # Discord hard limit is 6000 — safety margin
 
 
-def _add_chunked_fields(embed: discord.Embed, label: str, lines: list[str]) -> None:
-    """Add lines as one or more fields, chunking at _FIELD_LIMIT chars."""
+def _embed_len(embed: discord.Embed) -> int:
+    """Count total characters currently in an embed."""
+    total = len(embed.title or "") + len(embed.description or "")
+    if embed.footer and embed.footer.text:
+        total += len(embed.footer.text)
+    for f in embed.fields:
+        total += len(f.name) + len(f.value)
+    return total
+
+
+def _add_chunked_fields(embed: discord.Embed, label: str, lines: list[str]) -> int:
+    """
+    Add lines as one or more fields, chunking at _FIELD_LIMIT chars per field
+    and stopping before the total embed exceeds _EMBED_LIMIT.
+
+    Returns the number of lines that were NOT added due to the embed limit.
+    """
     chunk: list[str] = []
     current_len = 0
     part = 1
+    skipped = 0
 
     for line in lines:
         line_len = len(line) + 1  # +1 for newline
+
+        # Flush chunk when it hits the per-field limit
         if current_len + line_len > _FIELD_LIMIT and chunk:
             field_name = label if part == 1 else f"{label} (cont.)"
             embed.add_field(name=field_name, value="\n".join(chunk), inline=False)
             chunk = []
             current_len = 0
             part += 1
+
+        # Stop adding if the next line would push the embed over the total limit
+        field_name = label if part == 1 else f"{label} (cont.)"
+        projected = _embed_len(embed) + len(field_name) + current_len + line_len
+        if projected > _EMBED_LIMIT:
+            skipped += 1
+            continue
+
         chunk.append(line)
         current_len += line_len
 
     if chunk:
         field_name = label if part == 1 else f"{label} (cont.)"
         embed.add_field(name=field_name, value="\n".join(chunk), inline=False)
+
+    return skipped
 
 
 def _build_catalog_embed(category: str | None = None) -> discord.Embed:
@@ -379,6 +408,7 @@ def _build_catalog_embed(category: str | None = None) -> discord.Embed:
         color       = 0x4A90D9,
     )
 
+    total_skipped = 0
     for cat, items_in_cat in sorted(groups.items()):
         label = _CATEGORY_LABELS.get(cat, cat.replace("_", " ").title())
         lines = []
@@ -389,11 +419,14 @@ def _build_catalog_embed(category: str | None = None) -> discord.Embed:
             lines.append(
                 f"{em} **{data['name']}** — ⏱ `{_fmt_time(secs)}`  {verified}"
             )
-        _add_chunked_fields(embed, label, lines)
+        total_skipped += _add_chunked_fields(embed, label, lines)
         if len(embed.fields) >= _MAX_FIELDS:
             break
 
-    embed.set_footer(text="✅ = wiki-verified  ·  ⚠️ = approximate data")
+    footer = "✅ = wiki-verified  ·  ⚠️ = approximate data"
+    if total_skipped:
+        footer += f"  ·  {total_skipped} more items not shown — use `!foundry <item>` to look up by name"
+    embed.set_footer(text=footer)
     return embed
 
 
