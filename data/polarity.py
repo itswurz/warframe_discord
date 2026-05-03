@@ -44,6 +44,8 @@ import math
 import os
 from typing import Optional
 
+from utils.emojis import E as _E
+
 _WF_PATH   = os.path.join(os.path.dirname(__file__), "warframes.json")
 _WPN_PATH  = os.path.join(os.path.dirname(__file__), "weapons.json")
 _MODS_PATH = os.path.join(os.path.dirname(__file__), "mods.json")
@@ -66,8 +68,8 @@ def _data() -> dict:
             with open(_MODS_PATH, "r", encoding="utf-8") as f:
                 mods = json.load(f)
             emojis = {
-                k: v["emoji"]
-                for k, v in mods.get("slot_polarities", {}).items()
+                k: _E.polarity(k)
+                for k in mods.get("slot_polarities", {})
             }
             weapons = {
                 w["name"]: {"slots": w["mod_slots"]}
