@@ -42,14 +42,13 @@ import discord
 from discord.ext import commands
 
 from data import persistence
+from utils.emojis import E
 
 # ── Data file paths ────────────────────────────────────────────────────────────
 _RECIPES_PATH = os.path.join("data", "foundry_recipes.json")
-_EMOJIS_PATH  = os.path.join("data", "foundry_emojis.json")
 _THUMBS_PATH  = os.path.join("data", "foundry_thumbnails.json")
 
-_PLACEHOLDER_EMOJI = "❔"
-_PLACEHOLDER_IMG   = "https://via.placeholder.com/128?text=No+Image"
+_PLACEHOLDER_IMG = "https://via.placeholder.com/128?text=No+Image"
 
 MAX_QUEUE_SLOTS = 3
 
@@ -65,7 +64,6 @@ def _load_json(path: str, fallback: dict) -> dict:
 
 
 RECIPES:    dict = _load_json(_RECIPES_PATH, {})
-EMOJIS:     dict = _load_json(_EMOJIS_PATH,  {})
 THUMBNAILS: dict = _load_json(_THUMBS_PATH,  {})
 
 ITEMS:             dict = RECIPES.get("items",             {})
@@ -77,8 +75,8 @@ RARITY_WEIGHTS:    dict = RECIPES.get("rarity_weights",
 # ── Emoji / thumbnail helpers ──────────────────────────────────────────────────
 
 def _emoji(key: str) -> str:
-    """Return emoji for key, falling back to placeholder. Never crashes."""
-    return EMOJIS.get(key) or EMOJIS.get(key.lower().replace(" ", "_")) or _PLACEHOLDER_EMOJI
+    """Resolve item emoji via the central codex. Falls back to placeholder."""
+    return E.item(key)
 
 
 def _thumb(key: str) -> str:
