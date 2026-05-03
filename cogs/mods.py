@@ -35,7 +35,7 @@ from data.persistence import (
 )
 
 # ── Codex data ────────────────────────────────────────────────────────────────
-_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "warframes_mods.json")
+_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "mods.json")
 _DB: dict | None = None
 
 
@@ -43,7 +43,9 @@ def _db() -> dict:
     global _DB
     if _DB is None:
         with open(_DB_PATH, "r", encoding="utf-8") as f:
-            _DB = json.load(f)
+            raw = json.load(f)
+        raw["mods"] = list(raw.get("mods", {}).values())
+        _DB = raw
     return _DB
 
 
@@ -428,7 +430,7 @@ def _build_mod_view_layout(
         else:
             stats_text += "\n\n✅ **Max Rank reached!**"
     else:
-        # Mod not in warframes_mods.json — weapon / stance / unknown category
+        # Mod not in mods.json — weapon / stance / unknown category
         source    = mod_inst.get("source", "unknown")
         acquired  = mod_inst.get("acquired_at", "")[:10]
         tradeable = mod_inst.get("tradeable", True)

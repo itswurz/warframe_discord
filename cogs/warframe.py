@@ -1117,7 +1117,7 @@ class WarframeCog(commands.Cog, name="Warframe"):
         if _get_wf_codex(wf_key) is None:
             await ctx.send(
                 f"{E.lotus} ❌ Mod codex entry for `{wf_key}` not found. "
-                "The warframes_mods.json may need updating.",
+                "The warframes.json codex may need updating.",
                 delete_after=10,
             )
             return

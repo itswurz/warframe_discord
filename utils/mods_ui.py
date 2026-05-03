@@ -3,7 +3,7 @@
 # Warframe mod configuration UI — !warframe mods <warframe_id>
 #
 # Design principles:
-#   • ALL data comes from warframes_mods.json — zero hardcoded mod stats.
+#   • ALL data comes from warframes.json + mods.json — zero hardcoded mod stats.
 #   • Only WARFRAME-category mods from the player's own mod_collection may be
 #     equipped in the !warframe mods panel. Weapon/stance mods are excluded.
 #   • Each mod instance is INDIVIDUAL — the select menu shows every UUID
@@ -52,20 +52,29 @@ from utils.emojis import E
 
 # ── Data loading ───────────────────────────────────────────────────────────────
 
-_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "warframes_mods.json")
+_WF_PATH   = os.path.join(os.path.dirname(__file__), "..", "data", "warframes.json")
+_MODS_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "mods.json")
 _DB: dict | None = None
 
 
 def _db() -> dict:
     global _DB
     if _DB is None:
-        with open(_DATA_PATH, "r", encoding="utf-8") as f:
-            _DB = json.load(f)
+        with open(_WF_PATH, "r", encoding="utf-8") as f:
+            wf = json.load(f)
+        with open(_MODS_PATH, "r", encoding="utf-8") as f:
+            md = json.load(f)
+        _DB = {
+            "warframes":       wf.get("warframes", {}),
+            "mods":            list(md.get("mods", {}).values()),
+            "rarity_order":    md.get("rarity_order", ["rare", "uncommon", "common"]),
+            "slot_polarities": md.get("slot_polarities", {}),
+        }
     return _DB
 
 
 def reload_db() -> None:
-    """Force a hot-reload of warframes_mods.json without restarting the bot."""
+    """Force a hot-reload of warframes.json + mods.json without restarting the bot."""
     global _DB
     _DB = None
     _db()
@@ -328,7 +337,7 @@ def _slot_assignments_from_instance(
 
 def _is_warframe_mod(mod_name: str) -> bool:
     """
-    Return True only if this mod is present in warframes_mods.json with
+    Return True only if this mod is present in mods.json with
     category == "warframe" (case-insensitive).
 
     Mods NOT in the codex are always False — they are weapon/stance/unknown
@@ -345,7 +354,7 @@ def get_player_available_mods(profile: dict, wf_instance: dict) -> list[dict]:
     Return all mod_collection instances the player may equip in the Warframe panel.
 
     Filtering (strict):
-      1. Mod must be Warframe-category (verified against warframes_mods.json).
+      1. Mod must be Warframe-category (verified against mods.json).
       2. mod["equipped_on_warframe"] must be None or equal this instance_id.
       3. No duplicate mod NAME on the same Warframe (only the already-equipped
          copy of a duplicate name is shown; other copies are hidden).
@@ -689,7 +698,7 @@ def build_mods_layout(
         layout.add_item(
             _CB(accent_colour=0x7B1515)
             .text(
-                f"❌ Codex entry for `{warframe_key}` not found in `warframes_mods.json`.\n"
+                f"❌ Codex entry for `{warframe_key}` not found in `warframes.json`.\n"
                 "The Warframe is in your roster but has no mod data. "
                 "An admin may need to update the codex JSON."
             )

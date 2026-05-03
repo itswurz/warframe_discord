@@ -13,15 +13,24 @@ import discord
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
-_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "warframes_mods.json")
+_WF_PATH   = os.path.join(os.path.dirname(__file__), "..", "data", "warframes.json")
+_MODS_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "mods.json")
 _DB: dict | None = None
 
 
 def _db() -> dict:
     global _DB
     if _DB is None:
-        with open(_DATA_PATH, "r", encoding="utf-8") as f:
-            _DB = json.load(f)
+        with open(_WF_PATH, "r", encoding="utf-8") as f:
+            wf = json.load(f)
+        with open(_MODS_PATH, "r", encoding="utf-8") as f:
+            md = json.load(f)
+        _DB = {
+            "warframes":       wf.get("warframes", {}),
+            "mods":            list(md.get("mods", {}).values()),
+            "rarity_order":    md.get("rarity_order", ["rare", "uncommon", "common"]),
+            "slot_polarities": md.get("slot_polarities", {}),
+        }
     return _DB
 
 
@@ -335,7 +344,7 @@ def build_upgrades_layout(user_id: int, warframe_id: str) -> discord.ui.LayoutVi
         layout = discord.ui.LayoutView()
         layout.add_item(
             _CB(accent_colour=0x7B1515)
-            .text(f"❌ Warframe `{warframe_id}` not found in `warframes_mods.json`.")
+            .text(f"❌ Warframe `{warframe_id}` not found in `warframes.json`.")
             .build()
         )
         return layout

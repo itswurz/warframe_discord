@@ -8,7 +8,7 @@
 #   !polarity mod <name>        — Show a mod's polarity and cost preview for
 #                                 every matching slot type.
 #   !polarity weapon <name>     — Show a weapon's mod-slot polarity grid.
-#   !polarity reload            — (Owner-only) Reload polarities.json from disk.
+#   !polarity reload            — (Owner-only) Reload warframes.json / weapons.json / mods.json from disk.
 #
 # Integration points with existing embeds:
 #   • weapon_embeds.build_weapon_embed()    → polarity slot row injected
@@ -294,11 +294,11 @@ class PolarityCog(commands.Cog, name="Polarity"):
     @polarity_cmd.command(name="reload", hidden=True)
     @commands.is_owner()
     async def polarity_reload(self, ctx: commands.Context) -> None:
-        """Reload polarities.json without restarting the bot."""
+        """Reload warframes.json / weapons.json / mods.json without restarting the bot."""
         try:
             polarity_reload()
             await ctx.send(
-                f"{E.lotus} `polarities.json` reloaded successfully.",
+                f"{E.lotus} Polarity data reloaded successfully.",
                 delete_after=8,
             )
         except Exception as exc:

@@ -46,17 +46,28 @@ import random
 
 from data.persistence import make_mod_instance
 
-_DROPS_PATH = os.path.join(os.path.dirname(__file__), "drops.json")
+_DROPS_PATH = os.path.join(os.path.dirname(__file__), "enemies.json")
 
 # Module-level cache — reloaded only on import. Restart bot to pick up edits.
 _CACHE: dict | None = None
 
 
 def _data() -> dict:
+    """Return a drops-compatible dict keyed by enemy key → flat drop fields."""
     global _CACHE
     if _CACHE is None:
         with open(_DROPS_PATH, "r", encoding="utf-8") as f:
-            _CACHE = json.load(f)
+            raw = json.load(f)
+        enemies_out: dict = {}
+        for key, enemy in raw.get("enemies", {}).items():
+            drops = enemy.get("drops", {})
+            enemies_out[key] = {
+                "mods":            drops.get("mods", []),
+                "resources":       drops.get("resources", {}),
+                "region_resource": drops.get("region_resource"),
+                "cosmetics":       drops.get("cosmetics", []),
+            }
+        _CACHE = {"enemies": enemies_out}
     return _CACHE
 
 
@@ -77,7 +88,7 @@ def roll_drops(
     Roll the full loot table for one slain enemy.
 
     Args:
-        enemy_key:  Key from drops.json "enemies" section (e.g. "grineer_lancer").
+        enemy_key:  Key from enemies.json "enemies" section (e.g. "grineer_lancer").
         source_tag: Provenance string stored on mod instances, e.g.
                     "drop:grineer_lancer".  Defaults to "drop:unknown".
 

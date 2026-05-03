@@ -10,7 +10,7 @@
 #                         their UUID instances are listed.
 #
 # Item DB:
-#   Loaded once from  data/item_descriptions.json  at import time.
+#   Loaded once from  data/enemies.json  at import time (resources + cosmetics).
 #   Update the JSON to add new items — no code changes required.
 #
 # View lifetime:
@@ -44,7 +44,7 @@ from utils.inventory_embeds import (
 log = logging.getLogger(__name__)
 
 # ── Load item DB once ─────────────────────────────────────────────────────────
-_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "item_descriptions.json")
+_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "enemies.json")
 
 _ITEM_DB_LOAD_ERROR: str | None = None   # set if the DB failed to load
 
@@ -54,28 +54,28 @@ def _load_item_db() -> dict:
     try:
         with open(_DB_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-        log.info("[inventory] item_descriptions.json loaded (%d mods, %d resources, %d cosmetics)",
-                 len(data.get("mods", {})),
-                 len(data.get("resources", {})),
-                 len(data.get("cosmetics", {})))
-        return data
+        resources = data.get("resources", {})
+        cosmetics  = data.get("cosmetics", {})
+        log.info("[inventory] enemies.json loaded (%d resources, %d cosmetics)",
+                 len(resources), len(cosmetics))
+        return {"mods": {}, "resources": resources, "cosmetics": cosmetics}
     except FileNotFoundError:
         _ITEM_DB_LOAD_ERROR = (
             f"Item database not found at `{_DB_PATH}`. "
             "Inventory will show items without descriptions."
         )
-        log.warning("[inventory] item_descriptions.json not found — using empty DB.")
+        log.warning("[inventory] enemies.json not found — using empty DB.")
         return {"mods": {}, "resources": {}, "cosmetics": {}}
     except json.JSONDecodeError as exc:
         _ITEM_DB_LOAD_ERROR = (
             f"Item database is malformed (JSON error: {exc}). "
             "Inventory will show items without descriptions."
         )
-        log.error("[inventory] item_descriptions.json JSON error: %s", exc)
+        log.error("[inventory] enemies.json JSON error: %s", exc)
         return {"mods": {}, "resources": {}, "cosmetics": {}}
     except Exception as exc:
         _ITEM_DB_LOAD_ERROR = f"Unexpected error loading item database: {exc}"
-        log.exception("[inventory] Unexpected error loading item_descriptions.json")
+        log.exception("[inventory] Unexpected error loading enemies.json")
         return {"mods": {}, "resources": {}, "cosmetics": {}}
 
 

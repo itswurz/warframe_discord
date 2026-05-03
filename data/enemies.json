@@ -1,0 +1,457 @@
+{
+  "_note": "Consolidated enemy database. Single source of truth for enemy stats, abilities, drop tables, resources, and cosmetics.",
+  "intro_encounter": [
+    "grineer_lancer",
+    "grineer_butcher",
+    "grineer_scorpion"
+  ],
+  "resources": {
+    "Ferrite": {
+      "description": "A dense, compressed iron-based ore found throughout Earth and Mercury. Ferrite is one of the most common crafting materials in the Origin System \u2014 the backbone of Grineer industrial manufacturing.",
+      "source": "Earth, Mercury, Void, Neptune",
+      "tb_use": "General crafting material. Accumulated from Grineer drop tables. Used in future Warframe and weapon blueprint crafting.",
+      "emoji": "<:ferrite:1499750270199009320>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883860090028173/Ferrite.png?ex=69f66b32&is=69f519b2&hm=2663c3a108ed65486c6062cbe61bc4dc7db88e6c2efa6b52f8ab7fb4e8bb569b&"
+    },
+    "Rubedo": {
+      "description": "A blood-red crystalline mineral found on Phobos, Earth, Sedna, Europa, and the Void. Rubedo's unique electromagnetic properties make it invaluable in advanced component construction.",
+      "source": "Phobos, Earth, Europa, Sedna, Void",
+      "tb_use": "Uncommon crafting material. Required for intermediate and advanced weapon/Warframe blueprints. Rarer than Ferrite \u2014 stockpile carefully.",
+      "emoji": "<:rubedo:1499750208022773931>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883853089607760/Rubedo.png?ex=69f66b31&is=69f519b1&hm=1bb836c48b02107e962895af75e83528cec4dc22983e130a7640f9b904c2178b&"
+    },
+    "Neurodes": {
+      "description": "Rare biological nodes recovered from Infested-contaminated organisms. Neurodes contain dense neural tissue that interfaces with Orokin-era technology \u2014 indispensable for high-tier crafting.",
+      "source": "Earth, Eris, Lua, Deimos",
+      "tb_use": "Rare crafting material. Essential for Warframe Neuroptics and high-level weapon components. Extremely valuable \u2014 do not sell.",
+      "emoji": "<:neurodes:1499750148991881366>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883845887987824/Neurodes.png?ex=69f66b2f&is=69f519af&hm=4be9e8ca9590ed5ca393170dc76081f31724fb2fcdf00025363cd1fa157b79be&"
+    },
+    "Detonite Ampule": {
+      "description": "Pressurized containers of Grineer-manufactured explosive compound. Originally used in Grineer demolition charges and missile warheads, these ampules are repurposed by the Tenno for component synthesis.",
+      "source": "Grineer enemies, Grineer Caches, Invasion rewards",
+      "tb_use": "Uncommon crafting material. Used in Grineer-tier weapon blueprints and some Warframe components. Keep a reserve for future crafting.",
+      "emoji": "<:d_ampule:1499750066913673256>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883838413865181/DetoniteAmpule.png?ex=69f66b2d&is=69f519ad&hm=90011ed6a3df3939fe4130b31e515d71440457ba54e56e8b94a524aade905678&"
+    },
+    "Endo": {
+      "description": "Concentrated Orokin bio-matter used exclusively to rank up Mods. Endo is extracted from enemy neural pathways and combat data crystals. There is no substitute for Endo in the Mod leveling process.",
+      "source": "Universal drop \u2014 enemies, missions, Transmutation, Arbitrations",
+      "tb_use": "Used to rank up Mods from 0 to their maximum rank. Higher mod ranks require exponentially more Endo. A mod at rank 10 costs 8,145 total Endo to fully upgrade.",
+      "emoji": "<:endo:1499750353002954792>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883867551568053/Endo.png?ex=69f66b34&is=69f519b4&hm=60c77a5b559a2d42e7262792688ac5dfe74109a442b767d41af25ed003ec9a88&"
+    }
+  },
+  "cosmetics": {
+    "Sand Yellow Pigment": {
+      "description": "A fine ochre pigment extracted from Grineer desert-pattern camo compounds. Tenno colourists prize this hue for replicating the dusty tones of Phobos and Mars surface units.",
+      "source": "Grineer Scorpion (50% drop chance)",
+      "tb_use": "Cosmetic material. Used in Colour Pack crafting at the Orbiter. Accumulate pigments to unlock new palette entries for your Warframe and weapons.",
+      "emoji": "<:pigment:1499751296075436062>",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883875625603142/Pigment.png?ex=69f66b36&is=69f519b6&hm=39a037b97db3903363102f43ddde1a85521609bda930d56e85f9242e9374c523&"
+    }
+  },
+  "enemies": {
+    "grineer_lancer": {
+      "name": "Grineer Lancer",
+      "faction": "Grineer",
+      "hp": 150,
+      "shields": 0,
+      "armor": 100,
+      "behavior": "aggressive",
+      "icon_key": "grineer_lancer",
+      "xp_reward": 40,
+      "abilities": [
+        {
+          "name": "Grakata Burst",
+          "damage": 35,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Unleashes a tight burst from his Grakata \u2014 reliable, consistent damage."
+        },
+        {
+          "name": "Suppressive Fire",
+          "damage": 22,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.35,
+          "description": "Sustained raking fire that can stagger and knock the target to the ground."
+        }
+      ],
+      "drops": {
+        "mods": [
+          {
+            "name": "Ammo Drum",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Fast Hands",
+            "chance": 0.0114,
+            "rarity": "uncommon"
+          },
+          {
+            "name": "Vitality",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Pressure Point",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Diamond Skin",
+            "chance": 0.0033,
+            "rarity": "uncommon"
+          },
+          {
+            "name": "Heated Charge",
+            "chance": 0.0033,
+            "rarity": "uncommon"
+          },
+          {
+            "name": "Rending Strike",
+            "chance": 0.0022,
+            "rarity": "uncommon"
+          },
+          {
+            "name": "Rifle Ammo Mutation",
+            "chance": 0.0022,
+            "rarity": "uncommon"
+          },
+          {
+            "name": "Streamline",
+            "chance": 0.0001,
+            "rarity": "rare"
+          },
+          {
+            "name": "Heavy Trauma",
+            "chance": 0.0001,
+            "rarity": "rare"
+          },
+          {
+            "name": "Iron Phoenix",
+            "chance": 0.0001,
+            "rarity": "rare"
+          },
+          {
+            "name": "Endo",
+            "amount": 80,
+            "chance": 0.0001,
+            "rarity": "uncommon",
+            "type": "endo"
+          }
+        ],
+        "resources": {
+          "common": {
+            "name": "Ferrite",
+            "min": 50,
+            "max": 100,
+            "chance": 0.8
+          },
+          "uncommon": [
+            {
+              "name": "Rubedo",
+              "min": 15,
+              "max": 25,
+              "chance": 0.22
+            },
+            {
+              "name": "Detonite Ampule",
+              "amount": 1,
+              "chance": 0.18
+            }
+          ],
+          "rare": [
+            {
+              "name": "Neurodes",
+              "amount": 1,
+              "chance": 0.03
+            }
+          ]
+        },
+        "region_resource": {
+          "name": "Ferrite",
+          "min": 30,
+          "max": 60,
+          "chance": 0.07
+        },
+        "cosmetics": []
+      }
+    },
+    "grineer_butcher": {
+      "name": "Grineer Butcher",
+      "faction": "Grineer",
+      "hp": 220,
+      "shields": 0,
+      "armor": 65,
+      "behavior": "aggressive",
+      "icon_key": "grineer_butcher",
+      "xp_reward": 55,
+      "abilities": [
+        {
+          "name": "Cleave",
+          "damage": 55,
+          "damage_type": "slash",
+          "effect": "slash_bleed",
+          "target": "front",
+          "chance": 1.0,
+          "bleed_mag": 18,
+          "description": "A brutal horizontal chop with his Cleaver \u2014 guaranteed Slash proc."
+        },
+        {
+          "name": "Overhead Smash",
+          "damage": 75,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.55,
+          "description": "A two-handed overhead blow. Heavy damage; good chance of Knockdown."
+        }
+      ],
+      "drops": {
+        "mods": [
+          {
+            "name": "Blunderbuss",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Perpetual Agony",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Rifle Aptitude",
+            "chance": 0.0013,
+            "rarity": "rare"
+          },
+          {
+            "name": "Reflex Coil",
+            "chance": 0.0013,
+            "rarity": "rare"
+          },
+          {
+            "name": "North Wind",
+            "chance": 0.0013,
+            "rarity": "rare"
+          },
+          {
+            "name": "Fever Strike",
+            "chance": 0.0013,
+            "rarity": "rare"
+          },
+          {
+            "name": "Flow",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Tranquil Cleave",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Focus Energy",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Endo",
+            "amount": 15,
+            "chance": 0.0057,
+            "rarity": "uncommon",
+            "type": "endo"
+          },
+          {
+            "name": "Endo",
+            "amount": 50,
+            "chance": 0.0013,
+            "rarity": "uncommon",
+            "type": "endo"
+          },
+          {
+            "name": "Endo",
+            "amount": 80,
+            "chance": 0.0003,
+            "rarity": "uncommon",
+            "type": "endo"
+          }
+        ],
+        "resources": {
+          "common": {
+            "name": "Ferrite",
+            "min": 50,
+            "max": 100,
+            "chance": 0.8
+          },
+          "uncommon": [
+            {
+              "name": "Rubedo",
+              "min": 15,
+              "max": 25,
+              "chance": 0.22
+            },
+            {
+              "name": "Detonite Ampule",
+              "amount": 1,
+              "chance": 0.18
+            }
+          ],
+          "rare": [
+            {
+              "name": "Neurodes",
+              "amount": 1,
+              "chance": 0.03
+            }
+          ]
+        },
+        "region_resource": {
+          "name": "Ferrite",
+          "min": 30,
+          "max": 60,
+          "chance": 0.07
+        },
+        "cosmetics": []
+      }
+    },
+    "grineer_scorpion": {
+      "name": "Grineer Scorpion",
+      "faction": "Grineer",
+      "hp": 150,
+      "shields": 0,
+      "armor": 200,
+      "behavior": "melee",
+      "icon_key": "grineer_scorpion",
+      "xp_reward": 60,
+      "abilities": [
+        {
+          "name": "Shotgun Blast",
+          "damage": 45,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Close-range shotgun attack \u2014 high Impact damage."
+        },
+        {
+          "name": "Grapple Hook",
+          "damage": 20,
+          "damage_type": "slash",
+          "effect": "pull",
+          "target": "front",
+          "chance": 0.6,
+          "description": "Launches a hook that pulls the target in and deals Slash damage."
+        }
+      ],
+      "drops": {
+        "mods": [
+          {
+            "name": "Lightning Rod",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Ammo Drum",
+            "chance": 0.0114,
+            "rarity": "common"
+          },
+          {
+            "name": "Serration",
+            "chance": 0.0022,
+            "rarity": "common"
+          },
+          {
+            "name": "Heavy Impact",
+            "chance": 0.0022,
+            "rarity": "common"
+          },
+          {
+            "name": "Steel Fiber",
+            "chance": 0.0022,
+            "rarity": "common"
+          },
+          {
+            "name": "Redirection",
+            "chance": 0.0022,
+            "rarity": "common"
+          },
+          {
+            "name": "Master Thief",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Defiled Snapdragon",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Stance Mod (Various)",
+            "chance": 0.0003,
+            "rarity": "rare"
+          },
+          {
+            "name": "Endo",
+            "amount": 15,
+            "chance": 0.0114,
+            "rarity": "uncommon",
+            "type": "endo"
+          },
+          {
+            "name": "Endo",
+            "amount": 50,
+            "chance": 0.0013,
+            "rarity": "uncommon",
+            "type": "endo"
+          }
+        ],
+        "resources": {
+          "common": {
+            "name": "Ferrite",
+            "min": 50,
+            "max": 100,
+            "chance": 0.8
+          },
+          "uncommon": [
+            {
+              "name": "Rubedo",
+              "min": 15,
+              "max": 25,
+              "chance": 0.22
+            },
+            {
+              "name": "Detonite Ampule",
+              "amount": 1,
+              "chance": 0.18
+            }
+          ],
+          "rare": [
+            {
+              "name": "Neurodes",
+              "amount": 1,
+              "chance": 0.03
+            }
+          ]
+        },
+        "region_resource": {
+          "name": "Ferrite",
+          "min": 30,
+          "max": 60,
+          "chance": 0.07
+        },
+        "cosmetics": [
+          {
+            "name": "Sand Yellow Pigment",
+            "amount": 1,
+            "chance": 0.5
+          }
+        ]
+      }
+    }
+  }
+}

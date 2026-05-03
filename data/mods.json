@@ -1,0 +1,1146 @@
+{
+  "_note": "Consolidated mod database. Single source of truth for all mod stats, costs, descriptions, and TB effects.",
+  "slot_polarities": {
+    "madurai": {
+      "emoji": "<:madurai:1499939089925935125>",
+      "display": "Madurai"
+    },
+    "naramon": {
+      "emoji": "<:naramon:1499939096980750336>",
+      "display": "Naramon"
+    },
+    "vazarin": {
+      "emoji": "<:vazarin:1499939102370431016>",
+      "display": "Vazarin"
+    },
+    "zenurik": {
+      "emoji": "<:zenurik:1499939105365168259>",
+      "display": "Zenurik"
+    },
+    "unairu": {
+      "emoji": "<:unairu:1499939100520874196>",
+      "display": "Unairu"
+    },
+    "penjaga": {
+      "emoji": "<:penjaga:1499939094799716484>",
+      "display": "Penjaga"
+    },
+    "koneksi": {
+      "emoji": "<:koneksi:1499939107319845094>",
+      "display": "Koneksi"
+    },
+    "umbra": {
+      "emoji": "<:umbra:1499939109697880134>",
+      "display": "Umbra"
+    },
+    "any": {
+      "emoji": "<:any:1499939092811743242>",
+      "display": "Universal"
+    }
+  },
+  "rarity_order": [
+    "rare",
+    "uncommon",
+    "common"
+  ],
+  "mods": {
+    "Vitality": {
+      "_wiki": "https://wiki.warframe.com/w/Vitality",
+      "_wiki_note": "Wiki: +10% Health per rank, max rank 10. At rank 10 = +100% base Health. EBC=10 (common).",
+      "uuid": "CDX-VIT-001",
+      "name": "Vitality",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 14,
+      "max_rank": 10,
+      "stats": {
+        "health_percent": 100
+      },
+      "rank_scaling": {
+        "health_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Increases the Warframe's Health by a percentage of its base value. One of the most fundamental survivability mods in the game, found across the Origin System.",
+      "base_effect": "+10% Health",
+      "max_effect": "+100% Health",
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        5120
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728,
+        15456,
+        30912,
+        61824,
+        123648,
+        247296
+      ],
+      "tb_effect": "Multiplies your Warframe's base HP by the listed percentage. A max-rank Vitality on a 300 HP Warframe adds +1,320 HP. Equip in a Warframe slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883892683837580/VitalityMod.png?ex=69f66b3a&is=69f519ba&hm=a608d7f5801850f0e4934655c8068decf9709b7ee26d978bc61167781495dd9a&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Redirection": {
+      "_wiki": "https://wiki.warframe.com/w/Redirection",
+      "_wiki_note": "Wiki: +10% Shield Capacity per rank, max rank 10. At rank 10 = +100% base Shields. EBC=10 (common).",
+      "uuid": "CDX-RED-002",
+      "name": "Redirection",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 14,
+      "max_rank": 10,
+      "stats": {
+        "shields_percent": 100
+      },
+      "rank_scaling": {
+        "shields_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Increases the Warframe's maximum Shield Capacity. Essential for shielded Warframes such as Mag, whose survivability hinges on keeping shields topped up.",
+      "base_effect": "+10% Shield Capacity",
+      "max_effect": "+100% Shield Capacity",
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        5120
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728,
+        15456,
+        30912,
+        61824,
+        123648,
+        247296
+      ],
+      "tb_effect": "Multiplies your Warframe's base shields by the listed percentage. At max rank on a 450-Shield Mag, this adds +1,980 additional shields. Equip in a Warframe slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883744641945763/RedirectionMod.png?ex=69f66b17&is=69f51997&hm=3a030855fa49cfea112664c9d2a1ef55411fb237d9322c0934e01cb4a82f576d&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Steel Fiber": {
+      "_wiki": "https://wiki.warframe.com/w/Steel_Fiber",
+      "_wiki_note": "Wiki: +10% Armor per rank, max rank 10. At rank 10 = +100% base Armor. EBC=10 (common).",
+      "uuid": "CDX-STF-003",
+      "name": "Steel Fiber",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 14,
+      "max_rank": 10,
+      "stats": {
+        "armor_percent": 100
+      },
+      "rank_scaling": {
+        "armor_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Reinforces the Warframe's armor plating, increasing its damage reduction capability. Pairs well with high-armor frames or builds focused on absorbing punishment.",
+      "base_effect": "+10% Armor",
+      "max_effect": "+100% Armor",
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        5120
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728,
+        15456,
+        30912,
+        61824,
+        123648,
+        247296
+      ],
+      "tb_effect": "Multiplies base Armor by the listed percentage (added to base, not stacked multiplicatively). In TB, armor uses the formula: Armor / (Armor + 300) for damage reduction. More armor = less damage taken per hit.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883795615322235/SteelFiberMod.png?ex=69f66b23&is=69f519a3&hm=afa08a9bcabe5bdbea444fd889b409dd695ac3c041576f3c0989728e1b89103b&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Flow": {
+      "_wiki": "https://wiki.warframe.com/w/Flow",
+      "_wiki_note": "Wiki: +50% Energy Max at rank 5. +10% per rank, max rank 5. EBC=20 (uncommon).",
+      "uuid": "CDX-FLW-004",
+      "name": "Flow",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 6,
+      "max_rank": 5,
+      "stats": {
+        "energy_percent": 50
+      },
+      "rank_scaling": {
+        "energy_percent": {
+          "per_rank": 10
+        }
+      },
+      "description": "Expands the Warframe's Energy reservoir, allowing more abilities to be cast before running dry. Fundamental for ability-heavy Warframes on extended missions.",
+      "base_effect": "+10% Energy Max",
+      "max_effect": "+50% Energy Max",
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "tb_effect": "Multiplies your base Energy pool. At max rank on a 150-Energy Warframe, this adds +225 max Energy \u2014 allowing 3 extra 75-Energy casts per refill.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883650983006228/FlowMod.png?ex=69f66b00&is=69f51980&hm=fd285c5f5bebe7c6f125165cedb50149d1e35f583157ed44314761b65519991e&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Streamline": {
+      "_wiki": "https://wiki.warframe.com/w/Streamline",
+      "_wiki_note": "Wiki: +6% Ability Efficiency per rank, max rank 5 = +30% (-30% ability energy cost). EBC=20 (uncommon).",
+      "uuid": "CDX-STL-005",
+      "name": "Streamline",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 6,
+      "max_rank": 5,
+      "stats": {
+        "ability_efficiency_percent": 30
+      },
+      "rank_scaling": {
+        "ability_efficiency_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Reduces the energy cost of all Warframe abilities, making them more economical to deploy. Often the difference between two casts and three per combat turn.",
+      "base_effect": "-6% Ability Energy Cost",
+      "max_effect": "-30% Ability Energy Cost",
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "tb_effect": "Reduces the Energy cost of every ability you cast. At max rank, a 100-Energy ability costs only 70 Energy. Does NOT reduce Exalted Blade's per-turn drain.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883803143835769/StreamlineMod.png?ex=69f66b25&is=69f519a5&hm=c4686b9ca8ece4446a2b3ead1521530ddcf0f15f708793a07703202da264577e&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Heavy Impact": {
+      "_wiki": "https://wiki.warframe.com/w/Heavy_Impact",
+      "_wiki_note": "Wiki: Radial Knockdown on landing. TB adaptation: +4% Knockdown Chance per rank on movement abilities. EBC=10 (common).",
+      "uuid": "CDX-HVI-006",
+      "name": "Heavy Impact",
+      "category": "Warframe",
+      "rarity": "common",
+      "polarity": "naramon",
+      "base_drain": 2,
+      "max_drain": 6,
+      "max_rank": 5,
+      "stats": {
+        "knockdown_chance_percent": 20
+      },
+      "rank_scaling": {
+        "knockdown_chance_percent": {
+          "per_rank": 4
+        }
+      },
+      "description": "On landing from a significant height, the Warframe emits a shockwave that knocks down nearby enemies. Originally a parkour-combat integration tool from pre-Parkour 2.0.",
+      "base_effect": "+4% Knockdown Chance",
+      "max_effect": "+20% Knockdown Chance",
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728
+      ],
+      "tb_effect": "When you use Slash Dash or Radial Javelin (any ability that involves movement), all enemies in the encounter have a 20% chance to be Knocked Down for 1 turn as you land. Stacks with the ability's own CC effects.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883681492373514/HeavyImpactMod.png?ex=69f66b08&is=69f51988&hm=949fc8c8f3668c51356f9eb9ee92f08d3b8a8d0bc0b21e31a1b8ea15ad35c606&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Master Thief": {
+      "_wiki": "https://wiki.warframe.com/w/Master_Thief",
+      "_wiki_note": "Wiki: +6% Chance to unlock locked containers per rank, max rank 5 = +36%. TB adaptation: bonus loot roll. EBC=30 (rare).",
+      "uuid": "CDX-MTH-007",
+      "name": "Master Thief",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "loot_bonus_percent": 36
+      },
+      "rank_scaling": {
+        "loot_bonus_percent": {
+          "per_rank": 6
+        }
+      },
+      "description": "Grants a chance to unlock Grineer and Corpus containers that are otherwise locked. The contents are often rare mods and blueprints unavailable from enemy drops.",
+      "base_effect": "+6% Bonus Loot Chance",
+      "max_effect": "+36% Bonus Loot Chance",
+      "endo_costs_per_rank": [
+        30,
+        60,
+        120,
+        240,
+        480
+      ],
+      "credit_costs_per_rank": [
+        1449,
+        2898,
+        5796,
+        11592,
+        23184
+      ],
+      "tb_effect": "Passive loot expansion. After each completed mission, grants a chance to reveal a bonus locked cache drop roll on top of normal enemy drops. Not yet implemented in TB v1.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883713788514474/MasterThiefMod.png?ex=69f66b0f&is=69f5198f&hm=654bcc4508827822353ef64db598fd575775675759fac7d0ba7b7fd50fa4c494&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Diamond Skin": {
+      "_wiki": "https://wiki.warframe.com/w/Diamond_Skin",
+      "_wiki_note": "Wiki: +3% Puncture Resistance per rank, max rank 5 = +15%. EBC=20 (uncommon).",
+      "uuid": "CDX-DSK-008",
+      "name": "Diamond Skin",
+      "category": "Warframe",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 2,
+      "max_drain": 6,
+      "max_rank": 5,
+      "stats": {
+        "puncture_resist_percent": 15
+      },
+      "rank_scaling": {
+        "puncture_resist_percent": {
+          "per_rank": 3
+        }
+      },
+      "description": "Hardens the Warframe's surface against puncturing force. Reduces damage taken from Puncture sources by reinforcing the frame's outer layer with dense crystalline alloy.",
+      "base_effect": "+3% Puncture Resistance",
+      "max_effect": "+15% Puncture Resistance",
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "tb_effect": "Reduces incoming Puncture damage by the listed percentage after armor calculations. Useful against heavily armed Grineer Lancers whose Grakata fires Impact/Puncture-split rounds.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883883083337739/DiamondSkinMod.png?ex=69f66b38&is=69f519b8&hm=4ba86e817b036a0bdfc70e0d02a48a985264cf3c543ba29e8e1ae6b7e4c07e88&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Lightning Rod": {
+      "_wiki": "https://wiki.warframe.com/w/Lightning_Rod",
+      "_wiki_note": "Wiki: +20% Electricity Damage Bonus per rank (stored arc charge). TB: store incoming Electricity damage and release it on the next attack. EBC=30 (rare).",
+      "uuid": "CDX-LRD-009",
+      "name": "Lightning Rod",
+      "category": "Warframe",
+      "rarity": "rare",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {
+        "electricity_store_percent": 120
+      },
+      "rank_scaling": {
+        "electricity_store_percent": {
+          "per_rank": 20
+        }
+      },
+      "description": "A Warframe augment that stores latent electrical charge from the environment and from Electricity procs received in combat. When triggered, all stored charge discharges into nearby enemies.",
+      "base_effect": "+20% Arc Discharge",
+      "max_effect": "+120% Arc Discharge",
+      "endo_costs_per_rank": [
+        30,
+        60,
+        120,
+        240,
+        480
+      ],
+      "credit_costs_per_rank": [
+        1449,
+        2898,
+        5796,
+        11592,
+        23184
+      ],
+      "tb_effect": "When your Warframe takes an Electricity proc (from enemy or Arc/Tesla effects), store the damage. Your next attack deals the stored Electricity damage as a bonus true-type hit. Max rank stores up to 120% of the incoming arc damage.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883705424941137/LightningRodMod.png?ex=69f66b0d&is=69f5198d&hm=b562e0c03a081b1ae99f03c8a972fff480c68f42c74aff5d21cade2d730df4a9&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": null
+    },
+    "Serration": {
+      "uuid": "CDX-SER-010",
+      "name": "Serration",
+      "category": "Rifle",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 14,
+      "max_rank": 10,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        5120
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728,
+        15456,
+        30912,
+        61824,
+        123648,
+        247296
+      ],
+      "base_effect": "+15% Rifle Damage",
+      "max_effect": "+165% Rifle Damage",
+      "description": "Serrated rounds tear through targets more effectively, significantly increasing the base damage of all Rifle-class weapons. A foundational rifle mod found across the Origin System.",
+      "tb_effect": "Multiplies the total damage of your equipped Primary rifle (Braton) by the listed percentage. At max rank this nearly triples rifle damage output before crits. Equip in a Primary slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883787155275776/SerrationMod.png?ex=69f66b21&is=69f519a1&hm=f3e95276faa7d3a5f0fcef9f00882f7bac71b230eb9380444898fb80afefc4f5&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Ammo Drum": {
+      "uuid": "CDX-AMM-011",
+      "name": "Ammo Drum",
+      "category": "Rifle",
+      "rarity": "common",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 5,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728
+      ],
+      "base_effect": "+5% Ammo Max",
+      "max_effect": "+30% Ammo Max",
+      "description": "Increases the maximum ammunition capacity for the equipped weapon. Allows Tenno to carry more spare rounds into battle before needing to resupply from fallen enemies.",
+      "tb_effect": "Ammo is not tracked in TB combat. Passive benefit: reduces the chance of a 'low ammo' status being applied between missions. Full implementation planned for the field supply system.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883821011701852/AmmoDrumMod.png?ex=69f66b29&is=69f519a9&hm=327ef51492bcbe4e47628267df5f5a08a5ca44ef23af64266f6dbf031540a964&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Fast Hands": {
+      "uuid": "CDX-FAS-012",
+      "name": "Fast Hands",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+5% Reload Speed",
+      "max_effect": "+30% Reload Speed",
+      "description": "Trains the Tenno to reload their weapon faster through mechanical memory and optimized muscle response. Reduces the vulnerable window during which the rifle is empty.",
+      "tb_effect": "Reload is not tracked in TB combat. Passive benefit: grants a +1 Combo Gauge stack at the start of any turn where the Primary weapon was used in the previous turn (representing maintained momentum). Planned for future polish.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883830637760632/FastHandsMod.png?ex=69f66b2b&is=69f519ab&hm=e51be91509ebf9dfbf744ef518395686007d2ae24b2cc30333dae30018320c48&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Rifle Ammo Mutation": {
+      "uuid": "CDX-RIF-013",
+      "name": "Rifle Ammo Mutation",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "Convert Pistol Ammo to Rifle Ammo (1 to 1)",
+      "max_effect": "Convert Pistol Ammo to Rifle Ammo (1 to 5)",
+      "description": "A Corpus-engineered mutation cartridge that converts stray pistol rounds into compatible rifle ammunition on the fly. Extends effective combat time in the field.",
+      "tb_effect": "Ammo is not tracked in TB combat. Future implementation: after your Secondary is used, partial energy converts to +5 Primary damage on the next Basic Attack action.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883771464388839/RifleAmmoMutationMod.png?ex=69f66b1d&is=69f5199d&hm=182841ad8c237241e2eb03861c68e5afb8d80234dc4322592b8f96296216851d&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Rifle Aptitude": {
+      "uuid": "CDX-RIF-014",
+      "name": "Rifle Aptitude",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "any",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+2.5% Status Chance",
+      "max_effect": "+15% Status Chance",
+      "description": "Trains the operator's precision with rifle-class weapons, focusing on maintaining controlled trigger pressure that activates status procs more reliably.",
+      "tb_effect": "Adds +15% to the base Status Chance on every Braton hit at max rank (base 6% \u2192 21%). Significantly raises the floor for landing Impact, Puncture, and Slash procs per burst.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883779357937754/RifleAptitudeMod.png?ex=69f66b1f&is=69f5199f&hm=84453e2bba2685054d0e423523b59353ebf6c580835c16235a5d852fad38cefd&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "North Wind": {
+      "uuid": "CDX-NOR-015",
+      "name": "North Wind",
+      "category": "Rifle",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Cold Damage",
+      "max_effect": "+60% Cold Damage",
+      "description": "Infuses rifle rounds with cryogenic compounds that bleed cold energy on impact. Each bullet carries a thin layer of frost that can slow or freeze targets.",
+      "tb_effect": "Adds Cold elemental damage to your Primary rifle. Cold procs reduce enemy damage output by -30% for 2 turns. Combines with Heat to form Blast, or with Electricity for Magnetic. Equip in a Primary slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883721766207508/NorthWindMod.png?ex=69f66b11&is=69f51991&hm=a49e9c5ff745535d425d6c31fafb507a46290b3a39643f0e65bcb82576c081bb&",
+      "compatible_weapons": [
+        "MK1-Braton"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Blunderbuss": {
+      "uuid": "CDX-BLU-016",
+      "name": "Blunderbuss",
+      "category": "Shotgun",
+      "rarity": "common",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 5,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728
+      ],
+      "base_effect": "+15% Status Chance",
+      "max_effect": "+90% Status Chance",
+      "description": "Rechambers shotgun pellets to maximize contact surface area on impact, dramatically increasing the chance of inducing status effects across the pellet spread.",
+      "tb_effect": "Intended for Shotgun-class primaries not yet in the starter pool. When the shotgun system launches, this mod will dramatically increase your proc rate per spread. Hold onto it.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883625603141842/BlunderbussMod.png?ex=69f66afa&is=69f5197a&hm=a25a58337f263bbac3960c0779b6d95dbb218999b47e765de69a4d05f3e24f2d&",
+      "compatible_weapons": [],
+      "stance_weapon": null,
+      "weapon_class": "Primary"
+    },
+    "Heated Charge": {
+      "uuid": "CDX-HEA-017",
+      "name": "Heated Charge",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Heat Damage",
+      "max_effect": "+60% Heat Damage",
+      "description": "Packs a thermite compound into pistol charges, adding superheated plasma to each round. The burning residue ignites targets, dealing ongoing Heat damage after the initial shot.",
+      "tb_effect": "Adds Heat elemental damage to your Lato. Heat procs deal 12 damage/turn for 2 turns and reduce the target's armor by 50% while burning. Stacks up to 4\u00d7. Equip in a Secondary slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883674420777021/HeatedChargeMod.png?ex=69f66b06&is=69f51986&hm=2ab625b68116d18a4581b77d72f7ddfa89684fed6001a4726f8b34618e3259de&",
+      "compatible_weapons": [
+        "Lato"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Perpetual Agony": {
+      "uuid": "CDX-PER-018",
+      "name": "Perpetual Agony",
+      "category": "Pistol",
+      "rarity": "uncommon",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+15% Slash Proc Duration",
+      "max_effect": "+90% Slash Proc Duration",
+      "description": "Serrated pistol rounds leave shredded fragments inside target tissue. Once a Slash proc is inflicted, these fragments continue working inward \u2014 extending and deepening the bleed.",
+      "tb_effect": "Extends the duration of Slash Bleed procs (Bleeds) inflicted by your Lato from 2 turns to 3 turns at max rank. Stacks with Rifle Aptitude if both weapons proc simultaneously.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883735565471754/PerpetualAgonyMod.png?ex=69f66b15&is=69f51995&hm=418b334c0d2acfee507ae4fbbf17bc9d6e30eb8db5f374bf7c585e942f4161f5&",
+      "compatible_weapons": [
+        "Lato"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Secondary"
+    },
+    "Pressure Point": {
+      "uuid": "CDX-PRE-019",
+      "name": "Pressure Point",
+      "category": "Melee",
+      "rarity": "common",
+      "polarity": "madurai",
+      "base_drain": 4,
+      "max_drain": 14,
+      "max_rank": 10,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        10,
+        20,
+        40,
+        80,
+        160,
+        320,
+        640,
+        1280,
+        2560,
+        5120
+      ],
+      "credit_costs_per_rank": [
+        483,
+        966,
+        1932,
+        3864,
+        7728,
+        15456,
+        30912,
+        61824,
+        123648,
+        247296
+      ],
+      "base_effect": "+20% Melee Damage",
+      "max_effect": "+120% Melee Damage",
+      "description": "Strikes the anatomical weak points of target organisms, amplifying physical impact. Fundamental melee damage mod \u2014 the melee equivalent of Serration.",
+      "tb_effect": "Multiplies the base damage of melee strikes (Skana/Exalted Blade). At max rank, Skana's 120 base damage becomes 264 before crit and combo gauge bonuses. Equip in a Melee slot.",
+      "thumbnail": null,
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Fever Strike": {
+      "uuid": "CDX-FEV-020",
+      "name": "Fever Strike",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Toxin Damage",
+      "max_effect": "+60% Toxin Damage",
+      "description": "Coats melee blades in a virulent biological compound that deals ongoing Toxin damage. The toxin bypasses physical shielding entirely, poisoning the bloodstream directly.",
+      "tb_effect": "Adds Toxin elemental damage to your Skana strikes. Toxin bypasses both shields and armor \u2014 HP damage is direct. Toxin procs deal 14 dmg/turn for 2 turns and stack up to 4\u00d7. Equip in a Melee slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883642585878538/FeverStrikeMod.png?ex=69f66afe&is=69f5197e&hm=f4ed1f6a6cb3c19ac87c62a6c29987dc7a7df41090148a003596910d9a7cebeb&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "North Wind (Melee)": {
+      "uuid": "CDX-NOR-021",
+      "name": "North Wind (Melee)",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "vazarin",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Cold Damage",
+      "max_effect": "+60% Cold Damage",
+      "description": "Cryogenically treated blade edges that shed ice crystals on each swing, adding Cold elemental damage to each strike.",
+      "tb_effect": "Adds Cold damage to melee. Cold procs reduce the target's outgoing damage by -30% for 2 turns. Combines with Fever Strike (Toxin) to create Viral \u2014 halving effective enemy HP for 2 turns. Equip in a Melee slot.",
+      "thumbnail": null,
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Heavy Trauma": {
+      "uuid": "CDX-HEA-022",
+      "name": "Heavy Trauma",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Impact Damage",
+      "max_effect": "+60% Impact Damage",
+      "description": "Reinforces the melee weapon's striking surface to deliver devastating Impact force. Enemies struck by Impact-enhanced weapons experience severe staggering and disorientation.",
+      "tb_effect": "Adds Impact damage to melee strikes. Impact procs reduce enemy shield regen by 25% for 1 turn (soft stagger). Pairs well with Pressure Point for staggered, high-impact combos. Equip in a Melee slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883688559644803/HeavyTraumaMod.png?ex=69f66b09&is=69f51989&hm=fd12c5cba4728c961fb7f24331e02d2419e76ada2f982f9d459988897e8d462b&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Rending Strike": {
+      "uuid": "CDX-REN-023",
+      "name": "Rending Strike",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+15% Slash, +15% Puncture",
+      "max_effect": "+85% Slash, +85% Puncture",
+      "description": "Forges serrated edge profiles and hollow-point cross sections into the blade, amplifying both Slash and Puncture damage on every swing. A dual-element physical enhancement.",
+      "tb_effect": "Simultaneously boosts Slash (armor-bypassing) and Puncture (reduces enemy damage) damage on your Skana. Excellent all-round melee upgrade that covers two IPS proc types. Equip in a Melee slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883762031530085/RendingStrikeMod.png?ex=69f66b1b&is=69f5199b&hm=585ad564a77590771099ace7fa9e08b20e12a293c9368dc47478e1809c0b44e3&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Reflex Coil": {
+      "uuid": "CDX-REF-024",
+      "name": "Reflex Coil",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+8% Heavy Attack Efficiency",
+      "max_effect": "+40% Heavy Attack Efficiency",
+      "description": "Stores kinetic energy from blocked or deflected strikes in a coiled actuator, releasing it as accelerated force on the next swing. Reduces the wind-up time on heavy attacks.",
+      "tb_effect": "In TB, reduces the combo gauge cost of activating Exalted Blade by 5 stacks at max rank (you retain more combo when switching to Exalted mode). Equip in a Melee slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883753370026086/ReflexCoilMod.png?ex=69f66b19&is=69f51999&hm=52e3f94e4897e388af895245a38552f889da895e098bf98cfb1d5f481a2e5ec6&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Focus Energy": {
+      "uuid": "CDX-FOC-025",
+      "name": "Focus Energy",
+      "category": "Melee",
+      "rarity": "uncommon",
+      "polarity": "naramon",
+      "base_drain": 4,
+      "max_drain": 9,
+      "max_rank": 5,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [
+        20,
+        40,
+        80,
+        160,
+        320
+      ],
+      "credit_costs_per_rank": [
+        966,
+        1932,
+        3864,
+        7728,
+        15456
+      ],
+      "base_effect": "+10% Electricity, +15% Combo Count Chance",
+      "max_effect": "+60% Electricity, +40% Combo Count Chance",
+      "description": "Channels the Warframe's electric field through the blade, coating each swing with channeled Electricity. Combo strikes carry additional discharge potential, increasing proc chance per hit.",
+      "tb_effect": "Adds Electricity damage to melee. Every melee hit has +40% chance to grant an extra Combo Gauge stack at max rank (on top of the standard +2/hit). Pairs perfectly with Exalted Blade energy waves. Equip in a Melee slot.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883666430758973/FocusEnergyMod.png?ex=69f66b04&is=69f51984&hm=6d0943ec77b0e24cb3e24f5b41b00384278833cfab5b9a17c853296c20bff6bd&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": null,
+      "weapon_class": "Melee"
+    },
+    "Iron Phoenix": {
+      "uuid": "CDX-IRO-026",
+      "name": "Iron Phoenix",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "madurai",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "base_effect": "Unlocks Iron Phoenix combo tree for Swords",
+      "max_effect": "Unlocks Iron Phoenix combo tree for Swords",
+      "description": "A Sword Combat Discipline passed down through Tenno dojos. Iron Phoenix favors controlled, linear strikes that build damage momentum \u2014 each blow flows cleanly into the next.",
+      "tb_effect": "Stance for Sword-class melee (Skana). Passive: Each consecutive melee action in the same turn adds +1 extra Combo Gauge stack (stacks with melee's base +2). Synergizes with Exalted Blade chains.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883697053106338/IronPhoenixMod.png?ex=69f66b0b&is=69f5198b&hm=a632f9c38b3be50808e3aadb7d7f0a42f30c86f3d23f3d02cca0ccfc54b78e19&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": "Sword",
+      "weapon_class": "Melee"
+    },
+    "Tranquil Cleave": {
+      "uuid": "CDX-TRA-027",
+      "name": "Tranquil Cleave",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "vazarin",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "base_effect": "Unlocks Tranquil Cleave combo tree for Swords",
+      "max_effect": "Unlocks Tranquil Cleave combo tree for Swords",
+      "description": "A measured Sword discipline emphasizing efficient cuts over frantic flurries. Practitioners of Tranquil Cleave trust the blade's weight \u2014 letting momentum do the work on every arc.",
+      "tb_effect": "Alternative Sword stance (Skana). Passive: Melee hits inflict a guaranteed Slash proc (Bleed) on a Combo Gauge \u2265 10 \u2014 bypassing the normal status chance roll. Synergizes with high-combo Finisher setups.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883812346134648/TranquilCleaveMod.png?ex=69f66b27&is=69f519a7&hm=60a1bb310664424c5ae24f041df247feb198f77f742f653549a49088e9a9b7dc&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": "Sword",
+      "weapon_class": "Melee"
+    },
+    "Defiled Snapdragon": {
+      "uuid": "CDX-DEF-028",
+      "name": "Defiled Snapdragon",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "naramon",
+      "base_drain": 6,
+      "max_drain": 6,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "base_effect": "Unlocks Defiled Snapdragon combo tree for Swords",
+      "max_effect": "Unlocks Defiled Snapdragon combo tree for Swords",
+      "description": "A corrupted Sword discipline recovered from Orokin Derelict vaults. The fluid, arcing strikes of Snapdragon have been defiled \u2014 the rhythm is broken, each blow deceptively unpredictable.",
+      "tb_effect": "Rare Sword stance (Skana). Passive: On a CRIT hit during melee, the next melee action this turn costs 0 actions (free strike). The free strike cannot itself trigger this passive again. Extremely powerful in high-combo situations.",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883633471914044/DefiledSnapdragonMod.png?ex=69f66afc&is=69f5197c&hm=6e7681ed95b75eb5e2db0d7a96bf9e9c9292998507b8f661a01337235d6f3157&",
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": "Sword",
+      "weapon_class": "Melee"
+    },
+    "Stance Mod (Various)": {
+      "uuid": "CDX-STA-029",
+      "name": "Stance Mod (Various)",
+      "category": "Stance",
+      "rarity": "rare",
+      "polarity": "any",
+      "base_drain": 2,
+      "max_drain": 2,
+      "max_rank": 0,
+      "stats": {},
+      "rank_scaling": {},
+      "endo_costs_per_rank": [],
+      "credit_costs_per_rank": [],
+      "base_effect": "Varies by specific stance",
+      "max_effect": "Varies by specific stance",
+      "description": "A placeholder representing a broad class of Combat Discipline mods that teach specialized melee combo routes. Different stances dramatically alter the rhythm and reach of melee attacks.",
+      "tb_effect": "This placeholder represents a random stance from the drop table. Specific TB passive will be detailed once the exact stance is identified. Stance mods are always equippable at Rank 0 with no leveling required.",
+      "thumbnail": null,
+      "compatible_weapons": [
+        "Skana"
+      ],
+      "stance_weapon": "Various",
+      "weapon_class": "Melee"
+    }
+  }
+}

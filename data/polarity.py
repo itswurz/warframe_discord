@@ -24,31 +24,16 @@
 # Storage schema
 # ─────────────────────────────────────────────────────────────────────────────
 #
-# polarities.json  ← authoritative source; never hardcode strings elsewhere
-# {
-#   "emojis": {
-#     "madurai": "<:madurai:…>",
-#     …
-#   },
-#   "warframes": {
-#     "excalibur": {
-#       "warframe_slots": ["madurai", "naramon", "any", "any"],
-#       "primary_slots":  ["madurai", "naramon", "any", "any", "any", "any", "any", "any"],
-#       "secondary_slots":["any", "any", "any", "any", "any", "any"],
-#       "melee_slots":    ["naramon", "any", "any", "any", "any", "any", "any", "any"]
-#     },
-#     …
-#   },
-#   "weapons": {
-#     "MK1-Braton": { "slots": ["madurai", "naramon", "any", …] },
-#     …
-#   },
-#   "mods": {
-#     "Serration": "madurai",
-#     "Vitality":  "madurai",
-#     …
-#   }
-# }
+# Source files (single source of truth per domain):
+#   warframes.json  — per-warframe slot arrays (warframe_slots, primary_slots, …)
+#   weapons.json    — per-weapon mod_slots array
+#   mods.json       — per-mod polarity + slot_polarities emoji map
+#
+# Example structure used at runtime:
+#   emojis:    { "madurai": "<:madurai:…>", … }           ← from mods.json slot_polarities
+#   warframes: { "excalibur": { "warframe_slots": […], … } }  ← from warframes.json
+#   weapons:   { "MK1-Braton": { "slots": […] } }         ← from weapons.json
+#   mods:      { "Vitality": "madurai", … }                ← from mods.json
 #
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -59,7 +44,9 @@ import math
 import os
 from typing import Optional
 
-_DB_PATH = os.path.join(os.path.dirname(__file__), "polarities.json")
+_WF_PATH   = os.path.join(os.path.dirname(__file__), "warframes.json")
+_WPN_PATH  = os.path.join(os.path.dirname(__file__), "weapons.json")
+_MODS_PATH = os.path.join(os.path.dirname(__file__), "mods.json")
 
 # Module-level cache
 _CACHE: dict | None = None
@@ -72,15 +59,38 @@ def _data() -> dict:
     global _CACHE
     if _CACHE is None:
         try:
-            with open(_DB_PATH, "r", encoding="utf-8") as f:
-                _CACHE = json.load(f)
+            with open(_WF_PATH, "r", encoding="utf-8") as f:
+                wf = json.load(f)
+            with open(_WPN_PATH, "r", encoding="utf-8") as f:
+                wpn = json.load(f)
+            with open(_MODS_PATH, "r", encoding="utf-8") as f:
+                mods = json.load(f)
+            emojis = {
+                k: v["emoji"]
+                for k, v in mods.get("slot_polarities", {}).items()
+            }
+            weapons = {
+                w["name"]: {"slots": w["mod_slots"]}
+                for w in wpn.get("weapons", {}).values()
+            }
+            mods_pol = {
+                name: m.get("polarity", "any")
+                for name, m in mods.get("mods", {}).items()
+            }
+            _CACHE = {
+                "emojis":    emojis,
+                "warframes": wf.get("warframes", {}),
+                "weapons":   weapons,
+                "mods":      mods_pol,
+                "slot_polarities": mods.get("slot_polarities", {}),
+            }
         except FileNotFoundError:
-            _CACHE = {"emojis": {}, "warframes": {}, "weapons": {}, "mods": {}}
+            _CACHE = {"emojis": {}, "warframes": {}, "weapons": {}, "mods": {}, "slot_polarities": {}}
     return _CACHE
 
 
 def reload() -> None:
-    """Force a reload of polarities.json (e.g. after live edits)."""
+    """Force a reload from warframes.json / weapons.json / mods.json (e.g. after live edits)."""
     global _CACHE
     _CACHE = None
     _data()

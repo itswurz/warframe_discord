@@ -1,0 +1,254 @@
+{
+  "_note": "Consolidated warframe data. Single source of truth for base stats, mod slots, and polarity configurations.",
+  "warframes": {
+    "excalibur": {
+      "name": "Excalibur",
+      "base_stats": {
+        "health": 270,
+        "shields": 270,
+        "armor": 240,
+        "energy": 100,
+        "sprint_speed": 1.0
+      },
+      "mod_capacity": 30,
+      "mod_slots": [
+        {
+          "index": 0,
+          "polarity": "vazarin"
+        },
+        {
+          "index": 1,
+          "polarity": "madurai"
+        },
+        {
+          "index": 2,
+          "polarity": "any"
+        },
+        {
+          "index": 3,
+          "polarity": "any"
+        },
+        {
+          "index": 4,
+          "polarity": "any"
+        },
+        {
+          "index": 5,
+          "polarity": "any"
+        },
+        {
+          "index": 6,
+          "polarity": "any"
+        },
+        {
+          "index": 7,
+          "polarity": "any"
+        }
+      ],
+      "warframe_slots": [
+        "madurai",
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
+    },
+    "mag": {
+      "name": "Mag",
+      "base_stats": {
+        "health": 75,
+        "shields": 150,
+        "armor": 105,
+        "energy": 125,
+        "sprint_speed": 1.0
+      },
+      "mod_capacity": 30,
+      "mod_slots": [
+        {
+          "index": 0,
+          "polarity": "madurai"
+        },
+        {
+          "index": 1,
+          "polarity": "naramon"
+        },
+        {
+          "index": 2,
+          "polarity": "naramon"
+        },
+        {
+          "index": 3,
+          "polarity": "any"
+        },
+        {
+          "index": 4,
+          "polarity": "any"
+        },
+        {
+          "index": 5,
+          "polarity": "any"
+        },
+        {
+          "index": 6,
+          "polarity": "any"
+        },
+        {
+          "index": 7,
+          "polarity": "any"
+        }
+      ],
+      "warframe_slots": [
+        "vazarin",
+        "vazarin",
+        "naramon",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
+    },
+    "volt": {
+      "name": "Volt",
+      "base_stats": {
+        "health": 100,
+        "shields": 150,
+        "armor": 105,
+        "energy": 100,
+        "sprint_speed": 1.0
+      },
+      "mod_capacity": 30,
+      "mod_slots": [
+        {
+          "index": 0,
+          "polarity": "madurai"
+        },
+        {
+          "index": 1,
+          "polarity": "madurai"
+        },
+        {
+          "index": 2,
+          "polarity": "naramon"
+        },
+        {
+          "index": 3,
+          "polarity": "any"
+        },
+        {
+          "index": 4,
+          "polarity": "any"
+        },
+        {
+          "index": 5,
+          "polarity": "any"
+        },
+        {
+          "index": 6,
+          "polarity": "any"
+        },
+        {
+          "index": 7,
+          "polarity": "any"
+        }
+      ],
+      "warframe_slots": [
+        "naramon",
+        "naramon",
+        "zenurik",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
+    }
+  }
+}

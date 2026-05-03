@@ -3,7 +3,7 @@
 # !warframe upgrades <warframe_id>
 #
 # Full modding UI using Discord.py Components v2 Containers.
-# All data is loaded from warframes_mods.json — never hardcoded.
+# All data is loaded from warframes.json + mods.json — never hardcoded.
 #
 # UI Layout (Components v2, no legacy Views):
 #   Container 1 — Header + Stats
@@ -39,21 +39,24 @@ from utils.emojis import E
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
-_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "warframes_mods.json")
+_WF_PATH   = os.path.join(os.path.dirname(__file__), "..", "data", "warframes.json")
+_MODS_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "mods.json")
 
 _DB: dict | None = None
 
 def _db() -> dict:
     global _DB
     if _DB is None:
-        try:
-            with open(_DATA_PATH, "r", encoding="utf-8") as f:
-                _DB = json.load(f)
-        except FileNotFoundError:
-            # Fallback: try current directory
-            alt = os.path.join(os.path.dirname(__file__), "warframes_mods.json")
-            with open(alt, "r", encoding="utf-8") as f:
-                _DB = json.load(f)
+        with open(_WF_PATH, "r", encoding="utf-8") as f:
+            wf = json.load(f)
+        with open(_MODS_PATH, "r", encoding="utf-8") as f:
+            md = json.load(f)
+        _DB = {
+            "warframes":      wf.get("warframes", {}),
+            "mods":           list(md.get("mods", {}).values()),
+            "rarity_order":   md.get("rarity_order", ["rare", "uncommon", "common"]),
+            "slot_polarities": md.get("slot_polarities", {}),
+        }
     return _DB
 
 

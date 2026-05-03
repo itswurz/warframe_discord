@@ -79,7 +79,7 @@ def _category_icon(category: str) -> str:
 
 
 def _mod_icon_from_db(name: str, item_db: dict, fallback_emoji: str) -> str:
-    """Try to get a mod's thumbnail or icon from item_descriptions.json."""
+    """Try to get a mod's thumbnail or icon from the item database."""
     meta = item_db.get("mods", {}).get(name, {})
     return meta.get("thumbnail") or fallback_emoji
 
@@ -250,7 +250,7 @@ def build_mod_embed(
     meta:    dict,
     profile: Optional[dict] = None,
 ) -> discord.Embed:
-    """Full detail card for a single mod from item_descriptions.json."""
+    """Full detail card for a single mod from the item database."""
 
     rarity    = _find_mod_rarity(name, profile)
     color     = _rarity_color(rarity)

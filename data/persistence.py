@@ -246,15 +246,16 @@ def _default_global_state() -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _get_codex_max_rank(name: str) -> int:
-    """Look up max_rank from warframes_mods.json codex. Defaults to 5."""
+    """Look up max_rank from mods.json codex. Defaults to 5."""
     try:
         import json as _json
-        _path = os.path.join(os.path.dirname(__file__), "warframes_mods.json")
+        _path = os.path.join(os.path.dirname(__file__), "mods.json")
         with open(_path, "r", encoding="utf-8") as f:
             _db = _json.load(f)
-        for m in _db.get("mods", []):
-            if m["name"].lower() == name.lower():
-                return m.get("max_rank", 5)
+        name_l = name.lower()
+        for mod_name, mod_data in _db.get("mods", {}).items():
+            if mod_name.lower() == name_l:
+                return mod_data.get("max_rank", 5)
     except Exception:
         pass
     return 5
