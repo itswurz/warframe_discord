@@ -1,0 +1,242 @@
+Create `data/resources.json` for the Warframe Discord bot.
+This is a NEW file — create it from scratch at that path.
+
+RULES:
+- Source of truth = warframe.fandom.com ONLY. Fetch every page fresh. No training data.
+- Every entry needs all fields defined in the schema below.
+- wiki_verified = true only if you confirmed the data from a live wiki page fetch.
+- If a page returns < 2000 chars (stub), mark wiki_verified=false and use best-effort data.
+- Fetch pages in large parallel batches for speed.
+
+─────────────────────────────────────────────
+TARGET FILE STRUCTURE:
+{
+  "_meta": {
+    "version": "1.0",
+    "entry_count": "<N> entries",
+    "wiki_source": "warframe.fandom.com",
+    "last_updated": "2026-05-03",
+    "note": "All craftable and farmable resources in Warframe used in the Discord bot game."
+  },
+  "resources": {
+    "ferrite": { ...entry... },
+    "alloy_plate": { ...entry... }
+  }
+}
+
+─────────────────────────────────────────────
+EXACT ENTRY SCHEMA:
+{
+  "name": "Resource Name",
+  "key": "snake_case_key",
+  "category": "common_resource|uncommon_resource|rare_resource|special_resource|crafting_component|meta_item|open_world_cetus|open_world_fortuna|open_world_deimos|open_world_zariman|open_world_duviri|fish_part|mining_gem|syndicate_resource|currency",
+  "rarity": "common|uncommon|rare|legendary",
+  "wiki_verified": true,
+  "wiki_source": "warframe.fandom.com/wiki/ResourceName",
+  "description": "1–2 sentence in-universe flavour description.",
+  "found_on": ["Planet1", "Planet2"],
+  "primary_source": "Short string: how it's obtained (e.g. 'Enemy drops, Storage containers')",
+  "faction_source": "Grineer|Corpus|Infested|Orokin|Any|None|Open World",
+  "acquisition": "enemy_drop|mission_reward|fishing|mining|shop|nightwave|alert|research|special|crafted|boss_drop",
+  "tradeable": false,
+  "sell_value": <credits if sold>,
+  "used_in_foundry": true   ← ONLY include if the resource appears as an ingredient in foundry_recipes.json
+}
+
+─────────────────────────────────────────────
+COMPLETE RESOURCE LIST BY CATEGORY:
+
+── COMMON RESOURCES (8) ──
+Fetch: https://warframe.fandom.com/wiki/Ferrite
+       https://warframe.fandom.com/wiki/Salvage
+       https://warframe.fandom.com/wiki/Alloy_Plate
+       https://warframe.fandom.com/wiki/Nano_Spores
+       https://warframe.fandom.com/wiki/Polymer_Bundle
+       https://warframe.fandom.com/wiki/Circuits
+       https://warframe.fandom.com/wiki/Rubedo
+       https://warframe.fandom.com/wiki/Plastids
+Keys:  ferrite, salvage, alloy_plate, nano_spores, polymer_bundle, circuits, rubedo, plastids
+Rarity: common | found_on per wiki | faction_source: Any
+
+── UNCOMMON RESOURCES (6) ──
+Fetch: https://warframe.fandom.com/wiki/Morphics
+       https://warframe.fandom.com/wiki/Control_Module
+       https://warframe.fandom.com/wiki/Neurodes
+       https://warframe.fandom.com/wiki/Neural_Sensors
+       https://warframe.fandom.com/wiki/Gallium
+       https://warframe.fandom.com/wiki/Oxium
+Keys:  morphics, control_module, neurodes, neural_sensors, gallium, oxium
+Rarity: uncommon | faction_source: Any
+
+── RARE RESOURCES (4) ──
+Fetch: https://warframe.fandom.com/wiki/Orokin_Cell
+       https://warframe.fandom.com/wiki/Argon_Crystal
+       https://warframe.fandom.com/wiki/Tellurium
+       https://warframe.fandom.com/wiki/Nitain_Extract
+Keys:  orokin_cell, argon_crystal, tellurium, nitain_extract
+Rarity: rare
+Notes:
+  - Argon Crystal: found_on=["Void"], primary_source="Void fissure missions, Void caches",
+    description must mention it decays in 24 real-world hours
+  - Tellurium: found_on=["Archwing missions","Uranus"], primary_source="Archwing missions, Uranus Sealab"
+  - Nitain Extract: acquisition=nightwave, primary_source="Nightwave Cred Offerings, Ghoul Purge bounties"
+
+── CRAFTING COMPONENTS (8) ──
+Fetch: https://warframe.fandom.com/wiki/Detonite_Ampule
+       https://warframe.fandom.com/wiki/Detonite_Injector
+       https://warframe.fandom.com/wiki/Fieldron_Sample
+       https://warframe.fandom.com/wiki/Fieldron
+       https://warframe.fandom.com/wiki/Mutagen_Sample
+       https://warframe.fandom.com/wiki/Mutagen_Mass
+       https://warframe.fandom.com/wiki/Kavat_Genetic_Code
+       https://warframe.fandom.com/wiki/Orokin_Ducats
+Keys:  detonite_ampule, detonite_injector, fieldron_sample, fieldron,
+       mutagen_sample, mutagen_mass, kavat_genetic_code, orokin_ducats
+Notes:
+  - Detonite Ampule: faction_source=Grineer, acquisition=enemy_drop
+  - Detonite Injector: acquisition=research (crafted from Ampules in Clan Dojo)
+  - Fieldron Sample: faction_source=Corpus, acquisition=enemy_drop
+  - Fieldron: acquisition=research (crafted from Samples in Clan Dojo)
+  - Mutagen Sample: faction_source=Infested, acquisition=enemy_drop
+  - Mutagen Mass: acquisition=research (crafted from Samples in Clan Dojo)
+  - Kavat Genetic Code: acquisition=special (looted from wild Kavats on Earth)
+  - Orokin Ducats: acquisition=special (exchanged from Prime parts at Void Trader Kiosks)
+
+── META ITEMS (6) ──
+Fetch: https://warframe.fandom.com/wiki/Forma
+       https://warframe.fandom.com/wiki/Orokin_Catalyst
+       https://warframe.fandom.com/wiki/Orokin_Reactor
+       https://warframe.fandom.com/wiki/Exilus_Adapter
+       https://warframe.fandom.com/wiki/Aura_Forma
+       https://warframe.fandom.com/wiki/Umbral_Forma
+Keys:  forma, orokin_catalyst, orokin_reactor, exilus_adapter, aura_forma, umbral_forma
+Rarity: rare | acquisition: mission_reward + crafted
+Notes:
+  - Forma: found_on=["Void relics","Void missions"], primary_source="Void Relic rewards, login rewards, Foundry"
+  - Orokin Catalyst/Reactor: primary_source="Alerts, Baro Ki'Teer, login rewards, Invasions"
+
+── SPECIAL RESOURCES (3) ──
+Fetch: https://warframe.fandom.com/wiki/Kuva_(Resource)
+       https://warframe.fandom.com/wiki/Endo
+       https://warframe.fandom.com/wiki/Cryotic
+Keys:  kuva, endo, cryotic
+Notes:
+  - Kuva: found_on=["Kuva Fortress","Kuva Siphon","Kuva Flood"], category=special_resource
+  - Endo: acquisition=enemy_drop + special, description must mention used to rank up mods
+  - Cryotic: acquisition=mission_reward, found_on=["Excavation missions on any planet"]
+
+── OPEN WORLD — CETUS / PLAINS OF EIDOLON (20) ──
+Fetch ALL at once: https://warframe.fandom.com/wiki/Resources (look for Cetus section)
+Then fetch individual pages for any that need full descriptions.
+
+Resources to add:
+  iradite, grokdrul, esher_devar, coprite_alloy, pyrotic_alloy, fersteel_alloy,
+  cetus_wisp, breath_of_the_eidolon, eidolon_shard,
+  charc_electroplax, murkray_liver, norg_brain, tralok_eyes,       ← fish parts (Cetus fishing)
+  condroc_wing, kuaka_spinal_claw,                                  ← wildlife drops
+  iradite_vein_deposit, (skip — same as iradite)
+  radian_sentirum, star_amarast, heart_nyth, heart_noctrul,         ← Cetus gems/mining
+  connla_sprout, eevani, nistlepod, vainthorn                       ← Cetus plants
+Fetch: https://warframe.fandom.com/wiki/Iradite
+       https://warframe.fandom.com/wiki/Grokdrul
+       https://warframe.fandom.com/wiki/Cetus_Wisp
+       https://warframe.fandom.com/wiki/Breath_of_the_Eidolon
+       https://warframe.fandom.com/wiki/Eidolon_Shard
+category=open_world_cetus | found_on=["Plains of Eidolon"] | faction_source=None
+
+── OPEN WORLD — FORTUNA / ORB VALLIS (22) ──
+Resources to add:
+  venerdo_alloy, auroxium_alloy, axidrol_alloy, travocyte_alloy,
+  adramal_alloy, hespazym_alloy,                                    ← Vallis alloys
+  gorgaricus_spore, mytocardia_spore, thermal_sludge,               ← Vallis organics
+  eye_eye_rotoblade, scrubber_exa_brain, tink_dissipator_coil,      ← Corpus MOA parts (fishing)
+  calda_toroid, sola_toroid, vega_toroid, crisma_toroid,            ← Toroids
+  titanium, carbides, isos, nullstones, asterite, gallos_rods,
+  cubic_diodes, ticor_plate
+Fetch: https://warframe.fandom.com/wiki/Resources (Fortuna section)
+       https://warframe.fandom.com/wiki/Venerdo_Alloy
+       https://warframe.fandom.com/wiki/Calda_Toroid
+       https://warframe.fandom.com/wiki/Sola_Toroid
+       https://warframe.fandom.com/wiki/Vega_Toroid
+       https://warframe.fandom.com/wiki/Crisma_Toroid
+category=open_world_fortuna | found_on=["Orb Vallis"] | faction_source=None
+
+── OPEN WORLD — CAMBION DRIFT / DEIMOS (25) ──
+Resources to add:
+  entrati_lanthorn, entrati_obols, necracoil, bellow_voca, shrill_voca, echo_voca,
+  tear_azurite, fate_pearl, scintillant,
+  goopolla_spleen, maw_fang, mortus_horn, noctrul_heart, noctrul_voca,
+  ganglion, dendrite_blastoma, cranial_foremount, sporulate_sac,
+  somatic_fibers, saturated_muscle_mass, pustulite,
+  cabochon_embolos, seriglass_shard, stellated_necrathene,
+  rune_marrow, nacreous_pebble, lucent_teroglobe
+Fetch: https://warframe.fandom.com/wiki/Resources (Deimos section)
+       https://warframe.fandom.com/wiki/Entrati_Lanthorn
+       https://warframe.fandom.com/wiki/Scintillant
+       https://warframe.fandom.com/wiki/Necracoil
+category=open_world_deimos | found_on=["Cambion Drift","Deimos"] | faction_source=None
+
+── OPEN WORLD — ZARIMAN TEN ZERO (8) ──
+Resources to add:
+  voidplume_pinion, voidplume_quill, voidgel_orb,
+  lua_thrax_plasm, thrax_plasm, pathos_clamp,
+  recaster_neural_relay, experimental_arc_relay
+Fetch: https://warframe.fandom.com/wiki/Resources (Zariman section)
+       https://warframe.fandom.com/wiki/Voidplume_Pinion
+       https://warframe.fandom.com/wiki/Pathos_Clamp
+category=open_world_zariman | found_on=["Zariman Ten Zero"] | faction_source=Sentient
+
+── OPEN WORLD — DUVIRI / THE CIRCUIT (5) ──
+Resources to add:
+  aggristone, silphsela, tasoma_extract, yao_shrub, dracroot
+Fetch: https://warframe.fandom.com/wiki/Resources (Duviri section)
+       https://warframe.fandom.com/wiki/Aggristone
+category=open_world_duviri | found_on=["Duviri"] | faction_source=None
+
+── MISC SPECIAL ITEMS (10) ──
+Resources to add:
+  hexenon          → found_on=["Jupiter"], faction_source=Corpus, category=uncommon_resource
+  cryotic          → acquisition=mission_reward (already listed above)
+  scrap            → found_on=["Any"], primary_source="Railjack missions"
+  narmer_isoplast  → found_on=["Narmer-controlled nodes"], category=special_resource
+  thrax_plasm      → (see Zariman above)
+  anomaly_shard    → found_on=["Anomaly missions (Sentient Ship)"], faction_source=Sentient
+  purvoded_dagonic → (Deimos fish part, see Deimos above)
+  waxen_sebum_deposit → (Deimos fish part)
+  lamentus         → found_on=["Deimos (Infested fish)"]
+  stela            → found_on=["Deimos (Infested fish)"]
+Fetch: https://warframe.fandom.com/wiki/Hexenon
+
+─────────────────────────────────────────────
+KEY NAMING CONVENTION:
+  All lowercase, spaces → underscores, & → and
+  Examples:
+    "Alloy Plate"    → alloy_plate
+    "Nano Spores"    → nano_spores
+    "Crisma Toroid"  → crisma_toroid
+    "Eye-Eye Rotoblade" → eye_eye_rotoblade
+    "Höllvanian Pitchweave Fragment" → hollvanian_pitchweave_fragment
+
+─────────────────────────────────────────────
+PLANET/LOCATION REFERENCE (for found_on arrays):
+  Mercury, Venus, Earth, Mars, Phobos, Ceres, Jupiter, Europa,
+  Saturn, Uranus, Neptune, Pluto, Sedna, Eris, Lua, Deimos,
+  Void, Orokin Derelict, Kuva Fortress, Zariman Ten Zero,
+  Plains of Eidolon, Orb Vallis, Cambion Drift, Duviri,
+  Archwing missions, Railjack missions
+
+─────────────────────────────────────────────
+FETCH STRATEGY:
+1. Start with https://warframe.fandom.com/wiki/Resources — this master page lists all resources
+   grouped by planet. Extract descriptions and drop locations from it.
+2. For resources with sparse data, fetch their individual pages.
+3. For open-world resources with no individual page (stubs <2000 chars), use the master
+   Resources page data and set wiki_verified=false.
+4. Fetch all 8 common, 6 uncommon, 4 rare, and 6 meta individual pages — these are important.
+5. After writing the JSON, verify entry_count is correct and update _meta.
+
+─────────────────────────────────────────────
+PARSER HINT — master Resources page has sections like:
+  "## Mercury" or "## Plains of Eidolon" with bullet points or table rows.
+  Extract planet name and resource name from each section.
+  Use the found_on field to list ALL planets where the resource appears.
