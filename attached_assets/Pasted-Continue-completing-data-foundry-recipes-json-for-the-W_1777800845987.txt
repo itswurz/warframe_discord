@@ -1,0 +1,101 @@
+Continue completing `data/foundry_recipes.json` for the Warframe Discord bot. Target: v8.0.
+
+RULES:
+- Source of truth = warframe.fandom.com ONLY. Fetch every page fresh. No training data.
+- Only add an item if its wiki page has a Manufacturing Requirements table with a "Time:" field.
+- Every entry needs: name, type, category, wiki_verified:true, wiki_source, ingredients, credit_cost, base_time, result_key, result_name, result_type
+- base_time: ≤12 hrs=300, ≤24 hrs=480, >24 hrs=720
+- Do NOT touch any existing entries — all 1,013 are wiki_verified=true already.
+- When done, update _meta.version to "8.0" and _meta.entry_count.
+
+─────────────────────────────────────────────
+ALREADY DONE — SKIP ENTIRELY (1,013 entries):
+
+WARFRAMES (103 mains + 314 parts): Ash, Ash Prime, Atlas, Atlas Prime, Banshee, Banshee Prime, Baruuk, Baruuk Prime, Caliban, Chroma, Chroma Prime, Citrine, Cyte-09, Dagath, Dante, Ember, Ember Prime, Equinox, Equinox Prime, Excalibur, Excalibur Umbra, Frost, Frost Prime, Gara, Gara Prime, Garuda, Garuda Prime, Gauss, Gauss Prime, Grendel, Grendel Prime, Gyre, Harrow, Harrow Prime, Hildryn, Hildryn Prime, Hydroid, Hydroid Prime, Inaros, Inaros Prime, Ivara, Ivara Prime, Jade, Khora, Khora Prime, Koumei, Kullervo, Lavos, Limbo, Limbo Prime, Loki, Loki Prime, Mag, Mag Prime, Mesa, Mesa Prime, Mirage, Mirage Prime, Nekros, Nekros Prime, Nezha, Nezha Prime, Nidus, Nidus Prime, Nova, Nova Prime, Nyx, Nyx Prime, Oberon, Oberon Prime, Octavia, Octavia Prime, Protea, Protea Prime, Qorvex, Revenant, Revenant Prime, Rhino, Rhino Prime, Saryn, Saryn Prime, Sevagoth, Sevagoth Prime, Styanax, Titania, Titania Prime, Trinity, Trinity Prime, Valkyr, Valkyr Prime, Vauban, Vauban Prime, Volt, Volt Prime, Voruna, Wisp, Wukong, Wukong Prime, Xaku, Xaku Prime, Yareli, Zephyr, Zephyr Prime
+(All Neuroptics/Chassis/Systems parts for the above are also done — skip them)
+
+PRIMARIES (138): AX-52, Acceltra, Aeolak, Afentis, Alternox, Ambassador, Amprex, Arca Plasmor, Argonak, Astilla, Astilla Prime, Attica, Basmu, Battacor, Baza, Baza Prime, Boar, Boar Prime, Boltor, Boltor Prime, Braton Prime, Braton Vandal, Bubonico, Burston, Burston Prime, Buzlok, Cantare, Carmine Penta, Cassowar, Cedo, Cernos, Cernos Prime, Convectrix, Corinth, Corinth Prime, Cryotra, Daikyu, Dera, Dera Vandal, Drakgoon, Dread, Epitaph, Epitaph Prime, Exergis, Felarx, Ferrox, Flux Rifle, Fulmin, Fulmin Prime, Glaxion, Gorgon, Gorgon Wraith, Grakata, Grimoire, Grinlok, Harpak, Hek, Hema, Hind, Ignis, Ignis Wraith, Javlok, Karak, Karak Wraith, Kohm, Komorex, Kompressa, Laetum, Lanka, Latron, Latron Prime, Latron Wraith, Lenz, Mandonel, Miter, Mutalist Cernos, Mutalist Quanta, Nagantaka, Nagantaka Prime, Ogris, Opticor, Panthera, Panthera Prime, Paracyst, Paris, Paris Prime, Penta, Perigale, Phage, Phantasma, Phantasma Prime, Phenmor, Proboscis Cernos, Quanta, Quartakk, Quellor, Rauta, Rubico, Rubico Prime, Scourge, Scourge Prime, Secura Penta, Shedu, Simulor, Snipetron, Snipetron Vandal, Sobek, Soma, Soma Prime, Stahlta, Steflos, Stradavar, Stradavar Prime, Strun Prime, Strun Wraith, Supra, Sybaris, Sybaris Prime, Synapse, Tenora, Tenora Prime, Tetra, Tiberon, Tiberon Prime, Tigris, Tigris Prime, Tonkor, Torid, Trumna, Trumna Prime, Vectis, Vectis Prime, Veldt, Vulkar, Zarr, Zenith, Zhuge, Zhuge Prime
+
+SECONDARIES (108): Acrid, Aegrit, Afuris, Afuris Prime, Akarius, Akarius Prime, Akbolto, Akbolto Prime, Akbronco, Akbronco Prime, Akjagara, Akjagara Prime, Aklex, Aklex Prime, Akmagnus, Akmagnus Prime, Aksomati, Aksomati Prime, Akstiletto, Akstiletto Prime, Akvasto, Akvasto Prime, Akzani, Angstrum, Arca Scisco, Athodai, Atomos, Azima, Ballistica, Ballistica Prime, Bolto, Brakk, Bronco, Bronco Prime, Castanas, Catabolyst, Cestra, Cyanex, Cycron, Despair, Detron, Dual Cestra, Dual Toxocyst, Embolist, Euphona Prime, Furis, Fusilai, Gammacor, Hikou, Hikou Prime, Hystrix, Hystrix Prime, Knell, Knell Prime, Kohmak, Kraken, Kulstar, Kunai, Lato Vandal, Lex Prime, Magnus, Magnus Prime, Marelok, Mire, Nukor, Ocucor, Pandero, Pandero Prime, Plinx, Pox, Pyrana, Pyrana Prime, Quatz, Seer, Sepulcrum, Shaku, Sheev, Sicarus Prime, Sonicor, Spectra, Spectra Vandal, Spira, Spira Prime, Sporothrix, Staticor, Stubba, Stug, Talons, Tazicor, Twin Grakatas, Twin Gremlins, Twin Kohmak, Twin Rogga, Twin Vipers, Twin Vipers Wraith, Tysis, Vasto, Vasto Prime, Vaykor Marelok, Velox, Velox Prime, Vesper 77, Viper, Vulcax, Zakti, Zakti Prime, Zylok Prime, Zymos
+
+MELEE (181): Ack & Brunt, Amanata, Amphis, Anku, Ankyros, Ankyros Prime, Arca Titron, Argo & Vel, Arum Spinosa, Atterax, Azothane, Bo, Bo Prime, Boltace, Broken Scepter, Broken War, Cadus, Caustacyst, Ceramic Dagger, Cerata, Ceti Lacera, Cinta, Cobra & Crane, Cobra & Crane Prime, Corufell, Cronus, Dakra Prime, Dark Dagger, Dark Split-Sword, Dark Split-Sword (Dual Swords), Dark Sword, Destreza, Destreza Prime, Dorrclave, Dragon Nikana, Dual Cleavers, Dual Ether, Dual Heat Swords, Dual Ichor, Dual Kamas, Dual Kamas Prime, Dual Keres, Dual Keres Prime, Dual Raza, Dual Skana, Dual Zoren, Edun, Ekhein, Endura, Ether Daggers, Ether Reaper, Ether Sword, Evensong, Falcor, Fang, Fang Prime, Fragor, Fragor Prime, Furax, Furax Wraith, Galatine, Galatine Prime, Galvacord, Gazal Machete, Ghoulsaw, Glaive, Glaive Prime, Gram, Gram Prime, Guandao, Guandao Prime, Gunsen, Gunsen Prime, Halikar, Harmony, Hate, Heat Dagger, Heat Sword, Heliocor, Hespar, Higasa, Hirudo, Innodem, Jat Kittag, Jat Kusar, Jaw Sword, Kama, Karyst, Karyst Prime, Keles, Keratinos, Kesheg, Kestrel, Kogake, Kogake Prime, Korrudo, Korumm, Kreska, Krohkur, Kronen, Kronen Prime, Lacera, Lecta, Lesion, Machete, Magistar, Masseter, Masseter Prime, Mios, Nami Skyla, Nami Skyla Prime, Nami Solo, Nepheri, Nikana, Nikana Prime, Ninkondi, Ninkondi Prime, Obex, Ohma, Okina, Okina Prime, Onos, Orthos, Orthos Prime, Orvius, Pangolin Prime, Pangolin Sword, Paracesis, Pathocyst, Pennant, Plasma Sword, Praedos, Prova, Pulmonars, Pupacyst, Quassus, Quassus Prime, Reaper Prime, Reconifex, Redeemer, Redeemer Prime, Ripkas, Ruvox, Sampotes, Sarofang, Sarpa, Scindo, Scindo Prime, Scoliac, Serro, Sibear, Sigma & Octantis, Silva & Aegis, Silva & Aegis Prime, Skana, Slaytra, Stropha, Sun & Moon, Syam, Sydon, Tatsu, Tatsu Prime, Tekko, Tekko Prime, Tipedo, Tipedo Prime, Tonbo, Twin Basolk, Twin Krohkur, Vastilok, Venato, Venka, Venka Prime, Verdilac, Vitrica, Volnus, Volnus Prime, War, Wolf Sledge, Xoris, Zenistar
+
+SENTINELS (9): Carrier, Dethcube, Djinn, Helios, Nautilus, Oxylus, Shade, Taxon, Wyrm
+
+CRAFTABLE RESOURCES (9): Aura Forma, Detonite Injector, Exilus Adapter, Fieldron, Forma, Mutagen Mass, Orokin Catalyst, Orokin Reactor, Umbral Forma
+
+ARCH-GUNS (25): Cortege, Cortege (Atmosphere), Corvas, Corvas (Atmosphere), Corvas Prime, Cyngas, Cyngas (Atmosphere), Dual Decurion, Dual Decurion (Atmosphere), Fluctus, Fluctus (Atmosphere), Grattler, Grattler (Atmosphere), Imperator, Imperator Vandal, Imperator Vandal (Atmosphere), Larkspur, Larkspur (Atmosphere), Larkspur Prime, Morgha, Morgha (Atmosphere), Phaedra, Phaedra (Atmosphere), Velocitus, Velocitus (Atmosphere)
+
+ARCH-MELEE (7): Agkuza, Centaur, Kaszas, Knux, Onorix, Rathbone, Veritux
+
+NECRAMECHS (2): Bonewidow, Voidrig
+
+RAILJACK (117 total): All Lavan/Vidar/Zetki Mk I–III weapons (Apoc, Carcinnox, Cryophon, Glazio, Laith, Photor, Pulsar, Talyn, Vort) and components (Engines, Plating, Reactor, Shield Array)
+
+─────────────────────────────────────────────
+STILL NEEDED — fetch wiki pages fresh and add if a Time: table exists:
+
+1. NEW WARFRAMES (2025–2026) not in the list above
+   Check: warframe.fandom.com/wiki/Warframes — look for any frame not in the above list.
+   Each warframe = 4 entries: main + Neuroptics + Chassis + Systems.
+
+2. NEW WEAPONS (2025–2026) not in any list above
+   Check: warframe.fandom.com/wiki/Primary, /wiki/Secondary, /wiki/Melee
+   Look for any weapon not already in the lists above. Skip Kuva/Tenet weapons (Lich/Sister drops, not Foundry).
+
+3. MISSING WEAPON EXILUS ADAPTER
+   Fetch: warframe.fandom.com/wiki/Weapon_Exilus_Adapter
+   Add as category: craftable_resource if a Time: table is found.
+
+4. MOA COMPANIONS
+   Fetch: warframe.fandom.com/wiki/MOA_(Companion)
+   Check if MOA construction has a Foundry recipe. If yes, add as category: companion.
+
+5. PREDASITE & VULPAPHYLA (Deimos animal companions)
+   Fetch: warframe.fandom.com/wiki/Predasite and warframe.fandom.com/wiki/Vulpaphyla
+   Add as category: companion if a Time: table exists.
+
+6. ARCHWING
+   Fetch: warframe.fandom.com/wiki/Amesha, /wiki/Elytron, /wiki/Itzal, /wiki/Odonata
+   Add as category: archwing if a Time: table exists.
+   Each likely has sub-components (Systems, Harness, Wings) — treat like warframe parts.
+
+7. MAUSOLON (arch-gun for Necramechs)
+   Fetch: warframe.fandom.com/wiki/Mausolon — check if there is a Foundry recipe.
+
+8. MODULE CROSS-CHECK
+   Fetch: warframe.fandom.com/wiki/Module:Blueprints/data
+   Parse ALL entries using this Lua pattern:
+     Name = { Credits = N, Parts = { {Count=N, Name="X", Type="Item/Resource"}, ... }, Time = N }
+   Compare against existing DB keys. Add any entry NOT already present.
+   - For Type="Item" ingredients not in the known-resources list → prefix with weapon name (e.g. "Cortege Barrel")
+   - Skip template entries: "Item Name", "Warframe Chassis", "Warframe Neuroptics", "Warframe Systems", "Warframe Prime" and its parts
+
+─────────────────────────────────────────────
+PARSER (copy into code_execution):
+
+```javascript
+function parseRawTable(md) {
+  const rows = [];
+  for (const rawLine of md.split('\n')) {
+    const line = rawLine.trim();
+    if (!line.startsWith('|') || !line.toLowerCase().includes('time:')) continue;
+    const cells = line.split('|').map(c=>c.trim()).filter(c=>c.length>0);
+    let base_time=480, credits=0;
+    const tm = line.match(/time:\s*(\d+(?:\.\d+)?)\s*(day|hour|hr)/i);
+    if (tm) { const h=tm[2][0]==='d'?parseFloat(tm[1])*24:parseFloat(tm[1]); base_time=h<=12?300:h<=24?480:720; }
+    const ingredients={};
+    for (const cell of cells) {
+      if (/time:|rush|market|price/i.test(cell)) continue;
+      const parts=cell.split('<br>'); if(parts.length<2) continue;
+      const amt=parseInt(parts[parts.length-1].replace(/,/g,'')); if(isNaN(amt)||amt<=0) continue;
+      const links=[...parts[0].matchAll(/\[([^\]]+)\]\([^)]*\)/g)].map(m=>m[1]).filter(l=>!/^[!h]/.test(l));
+      let name=links.length>0?links[links.length-1].trim():'';
+      if(!name){const alt=(parts[0].match(/!\[([^\]]+)\]/)||[])[1]||''; if(/credit/i.test(alt)) name='Credits';}
+      if(!name) continue;
+      if(name==='Credits'){credits=amt;}else{ingredients[name]=amt;}
+    }
+    if(Object.keys(ingredients).length>0||credits>0) rows.push({credits,base_time,ingredients});
+  }
+  return rows;
+}

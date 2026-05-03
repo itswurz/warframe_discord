@@ -1,0 +1,24 @@
+{
+  "_note": "Optional CDN thumbnail URLs for Foundry embeds. Missing keys fall back to placeholder.",
+  "_placeholder": "https://via.placeholder.com/128?text=No+Image",
+
+  "excalibur":           "https://wiki.warframe.com/images/thumb/4/47/ExcaliburIcon272.png/128px-ExcaliburIcon272.png",
+  "volt":                "https://wiki.warframe.com/images/thumb/0/04/VoltIcon272.png/128px-VoltIcon272.png",
+  "mag":                 "https://wiki.warframe.com/images/thumb/7/7c/MagIcon272.png/128px-MagIcon272.png",
+
+  "excalibur_neuroptics":"https://wiki.warframe.com/images/thumb/9/9e/ExcaliburNeuroptics.png/128px-ExcaliburNeuroptics.png",
+  "excalibur_chassis":   "https://wiki.warframe.com/images/thumb/5/56/ExcaliburChassis.png/128px-ExcaliburChassis.png",
+  "excalibur_systems":   "https://wiki.warframe.com/images/thumb/8/8e/ExcaliburSystems.png/128px-ExcaliburSystems.png",
+
+  "volt_neuroptics":     "https://wiki.warframe.com/images/thumb/f/ff/VoltNeuroptics.png/128px-VoltNeuroptics.png",
+  "volt_chassis":        "https://wiki.warframe.com/images/thumb/8/8b/VoltChassis.png/128px-VoltChassis.png",
+  "volt_systems":        "https://wiki.warframe.com/images/thumb/0/06/VoltSystems.png/128px-VoltSystems.png",
+
+  "mag_neuroptics":      "https://wiki.warframe.com/images/thumb/2/23/MagNeuroptics.png/128px-MagNeuroptics.png",
+  "mag_chassis":         "https://wiki.warframe.com/images/thumb/c/c2/MagChassis.png/128px-MagChassis.png",
+  "mag_systems":         "https://wiki.warframe.com/images/thumb/b/b1/MagSystems.png/128px-MagSystems.png",
+
+  "braton":              "https://wiki.warframe.com/images/thumb/5/51/BratonNew.png/128px-BratonNew.png",
+  "karak":               "https://wiki.warframe.com/images/thumb/1/1e/Karak.png/128px-Karak.png",
+  "paris":               "https://wiki.warframe.com/images/thumb/f/f3/Paris.png/128px-Paris.png"
+}

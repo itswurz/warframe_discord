@@ -1,0 +1,318 @@
+{
+  "_note": "Edit any emoji value below. Use Discord custom emoji format <:name:id> or plain Unicode.",
+  "enemies": {
+    "grineer_lancer": {
+      "_wiki": "https://wiki.warframe.com/w/Lancer",
+      "mods": [
+        {
+          "name": "Ammo Drum",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Fast Hands",
+          "chance": 0.0114,
+          "rarity": "uncommon"
+        },
+        {
+          "name": "Vitality",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Pressure Point",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Diamond Skin",
+          "chance": 0.0033,
+          "rarity": "uncommon"
+        },
+        {
+          "name": "Heated Charge",
+          "chance": 0.0033,
+          "rarity": "uncommon"
+        },
+        {
+          "name": "Rending Strike",
+          "chance": 0.0022,
+          "rarity": "uncommon"
+        },
+        {
+          "name": "Rifle Ammo Mutation",
+          "chance": 0.0022,
+          "rarity": "uncommon"
+        },
+        {
+          "name": "Streamline",
+          "chance": 0.0001,
+          "rarity": "rare"
+        },
+        {
+          "name": "Heavy Trauma",
+          "chance": 0.0001,
+          "rarity": "rare"
+        },
+        {
+          "name": "Iron Phoenix",
+          "chance": 0.0001,
+          "rarity": "rare"
+        },
+        {
+          "name": "Endo",
+          "amount": 80,
+          "chance": 0.0001,
+          "rarity": "uncommon",
+          "type": "endo"
+        }
+      ],
+      "resources": {
+        "common": {
+          "name": "Ferrite",
+          "min": 50,
+          "max": 100,
+          "chance": 0.8
+        },
+        "uncommon": [
+          {
+            "name": "Rubedo",
+            "min": 15,
+            "max": 25,
+            "chance": 0.22
+          },
+          {
+            "name": "Detonite Ampule",
+            "amount": 1,
+            "chance": 0.18
+          }
+        ],
+        "rare": [
+          {
+            "name": "Neurodes",
+            "amount": 1,
+            "chance": 0.03
+          }
+        ]
+      },
+      "region_resource": {
+        "name": "Ferrite",
+        "min": 30,
+        "max": 60,
+        "chance": 0.07
+      },
+      "cosmetics": []
+    },
+    "grineer_butcher": {
+      "_wiki": "https://wiki.warframe.com/w/Butcher",
+      "mods": [
+        {
+          "name": "Blunderbuss",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Perpetual Agony",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Rifle Aptitude",
+          "chance": 0.0013,
+          "rarity": "rare"
+        },
+        {
+          "name": "Reflex Coil",
+          "chance": 0.0013,
+          "rarity": "rare"
+        },
+        {
+          "name": "North Wind",
+          "chance": 0.0013,
+          "rarity": "rare"
+        },
+        {
+          "name": "Fever Strike",
+          "chance": 0.0013,
+          "rarity": "rare"
+        },
+        {
+          "name": "Flow",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Tranquil Cleave",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Focus Energy",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Endo",
+          "amount": 15,
+          "chance": 0.0057,
+          "rarity": "uncommon",
+          "type": "endo"
+        },
+        {
+          "name": "Endo",
+          "amount": 50,
+          "chance": 0.0013,
+          "rarity": "uncommon",
+          "type": "endo"
+        },
+        {
+          "name": "Endo",
+          "amount": 80,
+          "chance": 0.0003,
+          "rarity": "uncommon",
+          "type": "endo"
+        }
+      ],
+      "resources": {
+        "common": {
+          "name": "Ferrite",
+          "min": 50,
+          "max": 100,
+          "chance": 0.8
+        },
+        "uncommon": [
+          {
+            "name": "Rubedo",
+            "min": 15,
+            "max": 25,
+            "chance": 0.22
+          },
+          {
+            "name": "Detonite Ampule",
+            "amount": 1,
+            "chance": 0.18
+          }
+        ],
+        "rare": [
+          {
+            "name": "Neurodes",
+            "amount": 1,
+            "chance": 0.03
+          }
+        ]
+      },
+      "region_resource": {
+        "name": "Ferrite",
+        "min": 30,
+        "max": 60,
+        "chance": 0.07
+      },
+      "cosmetics": []
+    },
+    "grineer_scorpion": {
+      "_wiki": "https://wiki.warframe.com/w/Scorpion_(Grineer)",
+      "mods": [
+        {
+          "name": "Lightning Rod",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Ammo Drum",
+          "chance": 0.0114,
+          "rarity": "common"
+        },
+        {
+          "name": "Serration",
+          "chance": 0.0022,
+          "rarity": "common"
+        },
+        {
+          "name": "Heavy Impact",
+          "chance": 0.0022,
+          "rarity": "common"
+        },
+        {
+          "name": "Steel Fiber",
+          "chance": 0.0022,
+          "rarity": "common"
+        },
+        {
+          "name": "Redirection",
+          "chance": 0.0022,
+          "rarity": "common"
+        },
+        {
+          "name": "Master Thief",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Defiled Snapdragon",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Stance Mod (Various)",
+          "chance": 0.0003,
+          "rarity": "rare"
+        },
+        {
+          "name": "Endo",
+          "amount": 15,
+          "chance": 0.0114,
+          "rarity": "uncommon",
+          "type": "endo"
+        },
+        {
+          "name": "Endo",
+          "amount": 50,
+          "chance": 0.0013,
+          "rarity": "uncommon",
+          "type": "endo"
+        }
+      ],
+      "resources": {
+        "common": {
+          "name": "Ferrite",
+          "min": 50,
+          "max": 100,
+          "chance": 0.8
+        },
+        "uncommon": [
+          {
+            "name": "Rubedo",
+            "min": 15,
+            "max": 25,
+            "chance": 0.22
+          },
+          {
+            "name": "Detonite Ampule",
+            "amount": 1,
+            "chance": 0.18
+          }
+        ],
+        "rare": [
+          {
+            "name": "Neurodes",
+            "amount": 1,
+            "chance": 0.03
+          }
+        ]
+      },
+      "region_resource": {
+        "name": "Ferrite",
+        "min": 30,
+        "max": 60,
+        "chance": 0.07
+      },
+      "cosmetics": [
+        {
+          "name": "Sand Yellow Pigment",
+          "amount": 1,
+          "chance": 0.5
+        }
+      ]
+    }
+  }
+}

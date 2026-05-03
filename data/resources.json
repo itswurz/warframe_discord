@@ -1,0 +1,2544 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "entry_count": "130 entries",
+    "wiki_source": "warframe.fandom.com",
+    "last_updated": "2026-05-03",
+    "note": "All craftable and farmable resources in Warframe used in the Discord bot game. wiki_verified=true where the resource's individual wiki page was fetched live during generation."
+  },
+  "resources": {
+    "ferrite": {
+      "name": "Ferrite",
+      "key": "ferrite",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Ferrite",
+      "description": "Dense chunks of iron ore that form one of the primary structural materials of the Origin System. Ferrite is used in virtually every tier of Grineer and Tenno manufacturing.",
+      "found_on": [
+        "Mercury",
+        "Earth",
+        "Neptune",
+        "Void"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "ferrite"
+    },
+    "salvage": {
+      "name": "Salvage",
+      "key": "salvage",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Salvage",
+      "description": "Scavenged scrap metal and mechanical components stripped from Grineer and Corpus battlefield wreckage. Abundant wherever heavy combat takes place.",
+      "found_on": [
+        "Mars",
+        "Jupiter",
+        "Sedna"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "salvage"
+    },
+    "alloy_plate": {
+      "name": "Alloy Plate",
+      "key": "alloy_plate",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Alloy_Plate",
+      "description": "Carbon steel plates used to reinforce Grineer armor. These compressed alloy slabs form the backbone of Grineer industrial manufacturing.",
+      "found_on": [
+        "Venus",
+        "Jupiter",
+        "Sedna",
+        "Ceres",
+        "Phobos",
+        "Pluto"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "alloy_plate"
+    },
+    "nano_spores": {
+      "name": "Nano Spores",
+      "key": "nano_spores",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nano_Spores",
+      "description": "Fibrous technocyte tumor fragments shed by Infested organisms. Handle Infested tissue with caution — despite their biological origin, they are widely used as a binding agent in Tenno manufacturing.",
+      "found_on": [
+        "Saturn",
+        "Neptune",
+        "Eris",
+        "Deimos"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Infested",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "nano_spores"
+    },
+    "polymer_bundle": {
+      "name": "Polymer Bundle",
+      "key": "polymer_bundle",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Polymer_Bundle",
+      "description": "A hard thermoplastic casing manufactured by the Corpus. These flexible synthetic polymer filaments are used in insulation, circuitry housings, and structural reinforcement across the Origin System.",
+      "found_on": [
+        "Venus",
+        "Mercury",
+        "Uranus"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "polymer_bundle"
+    },
+    "circuits": {
+      "name": "Circuits",
+      "key": "circuits",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Circuits",
+      "description": "Integrated circuit boards salvaged from Corpus electronics and Grineer communication arrays. Essential for systems-tier Warframe crafting and virtually every advanced weapon.",
+      "found_on": [
+        "Venus",
+        "Ceres"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "circuits"
+    },
+    "rubedo": {
+      "name": "Rubedo",
+      "key": "rubedo",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rubedo",
+      "description": "A jagged crystalline ore that gives off radiant energy. Rubedo's electromagnetic properties make it invaluable in advanced component construction across Grineer and Tenno manufacturing.",
+      "found_on": [
+        "Phobos",
+        "Earth",
+        "Sedna",
+        "Europa",
+        "Void",
+        "Pluto"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "rubedo"
+    },
+    "plastids": {
+      "name": "Plastids",
+      "key": "plastids",
+      "category": "common_resource",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Plastids",
+      "description": "Organic polymer secreted by Infested organisms and harvested as a flexible building material. Found wherever Infested contamination has taken hold across the outer planets.",
+      "found_on": [
+        "Saturn",
+        "Phobos",
+        "Uranus",
+        "Pluto",
+        "Eris"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Infested",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "plastids"
+    },
+    "morphics": {
+      "name": "Morphics",
+      "key": "morphics",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Morphics",
+      "description": "Malleable Orokin-era material that shifts between solid and semi-liquid states under electromagnetic stress. Despite being labelled rare, the drop rate makes it one of the easier uncommon resources to acquire.",
+      "found_on": [
+        "Mercury",
+        "Mars",
+        "Europa",
+        "Pluto"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "morphics"
+    },
+    "control_module": {
+      "name": "Control Module",
+      "key": "control_module",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Control_Module",
+      "description": "Advanced Orokin-era control hardware that manages complex feedback systems inside Warframe suits. Required for virtually every Warframe Systems blueprint.",
+      "found_on": [
+        "Neptune",
+        "Europa",
+        "Void"
+      ],
+      "primary_source": "Enemy drops, Void mission rewards",
+      "faction_source": "Orokin",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "control_module"
+    },
+    "neurodes": {
+      "name": "Neurodes",
+      "key": "neurodes",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Neurodes",
+      "description": "Biotech sensor organs harvested from Infested entities. Dense neural tissue that interfaces with Orokin-era technology — indispensable for high-tier crafting across every Warframe.",
+      "found_on": [
+        "Earth",
+        "Eris",
+        "Lua",
+        "Deimos"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Infested",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 10,
+      "used_in_foundry": true,
+      "emoji_key": "neurodes"
+    },
+    "neural_sensors": {
+      "name": "Neural Sensors",
+      "key": "neural_sensors",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Neural_Sensors",
+      "description": "Implanted neural-link devices for controlling augmentations — originally a Grineer design. These exotic neural interface components are recovered primarily from high-value targets on Jupiter.",
+      "found_on": [
+        "Jupiter"
+      ],
+      "primary_source": "Enemy drops, Corpus high-value targets",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 10,
+      "used_in_foundry": true,
+      "emoji_key": "neural_sensors"
+    },
+    "gallium": {
+      "name": "Gallium",
+      "key": "gallium",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Gallium",
+      "description": "A soft metal used in microelectronics and energy weapons. Gallium has an extremely low melting point and pools in the cavities of Grineer-occupied terrain on Mars and Uranus.",
+      "found_on": [
+        "Mars",
+        "Uranus"
+      ],
+      "primary_source": "Enemy drops, Storage containers",
+      "faction_source": "Grineer",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "gallium"
+    },
+    "oxium": {
+      "name": "Oxium",
+      "key": "oxium",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Oxium",
+      "description": "Ultra-light structural compound produced exclusively by Corpus Oxium Osprey drones. Ospreys must be killed before self-destructing or they destroy their own Oxium on death.",
+      "found_on": [
+        "Europa",
+        "Jupiter",
+        "Uranus",
+        "Pluto"
+      ],
+      "primary_source": "Corpus Oxium Ospreys (must kill before self-destruct)",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "oxium"
+    },
+    "orokin_cell": {
+      "name": "Orokin Cell",
+      "key": "orokin_cell",
+      "category": "rare_resource",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Orokin_Cell",
+      "description": "Ancient Orokin power cells containing a near-inexhaustible energy source. Recovered from Orokin Derelicts and powerful bosses — required for every Warframe main blueprint assembly.",
+      "found_on": [
+        "Saturn",
+        "Ceres",
+        "Orokin Derelict",
+        "Void"
+      ],
+      "primary_source": "Boss drops, Enemy drops, Orokin Derelict missions",
+      "faction_source": "Orokin",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 100,
+      "used_in_foundry": true,
+      "emoji_key": "orokin_cell"
+    },
+    "argon_crystal": {
+      "name": "Argon Crystal",
+      "key": "argon_crystal",
+      "category": "rare_resource",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Argon_Crystal",
+      "description": "A Void-based radioactive resource that decays every day it is out of the Void — losing 50% of its quantity per real-world day. Only farm Argon Crystals immediately before crafting.",
+      "found_on": [
+        "Void"
+      ],
+      "primary_source": "Void fissure missions, Void caches, Void enemies",
+      "faction_source": "Orokin",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 100,
+      "used_in_foundry": true,
+      "emoji_key": "argon_crystal"
+    },
+    "tellurium": {
+      "name": "Tellurium",
+      "key": "tellurium",
+      "category": "rare_resource",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Tellurium",
+      "description": "A rare metal foreign to the Origin System, found only in asteroids that have made their way into Uranus orbit. Can only be acquired through Archwing combat or Uranus Sealab missions.",
+      "found_on": [
+        "Archwing missions",
+        "Uranus"
+      ],
+      "primary_source": "Archwing missions, Uranus Sealab (Ophelia)",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 100,
+      "used_in_foundry": true,
+      "emoji_key": "tellurium"
+    },
+    "nitain_extract": {
+      "name": "Nitain Extract",
+      "key": "nitain_extract",
+      "category": "rare_resource",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Nitain_Extract",
+      "description": "Each vial is produced by the painstaking expression of billions of rare, ocean-vent dwelling microorganisms. A bottleneck resource gating many advanced Warframe blueprints.",
+      "found_on": [
+        "Kuva Fortress",
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Nightwave Cred Offerings, Ghoul Purge bounties, Reactor Sabotage",
+      "faction_source": "Grineer",
+      "acquisition": "nightwave",
+      "tradeable": false,
+      "sell_value": 0,
+      "used_in_foundry": true,
+      "emoji_key": "nitain_extract"
+    },
+    "detonite_ampule": {
+      "name": "Detonite Ampule",
+      "key": "detonite_ampule",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Detonite_Ampule",
+      "description": "\"Researching the Detonite traces within could advance our weapon technology.\" Pressurised containers of Grineer explosive compound, repurposed by Tenno for component synthesis.",
+      "found_on": [
+        "Ceres",
+        "Mars",
+        "Saturn",
+        "Sedna",
+        "Kuva Fortress"
+      ],
+      "primary_source": "Grineer enemy drops, Grineer caches, Invasion rewards",
+      "faction_source": "Grineer",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "detonite_ampule"
+    },
+    "detonite_injector": {
+      "name": "Detonite Injector",
+      "key": "detonite_injector",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Detonite_Injector",
+      "description": "Detonite injectors form the basis for explosive and incendiary weapons. Produced in the Clan Dojo Energy Lab by combining ten Detonite Ampules.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Clan Dojo Energy Lab (craft from 10 Detonite Ampules)",
+      "faction_source": "Grineer",
+      "acquisition": "research",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "detonite_injector"
+    },
+    "fieldron_sample": {
+      "name": "Fieldron Sample",
+      "key": "fieldron_sample",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Fieldron_Sample",
+      "description": "\"This destroyed FIELDRON could further research into super-heated containment fields.\" Unstable energy capsules from Corpus laboratories; ten must be stabilised to produce one Fieldron.",
+      "found_on": [
+        "Venus",
+        "Jupiter",
+        "Neptune",
+        "Europa"
+      ],
+      "primary_source": "Corpus enemy drops, Corpus caches, Invasion rewards",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "fieldron_sample"
+    },
+    "fieldron": {
+      "name": "Fieldron",
+      "key": "fieldron",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Fieldron",
+      "description": "ClanTech weaponized containment field for super-heated substances. Produced in the Clan Dojo Tenno Lab by combining ten Fieldron Samples over 12 hours.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Clan Dojo Tenno Lab (craft from 10 Fieldron Samples)",
+      "faction_source": "Corpus",
+      "acquisition": "research",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "fieldron"
+    },
+    "mutagen_sample": {
+      "name": "Mutagen Sample",
+      "key": "mutagen_sample",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mutagen_Sample",
+      "description": "These samples of Infested tissue could advance our knowledge of biological research. Ten samples must be combined in the Foundry to produce a Mutagen Mass.",
+      "found_on": [
+        "Eris",
+        "Orokin Derelict",
+        "Deimos"
+      ],
+      "primary_source": "Infested enemy drops, Orokin Derelict caches, Invasion rewards",
+      "faction_source": "Infested",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "mutagen_sample"
+    },
+    "mutagen_mass": {
+      "name": "Mutagen Mass",
+      "key": "mutagen_mass",
+      "category": "crafting_component",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Mutagen_Mass",
+      "description": "This living mass of Infested material can produce weaponized toxins for biological weaponry. Produced in the Clan Dojo Bio Lab by combining ten Mutagen Samples.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Clan Dojo Bio Lab (craft from 10 Mutagen Samples)",
+      "faction_source": "Infested",
+      "acquisition": "research",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "mutagen_mass"
+    },
+    "kavat_genetic_code": {
+      "name": "Kavat Genetic Code",
+      "key": "kavat_genetic_code",
+      "category": "crafting_component",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Kavat_Genetic_Code",
+      "description": "A genetic data sequence extracted from scanning feral Kavat organisms on Earth. Each sample contains a unique bio-imprint used to breed a domesticated Kavat companion in the Foundry.",
+      "found_on": [
+        "Earth"
+      ],
+      "primary_source": "Scanning 10 feral Kavats with Codex Scanner on Earth",
+      "faction_source": "Any",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 0,
+      "used_in_foundry": true,
+      "emoji_key": "kavat_genetic_code"
+    },
+    "orokin_ducats": {
+      "name": "Orokin Ducats",
+      "key": "orokin_ducats",
+      "category": "currency",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Orokin_Ducats",
+      "description": "A currency of Orokin origin exchanged from Prime parts at Void Trader Kiosks in Relays. Used exclusively to purchase items from Baro Ki'Teer, the Void Trader.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Exchange Prime parts at Void Trader Kiosks in Relays",
+      "faction_source": "Orokin",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "orokin_ducats"
+    },
+    "forma": {
+      "name": "Forma",
+      "key": "forma",
+      "category": "meta_item",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Forma",
+      "description": "An Orokin catalyst that restructures a Warframe or weapon's polarity configuration. For each Forma used, the equipment gains a star above its name and resets to rank 0 — but increases its mod polarity capacity.",
+      "found_on": [
+        "Void",
+        "Any"
+      ],
+      "primary_source": "Void Relic rewards, login rewards, Sorties, Nightwave, Foundry blueprint",
+      "faction_source": "Orokin",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 0,
+      "used_in_foundry": true,
+      "emoji_key": "forma"
+    },
+    "orokin_catalyst": {
+      "name": "Orokin Catalyst",
+      "key": "orokin_catalyst",
+      "category": "meta_item",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Orokin_Catalyst",
+      "description": "Orokin modification technology used to super-charge weaponry — doubles the weapon's mod capacity. Applied from the Arsenal, these are permanently consumed. Also called \"Potato\" by the community.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Alerts, Invasions, Baro Ki'Teer, login rewards, Sorties",
+      "faction_source": "Orokin",
+      "acquisition": "alert",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "orokin_catalyst"
+    },
+    "orokin_reactor": {
+      "name": "Orokin Reactor",
+      "key": "orokin_reactor",
+      "category": "meta_item",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Orokin_Reactor",
+      "description": "An Orokin device that doubles a Warframe's mod capacity when applied. Applied from the Arsenal and permanently consumed. Community nickname \"Potato\" shared with the Catalyst.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Alerts, Invasions, Baro Ki'Teer, login rewards, Sorties",
+      "faction_source": "Orokin",
+      "acquisition": "alert",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "orokin_reactor"
+    },
+    "exilus_adapter": {
+      "name": "Exilus Adapter",
+      "key": "exilus_adapter",
+      "category": "meta_item",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Exilus_Adapter",
+      "description": "Fuses with a Warframe to unlock the Exilus Mod Slot, allowing an Exilus (utility-class) mod to be equipped without consuming capacity from the main mod slots.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Sorties (rare), Baro Ki'Teer, Nightwave, Foundry blueprint",
+      "faction_source": "Orokin",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "exilus_adapter"
+    },
+    "aura_forma": {
+      "name": "Aura Forma",
+      "key": "aura_forma",
+      "category": "meta_item",
+      "rarity": "legendary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Aura_Forma",
+      "description": "Modifies a Warframe's Aura slot to be compatible with any mod polarity, except Umbra polarity for Aura mods. This allows any Aura mod to be equipped with the polarity bonus.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Nightwave (rare reward), Sorties, Baro Ki'Teer",
+      "faction_source": "Orokin",
+      "acquisition": "nightwave",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "aura_forma"
+    },
+    "umbral_forma": {
+      "name": "Umbral Forma",
+      "key": "umbral_forma",
+      "category": "meta_item",
+      "rarity": "legendary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Umbral_Forma",
+      "description": "Applies Umbra polarity to any Warframe or weapon mod slot. Can only apply Umbra polarity and cannot apply other polarities — essential for building Umbra Warframes to their full potential.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Nightwave (extremely rare reward), specific event rewards",
+      "faction_source": "Orokin",
+      "acquisition": "nightwave",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "umbral_forma"
+    },
+    "kuva": {
+      "name": "Kuva",
+      "key": "kuva",
+      "category": "special_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Kuva_(Resource)",
+      "description": "A scarlet bio-energy fluid extracted from the Queens' Kuva Fortress. Kuva empowers Grineer queens and is used by Tenno to reroll the stat bonuses on Riven Mods.",
+      "found_on": [
+        "Kuva Fortress",
+        "Kuva Siphon",
+        "Kuva Flood"
+      ],
+      "primary_source": "Kuva Siphon missions (300–450), Kuva Flood missions (550+), Kuva Fortress missions",
+      "faction_source": "Grineer",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 0,
+      "used_in_foundry": true,
+      "emoji_key": "kuva"
+    },
+    "endo": {
+      "name": "Endo",
+      "key": "endo",
+      "category": "special_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Endo",
+      "description": "A crystallised form of mod energy used exclusively to rank up (fuse) Mods. Endo cannot be traded and has no sell value — it is consumed directly during mod fusion in the Arsenal.",
+      "found_on": [
+        "Any"
+      ],
+      "primary_source": "Enemy drops, Mission rewards, Arbitrations, Transmuting mods, Ayatan Sculptures",
+      "faction_source": "Any",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "endo"
+    },
+    "cryotic": {
+      "name": "Cryotic",
+      "key": "cryotic",
+      "category": "special_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Cryotic",
+      "description": "Usually found in extreme sub-zero environments, Cryotic instantly freezes anything it contacts. Mined exclusively through Excavation missions — each Excavator drills 100 Cryotic per run.",
+      "found_on": [
+        "Excavation missions on any planet"
+      ],
+      "primary_source": "Excavation missions (100 per Excavator cycle)",
+      "faction_source": "Any",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "cryotic"
+    },
+    "iradite": {
+      "name": "Iradite",
+      "key": "iradite",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Iradite",
+      "description": "An orange-red mineral found in Grineer containers and geological outcrops on the Plains of Eidolon. Iradite deposits yield 3–5 per node during active bounty levels of 40–60.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mineral deposits and Grineer containers on Plains of Eidolon",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "iradite"
+    },
+    "grokdrul": {
+      "name": "Grokdrul",
+      "key": "grokdrul",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Grokdrul",
+      "description": "A noxious mix of polysaccharides and long-chain polymers — a standard chemical used in Grineer manufacturing on the Plains of Eidolon. Found in Grineer storage containers.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Grineer storage containers, Grineer camps on Plains of Eidolon",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "grokdrul"
+    },
+    "cetus_wisp": {
+      "name": "Cetus Wisp",
+      "key": "cetus_wisp",
+      "category": "open_world_cetus",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Cetus_Wisp",
+      "description": "Most common at night, these stone lifeforms are drawn to shorelines touched by the Eidolon. They linger around lakes on the Plains of Eidolon and vanish at dawn — hunt them only after sunset.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Shorelines of Gara Toht Lake (night only), Plains of Eidolon",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "cetus_wisp"
+    },
+    "breath_of_the_eidolon": {
+      "name": "Breath of the Eidolon",
+      "key": "breath_of_the_eidolon",
+      "category": "open_world_cetus",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Breath_of_the_Eidolon",
+      "description": "A fragment of Eidolon resonance gathered from luminous mist released when an Eidolon cycles through its synovial resonance. Essential for crafting Focus Lenses and Quill Amp components.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Eidolon Teralyst/Gantulyst/Hydrolyst hunts, Quills standing rewards",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "breath_of_the_eidolon"
+    },
+    "eidolon_shard": {
+      "name": "Eidolon Shard",
+      "key": "eidolon_shard",
+      "category": "open_world_cetus",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Eidolon_Shard",
+      "description": "A fragment shed by an Eidolon during combat. Eidolon Shards are exchanged with the Quills Syndicate for standing and are used to construct Operator Amp components.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Eidolon Teralyst/Gantulyst/Hydrolyst kills on Plains of Eidolon",
+      "faction_source": "None",
+      "acquisition": "boss_drop",
+      "tradeable": false,
+      "sell_value": 0,
+      "emoji_key": "eidolon_shard"
+    },
+    "esher_devar": {
+      "name": "Esher Devar",
+      "key": "esher_devar",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Esher_Devar",
+      "description": "A shimmering gem with silky deep-blue lustre extracted from geological formations on the Plains of Eidolon using a Nosam Cutter mining tool.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "esher_devar"
+    },
+    "coprite_alloy": {
+      "name": "Coprite Alloy",
+      "key": "coprite_alloy",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Coprite_Alloy",
+      "description": "A dense copper-based alloy found in ore veins on the Plains of Eidolon. Coprite Alloy is a versatile structural metal used in both Ostron crafting and Corpus ship armour reinforcement.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "coprite_alloy"
+    },
+    "pyrotic_alloy": {
+      "name": "Pyrotic Alloy",
+      "key": "pyrotic_alloy",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Pyrotic_Alloy",
+      "description": "A heat-forged alloy recovered from geothermal fissures on the Plains of Eidolon. Pyrotic Alloy is engineered to withstand extreme temperatures and is used in incendiary weapon systems.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "pyrotic_alloy"
+    },
+    "fersteel_alloy": {
+      "name": "Fersteel Alloy",
+      "key": "fersteel_alloy",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Fersteel_Alloy",
+      "description": "A reinforced steel-ferrite composite alloy extracted from the mineral-dense rock layers beneath the Plains of Eidolon. Used in structural Ostron frame construction.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "fersteel_alloy"
+    },
+    "charc_electroplax": {
+      "name": "Charc Electroplax",
+      "key": "charc_electroplax",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Charc_Electroplax",
+      "description": "An electro-generating organ harvested from Charc Eel caught in the Plains of Eidolon. The electroplax generates strong bio-electric pulses used in Ostron electrical devices.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Fishing — Charc Eel (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "charc_electroplax"
+    },
+    "murkray_liver": {
+      "name": "Murkray Liver",
+      "key": "murkray_liver",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Murkray_Liver",
+      "description": "The large liver of a Murkray — a prized Cetus catch. The Murkray's liver produces natural toxins that filter the tidal pollutants on the Plains of Eidolon.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Fishing — Murkray (use Murkray Bait, daytime preferred)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "murkray_liver"
+    },
+    "norg_brain": {
+      "name": "Norg Brain",
+      "key": "norg_brain",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Norg_Brain",
+      "description": "The complex neural organ from a Norg fish — a nocturnal species found in the deep pools of the Plains of Eidolon. Norg Brains are dense with bio-electric tissue.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Fishing — Norg (use Norg Bait, night only)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "norg_brain"
+    },
+    "tralok_eyes": {
+      "name": "Tralok Eyes",
+      "key": "tralok_eyes",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Tralok_Eyes",
+      "description": "The compound photoreceptor organs from a Tralok fish. These eyes have exceptional low-light sensitivity adapted for deep-water hunting in the Plains of Eidolon.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Fishing — Tralok (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "tralok_eyes"
+    },
+    "condroc_wing": {
+      "name": "Condroc Wing",
+      "key": "condroc_wing",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Condroc_Wing",
+      "description": "A feathered wing from a Condroc — the large avian fauna of the Plains of Eidolon. Condroc Wings are collected by tranq-shooting the birds during conservation hunts.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Condroc wildlife — conservation or kill (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "condroc_wing"
+    },
+    "kuaka_spinal_claw": {
+      "name": "Kuaka Spinal Claw",
+      "key": "kuaka_spinal_claw",
+      "category": "open_world_cetus",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Kuaka_Spinal_Claw",
+      "description": "A bony barbed claw extracted from a Kuaka — the small rodent-like wildlife of the Plains of Eidolon. Kuaka Spinal Claws are extremely tough despite their small size.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Kuaka wildlife — conservation or kill (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "kuaka_spinal_claw"
+    },
+    "radian_sentirum": {
+      "name": "Radian Sentirum",
+      "key": "radian_sentirum",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Radian_Sentirum",
+      "description": "A radiant amber gem found in Plains of Eidolon mineral deposits. Radian Sentirum glows faintly at dusk, absorbing the day's sunlight and releasing it slowly over time.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "radian_sentirum"
+    },
+    "star_amarast": {
+      "name": "Star Amarast",
+      "key": "star_amarast",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Star_Amarast",
+      "description": "A star-cut rose-gold gem extracted from the Plains of Eidolon. Star Amarast has an exceptionally high lustre prized by Ostron jewellers and Tenno artisans for Amp construction.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon) — Nosam Cutter (rare veins)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "star_amarast"
+    },
+    "heart_nyth": {
+      "name": "Heart Nyth",
+      "key": "heart_nyth",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Heart_Nyth",
+      "description": "A warm rose-coloured gem with a heart-shaped internal void, extracted from Plains of Eidolon mineral deposits using precision mining tools.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "heart_nyth"
+    },
+    "heart_noctrul": {
+      "name": "Heart Noctrul",
+      "key": "heart_noctrul",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Heart_Noctrul",
+      "description": "A deep-red mineral gem with a pulsing internal luminescence, best extracted from Fortuna ore veins at night when thermal activity peaks in Orb Vallis.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis, night) — Sunpoint Plasma Drill",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "heart_noctrul"
+    },
+    "connla_sprout": {
+      "name": "Connla Sprout",
+      "key": "connla_sprout",
+      "category": "open_world_cetus",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Connla_Sprout",
+      "description": "A fungal sprout harvested from the bioluminescent undergrowth of the Cambion Drift. Connla Sprouts grow in clusters near Fass-active geological vents on Deimos.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Plant nodes (Cambion Drift, Deimos)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "connla_sprout"
+    },
+    "eevani": {
+      "name": "Eevani",
+      "key": "eevani",
+      "category": "open_world_cetus",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Eevani",
+      "description": "A tiny bioluminescent arthropod native to Deimos. Eevani congregate near heat vents in the Cambion Drift and are collected by conservation scouts.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Wildlife conservation (Cambion Drift, Deimos)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "eevani"
+    },
+    "nistlepod": {
+      "name": "Nistlepod",
+      "key": "nistlepod",
+      "category": "open_world_cetus",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Nistlepod",
+      "description": "A seed pod from the Nistlepod plant found on the Plains of Eidolon. These pods are harvested by Ostron farmers and used as an ingredient in traditional crafting.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Plant nodes (Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "nistlepod"
+    },
+    "vainthorn": {
+      "name": "Vainthorn",
+      "key": "vainthorn",
+      "category": "open_world_cetus",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Vainthorn",
+      "description": "A barbed crystalline thorn that grows at the tips of calcified Infested tendrils on Deimos. Vainthorns are dense with stored hive-mind energy from the Infested network.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Rare Infested enemy drops and plant nodes (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "vainthorn"
+    },
+    "venerdo_alloy": {
+      "name": "Venerdo Alloy",
+      "key": "venerdo_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Venerdo_Alloy",
+      "description": "A layered composite alloy recovered from Corpus fighter craft fuselage segments on Orb Vallis. Used as primary structural material in Corpus K-Drive and Moa fabrication.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Enemy drops and wreckage (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "venerdo_alloy"
+    },
+    "auroxium_alloy": {
+      "name": "Auroxium Alloy",
+      "key": "auroxium_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Auroxium_Alloy",
+      "description": "A golden-hued alloy refined from Orb Vallis ore deposits. Auroxium Alloy is used in high-precision Corpus optical instruments and Kitgun barrel construction.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis), enemy drops",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "auroxium_alloy"
+    },
+    "axidrol_alloy": {
+      "name": "Axidrol Alloy",
+      "key": "axidrol_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Axidrol_Alloy",
+      "description": "A heavy heat-resistant alloy extracted from Orb Vallis ore veins. Axidrol alloys are used in Corpus propulsion systems for their heat-resistant and low-mass properties.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "axidrol_alloy"
+    },
+    "travocyte_alloy": {
+      "name": "Travocyte Alloy",
+      "key": "travocyte_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Travocyte_Alloy",
+      "description": "A synthetic alloy engineered to withstand the extreme stress of Void-jump drives. Travocyte Alloy is found in Corpus propulsion system wreckage on Orb Vallis.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis), mission wreckage",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "travocyte_alloy"
+    },
+    "adramal_alloy": {
+      "name": "Adramal Alloy",
+      "key": "adramal_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Adramal_Alloy",
+      "description": "A durable alloy of Corpus origin recovered from Orb Vallis manufacturing facilities. Adramal is used in the chassis construction of Corpus ground units and combat drones.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis), enemy drops",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "adramal_alloy"
+    },
+    "hespazym_alloy": {
+      "name": "Hespazym Alloy",
+      "key": "hespazym_alloy",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Hespazym_Alloy",
+      "description": "A lightweight alloy recovered from Corpus ship debris on Orb Vallis. Hespazym is prized for its unique heat-resistant and low-mass combination properties.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis), Corpus wreckage drops",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "hespazym_alloy"
+    },
+    "gorgaricus_spore": {
+      "name": "Gorgaricus Spore",
+      "key": "gorgaricus_spore",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Gorgaricus_Spore",
+      "description": "A spore cluster from Gorgaricus fungal growth found in the geothermal vents of Orb Vallis. These spores catalyse rapid cell division when exposed to Void light.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Fungal nodes (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "gorgaricus_spore"
+    },
+    "mytocardia_spore": {
+      "name": "Mytocardia Spore",
+      "key": "mytocardia_spore",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Mytocardia_Spore",
+      "description": "A spore released by the rare Mytocardia organism in Orb Vallis's geothermal zones. These spores contain concentrated Infested neural tissue — required for Necramech blueprints.",
+      "found_on": [
+        "Orb Vallis",
+        "Cambion Drift"
+      ],
+      "primary_source": "Rare organism nodes (Orb Vallis), Isolation Vault bounties",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "mytocardia_spore"
+    },
+    "thermal_sludge": {
+      "name": "Thermal Sludge",
+      "key": "thermal_sludge",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Thermal_Sludge",
+      "description": "A semi-solid heat-retaining compound dredged from geothermal pools on Orb Vallis. Corpus engineers use it as an industrial lubricant in extreme-cold environments.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Geothermal vent pools and Corpus containers (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "thermal_sludge"
+    },
+    "eye_eye_rotoblade": {
+      "name": "Eye-Eye Rotoblade",
+      "key": "eye_eye_rotoblade",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Eye-Eye",
+      "description": "The spinning optical blade organ harvested from an Eye-Eye fish caught in Orb Vallis's lakes. Used by Corpus engineers as a model for precision rotary optics.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Fishing — Eye-Eye (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "eye_eye_rotoblade"
+    },
+    "scrubber_exa_brain": {
+      "name": "Scrubber Exa Brain",
+      "key": "scrubber_exa_brain",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Scrubber_Exa_Brain",
+      "description": "The processing core extracted from a Scrubber Exa — an advanced Techrot-strain robotic enemy. Rare drop from the neural cavity of elite Scrubber Exa units.",
+      "found_on": [
+        "Orb Vallis",
+        "Höllvania"
+      ],
+      "primary_source": "Scrubber Exa elite enemy drops",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "scrubber_exa_brain"
+    },
+    "tink_dissipator_coil": {
+      "name": "Tink Dissipator Coil",
+      "key": "tink_dissipator_coil",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Tink",
+      "description": "A heat-dissipating coil organ from a Tink fish caught in Orb Vallis. The Tink uses this organ to regulate body temperature in Fortuna's frozen lakes.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Fishing — Tink (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "tink_dissipator_coil"
+    },
+    "calda_toroid": {
+      "name": "Calda Toroid",
+      "key": "calda_toroid",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Calda_Toroid",
+      "description": "A device of undetermined function and origin — prized by Vox Solaris and the Quills. Calda Toroids are recovered from the Corpus Spaceport on Orb Vallis.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Spaceport enemies and caches (Orb Vallis), Profit-Taker Orb",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "calda_toroid"
+    },
+    "sola_toroid": {
+      "name": "Sola Toroid",
+      "key": "sola_toroid",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Sola_Toroid",
+      "description": "A device of undetermined function and origin — prized by Vox Solaris and the Quills. Sola Toroids are recovered from the Temple of Profit's solar array on Orb Vallis.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Temple of Profit enemies and caches (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "sola_toroid"
+    },
+    "vega_toroid": {
+      "name": "Vega Toroid",
+      "key": "vega_toroid",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Vega_Toroid",
+      "description": "A device of undetermined function and origin — prized by Vox Solaris and the Quills. Vega Toroids are deployed as portable power cells near Harindi Crater excavation equipment.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Harindi Crater enemies and caches (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "vega_toroid"
+    },
+    "crisma_toroid": {
+      "name": "Crisma Toroid",
+      "key": "crisma_toroid",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Crisma_Toroid",
+      "description": "A device of undetermined function and origin — prized by Vox Solaris and the Quills. Crisma Toroids are the rarest Toroid type, dropping only from the Profit-Taker Orb itself.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Profit-Taker Orb (Orb Vallis phase 4 boss)",
+      "faction_source": "None",
+      "acquisition": "boss_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "crisma_toroid"
+    },
+    "titanium": {
+      "name": "Titanium",
+      "key": "titanium",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Titanium",
+      "description": "A lightweight yet incredibly strong structural metal found in Railjack wreckage and space-combat debris. Titanium forms the primary structural element in Corpus and Grineer warship framing.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Railjack mission hull wreckage drops",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "titanium"
+    },
+    "carbides": {
+      "name": "Carbides",
+      "key": "carbides",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Carbides",
+      "description": "Hardened metal carbide particulate recovered from Railjack engine exhaust and battle debris. Forms when ultra-high temperatures fuse metal with carbon during space combat.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Railjack mission engine wreckage drops",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "carbides"
+    },
+    "isos": {
+      "name": "Isos",
+      "key": "isos",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Isos",
+      "description": "Isometric alloy shards recovered from Corpus fighter craft destroyed in Railjack combat. Isos are prized for their perfectly symmetric crystal structure.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Railjack mission — Corpus fighter wreckage",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "isos"
+    },
+    "nullstones": {
+      "name": "Nullstones",
+      "key": "nullstones",
+      "category": "open_world_fortuna",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Nullstones",
+      "description": "Dense Void-crystallised stones recovered from Railjack Sentient anomaly encounters. Nullstones suppress nearby electronic signals — even Orokin systems.",
+      "found_on": [
+        "Railjack missions",
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Sentient Anomaly (Veil Proxima Railjack), Zariman missions",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "nullstones"
+    },
+    "asterite": {
+      "name": "Asterite",
+      "key": "asterite",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Asterite",
+      "description": "A faceted gem formed deep within Cetus-region geology, extracted with a Nosam Cutter mining tool. Asterite forms in large nodules within the limestone base of the Plains of Eidolon.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Mining (Plains of Eidolon) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "asterite"
+    },
+    "gallos_rods": {
+      "name": "Gallos Rods",
+      "key": "gallos_rods",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Gallos_Rods",
+      "description": "Rigid metallic rods of Corpus construction recovered from Orb Vallis manufacturing wreckage. Gallos Rods are used as load-bearing structural supports in Corpus modular buildings.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining or enemy drops (Orb Vallis)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "gallos_rods"
+    },
+    "cubic_diodes": {
+      "name": "Cubic Diodes",
+      "key": "cubic_diodes",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Cubic_Diodes",
+      "description": "Precision cubic semiconductor diodes salvaged from Railjack avionics wreckage. Critical components in Railjack navigation and targeting systems.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Railjack mission avionics wreckage drops",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "cubic_diodes"
+    },
+    "ticor_plate": {
+      "name": "Ticor Plate",
+      "key": "ticor_plate",
+      "category": "open_world_fortuna",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Ticor_Plate",
+      "description": "Reinforced plating recovered from Corpus Railjack crewship armor systems. Ticor Plate is an advanced heat-resistant composite used in Corpus capital-ship construction.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Railjack mission Corpus crewship drops",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "ticor_plate"
+    },
+    "entrati_lanthorn": {
+      "name": "Entrati Lanthorn",
+      "key": "entrati_lanthorn",
+      "category": "open_world_deimos",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Entrati_Lanthorn",
+      "description": "A ceremonial beacon used by the Entrati family to map Void locations onto real space. Recovered from deep Cambion Drift excavations — essential for high-tier Necraloid crafting.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Cambion Drift deep caches, Isolation Vault bounty rewards",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "entrati_lanthorn"
+    },
+    "entrati_obols": {
+      "name": "Entrati Obols",
+      "key": "entrati_obols",
+      "category": "currency",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Entrati_Obols",
+      "description": "Circular tokens of Entrati origin, recovered from Cambion Drift caches and Infested containers. Used as the primary standing currency within Deimos trading circles at the Necralisk.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Deimos containers, bounty rewards, enemy drops",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 50,
+      "used_in_foundry": true,
+      "emoji_key": "entrati_obols"
+    },
+    "necracoil": {
+      "name": "Necracoil",
+      "key": "necracoil",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Necracoil",
+      "description": "This experimental array transmutes Void energy into high voltages with low currents. Recovered from disabled Necramech units on Deimos — translates Void-drive signals into movement.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Necramech enemy drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "necracoil"
+    },
+    "bellow_voca": {
+      "name": "Bellow Voca",
+      "key": "bellow_voca",
+      "category": "open_world_deimos",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Bellow_Voca",
+      "description": "A resonant Void-infused crystal harvested from the Zariman Ten Zero. Bellow Voca vibrate at frequencies beyond human hearing, storing Void energy in their lattice structure.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero missions (high difficulty)",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "bellow_voca"
+    },
+    "shrill_voca": {
+      "name": "Shrill Voca",
+      "key": "shrill_voca",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Shrill_Voca",
+      "description": "A high-pitched resonance crystal found in the Zariman Ten Zero's corridors. Shrill Voca emit piercing frequencies that interfere with Void-sensitive electronics.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero missions",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "shrill_voca"
+    },
+    "echo_voca": {
+      "name": "Echo Voca",
+      "key": "echo_voca",
+      "category": "open_world_deimos",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Echo_Voca",
+      "description": "A resonant crystal recovered from the Zariman Ten Zero's echo chambers. Echo Voca stores residual Void-speech imprints from the crew's long drift through the Void.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero missions (Void Armageddon/Flood)",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "echo_voca"
+    },
+    "tear_azurite": {
+      "name": "Tear Azurite",
+      "key": "tear_azurite",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Tear_Azurite",
+      "description": "A teardrop-shaped deep-blue gem found in the lower mineral layers of the Cambion Drift. Its colour comes from copper-rich mineral inclusions crystallised under Infested pressure.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "tear_azurite"
+    },
+    "fate_pearl": {
+      "name": "Fate Pearl",
+      "key": "fate_pearl",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Fate_Pearl",
+      "description": "An iridescent pearl-like mineral extracted from mineral-rich beds at the bottom of the Cambion Drift. Its layered nacre structure defies normal crystallography.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "fate_pearl"
+    },
+    "scintillant": {
+      "name": "Scintillant",
+      "key": "scintillant",
+      "category": "open_world_deimos",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Scintillant",
+      "description": "These scarce, hovering relics of the Orokin era can still be found monitoring the isolation vaults deep below the surface of Deimos. They drift slowly and can be collected by approaching.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Cambion Drift rare bioluminescent nodes, Isolation Vault bounty rewards",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "scintillant"
+    },
+    "goopolla_spleen": {
+      "name": "Goopolla Spleen",
+      "key": "goopolla_spleen",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Goopolla_Spleen",
+      "description": "The internal organ of a Goopolla fish caught in the Cambion Drift. The spleen stores compressed bio-gel used as a lubricant in the fish's unique locomotion system.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — Goopolla (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "goopolla_spleen"
+    },
+    "maw_fang": {
+      "name": "Maw Fang",
+      "key": "maw_fang",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Maw_Fang",
+      "description": "A serrated fang extracted from the Maw — the giant sand-predator that ambushes lone Tenno on the Plains of Eidolon at night. Prized by Ostron craftsmen for natural sharpness.",
+      "found_on": [
+        "Plains of Eidolon"
+      ],
+      "primary_source": "Maw kills (night, Plains of Eidolon)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "maw_fang"
+    },
+    "mortus_horn": {
+      "name": "Mortus Horn",
+      "key": "mortus_horn",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Mortus_Horn",
+      "description": "A bony protrusion recovered from a Mortus Lungfish caught in the Cambion Drift. The horn is used by the fish to break calcified Infested membrane formations.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — Mortus Lungfish (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "mortus_horn"
+    },
+    "noctrul_heart": {
+      "name": "Noctrul Heart",
+      "key": "noctrul_heart",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Noctrul_Heart",
+      "description": "The glowing bio-core recovered from a Noctrul fish native to the Cambion Drift's phosphorescent pools. Emits faint bioluminescence even hours after extraction.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — Noctrul (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "noctrul_heart"
+    },
+    "noctrul_voca": {
+      "name": "Noctrul Voca",
+      "key": "noctrul_voca",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Noctrul_Voca",
+      "description": "A resonant vocalization organ extracted from a Noctrul fish in the Cambion Drift. These organs produce subsonic signals used by Noctrul fish for Infested ecosystem communication.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — Noctrul (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "noctrul_voca"
+    },
+    "ganglion": {
+      "name": "Ganglion",
+      "key": "ganglion",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Ganglion",
+      "description": "A bio-neural cluster extracted from large Infested organisms on Deimos. Ganglions serve as relay hubs within the Infested hive mind's distributed nervous system.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Infested enemy drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "ganglion"
+    },
+    "dendrite_blastoma": {
+      "name": "Dendrite Blastoma",
+      "key": "dendrite_blastoma",
+      "category": "open_world_deimos",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Dendrite_Blastoma",
+      "description": "A calcified neural nodule from Deimos Infested organisms. Dendrite Blastomas form where the Infested hive mind calcifies its communication threads.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Rare Infested enemy drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "dendrite_blastoma"
+    },
+    "cranial_foremount": {
+      "name": "Cranial Foremount",
+      "key": "cranial_foremount",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Cranial_Foremount",
+      "description": "A bony crest structure found on the foreheads of large Deimos Infested organisms. The foremount anchors the hive-mind neural connection in complex Infested fauna.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Infested fauna drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "cranial_foremount"
+    },
+    "sporulate_sac": {
+      "name": "Sporulate Sac",
+      "key": "sporulate_sac",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Sporulate_Sac",
+      "description": "A pressurised spore-producing organ harvested from Deimos Infested organisms. Sporulate Sacs release clouds of spores when ruptured — handle with caution.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Infested enemy drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "sporulate_sac"
+    },
+    "somatic_fibers": {
+      "name": "Somatic Fibers",
+      "key": "somatic_fibers",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Somatic_Fibers",
+      "description": "Neural-muscular fibers extracted from mobile Infested organisms on Deimos. Somatic Fibers bridge the biomechanical interface between the Infested nervous system and muscle tissue.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Infested enemy drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "somatic_fibers"
+    },
+    "saturated_muscle_mass": {
+      "name": "Saturated Muscle Mass",
+      "key": "saturated_muscle_mass",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Saturated_Muscle_Mass",
+      "description": "Dense Infested muscle tissue saturated with bio-fluid recovered from heavy Deimos fauna. The saturation increases the tissue's energy storage capacity significantly.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Heavy Infested fauna drops (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "saturated_muscle_mass"
+    },
+    "pustulite": {
+      "name": "Pustulite",
+      "key": "pustulite",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Pustulite",
+      "description": "A bubble-like mineral secretion found on the exterior of calcified Infested growths on Deimos. Pustulite forms when Infested biofluid solidifies on contact with open air.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Infested growth nodes (Cambion Drift)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "pustulite"
+    },
+    "cabochon_embolos": {
+      "name": "Cabochon Embolos",
+      "key": "cabochon_embolos",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Cabochon_Embolos",
+      "description": "A smooth-polished gem extracted from the Cambion Drift geological strata. The Embolos has a convex cabochon profile used in precision optical Entrati instruments.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "cabochon_embolos"
+    },
+    "seriglass_shard": {
+      "name": "Seriglass Shard",
+      "key": "seriglass_shard",
+      "category": "mining_gem",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Seriglass_Shard",
+      "description": "A fragment of Deimos seriglass — formed when Infested biofluid crystallises under extreme pressure in deep Deimos caves. Highly resonant with Orokin frequencies.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift, deep cave nodes) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "seriglass_shard"
+    },
+    "stellated_necrathene": {
+      "name": "Stellated Necrathene",
+      "key": "stellated_necrathene",
+      "category": "mining_gem",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Stellated_Necrathene",
+      "description": "A precisely stellated gem extracted from the richest Fortuna veins. Its star-cut facets refract light into brilliant displays used in Corpus precision optics.",
+      "found_on": [
+        "Orb Vallis"
+      ],
+      "primary_source": "Mining (Orb Vallis, rare veins) — Sunpoint Plasma Drill",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "stellated_necrathene"
+    },
+    "rune_marrow": {
+      "name": "Rune Marrow",
+      "key": "rune_marrow",
+      "category": "open_world_deimos",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Rune_Marrow",
+      "description": "The ossified marrow from Runic Fossils buried deep in Deimos's biomass-rock layers. Rune Marrow resonates with ancient Orokin frequency signatures preserved in the bone.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Deep Cambion Drift excavation caches",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "rune_marrow"
+    },
+    "nacreous_pebble": {
+      "name": "Nacreous Pebble",
+      "key": "nacreous_pebble",
+      "category": "mining_gem",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Nacreous_Pebble",
+      "description": "A smooth, iridescent pebble with a pearl-like surface extracted from mineral-rich Cambion Drift beds. Its layered mineral structure diffracts light in shimmering patterns.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "nacreous_pebble"
+    },
+    "lucent_teroglobe": {
+      "name": "Lucent Teroglobe",
+      "key": "lucent_teroglobe",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Lucent_Teroglobe",
+      "description": "A spherical gem with inner light-scattering properties, found in the deepest ore deposits of the Cambion Drift. Used by Entrati scientists in bio-resonance experiments.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift, rare deep nodes)",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "lucent_teroglobe"
+    },
+    "voidplume_pinion": {
+      "name": "Voidplume Pinion",
+      "key": "voidplume_pinion",
+      "category": "open_world_zariman",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Voidplume_Pinion",
+      "description": "A Void Angel's living feather, ripped out in combat during Zariman missions. Voidplume Pinions form at the tips of Void-growth crystalline structures in the Zariman's most saturated zones.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero missions — Void Angel combat (high difficulty)",
+      "faction_source": "Sentient",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "voidplume_pinion"
+    },
+    "voidplume_quill": {
+      "name": "Voidplume Quill",
+      "key": "voidplume_quill",
+      "category": "open_world_zariman",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Voidplume_Quill",
+      "description": "The largest and rarest Voidplume crystal tier — a full quill-shaped formation from the Zariman's crystalline chambers. Requires significant Void exposure in the deepest Zariman corridors.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero Steel Path missions — rarest Voidplume drop",
+      "faction_source": "Sentient",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "voidplume_quill"
+    },
+    "voidgel_orb": {
+      "name": "Voidgel Orb",
+      "key": "voidgel_orb",
+      "category": "open_world_zariman",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Voidgel_Orb",
+      "description": "A sealed sphere of Void-gel — a semi-living substance that forms spontaneously in Zariman Zero's Void-saturated corridors. Voidgel Orbs pulse faintly with contained Void energy.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero mission caches and enemy drops",
+      "faction_source": "Sentient",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "voidgel_orb"
+    },
+    "lua_thrax_plasm": {
+      "name": "Lua Thrax Plasm",
+      "key": "lua_thrax_plasm",
+      "category": "open_world_zariman",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Lua_Thrax_Plasm",
+      "description": "A luminescent bio-plasma harvested from Thrax enemies encountered on Lua — spectral Orokin soldiers animated by Void resonance. Distinct from standard Thrax Plasm in its Lua-specific resonance signature.",
+      "found_on": [
+        "Lua"
+      ],
+      "primary_source": "Thrax enemy drops on Lua (Cascade missions)",
+      "faction_source": "Orokin",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "lua_thrax_plasm"
+    },
+    "thrax_plasm": {
+      "name": "Thrax Plasm",
+      "key": "thrax_plasm",
+      "category": "open_world_zariman",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Thrax_Plasm",
+      "description": "Bio-plasma extracted from Thrax Centurions and Legates — spectral Void-animated soldiers from the Zariman Ten Zero. Thrax Plasm resonates with intense concentrated Void energy.",
+      "found_on": [
+        "Zariman Ten Zero",
+        "Lua"
+      ],
+      "primary_source": "Thrax Centurion/Legate enemy drops (Zariman missions, Lua Drift)",
+      "faction_source": "Sentient",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "thrax_plasm"
+    },
+    "pathos_clamp": {
+      "name": "Pathos Clamp",
+      "key": "pathos_clamp",
+      "category": "open_world_zariman",
+      "rarity": "rare",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Pathos_Clamp",
+      "description": "A mechanical clamp of Duviri origin salvaged from the Undercroft's collapsed Orokin machinery. Pathos Clamps bind Duviri's cycling reality together at the structural level — essential for all Duviri crafting.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Duviri Undercroft missions, Spiral rotation rewards",
+      "faction_source": "None",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "pathos_clamp"
+    },
+    "recaster_neural_relay": {
+      "name": "Recaster Neural Relay",
+      "key": "recaster_neural_relay",
+      "category": "open_world_zariman",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Recaster_Neural_Relay",
+      "description": "A precision neural relay recovered from the Zariman's Recaster units. These relays bridge the Zariman's ancient Orokin AI network with the Drifter's bio-electric systems.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero mission rewards (Void Flood/Cascade)",
+      "faction_source": "Sentient",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "recaster_neural_relay"
+    },
+    "experimental_arc_relay": {
+      "name": "Experimental Arc-Relay",
+      "key": "experimental_arc_relay",
+      "category": "open_world_zariman",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Experimental_Arc-Relay",
+      "description": "A prototype arc-relay assembly salvaged from the Zariman's experimental propulsion labs. These unstable relays are the building blocks of Void-arc weapons and Incarnon Genesis upgrades.",
+      "found_on": [
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Zariman Ten Zero mission reward caches",
+      "faction_source": "Sentient",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "experimental_arc_relay"
+    },
+    "aggristone": {
+      "name": "Aggristone",
+      "key": "aggristone",
+      "category": "open_world_duviri",
+      "rarity": "common",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Aggristone",
+      "description": "A rough stone aggregate found in Duviri's cycling geological formations. Aggristone forms where residual Orokin construction material has been compressed by Duviri's ever-shifting landscape.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Resource nodes and enemy drops (Duviri)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "aggristone"
+    },
+    "silphsela": {
+      "name": "Silphsela",
+      "key": "silphsela",
+      "category": "open_world_duviri",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Silphsela",
+      "description": "The silken thread-like secretion of the Silphsela organism found in Duviri's Undercroft. These filaments are woven by Orowyrm-adjacent fauna and used to reinforce Duviri structural tissue.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Undercroft creature drops and resource nodes (Duviri)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "silphsela"
+    },
+    "tasoma_extract": {
+      "name": "Tasoma Extract",
+      "key": "tasoma_extract",
+      "category": "open_world_duviri",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Tasoma_Extract",
+      "description": "A viscous extract from the Tasoma root — a Duviri bioluminescent plant that processes Orowyrm toxins into harvestable compounds used in Drifter crafting.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Plant nodes (Duviri)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "tasoma_extract"
+    },
+    "yao_shrub": {
+      "name": "Yao Shrub",
+      "key": "yao_shrub",
+      "category": "open_world_duviri",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Yao_Shrub",
+      "description": "A thorny, mineral-encrusted shrub native to Duviri's cycling grasslands. Yao Shrubs anchor themselves into Duviri's Void-reactive soil and are harvested by the Drifter during runs.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Plant nodes (Duviri)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "yao_shrub"
+    },
+    "dracroot": {
+      "name": "Dracroot",
+      "key": "dracroot",
+      "category": "open_world_duviri",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Dracroot",
+      "description": "The root system of the Dracroot plant, found growing in Duviri's Undercroft substrate. Dracroot anchors itself into the cycling rock to extract nutrients from Duviri's Void-reactive soil.",
+      "found_on": [
+        "Duviri"
+      ],
+      "primary_source": "Plant nodes and Undercroft drops (Duviri)",
+      "faction_source": "None",
+      "acquisition": "special",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "dracroot"
+    },
+    "hexenon": {
+      "name": "Hexenon",
+      "key": "hexenon",
+      "category": "uncommon_resource",
+      "rarity": "uncommon",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Hexenon",
+      "description": "A reagent commonly used to produce highly combustible fuel. Hexenon is a Corpus industrial chemical byproduct captured from factory run-off in Jupiter's gas-layer manufacturing platforms.",
+      "found_on": [
+        "Jupiter"
+      ],
+      "primary_source": "Jupiter Disruption (Kappa, Io), Corpus factory enemy drops",
+      "faction_source": "Corpus",
+      "acquisition": "enemy_drop",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "hexenon"
+    },
+    "scrap": {
+      "name": "Scrap",
+      "key": "scrap",
+      "category": "special_resource",
+      "rarity": "common",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Scrap",
+      "description": "Salvaged mechanical debris recovered from derelict corridors and abandoned Corpus manufacturing sites. Scrap accumulates wherever machinery has been left to decay over long periods.",
+      "found_on": [
+        "Railjack missions",
+        "Zariman Ten Zero"
+      ],
+      "primary_source": "Railjack missions, Zariman Ten Zero wreckage drops",
+      "faction_source": "Any",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "scrap"
+    },
+    "narmer_isoplast": {
+      "name": "Narmer Isoplast",
+      "key": "narmer_isoplast",
+      "category": "special_resource",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Narmer_Isoplast",
+      "description": "An isoplastic compound developed by the Narmer cult-Corpus to reinforce their veiled-infantry armour. Recovered exclusively from Narmer Bounty missions across all open-world nodes.",
+      "found_on": [
+        "Plains of Eidolon",
+        "Orb Vallis",
+        "Cambion Drift"
+      ],
+      "primary_source": "Narmer Bounty rewards (all open-world nodes)",
+      "faction_source": "Corpus",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "narmer_isoplast"
+    },
+    "anomaly_shard": {
+      "name": "Anomaly Shard",
+      "key": "anomaly_shard",
+      "category": "special_resource",
+      "rarity": "rare",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Anomaly_Shard",
+      "description": "A crystalline fragment shed by Sentient forces clustered around Murex invasion anomalies in the Veil Proxima. Anomaly Shards pulse with alien resonance incompatible with Orokin systems.",
+      "found_on": [
+        "Railjack missions"
+      ],
+      "primary_source": "Sentient Anomaly encounters (Veil Proxima Railjack missions)",
+      "faction_source": "Sentient",
+      "acquisition": "mission_reward",
+      "tradeable": false,
+      "sell_value": 3,
+      "used_in_foundry": true,
+      "emoji_key": "anomaly_shard"
+    },
+    "purvoded_dagonic": {
+      "name": "Purvoded Dagonic",
+      "key": "purvoded_dagonic",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Dagonic",
+      "description": "A purified bio-chemical sample extracted from Dagonic fish caught in Cambion Drift pools. The purification process neutralises the Dagonic's natural toxins, rendering it safe to handle.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — Dagonic (Cambion Drift); process at Daughter (Necralisk)",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "purvoded_dagonic"
+    },
+    "waxen_sebum_deposit": {
+      "name": "Waxen Sebum Deposit",
+      "key": "waxen_sebum_deposit",
+      "category": "fish_part",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Waxen_Sebum_Deposit",
+      "description": "A waxy sebum deposit extracted from the dorsal glands of Cambion Drift fish. The sebum layer provides thermal insulation for fish swimming in Deimos's cold underground pools.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Fishing — various Cambion Drift fish",
+      "faction_source": "None",
+      "acquisition": "fishing",
+      "tradeable": false,
+      "sell_value": 3,
+      "emoji_key": "waxen_sebum_deposit"
+    },
+    "lamentus": {
+      "name": "Lamentus",
+      "key": "lamentus",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Lamentus",
+      "description": "A sombre deep-purple gem extracted from Deimos's denser mineral formations. Lamentus crystals form where Void energy has permanently stressed and fractured the surrounding rock.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "lamentus"
+    },
+    "stela": {
+      "name": "Stela",
+      "key": "stela",
+      "category": "mining_gem",
+      "rarity": "uncommon",
+      "wiki_verified": false,
+      "wiki_source": "warframe.fandom.com/wiki/Stela",
+      "description": "A flat, tablet-shaped mineral extracted from compressed Cambion Drift ore bands. Stela minerals are used as substrate boards in Entrati bio-electronic instruments.",
+      "found_on": [
+        "Cambion Drift",
+        "Deimos"
+      ],
+      "primary_source": "Mining (Cambion Drift) — Nosam Cutter",
+      "faction_source": "None",
+      "acquisition": "mining",
+      "tradeable": false,
+      "sell_value": 5,
+      "used_in_foundry": true,
+      "emoji_key": "stela"
+    }
+  }
+}

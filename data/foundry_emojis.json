@@ -1,0 +1,6 @@
+{
+  "_deprecated": true,
+  "_note": "Optional emoji overrides for Foundry items. Missing keys fall back to placeholder.",
+  "_migrated_to": "data/emojis.json → items section",
+  "_placeholder": "❔"
+}
