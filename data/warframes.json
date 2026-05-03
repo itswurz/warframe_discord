@@ -46,9 +46,9 @@
         }
       ],
       "warframe_slots": [
+        "vazarin",
         "madurai",
-        "madurai",
-        "naramon",
+        "any",
         "any",
         "any",
         "any",
@@ -97,7 +97,7 @@
       "mod_slots": [
         {
           "index": 0,
-          "polarity": "madurai"
+          "polarity": "naramon"
         },
         {
           "index": 1,
@@ -105,7 +105,7 @@
         },
         {
           "index": 2,
-          "polarity": "naramon"
+          "polarity": "any"
         },
         {
           "index": 3,
@@ -129,10 +129,10 @@
         }
       ],
       "warframe_slots": [
-        "vazarin",
-        "vazarin",
         "naramon",
         "naramon",
+        "any",
+        "any",
         "any",
         "any",
         "any",
@@ -180,7 +180,7 @@
       "mod_slots": [
         {
           "index": 0,
-          "polarity": "madurai"
+          "polarity": "naramon"
         },
         {
           "index": 1,
@@ -188,7 +188,7 @@
         },
         {
           "index": 2,
-          "polarity": "naramon"
+          "polarity": "any"
         },
         {
           "index": 3,
@@ -213,8 +213,8 @@
       ],
       "warframe_slots": [
         "naramon",
-        "naramon",
-        "zenurik",
+        "madurai",
+        "any",
         "any",
         "any",
         "any",
