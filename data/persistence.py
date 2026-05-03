@@ -205,7 +205,8 @@ def _default_profile(user_id: int | str) -> dict:
         "tutorial_step":    None,
         "current_quest":    None,
         "current_mission":  None,
-        "completed_quests": [],
+        "completed_quests":   [],
+        "completed_missions": [],
         "warframe":         None,
         "weapon":           None,
         "secondary_weapon": None,
@@ -621,10 +622,11 @@ def _migrate_player(data: dict) -> dict:
 
     data.setdefault("secondary_weapon",  None)
     data.setdefault("melee_weapon",      None)
-    data.setdefault("tutorial_step",     None)
-    data.setdefault("current_quest",     None)
-    data.setdefault("current_mission",   None)
-    data.setdefault("completed_quests",  [])
+    data.setdefault("tutorial_step",      None)
+    data.setdefault("current_quest",      None)
+    data.setdefault("current_mission",    None)
+    data.setdefault("completed_quests",   [])
+    data.setdefault("completed_missions", [])
 
     data["schema_version"] = SCHEMA_VERSION_PLAYER
     return data

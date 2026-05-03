@@ -87,9 +87,13 @@ class CombatSession:
         secondary_weapon:  str  = "Lato",
         profile:           dict | None = None,
         tutorial:          bool = False,
+        quest_id:          str  | None = None,
+        quest_mission_id:  str  | None = None,
     ) -> None:
-        self.user_id  = user_id
-        self.tutorial = tutorial
+        self.user_id          = user_id
+        self.tutorial         = tutorial
+        self.quest_id         = quest_id
+        self.quest_mission_id = quest_mission_id
 
         # ── Resolve mod bonuses from equipped mods ────────────────────────────
         # If a full player profile is supplied, look up the active warframe

@@ -101,6 +101,9 @@ async def _finish_tutorial(
         profile["tutorial_step"]  = None
         profile["current_quest"]  = "vors_prize"
         profile["current_mission"] = "tolstoj"
+        completed_missions = profile.setdefault("completed_missions", [])
+        if "awakening" not in completed_missions:
+            completed_missions.append("awakening")
         await persistence.save_player(profile)
 
         color       = 0x1A7A3C
@@ -187,6 +190,42 @@ async def _refresh(
 
         loot_embed = build_loot_embed(session)
         await interaction.followup.send(embed=loot_embed)
+
+        # ── Quest mission advancement ──────────────────────────────────────────
+        if session.state == CombatState.VICTORY and session.quest_mission_id:
+            try:
+                from cogs.quests import advance_quest, _load_quest as _lq, _mission_display_name
+                q_profile = await persistence.load_player(session.user_id)
+                status    = advance_quest(q_profile, session.quest_id, session.quest_mission_id)
+                await persistence.save_player(q_profile)
+
+                if status == "quest_complete":
+                    qd    = _lq(session.quest_id)
+                    qname = qd.get("name", session.quest_id) if qd else session.quest_id
+                    await interaction.followup.send(
+                        embed=discord.Embed(
+                            title=f"{E.lotus}  QUEST COMPLETE — {qname}",
+                            description=(
+                                "*\"Outstanding, Operator. This chapter is closed.\"*\n\n"
+                                "Use `!quests` to check your Quest Log."
+                            ),
+                            color=0xC8A840,
+                        )
+                    )
+                elif status == "advanced":
+                    qd = _lq(session.quest_id)
+                    if qd:
+                        next_label = _mission_display_name(qd, q_profile.get("current_mission"))
+                        await interaction.followup.send(
+                            content=(
+                                f"{E.lotus} *\"Mission complete, Operator. "
+                                f"Next objective: **{next_label}**.\"*\n"
+                                "Use `!mission` to continue."
+                            )
+                        )
+            except Exception:
+                import traceback
+                traceback.print_exc()
 
 
 def _disabled_view(session: CombatSession) -> "CombatView":

@@ -3,12 +3,13 @@
 # Quest Log cog.
 #
 # Commands:
-#   !quests / !quest       — Display the player's Quest Log
-#   !quest start <id>      — Start a named quest by its ID
+#   !quests / !quest          — Display the player's Quest Log
+#   !quest start <id>         — Start a named quest by its ID
+#   !mission / !deploy        — Deploy into the current quest mission
 #
 # Quest data lives in data/quests/<quest_id>.json.
-# The active quest and mission are tracked in the player profile via
-# current_quest / current_mission fields.
+# The active quest, mission, and completion tracking are stored in the player
+# profile:  current_quest / current_mission / completed_quests / completed_missions
 # ─────────────────────────────────────────────────────────────────────────────
 
 from __future__ import annotations
@@ -68,6 +69,50 @@ def _first_mission_id(quest: dict) -> str | None:
     return None
 
 
+def _next_mission_id(quest: dict, current_mission_id: str) -> str | None:
+    """Return the mission ID that follows current_mission_id, or None if it is last."""
+    all_missions: list[str] = []
+    for arc in quest.get("arcs", []):
+        for m in arc.get("missions", []):
+            all_missions.append(m["id"])
+    try:
+        idx = all_missions.index(current_mission_id)
+        return all_missions[idx + 1] if idx + 1 < len(all_missions) else None
+    except ValueError:
+        return None
+
+
+def advance_quest(profile: dict, quest_id: str, mission_id: str) -> str:
+    """Mark *mission_id* complete for *quest_id* and advance the pointer.
+
+    Modifies *profile* in-place.  Caller must save the profile afterward.
+
+    Returns:
+        "advanced"       — moved to the next mission in the quest
+        "quest_complete" — no more missions; quest added to completed_quests
+        "no_quest_data"  — quest JSON not found (no change made)
+    """
+    quest = _load_quest(quest_id)
+    if not quest:
+        return "no_quest_data"
+
+    completed_missions: list = profile.setdefault("completed_missions", [])
+    if mission_id not in completed_missions:
+        completed_missions.append(mission_id)
+
+    next_id = _next_mission_id(quest, mission_id)
+    if next_id:
+        profile["current_mission"] = next_id
+        return "advanced"
+
+    completed_quests: list = profile.setdefault("completed_quests", [])
+    if quest_id not in completed_quests:
+        completed_quests.append(quest_id)
+    profile["current_quest"]   = None
+    profile["current_mission"] = None
+    return "quest_complete"
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Embed builder
 # ─────────────────────────────────────────────────────────────────────────────
@@ -75,7 +120,8 @@ def _first_mission_id(quest: dict) -> str | None:
 def _build_quest_log_embed(profile: dict) -> discord.Embed:
     current_quest_id   = profile.get("current_quest")
     current_mission_id = profile.get("current_mission")
-    completed          = profile.get("completed_quests", [])
+    completed          = profile.get("completed_quests",   [])
+    completed_missions = profile.get("completed_missions", [])
 
     embed = discord.Embed(
         title=f"{E.lotus}  QUEST LOG",
@@ -87,18 +133,35 @@ def _build_quest_log_embed(profile: dict) -> discord.Embed:
     if current_quest_id:
         quest = _load_quest(current_quest_id)
         if quest:
-            quest_name    = quest.get("name", current_quest_id)
-            faction       = quest.get("faction", "Unknown")
-            mission_label = _mission_display_name(quest, current_mission_id)
-            description   = quest.get("description", "—")
+            quest_name  = quest.get("name", current_quest_id)
+            faction     = quest.get("faction", "Unknown")
+            description = quest.get("description", "—")
+
+            # Per-arc mission progress
+            progress_lines: list[str] = []
+            for arc in quest.get("arcs", []):
+                arc_name = arc.get("name", arc.get("id", "?"))
+                progress_lines.append(f"**{arc_name}**")
+                for m in arc.get("missions", []):
+                    mid  = m["id"]
+                    name = m["name"]
+                    loc  = m.get("location", "?")
+                    if mid in completed_missions:
+                        progress_lines.append(f"  ✅ ~~{name}~~  ·  {loc}")
+                    elif mid == current_mission_id:
+                        progress_lines.append(f"  🎯 **{name}**  ·  {loc}  ← Current")
+                    else:
+                        progress_lines.append(f"  ⬜ {name}  ·  {loc}")
+
+            progress_text = "\n".join(progress_lines) if progress_lines else "—"
 
             embed.add_field(
-                name="ACTIVE QUEST",
+                name=f"ACTIVE — {quest_name}  (`{current_quest_id}`)",
                 value=(
-                    f"**{quest_name}**  ·  Faction: `{faction}`\n"
+                    f"Faction: `{faction}`\n"
                     f"*{description}*\n\n"
-                    f"{E.location} **Current Objective:** {mission_label}\n\n"
-                    f"Use `!combat` to deploy into your current mission."
+                    f"{progress_text}\n\n"
+                    f"Use `!mission` to deploy into your current objective."
                 ),
                 inline=False,
             )
@@ -124,7 +187,7 @@ def _build_quest_log_embed(profile: dict) -> discord.Embed:
         for qid in completed:
             q    = _load_quest(qid)
             name = q.get("name", qid) if q else qid
-            lines.append(f"✅ **{name}**")
+            lines.append(f"✅ **{name}**  (`{qid}`)")
         embed.add_field(
             name="COMPLETED",
             value="\n".join(lines),
@@ -133,7 +196,7 @@ def _build_quest_log_embed(profile: dict) -> discord.Embed:
     else:
         embed.add_field(name="COMPLETED", value="*None yet.*", inline=False)
 
-    # ── Available quests (not started, not completed) ─────────────────────────
+    # ── Available quests (not active, not completed) ──────────────────────────
     all_ids   = _all_quest_ids()
     available = [
         qid for qid in all_ids
@@ -144,7 +207,7 @@ def _build_quest_log_embed(profile: dict) -> discord.Embed:
         for qid in available:
             q    = _load_quest(qid)
             name = q.get("name", qid) if q else qid
-            lines.append(f"📋 **{name}** — `!quest start {qid}`")
+            lines.append(f"📋 **{name}**  (`{qid}`) — `!quest start {qid}`")
         embed.add_field(
             name="AVAILABLE",
             value="\n".join(lines),
@@ -152,7 +215,7 @@ def _build_quest_log_embed(profile: dict) -> discord.Embed:
         )
 
     embed.set_footer(
-        text="Quest Log  ·  !quest start <id> to begin  ·  Warframe © Digital Extremes"
+        text="!mission to deploy  ·  !quest start <id> to begin  ·  Warframe © Digital Extremes"
     )
     return embed
 
@@ -165,6 +228,8 @@ class QuestsCog(commands.Cog, name="Quests"):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+
+    # ── !quests / !quest ──────────────────────────────────────────────────────
 
     @commands.group(
         name="quest",
@@ -180,6 +245,8 @@ class QuestsCog(commands.Cog, name="Quests"):
             content=f"{E.lotus} *\"The Navigation Terminal is ready, Operator.\"*",
             embed=embed,
         )
+
+    # ── !quest start <id> ─────────────────────────────────────────────────────
 
     @quest_cmd.command(name="start", aliases=["begin"])
     @commands.cooldown(1, 10, commands.BucketType.user)
@@ -228,6 +295,129 @@ class QuestsCog(commands.Cog, name="Quests"):
             embed=embed,
         )
 
+    # ── !mission ──────────────────────────────────────────────────────────────
+
+    @commands.command(name="mission", aliases=["deploy"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def mission_cmd(self, ctx: commands.Context) -> None:
+        """Deploy into your current quest mission."""
+        from combat.session import CombatSession, ACTIVE_SESSIONS
+        from combat.weapons import WEAPON_STATS
+        from data.warframes import WARFRAMES
+        from utils.combat_embeds import build_combat_embed
+        from cogs.combat import CombatView
+
+        profile = await persistence.load_player(ctx.author.id)
+
+        current_quest_id   = profile.get("current_quest")
+        current_mission_id = profile.get("current_mission")
+
+        if not current_quest_id:
+            await ctx.send(
+                f"{E.lotus} *\"No active quest, Operator.\"*\n"
+                "Use `!quests` to browse available quests.",
+                delete_after=12,
+            )
+            return
+
+        quest = _load_quest(current_quest_id)
+        if not quest:
+            await ctx.send(
+                f"{E.lotus} ❌ Quest data for `{current_quest_id}` not found.",
+                delete_after=10,
+            )
+            return
+
+        # Find current mission data
+        mission_data: dict | None = None
+        for arc in quest.get("arcs", []):
+            for m in arc.get("missions", []):
+                if m["id"] == current_mission_id:
+                    mission_data = m
+                    break
+            if mission_data:
+                break
+
+        if not mission_data:
+            await ctx.send(
+                f"{E.lotus} ❌ Mission `{current_mission_id}` not found in quest data.",
+                delete_after=10,
+            )
+            return
+
+        # Guard — already in an active session?
+        existing = ACTIVE_SESSIONS.get(ctx.author.id)
+        if existing and not existing.is_over:
+            await ctx.send(
+                "⚔️ You are already deployed, Tenno. "
+                "Finish your current mission or use `!abort` first.",
+                delete_after=8,
+            )
+            return
+        ACTIVE_SESSIONS.pop(ctx.author.id, None)
+
+        # Resolve loadout from profile
+        wf_name = profile.get("warframe")
+        if not wf_name:
+            await ctx.send(
+                f"{E.lotus} No Warframe equipped. Use `!warframe` to select one.",
+                delete_after=10,
+            )
+            return
+
+        wf_key = next(
+            (k for k, v in WARFRAMES.items() if v["name"] == wf_name), None
+        )
+        if not wf_key:
+            await ctx.send(
+                f"{E.lotus} ❌ Warframe `{wf_name}` not found in the Codex.",
+                delete_after=10,
+            )
+            return
+
+        primary_name   = profile.get("weapon")           or "MK1-Braton"
+        secondary_name = profile.get("secondary_weapon") or "Lato"
+        melee_name     = profile.get("melee_weapon")     or "Skana"
+
+        if primary_name   not in WEAPON_STATS: primary_name   = "MK1-Braton"
+        if secondary_name not in WEAPON_STATS: secondary_name = "Lato"
+        if melee_name     not in WEAPON_STATS: melee_name     = "Skana"
+
+        session = CombatSession(
+            warframe_key     = wf_key,
+            warframe_data    = WARFRAMES[wf_key],
+            user_id          = ctx.author.id,
+            primary_weapon   = primary_name,
+            secondary_weapon = secondary_name,
+            melee_weapon     = melee_name,
+            profile          = profile,
+            quest_id         = current_quest_id,
+            quest_mission_id = current_mission_id,
+        )
+        ACTIVE_SESSIONS[ctx.author.id] = session
+
+        pw = WEAPON_STATS.get(primary_name,   {})
+        sw = WEAPON_STATS.get(secondary_name, {})
+        mw = WEAPON_STATS.get(melee_name,     {})
+
+        mission_name     = mission_data.get("name",     current_mission_id)
+        mission_location = mission_data.get("location", "Unknown")
+
+        embed = build_combat_embed(session, session.log[-10:])
+        view  = CombatView(session)
+        session._active_view = view
+
+        await ctx.send(
+            content=(
+                f"{E.lotus} *\"Deploying to **{mission_name}**  ·  {mission_location}.\"*\n"
+                f"{pw.get('emoji','')} **{primary_name}**  ·  "
+                f"{sw.get('emoji','')} **{secondary_name}**  ·  "
+                f"{mw.get('emoji','')} **{melee_name}**"
+            ),
+            embed=embed,
+            view=view,
+        )
+
     # ── Error handlers ────────────────────────────────────────────────────────
 
     @quest_cmd.error
@@ -250,6 +440,17 @@ class QuestsCog(commands.Cog, name="Quests"):
                 delete_after=12,
             )
         elif isinstance(error, commands.CommandOnCooldown):
+            await ctx.send(
+                f"⏳ Navigation Terminal recalibrating. "
+                f"Try again in `{error.retry_after:.1f}s`.",
+                delete_after=6,
+            )
+        else:
+            raise error
+
+    @mission_cmd.error
+    async def mission_error(self, ctx: commands.Context, error) -> None:
+        if isinstance(error, commands.CommandOnCooldown):
             await ctx.send(
                 f"⏳ Navigation Terminal recalibrating. "
                 f"Try again in `{error.retry_after:.1f}s`.",
