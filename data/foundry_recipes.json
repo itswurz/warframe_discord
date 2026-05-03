@@ -1,17 +1,17 @@
 {
   "_meta": {
-    "version": "7.0",
+    "version": "8.0",
     "wiki_source": "warframe.fandom.com",
     "craft_times_note": "base_time is a compressed gameplay unit (NOT raw seconds). Components (12h)=300, weapons (12h)=360, weapons (1d)=480, warframe main (1d)=480, warframe main (3d)=720, resources (3d)=720. Quest warframes with 1-min build use base_time=30. All values clamped [30,900] by the foundry cog.",
     "verification": "wiki_verified=true means quantities were fetched live from warframe.fandom.com. wiki_verified=false means training-data fallback — verify and correct as needed.",
-    "entry_count": "1013 entries",
+    "entry_count": "1025 entries",
     "unverified": "all verified",
     "last_updated": "2026-05-03",
     "categories": {
       "warframe_part": 314,
-      "warframe": 103,
-      "primary": 138,
-      "secondary": 108,
+      "warframe": 105,
+      "primary": 140,
+      "secondary": 111,
       "melee": 181,
       "sentinel": 9,
       "craftable_resource": 9,
@@ -19,7 +19,8 @@
       "arch_melee": 7,
       "necramech": 2,
       "railjack_weapon": 81,
-      "railjack_component": 36
+      "railjack_component": 36,
+      "archwing": 5
     }
   },
   "rarity_weights": {
@@ -18790,6 +18791,221 @@
       "result_key": "zephyr_prime_systems",
       "result_name": "Zephyr Prime Systems",
       "result_type": "weapon"
+    },
+    "amesha": {
+      "name": "Amesha",
+      "type": "archwing",
+      "category": "archwing",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Amesha",
+      "ingredients": {
+        "Amesha Harness": 1,
+        "Amesha Systems": 1,
+        "Amesha Wings": 1,
+        "Nitain Extract": 4
+      },
+      "credit_cost": 25000,
+      "base_time": 300,
+      "result_key": "amesha",
+      "result_name": "Amesha",
+      "result_type": "archwing"
+    },
+    "elytron": {
+      "name": "Elytron",
+      "type": "archwing",
+      "category": "archwing",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Elytron",
+      "ingredients": {
+        "Elytron Harness": 1,
+        "Elytron Systems": 1,
+        "Elytron Wings": 1,
+        "Control Module": 5
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "elytron",
+      "result_name": "Elytron",
+      "result_type": "archwing"
+    },
+    "itzal": {
+      "name": "Itzal",
+      "type": "archwing",
+      "category": "archwing",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Itzal",
+      "ingredients": {
+        "Itzal Harness": 1,
+        "Itzal Systems": 1,
+        "Itzal Wings": 1,
+        "Control Module": 2
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "itzal",
+      "result_name": "Itzal",
+      "result_type": "archwing"
+    },
+    "odonata": {
+      "name": "Odonata",
+      "type": "archwing",
+      "category": "archwing",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Odonata",
+      "ingredients": {
+        "Odonata Harness": 1,
+        "Odonata Systems": 1,
+        "Odonata Wings": 1,
+        "Circuits": 300
+      },
+      "credit_cost": 7000,
+      "base_time": 300,
+      "result_key": "odonata",
+      "result_name": "Odonata",
+      "result_type": "archwing"
+    },
+    "odonata_prime": {
+      "name": "Odonata Prime",
+      "type": "archwing",
+      "category": "archwing",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Odonata_Prime",
+      "ingredients": {
+        "Odonata Prime Harness": 1,
+        "Odonata Prime Systems": 1,
+        "Odonata Prime Wings": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "odonata_prime",
+      "result_name": "Odonata Prime",
+      "result_type": "archwing"
+    },
+    "acceltra_prime": {
+      "name": "Acceltra Prime",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Acceltra_Prime",
+      "ingredients": {
+        "Acceltra Prime Barrel": 1,
+        "Acceltra Prime Receiver": 1,
+        "Acceltra Prime Stock": 1,
+        "Orokin Cell": 10
+      },
+      "credit_cost": 15000,
+      "base_time": 300,
+      "result_key": "acceltra_prime",
+      "result_name": "Acceltra Prime",
+      "result_type": "weapon"
+    },
+    "efv_0_somnus": {
+      "name": "EFV-0 Somnus",
+      "type": "weapon",
+      "category": "primary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/EFV-0_Somnus",
+      "ingredients": {
+        "EFV-0 Somnus Barrel": 1,
+        "EFV-0 Somnus Receiver": 1,
+        "EFV-0 Somnus Stock": 1
+      },
+      "credit_cost": 20000,
+      "base_time": 300,
+      "result_key": "efv_0_somnus",
+      "result_name": "EFV-0 Somnus",
+      "result_type": "weapon"
+    },
+    "catchmoon": {
+      "name": "Catchmoon",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Catchmoon",
+      "ingredients": {
+        "Mytocardia Spore": 15,
+        "Travocyte Alloy": 20,
+        "Scrubber Exa Brain": 10,
+        "Alloy Plate": 1700
+      },
+      "credit_cost": 5000,
+      "base_time": 300,
+      "result_key": "catchmoon",
+      "result_name": "Catchmoon",
+      "result_type": "weapon"
+    },
+    "rattleguts": {
+      "name": "Rattleguts",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Rattleguts",
+      "ingredients": {
+        "Gorgaricus Spore": 15,
+        "Venerdo Alloy": 20,
+        "Eye-Eye Rotoblade": 10,
+        "Rubedo": 900
+      },
+      "credit_cost": 5000,
+      "base_time": 300,
+      "result_key": "rattleguts",
+      "result_name": "Rattleguts",
+      "result_type": "weapon"
+    },
+    "tombfinger": {
+      "name": "Tombfinger",
+      "type": "weapon",
+      "category": "secondary",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Tombfinger",
+      "ingredients": {
+        "Thermal Sludge": 15,
+        "Axidrol Alloy": 20,
+        "Tink Dissipator Coil": 10,
+        "Circuits": 900
+      },
+      "credit_cost": 5000,
+      "base_time": 300,
+      "result_key": "tombfinger",
+      "result_name": "Tombfinger",
+      "result_type": "weapon"
+    },
+    "equinox_day_aspect": {
+      "name": "Equinox Day Aspect",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "ingredients": {
+        "Equinox Day Neuroptics": 1,
+        "Equinox Day Chassis": 1,
+        "Equinox Day Systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "equinox_day_aspect",
+      "result_name": "Equinox Day Aspect",
+      "result_type": "warframe"
+    },
+    "equinox_night_aspect": {
+      "name": "Equinox Night Aspect",
+      "type": "warframe",
+      "category": "warframe",
+      "wiki_verified": true,
+      "wiki_source": "warframe.fandom.com/wiki/Equinox",
+      "ingredients": {
+        "Equinox Night Neuroptics": 1,
+        "Equinox Night Chassis": 1,
+        "Equinox Night Systems": 1,
+        "Orokin Cell": 1
+      },
+      "credit_cost": 25000,
+      "base_time": 720,
+      "result_key": "equinox_night_aspect",
+      "result_name": "Equinox Night Aspect",
+      "result_type": "warframe"
     }
   }
 }
