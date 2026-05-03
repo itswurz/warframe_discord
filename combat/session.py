@@ -82,18 +82,33 @@ class CombatSession:
         warframe_key:      str,
         warframe_data:     dict,
         user_id:           int,
-        primary_weapon:    str  = "MK1-Braton",
-        melee_weapon:      str  = "Skana",
-        secondary_weapon:  str  = "Lato",
+        primary_weapon:    str        = "MK1-Braton",
+        melee_weapon:      str        = "Skana",
+        secondary_weapon:  str        = "Lato",
         profile:           dict | None = None,
-        tutorial:          bool = False,
+        tutorial:          bool        = False,
         quest_id:          str  | None = None,
         quest_mission_id:  str  | None = None,
+        game_mode:         str         = "exterminate",
+        mission_level:     int         = 1,
+        quest_enemies:     list | None = None,
+        mission_no_loot:   bool        = False,
+        no_die:            bool        = False,
     ) -> None:
         self.user_id          = user_id
         self.tutorial         = tutorial
         self.quest_id         = quest_id
         self.quest_mission_id = quest_mission_id
+        self.game_mode        = game_mode
+        self.mission_level    = mission_level
+        self.quest_enemies    = quest_enemies
+        self.mission_no_loot  = mission_no_loot
+        self.no_die           = no_die
+
+        # ── Boss / objective state ─────────────────────────────────────────────
+        self.objective_complete:    bool      = False
+        self.boss_phases_triggered: set       = set()
+        self._enemies_cleared_noted:bool      = False
 
         # ── Resolve mod bonuses from equipped mods ────────────────────────────
         # If a full player profile is supplied, look up the active warframe
@@ -206,8 +221,37 @@ class CombatSession:
 
     # ── Spawn ──────────────────────────────────────────────────────────────────
 
+    @staticmethod
+    def _scale_enemy_data(data: dict, mission_level: int) -> dict:
+        """Return a shallow-copied enemy data dict with HP and ability damage
+        scaled to *mission_level* using the Warframe wiki level-scaling formula:
+          multiplier = (1 + 0.015 × max(0, level − base_level))²
+        """
+        import copy
+        base_level  = data.get("base_level", 1)
+        level_delta = max(0, mission_level - base_level)
+        if level_delta == 0:
+            return data
+
+        mult = (1 + 0.015 * level_delta) ** 2
+        out  = copy.deepcopy(data)
+        out["hp"] = max(data["hp"], int(data["hp"] * mult))
+        if out.get("shields", 0) > 0:
+            out["shields"] = max(data["shields"], int(data["shields"] * mult))
+        for ab in out.get("abilities", []):
+            if ab.get("damage", 0) > 0:
+                ab["damage"] = max(ab["damage"], int(ab["damage"] * mult))
+        return out
+
     def _spawn_enemies(self) -> list[EnemyEntity]:
-        return [EnemyEntity(k, ENEMIES[k]) for k in INTRO_ENCOUNTER]
+        keys = self.quest_enemies if self.quest_enemies else INTRO_ENCOUNTER
+        entities: list[EnemyEntity] = []
+        for k in keys:
+            if k not in ENEMIES:
+                continue
+            data = self._scale_enemy_data(ENEMIES[k], self.mission_level)
+            entities.append(EnemyEntity(k, data))
+        return entities
 
     # ── Queries ────────────────────────────────────────────────────────────────
 
@@ -248,7 +292,7 @@ class CombatSession:
     # ── Drop collection ────────────────────────────────────────────────────────
 
     def _collect_drops(self) -> None:
-        if self.tutorial:
+        if self.tutorial or self.mission_no_loot:
             return
 
         from data.drops import roll_drops
@@ -346,6 +390,7 @@ class CombatSession:
 
         self.log.extend(result.log)
         self._collect_drops()
+        self._check_boss_phase()
         self._check_victory()
         return self.log[-12:]
 
@@ -365,6 +410,7 @@ class CombatSession:
 
         self.log.extend(result.log)
         self._collect_drops()
+        self._check_boss_phase()
         self._check_victory()
         return self.log[-12:]
 
@@ -384,6 +430,7 @@ class CombatSession:
 
         self.log.extend(result.log)
         self._collect_drops()
+        self._check_boss_phase()
         self._check_victory()
         return self.log[-12:]
 
@@ -803,19 +850,148 @@ class CombatSession:
     # ── Win / loss ─────────────────────────────────────────────────────────────
 
     def _check_victory(self) -> None:
-        if not self.living_enemies() and not self.is_over:
-            self.state                   = CombatState.VICTORY
-            self.mission_credits_earned  = CREDITS_VICTORY
-            self.log.append(
-                f"{_LOTUS} **MISSION COMPLETE** — All enemies defeated, Tenno! "
-                f"(**+{CREDITS_VICTORY} Credits**)"
-            )
+        if self.is_over:
+            return
+        living = self.living_enemies()
+        enemies_cleared = not living
+
+        if self.game_mode in ("exterminate", "assassination", "mobile_defense"):
+            if enemies_cleared:
+                self._trigger_victory()
+
+        elif self.game_mode in ("spy", "rescue", "sabotage"):
+            if enemies_cleared and self.objective_complete:
+                self._trigger_victory()
+            elif enemies_cleared and not self._enemies_cleared_noted:
+                self._enemies_cleared_noted = True
+                prompts = {
+                    "spy":     f"{_LOTUS} Area secured! **Hack the console** to extract the data.",
+                    "rescue":  f"{_LOTUS} Guards eliminated! **Free Darvo** from his cell.",
+                    "sabotage":f"{_LOTUS} Path cleared! **Sabotage the reactor** and extract!",
+                }
+                self.log.append(prompts.get(self.game_mode, f"{_LOTUS} Objective available."))
+
+        else:
+            if enemies_cleared:
+                self._trigger_victory()
+
+    def _trigger_victory(self) -> None:
+        if self.is_over:
+            return
+        self.state                  = CombatState.VICTORY
+        self.mission_credits_earned = CREDITS_VICTORY
+        self.log.append(
+            f"{_LOTUS} **MISSION COMPLETE** — Well done, Tenno! "
+            f"(**+{CREDITS_VICTORY} Credits**)"
+        )
 
     def _check_defeat(self) -> None:
         if not self.player.is_alive and not self.is_over:
+            if self.no_die:
+                self.player.hp = 1
+                self.log.append(
+                    f"{_LOTUS} *\"Hold on, Operator — I won't let you fall here!\"* "
+                    "(HP restored to 1 — this mission won't let you die!)"
+                )
+                return
             self.state                   = CombatState.DEFEAT
             self.mission_credits_earned  = CREDITS_DEFEAT
             self.log.append(
                 f"{_LOTUS} **MISSION FAILED** — Ordis mourns your loss, Operator. "
                 f"(**+{CREDITS_DEFEAT} Credits** salvaged)"
             )
+
+    # ── Boss phase management ──────────────────────────────────────────────────
+
+    def _check_boss_phase(self) -> None:
+        """Called after every player attack. Handles Captain Vor Sphere Shield phases."""
+        if self.game_mode != "assassination":
+            return
+
+        vor = next(
+            (e for e in self.enemies if e.enemy_key == "captain_vor" and e.is_alive),
+            None,
+        )
+        if vor is None:
+            return
+
+        mission_data   = getattr(self, "_mission_data_cache", None)
+        thresholds_pct = [0.75, 0.50, 0.25]
+        reinf_counts   = [2, 2, 3]
+
+        for pct, count in zip(thresholds_pct, reinf_counts):
+            threshold_hp = int(vor.max_hp * pct)
+            key          = round(pct, 2)
+            if key not in self.boss_phases_triggered and vor.hp <= threshold_hp:
+                self.boss_phases_triggered.add(key)
+
+                vor.is_shielded = True
+                scaled_data = self._scale_enemy_data(
+                    ENEMIES.get("frontier_lancer", ENEMIES[list(ENEMIES.keys())[0]]),
+                    self.mission_level,
+                )
+                for _ in range(count):
+                    self.enemies.append(EnemyEntity("frontier_lancer", scaled_data))
+
+                self.log.append(
+                    f"🔮 **Captain Vor** activates his **Sphere Shield** — "
+                    f"*IMPERVIOUS TO ALL DAMAGE!*\n"
+                    f"  *\"The Janus Key flows through me, Tenno! You cannot touch me!\"*\n"
+                    f"  ⚠️ **{count} Frontier Lancers** teleport in as reinforcements!\n"
+                    f"  {_LOTUS} **Destroy the reinforcements to break Vor's shield!**"
+                )
+                return
+
+        if vor.is_shielded:
+            reinforcements = [
+                e for e in self.living_enemies() if e.enemy_key != "captain_vor"
+            ]
+            if not reinforcements:
+                vor.is_shielded = False
+                self.log.append(
+                    f"💥 **Sphere Shield BROKEN!** Captain Vor is vulnerable!\n"
+                    f"  *\"Impossible... The Key... it falters...\"*\n"
+                    f"  {_LOTUS} Focus fire on Vor — **finish him!**"
+                )
+
+    # ── Objective action (Spy / Rescue / Sabotage / Mobile Defense) ───────────
+
+    def player_objective(self) -> list[str]:
+        """Player clicks the context-sensitive objective button."""
+        if self.is_over:
+            return [f"{_LOTUS} The mission is already over."]
+        if not self.is_player_turn:
+            return [f"{_LOTUS} It's not your turn yet, Tenno."]
+        if self.living_enemies():
+            return [f"{_LOTUS} Eliminate all enemies before completing the objective!"]
+        if self.objective_complete:
+            return [f"{_LOTUS} Objective already completed."]
+
+        self.objective_complete = True
+        self.actions_used += 1
+
+        mode_lines = {
+            "spy": (
+                f"🔒 **Console hacked!** Mission data successfully extracted — "
+                f"Comms Segment secured."
+            ),
+            "rescue": (
+                f"🔓 **Cell opened!** "
+                f"*Darvo: \"Ha! I knew you'd come. Let's get out of here!\"*"
+            ),
+            "sabotage": (
+                f"💣 **Reactor SABOTAGED!** Overload sequence initiated — "
+                f"extract now before it blows!"
+            ),
+            "mobile_defense": (
+                f"📦 **Cache secured!** Resource data transmitted to Ordis."
+            ),
+        }
+        self.log.append(
+            mode_lines.get(
+                self.game_mode,
+                f"✅ **Objective complete!**",
+            )
+        )
+        self._check_victory()
+        return self.log[-10:]

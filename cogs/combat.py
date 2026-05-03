@@ -100,7 +100,7 @@ async def _finish_tutorial(
         profile["initialized"]    = True
         profile["tutorial_step"]  = None
         profile["current_quest"]  = "vors_prize"
-        profile["current_mission"] = "tolstoj"
+        profile["current_mission"] = "e_prime"
         completed_missions = profile.setdefault("completed_missions", [])
         if "awakening" not in completed_missions:
             completed_missions.append("awakening")
@@ -554,6 +554,54 @@ class StatusButton(discord.ui.Button):
 # View
 # ─────────────────────────────────────────────────────────────────────────────
 
+_OBJECTIVE_MODES = ("spy", "rescue", "sabotage", "mobile_defense")
+
+_OBJECTIVE_META: dict[str, tuple[str, str]] = {
+    "spy":            ("🔒", "Hack Console"),
+    "rescue":         ("🔓", "Free Darvo"),
+    "sabotage":       ("💣", "Sabotage"),
+    "mobile_defense": ("📦", "Secure Cache"),
+}
+
+
+class ObjectiveButton(discord.ui.Button):
+    """Context-sensitive mission-objective button (Row 2).
+
+    Shown only for Spy / Rescue / Sabotage / Mobile Defense missions.
+    Enabled only once all enemies are cleared and the objective is not yet done.
+    """
+
+    def __init__(self, session: CombatSession) -> None:
+        mode               = session.game_mode
+        emoji, label       = _OBJECTIVE_META.get(mode, ("🎯", "Objective"))
+        enemies_cleared    = not session.living_enemies()
+        can_act            = (
+            session.is_player_turn
+            and session.actions_remaining > 0
+            and enemies_cleared
+            and not session.objective_complete
+            and not session.is_over
+        )
+        super().__init__(
+            style     = discord.ButtonStyle.success,
+            label     = label,
+            emoji     = emoji,
+            custom_id = f"combat_objective_{session.user_id}",
+            row       = 2,
+            disabled  = not can_act,
+        )
+        self.session = session
+
+    async def callback(self, interaction: discord.Interaction) -> None:
+        if interaction.user.id != self.session.user_id:
+            await interaction.response.send_message(
+                "This is not your combat session, Tenno.", ephemeral=True
+            )
+            return
+        log = self.session.player_objective()
+        await _refresh(interaction, self.session, log)
+
+
 class CombatView(discord.ui.View):
     """
     Full combat button panel.  Re-instantiated after every action so
@@ -561,6 +609,7 @@ class CombatView(discord.ui.View):
 
     Row 0: [Primary Weapon]  [Ability 1]  [Ability 2]  [Ability 3]  [Ability 4]
     Row 1: [End Turn]  [Melee Weapon]  [Secondary Weapon]  [Hold Cast*]  [Status]
+    Row 2: [Objective*]  (* only present for Spy / Rescue / Sabotage / MobDef)
            (* Hold Cast present only for warframes with HOLD_CAST_ABILITIES entries)
 
     All weapon button labels / emoji are read from WEAPON_STATS at construction
@@ -583,6 +632,10 @@ class CombatView(discord.ui.View):
         if HOLD_CAST_ABILITIES.get(session.player.warframe_key):
             self.add_item(HoldCastButton(session))
         self.add_item(StatusButton(session))
+
+        # ── Row 2 — objective (only for applicable game modes) ────────────────
+        if session.game_mode in _OBJECTIVE_MODES:
+            self.add_item(ObjectiveButton(session))
 
 
 # ─────────────────────────────────────────────────────────────────────────────

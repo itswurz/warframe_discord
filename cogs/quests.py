@@ -393,6 +393,11 @@ class QuestsCog(commands.Cog, name="Quests"):
             profile          = profile,
             quest_id         = current_quest_id,
             quest_mission_id = current_mission_id,
+            game_mode        = mission_data.get("game_mode",    "exterminate"),
+            mission_level    = mission_data.get("enemy_level",  1),
+            quest_enemies    = mission_data.get("enemies",       None),
+            mission_no_loot  = mission_data.get("no_loot",       False),
+            no_die           = mission_data.get("no_die",         False),
         )
         ACTIVE_SESSIONS[ctx.author.id] = session
 

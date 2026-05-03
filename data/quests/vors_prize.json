@@ -1,43 +1,117 @@
 {
   "id": "vors_prize",
   "name": "Vor's Prize",
-  "subtitle": "A Grineer commander is hunting you.",
-  "description": "Captain Vor, a Grineer commander obsessed with Orokin technology, intercepted your awakening signal. You must fight through his forces before he can claim you as his prize.",
+  "subtitle": "Captain Vor hunts you across the forests of Earth.",
+  "description": "An Ascaris device has been implanted into your Warframe by Captain Vor. You must repair your Orbiter, find the cure, and confront Vor before the device takes total control.",
   "faction": "Grineer",
   "recommended_mastery": 0,
   "arcs": [
     {
       "id": "arc_1",
-      "name": "Awakening",
-      "description": "You have awoken from stasis aboard a derelict Grineer vessel. Vor's forces close in from all sides.",
+      "name": "Repair the Orbiter",
+      "description": "Your Orbiter was looted during the attack. Recover the missing Segments from Grineer forces on Earth.",
       "missions": [
         {
-          "id": "awakening",
-          "name": "Awakening",
-          "location": "Galatea, Neptune",
-          "tileset": "Grineer Galleon",
-          "description": "Escape the Grineer Galleon. Your Warframe's systems are still coming online — rely on your weapons. Abilities are offline.",
-          "tutorial": true,
-          "restrict_mods": true,
-          "restrict_abilities": true,
-          "no_loot": true,
-          "enemies": ["grineer_lancer", "grineer_butcher", "grineer_scorpion"],
+          "id": "e_prime",
+          "name": "Restore Ship Comms",
+          "subtitle": "Outreach",
+          "location": "E Prime, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "spy",
+          "enemy_level": 2,
+          "enemies": ["frontier_lancer", "frontier_lancer", "frontier_trooper"],
           "enemy_count": 3,
-          "rewards": null,
+          "no_loot": true,
+          "no_die": true,
+          "rewards": {
+            "credits": 1500,
+            "items": ["Comms Segment"],
+            "mods": []
+          },
+          "wiki_note": "Spy mission — 1 data vault. Enemies: Frontier Lancers and Troopers, lvl 1-3. No loot or affinity. Player cannot die.",
           "dialogue": {
             "intro": [
-              "Lotus: \"You've been sleeping for a very long time, Operator.\"",
-              "Lotus: \"I'm sorry to wake you this way — but they've found you.\"",
-              "Lotus: \"The Grineer are here. We must move quickly.\"",
-              "Vor: \"I know what you are. I know what sleeps inside you. Bring it to me.\""
+              "Lotus: \"Your Orbiter's communications array is offline, Operator.\"",
+              "Lotus: \"A Grineer outpost at E Prime holds a compatible Comms Segment. Break into their data vault and retrieve it.\"",
+              "Ordis: \"Operator, I — _there is something wrong with me_ — I await your return.\""
             ],
             "mid": [
-              "Lotus: \"Your Warframe's systems are still coming online. Use your weapons — abilities are unavailable for now.\"",
-              "Vor: \"Hah! Look at it. Stumbling about like a child.\""
+              "Lotus: \"Grineer patrol detected. Stay unseen if you can — the data vault is just ahead.\"",
+              "Vor (transmission): \"I know you're out there, Tenno. The Ascaris grows stronger with every passing moment.\""
             ],
             "outro": [
-              "Lotus: \"Well done, Operator. But Vor will not stop here.\"",
-              "Lotus: \"He has deployed forces to Mercury to intercept you. Your journey has only just begun.\""
+              "Lotus: \"Comms Segment secured. Return to the Orbiter and install it.\"",
+              "Ordis: \"Operator! The — _marvelous Operator_ — the communications array is back online! Ordis is... pleased.\""
+            ]
+          }
+        },
+        {
+          "id": "mariana",
+          "name": "Liberate the Arms Dealer",
+          "subtitle": "Familiar Faces",
+          "location": "Mariana, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "rescue",
+          "enemy_level": 3,
+          "enemies": ["grineer_warden", "grineer_warden", "frontier_lancer"],
+          "enemy_count": 3,
+          "no_loot": true,
+          "no_die": true,
+          "rewards": {
+            "credits": 1500,
+            "items": ["Foundry Segment"],
+            "mods": []
+          },
+          "wiki_note": "Rescue mission — free Darvo from Grineer prison. Enemies: Wardens (600 HP / 500 Armor) and Lancers, lvl 2-4. No loot or affinity. Player cannot die.",
+          "dialogue": {
+            "intro": [
+              "Lotus: \"A black-market arms dealer named Darvo has been captured by the Grineer.\"",
+              "Lotus: \"He has a Foundry Segment you need to craft the Ascaris Negator. Rescue him.\"",
+              "Lotus: \"This is the prison block. If you can avoid detection by the Warden, it may be easier to get Darvo out.\""
+            ],
+            "mid": [
+              "Darvo (captive): \"Hey! Hey, is someone there? Get me out of here!\"",
+              "Lotus: \"Watch the Wardens — they are heavily armored and will not go down easily.\""
+            ],
+            "outro": [
+              "Darvo: \"Ha! I knew someone would come. The name's Darvo. You need something, you come to me.\"",
+              "Darvo: \"Take this Foundry Segment — call it a thank-you. Build the Ascaris Negator. It's your only way to stop Vor.\""
+            ]
+          }
+        },
+        {
+          "id": "mantle",
+          "name": "Locate the Foundry Segment",
+          "subtitle": "Oppression",
+          "location": "Mantle, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "exterminate",
+          "enemy_level": 4,
+          "enemies": ["frontier_lancer", "frontier_trooper", "frontier_heavy_gunner"],
+          "enemy_count": 3,
+          "no_loot": false,
+          "no_die": false,
+          "rewards": {
+            "credits": 2000,
+            "items": [],
+            "mods": ["Pressure Point", "Fury"]
+          },
+          "wiki_note": "Exterminate mission — recover Foundry Segment, then eliminate all Grineer. Enemies: Frontier Lancers, Troopers, Heavy Gunners, lvl 3-5. Rewards: Damaged Pressure Point + Fury mods.",
+          "dialogue": {
+            "intro": [
+              "Lotus: \"Grineer forces have occupied this outpost. The Foundry Segment is inside — fight through them.\"",
+              "Vor (transmission): \"You are still alive. Impressive. But the Ascaris tightens its grip.\""
+            ],
+            "mid": [
+              "Lotus: \"Heavy Gunner unit detected — those Gorgons hit hard. Take cover and prioritize them.\"",
+              "Lotus: \"Foundry Segment located. Eliminate the remaining Grineer and extract.\""
+            ],
+            "outro": [
+              "Lotus: \"Well done. Install the Foundry Segment in your Orbiter and craft the Ascaris Negator.\"",
+              "Ordis: \"New components detected! Ordis is — _delighted_ — ready to build, Operator.\""
             ]
           }
         }
@@ -45,36 +119,122 @@
     },
     {
       "id": "arc_2",
-      "name": "The Prize",
-      "description": "Captain Vor pursues you to Mercury. You must deal with his forces before he can use the Janus Key.",
+      "name": "Hunt Captain Vor",
+      "description": "The Ascaris Negator is ready. Track Vor across the surface of Earth and end his threat once and for all.",
       "missions": [
         {
-          "id": "tolstoj",
-          "name": "Tolstoj",
-          "location": "Mercury",
-          "tileset": "Grineer Settlement",
-          "description": "Vor has deployed Grineer forces to Mercury to intercept you. Clear the settlement and prove you are ready to face the Origin System.",
-          "tutorial": false,
-          "restrict_mods": false,
-          "restrict_abilities": false,
-          "no_loot": false,
-          "enemies": ["grineer_lancer", "grineer_butcher", "grineer_scorpion"],
+          "id": "gaia",
+          "name": "Raid Corpus Resource Caches",
+          "subtitle": "Loot & Pillage",
+          "location": "Gaia, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "mobile_defense",
+          "enemy_level": 5,
+          "enemies": ["frontier_lancer", "frontier_lancer", "frontier_trooper"],
           "enemy_count": 3,
+          "no_loot": false,
+          "no_die": false,
           "rewards": {
-            "credits": 1000,
-            "xp": 500,
-            "items": []
+            "credits": 2000,
+            "items": [],
+            "mods": ["Steel Fiber", "Enemy Sense"]
           },
+          "wiki_note": "Mobile Defense / Cache mission — collect Corpus supply caches held by Grineer. Enemies: Frontier Lancers and Troopers, lvl 4-6. Rewards: Damaged Steel Fiber + Enemy Sense mods.",
           "dialogue": {
             "intro": [
-              "Vor: \"There is nowhere to run, Tenno. I have what I need to control you.\"",
-              "Lotus: \"Vor has activated the Janus Key, Operator. We need to move — now.\""
+              "Lotus: \"The Ascaris Negator blueprint requires resources. Corpus supply caches at Gaia hold what you need.\"",
+              "Lotus: \"Grineer have seized the area. Clear them out and secure the caches.\""
             ],
             "mid": [
-              "Lotus: \"Watch out — Vor's Janus Key is interfering with your Warframe's systems. Keep pushing.\""
+              "Vor (transmission): \"You've been busy. But every moment you delay, the Ascaris digs deeper.\"",
+              "Lotus: \"Cache secured. Two more to go — move quickly.\""
             ],
             "outro": [
-              "Lotus: \"Excellent work. But Vor has not given up. Stay alert, Operator.\""
+              "Lotus: \"All caches secured. Return to the Orbiter — the Ascaris Negator can now be built.\"",
+              "Ordis: \"Ordis has received the resource data. Construction of the Ascaris Negator is — _imminent_ — underway.\""
+            ]
+          }
+        },
+        {
+          "id": "pacific",
+          "name": "Obtain the Nav Segment",
+          "subtitle": "Navigation Recovery",
+          "location": "Pacific, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "sabotage",
+          "enemy_level": 6,
+          "enemies": ["frontier_lancer", "frontier_lancer", "frontier_heavy_gunner"],
+          "enemy_count": 3,
+          "no_loot": false,
+          "no_die": false,
+          "rewards": {
+            "credits": 2000,
+            "items": ["Nav Segment"],
+            "mods": ["Stretch", "Intensify"]
+          },
+          "wiki_note": "Sabotage mission — destroy Grineer fuel lines, extract the Nav Segment, escape before explosion. Enemies: Frontier Lancers and Heavy Gunners, lvl 5-7. Rewards: Damaged Stretch + Intensify mods.",
+          "dialogue": {
+            "intro": [
+              "Lotus: \"A Grineer installation at Pacific holds a Navigation Segment. It will allow us to track Vor's movements.\"",
+              "Lotus: \"Destroy their fuel lines, grab the Nav Segment, and get out before the whole thing blows.\""
+            ],
+            "mid": [
+              "Vor (transmission): \"You dare come to my installation? The Janus Key will end this — soon.\"",
+              "Lotus: \"Fuel lines destroyed. Nav Segment acquired — extract now!\""
+            ],
+            "outro": [
+              "Lotus: \"Nav Segment secured. We've pinpointed Vor's position — Cambria.\"",
+              "Lotus: \"He's waiting for you. End this, Operator.\""
+            ]
+          }
+        },
+        {
+          "id": "cambria",
+          "name": "Confront Captain Vor",
+          "subtitle": "Faceoff",
+          "location": "Cambria, Earth",
+          "planet": "Earth",
+          "tileset": "Grineer Forest",
+          "game_mode": "assassination",
+          "enemy_level": 8,
+          "enemies": ["captain_vor"],
+          "enemy_count": 1,
+          "no_loot": false,
+          "no_die": false,
+          "rewards": {
+            "credits": 3500,
+            "items": ["Ascaris destroyed"],
+            "mods": []
+          },
+          "wiki_note": "Assassination mission — boss fight against Captain Vor. Vor has 3 Sphere Shield phases (at 75%/50%/25% HP) during which he is invulnerable and spawns Frontier Lancer reinforcements. Uses Seer pistol, Janus Key beam (Radiation damage), Nervos Mines, and Cronus melee. Level 8 mission, Vor spawns at level 10.",
+          "boss": "captain_vor",
+          "boss_phase_thresholds": [0.75, 0.50, 0.25],
+          "boss_reinforcement_key": "frontier_lancer",
+          "boss_reinforcement_counts": [2, 2, 3],
+          "dialogue": {
+            "intro": [
+              "Vor: \"At last. You've arrived. I've been looking forward to this, Tenno.\"",
+              "Vor: \"The Janus Key — ancient Orokin technology — fused with Grineer engineering. A masterpiece.\"",
+              "Lotus: \"He's activated the Janus Key, Operator. Do NOT let him use the Sphere Shield — take him down fast.\""
+            ],
+            "phase_shield": [
+              "Vor: \"You cannot hurt me, Tenno! The Janus Key protects me!\"",
+              "Lotus: \"His shield is active — the Janus Key is powering it. Kill his reinforcements to break it!\""
+            ],
+            "phase_break": [
+              "Vor: \"Impossible! The Key... it falters...\"",
+              "Lotus: \"Shield down! Focus fire on Vor — now!\""
+            ],
+            "mid": [
+              "Vor: \"Feel the power of the Void, Tenno! The Janus Key answers to ME!\"",
+              "Vor: \"You fight well. But the Ascaris... it is almost complete.\""
+            ],
+            "outro": [
+              "Vor: \"This... is not... the end...\"",
+              "Lotus: \"The Ascaris is deactivating, Operator. It's over.\"",
+              "Ordis: \"Operator — _the Ascaris is gone_ — you are free. Ordis is... relieved.\""
             ]
           }
         }

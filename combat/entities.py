@@ -616,6 +616,18 @@ class EnemyEntity(Entity):
         self.xp_reward  = enemy_data.get("xp_reward", 30)
         self._abilities = enemy_data["abilities"]
         self.drops_rolled: bool = False
+        self.is_shielded: bool  = False
+
+    def take_damage(
+        self,
+        amount:         float,
+        damage_type:    str  = "true",
+        bypass_shields: bool = False,
+    ) -> int:
+        """Override — absorbs all damage while Sphere Shield is active."""
+        if self.is_shielded:
+            return 0
+        return super().take_damage(amount, damage_type, bypass_shields)
 
     def outgoing_damage_mult(self) -> float:
         """
@@ -655,6 +667,17 @@ class EnemyEntity(Entity):
 
         if self.behavior == "melee":
             return max(attacks, key=lambda a: a.get("damage", 0))
+
+        if self.behavior == "boss":
+            # Weighted random selection across all available attacks
+            total = sum(ab.get("chance", 0.5) for ab in attacks)
+            r = random.random() * total
+            cumulative = 0.0
+            for ab in attacks:
+                cumulative += ab.get("chance", 0.5)
+                if r <= cumulative:
+                    return ab
+            return attacks[-1]
 
         import logging
         logging.getLogger(__name__).warning(

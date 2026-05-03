@@ -67,9 +67,14 @@
   },
 
   "enemies": {
-    "grineer_lancer":   "<:grineer_lancer:1499660127844827246>",
-    "grineer_butcher":  "<:grineer_butcher:1499660056378212573>",
-    "grineer_scorpion": "<:grineer_scorpion:1499660394686320641>"
+    "grineer_lancer":        "<:grineer_lancer:1499660127844827246>",
+    "grineer_butcher":       "<:grineer_butcher:1499660056378212573>",
+    "grineer_scorpion":      "<:grineer_scorpion:1499660394686320641>",
+    "frontier_lancer":       "🌿",
+    "frontier_trooper":      "🪖",
+    "frontier_heavy_gunner": "🔫",
+    "grineer_warden":        "⛓️",
+    "captain_vor":           "🔮"
   },
 
   "items": {
@@ -107,6 +112,10 @@
     "Steel Fiber":         "<:steelfibermod:1499760902550065273>",
     "Redirection":         "<:redirectionmod:1499760875291279421>",
     "Master Thief":        "<:masterthiefmod:1499760864725827584>",
-    "Defiled Snapdragon":  "<:defiledsnapdragonmod:1499760835227029586>"
+    "Defiled Snapdragon":  "<:defiledsnapdragonmod:1499760835227029586>",
+    "Stretch":             "🔵",
+    "Intensify":           "🔴",
+    "Enemy Sense":         "👁️",
+    "Fury":                "⚡"
   }
 }

@@ -58,6 +58,7 @@
       "hp": 150,
       "shields": 0,
       "armor": 100,
+      "base_level": 1,
       "behavior": "aggressive",
       "icon_key": "grineer_lancer",
       "xp_reward": 40,
@@ -189,6 +190,7 @@
       "hp": 220,
       "shields": 0,
       "armor": 65,
+      "base_level": 1,
       "behavior": "aggressive",
       "icon_key": "grineer_butcher",
       "xp_reward": 55,
@@ -325,6 +327,7 @@
       "hp": 150,
       "shields": 0,
       "armor": 200,
+      "base_level": 1,
       "behavior": "melee",
       "icon_key": "grineer_scorpion",
       "xp_reward": 60,
@@ -451,6 +454,321 @@
             "chance": 0.5
           }
         ]
+      }
+    },
+    "frontier_lancer": {
+      "name": "Frontier Lancer",
+      "faction": "Grineer",
+      "hp": 100,
+      "shields": 0,
+      "armor": 200,
+      "base_level": 1,
+      "behavior": "aggressive",
+      "icon_key": "frontier_lancer",
+      "xp_reward": 50,
+      "_wiki": "Frontier Grineer variant on Earth (Grineer Forest tileset). HP=100, Armor=200. Equips Karak rifle (accurate burst fire) and Sheev dagger. Same base stats as standard Lancer but with forest camouflage and Karak instead of Grakata.",
+      "abilities": [
+        {
+          "name": "Karak Burst",
+          "damage": 30,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Accurate burst fire from the Karak rifle — consistent Impact damage."
+        },
+        {
+          "name": "Suppressive Volley",
+          "damage": 22,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.30,
+          "description": "Sustained raking fire that staggers and knocks the target down."
+        }
+      ],
+      "drops": {
+        "mods": [
+          { "name": "Ammo Drum",        "chance": 0.0114, "rarity": "common"   },
+          { "name": "Vitality",          "chance": 0.0114, "rarity": "common"   },
+          { "name": "Pressure Point",    "chance": 0.0114, "rarity": "common"   },
+          { "name": "Diamond Skin",      "chance": 0.0033, "rarity": "uncommon" },
+          { "name": "Heated Charge",     "chance": 0.0033, "rarity": "uncommon" },
+          { "name": "Rending Strike",    "chance": 0.0022, "rarity": "uncommon" },
+          { "name": "Streamline",        "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Heavy Trauma",      "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Endo", "amount": 80, "chance": 0.0001, "rarity": "uncommon", "type": "endo" }
+        ],
+        "resources": {
+          "common":   { "name": "Ferrite",  "min": 40, "max": 80,  "chance": 0.80 },
+          "uncommon": [
+            { "name": "Rubedo",         "min": 10, "max": 20, "chance": 0.20 },
+            { "name": "Detonite Ampule","amount": 1,          "chance": 0.15 }
+          ],
+          "rare": [{ "name": "Neurodes", "amount": 1, "chance": 0.02 }]
+        },
+        "region_resource": { "name": "Ferrite", "min": 25, "max": 50, "chance": 0.07 },
+        "cosmetics": []
+      }
+    },
+    "frontier_trooper": {
+      "name": "Frontier Trooper",
+      "faction": "Grineer",
+      "hp": 150,
+      "shields": 0,
+      "armor": 150,
+      "base_level": 2,
+      "behavior": "aggressive",
+      "icon_key": "frontier_trooper",
+      "xp_reward": 65,
+      "_wiki": "Frontier Grineer Trooper — Earth variant. HP=150, Armor=150. Equips Sobek automatic shotgun (8 pellets per shot, high spread). Close-quarters specialist. Can knock enemies down with shotgun blast.",
+      "abilities": [
+        {
+          "name": "Sobek Blast",
+          "damage": 45,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Close-range Sobek shotgun blast — heavy Impact damage at close quarters."
+        },
+        {
+          "name": "Point-Blank Volley",
+          "damage": 65,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.40,
+          "description": "Empties both barrels at point-blank range. High damage, good knockdown chance."
+        }
+      ],
+      "drops": {
+        "mods": [
+          { "name": "Blunderbuss",    "chance": 0.0114, "rarity": "common"   },
+          { "name": "Fast Hands",     "chance": 0.0114, "rarity": "common"   },
+          { "name": "Steel Fiber",    "chance": 0.0022, "rarity": "common"   },
+          { "name": "Redirection",    "chance": 0.0022, "rarity": "common"   },
+          { "name": "North Wind",     "chance": 0.0013, "rarity": "uncommon" },
+          { "name": "Fever Strike",   "chance": 0.0013, "rarity": "uncommon" },
+          { "name": "Endo", "amount": 15, "chance": 0.0057, "rarity": "uncommon", "type": "endo" },
+          { "name": "Endo", "amount": 50, "chance": 0.0013, "rarity": "uncommon", "type": "endo" }
+        ],
+        "resources": {
+          "common":   { "name": "Ferrite",  "min": 50, "max": 100, "chance": 0.80 },
+          "uncommon": [
+            { "name": "Rubedo",         "min": 15, "max": 25, "chance": 0.22 },
+            { "name": "Detonite Ampule","amount": 1,          "chance": 0.18 }
+          ],
+          "rare": [{ "name": "Neurodes", "amount": 1, "chance": 0.03 }]
+        },
+        "region_resource": { "name": "Ferrite", "min": 30, "max": 60, "chance": 0.07 },
+        "cosmetics": []
+      }
+    },
+    "frontier_heavy_gunner": {
+      "name": "Frontier Heavy Gunner",
+      "faction": "Grineer",
+      "hp": 300,
+      "shields": 0,
+      "armor": 500,
+      "base_level": 8,
+      "behavior": "aggressive",
+      "icon_key": "frontier_heavy_gunner",
+      "xp_reward": 200,
+      "_wiki": "Frontier Heavy Gunner — Earth variant. HP=300, Armor=500 (base level 8). Equips Gorgon minigun — extremely high armor makes her durable. Slow but devastating. Can restore her own shields in a pinch.",
+      "abilities": [
+        {
+          "name": "Gorgon Minigun",
+          "damage": 50,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Sustained Gorgon minigun fire — relentless Impact damage that eats through shields."
+        },
+        {
+          "name": "Charged Burst",
+          "damage": 80,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.40,
+          "description": "Winds up for a devastating concentrated burst. High damage and knockdown."
+        },
+        {
+          "name": "Armor Lock",
+          "damage": 0,
+          "damage_type": "none",
+          "effect": "self_shield_restore",
+          "heal_amount": 60,
+          "target": "self",
+          "condition": "shields_low",
+          "chance": 0.60,
+          "description": "Activates battle-armor protocol — restores shields when critically low."
+        }
+      ],
+      "drops": {
+        "mods": [
+          { "name": "Ammo Drum",        "chance": 0.0114, "rarity": "common"   },
+          { "name": "Vitality",          "chance": 0.0114, "rarity": "common"   },
+          { "name": "Serration",         "chance": 0.0022, "rarity": "common"   },
+          { "name": "Heavy Trauma",      "chance": 0.0022, "rarity": "uncommon" },
+          { "name": "Steel Fiber",       "chance": 0.0022, "rarity": "common"   },
+          { "name": "Streamline",        "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Flow",              "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Endo", "amount": 50,  "chance": 0.0057, "rarity": "uncommon", "type": "endo" },
+          { "name": "Endo", "amount": 120, "chance": 0.0013, "rarity": "uncommon", "type": "endo" }
+        ],
+        "resources": {
+          "common":   { "name": "Ferrite",  "min": 80, "max": 160, "chance": 0.85 },
+          "uncommon": [
+            { "name": "Rubedo",         "min": 20, "max": 40, "chance": 0.30 },
+            { "name": "Detonite Ampule","amount": 2,          "chance": 0.25 }
+          ],
+          "rare": [{ "name": "Neurodes", "amount": 1, "chance": 0.05 }]
+        },
+        "region_resource": { "name": "Ferrite", "min": 50, "max": 100, "chance": 0.10 },
+        "cosmetics": []
+      }
+    },
+    "grineer_warden": {
+      "name": "Grineer Warden",
+      "faction": "Grineer",
+      "hp": 400,
+      "shields": 0,
+      "armor": 400,
+      "base_level": 3,
+      "behavior": "aggressive",
+      "icon_key": "grineer_warden",
+      "xp_reward": 150,
+      "_wiki": "Grineer Warden — found in Rescue missions on Earth (Mariana node in Vor's Prize). HP=600, Armor=500 per wiki; scaled to 400/400 for bot balance. Heavy melee enforcer carrying Heliocor mace and Grakata. Guards hostages in prison blocks.",
+      "abilities": [
+        {
+          "name": "Heliocor Strike",
+          "damage": 60,
+          "damage_type": "impact",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.50,
+          "description": "Brutal mace swing with the Heliocor — heavy Impact damage and knockdown chance."
+        },
+        {
+          "name": "Grakata Burst",
+          "damage": 35,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Backup Grakata fire when at range — steady Impact damage."
+        },
+        {
+          "name": "Warden Protocol",
+          "damage": 0,
+          "damage_type": "none",
+          "effect": "self_shield_restore",
+          "heal_amount": 80,
+          "target": "self",
+          "condition": "shields_low",
+          "chance": 0.50,
+          "description": "Activates hardened riot-armor reserves when critically damaged."
+        }
+      ],
+      "drops": {
+        "mods": [
+          { "name": "Vitality",          "chance": 0.0114, "rarity": "common"   },
+          { "name": "Pressure Point",    "chance": 0.0114, "rarity": "common"   },
+          { "name": "Redirection",       "chance": 0.0022, "rarity": "common"   },
+          { "name": "Steel Fiber",       "chance": 0.0022, "rarity": "common"   },
+          { "name": "Diamond Skin",      "chance": 0.0033, "rarity": "uncommon" },
+          { "name": "Streamline",        "chance": 0.0001, "rarity": "rare"     },
+          { "name": "Endo", "amount": 50,  "chance": 0.0057, "rarity": "uncommon", "type": "endo" },
+          { "name": "Endo", "amount": 100, "chance": 0.0013, "rarity": "uncommon", "type": "endo" }
+        ],
+        "resources": {
+          "common":   { "name": "Ferrite",  "min": 60, "max": 120, "chance": 0.80 },
+          "uncommon": [
+            { "name": "Rubedo",         "min": 20, "max": 35, "chance": 0.25 },
+            { "name": "Detonite Ampule","amount": 2,          "chance": 0.20 }
+          ],
+          "rare": [{ "name": "Neurodes", "amount": 1, "chance": 0.04 }]
+        },
+        "region_resource": { "name": "Ferrite", "min": 40, "max": 80, "chance": 0.08 },
+        "cosmetics": []
+      }
+    },
+    "captain_vor": {
+      "name": "Captain Vor",
+      "faction": "Grineer",
+      "hp": 800,
+      "shields": 600,
+      "armor": 300,
+      "base_level": 10,
+      "behavior": "boss",
+      "icon_key": "captain_vor",
+      "xp_reward": 1000,
+      "is_boss": true,
+      "_wiki": "Captain Vor — Grineer boss, Vor's Prize final encounter at Cambria, Earth. Wiki stats: HP=1994, Shields=1742, Armor=308 (spawn level 10). Scaled to HP=800/Shields=600/Armor=300 for bot balance. Weapons: Seer pistol, Janus Key (Void beam), Cronus sword. Abilities: Sphere Shield (invulnerability + reinforcements at 75%/50%/25% HP), Nervos Mine (stun), Teleport.",
+      "abilities": [
+        {
+          "name": "Seer Shot",
+          "damage": 55,
+          "damage_type": "impact",
+          "effect": null,
+          "target": "front",
+          "chance": 1.0,
+          "description": "Precise shot from Vor's custom Seer pistol — reliable Impact damage."
+        },
+        {
+          "name": "Janus Key Beam",
+          "damage": 100,
+          "damage_type": "radiation",
+          "effect": null,
+          "target": "front",
+          "chance": 0.35,
+          "description": "A beam of concentrated Void energy from the Janus Key — Radiation damage causes confusion."
+        },
+        {
+          "name": "Nervos Mine",
+          "damage": 40,
+          "damage_type": "electricity",
+          "effect": "knockdown",
+          "target": "front",
+          "chance": 0.45,
+          "description": "Vor hurls an electrified Nervos grenade — Electricity damage and knockdown."
+        },
+        {
+          "name": "Cronus Strike",
+          "damage": 70,
+          "damage_type": "slash",
+          "effect": "slash_bleed",
+          "bleed_mag": 20,
+          "target": "front",
+          "chance": 0.40,
+          "description": "Vor closes the gap with his Cronus sword — Slash damage with a bleed proc."
+        }
+      ],
+      "drops": {
+        "mods": [
+          { "name": "Vitality",          "chance": 0.0500, "rarity": "common"   },
+          { "name": "Redirection",       "chance": 0.0500, "rarity": "common"   },
+          { "name": "Steel Fiber",       "chance": 0.0500, "rarity": "common"   },
+          { "name": "Serration",         "chance": 0.0500, "rarity": "common"   },
+          { "name": "Streamline",        "chance": 0.0250, "rarity": "uncommon" },
+          { "name": "Flow",              "chance": 0.0250, "rarity": "uncommon" },
+          { "name": "Intensify",         "chance": 0.0250, "rarity": "uncommon" },
+          { "name": "Stretch",           "chance": 0.0250, "rarity": "uncommon" },
+          { "name": "Endo", "amount": 200, "chance": 0.1000, "rarity": "uncommon", "type": "endo" }
+        ],
+        "resources": {
+          "common":   { "name": "Ferrite",  "min": 150, "max": 300, "chance": 0.90 },
+          "uncommon": [
+            { "name": "Rubedo",         "min": 50,  "max": 100, "chance": 0.50 },
+            { "name": "Detonite Ampule","amount": 5,            "chance": 0.40 }
+          ],
+          "rare": [{ "name": "Neurodes", "amount": 2, "chance": 0.20 }]
+        },
+        "region_resource": { "name": "Ferrite", "min": 100, "max": 200, "chance": 0.30 },
+        "cosmetics": []
       }
     }
   }
