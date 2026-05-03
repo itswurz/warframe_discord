@@ -26,20 +26,20 @@
   ],
   "warframe_level": 0,
   "mastery_rank": 0,
-  "credits": 3340,
+  "credits": 3490,
   "platinum": 0,
   "experience": 0,
-  "total_kills": 66,
-  "total_missions": 23,
-  "missions_won": 22,
+  "total_kills": 69,
+  "total_missions": 24,
+  "missions_won": 23,
   "missions_lost": 1,
   "highest_combo": 6,
-  "damage_dealt": 27095,
+  "damage_dealt": 28695,
   "inventory": {
-    "Ferrite": 4668,
+    "Ferrite": 4854,
     "Sand Yellow Pigment": 11,
-    "Rubedo": 226,
-    "Detonite Ampule": 9,
+    "Rubedo": 265,
+    "Detonite Ampule": 11,
     "Neurodes": 3
   },
   "mod_collection": [
@@ -80,8 +80,8 @@
   "last_warframe_state": {
     "warframe_key": "excalibur",
     "warframe_name": "Excalibur",
-    "hp": 270,
-    "max_hp": 270,
+    "hp": 297,
+    "max_hp": 297,
     "shields": 270,
     "max_shields": 270,
     "armor": 240,
@@ -112,36 +112,57 @@
     "magnetize_turns": 0,
     "polarize_shards_absorbed": false,
     "mission_kills": 3,
-    "mission_damage_dealt": 1280,
+    "mission_damage_dealt": 1600,
     "mission_credits_earned": 150
   },
   "last_mission_loot": [
     {
-      "name": "Heated Charge",
-      "amount": 1,
-      "emoji": "<:heatedchargemod:1499760847281590343>",
+      "name": "Ferrite",
+      "amount": 58,
+      "emoji": "<:ferrite:1499750270199009320>",
+      "rarity": "common",
+      "type": "resource"
+    },
+    {
+      "name": "Rubedo",
+      "amount": 23,
+      "emoji": "<:rubedo:1499750208022773931>",
       "rarity": "uncommon",
-      "type": "mod"
+      "type": "resource"
+    },
+    {
+      "name": "Detonite Ampule",
+      "amount": 1,
+      "emoji": "<:d_ampule:1499750066913673256>",
+      "rarity": "uncommon",
+      "type": "resource"
     },
     {
       "name": "Ferrite",
-      "amount": 66,
+      "amount": 59,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"
     },
     {
+      "name": "Detonite Ampule",
+      "amount": 1,
+      "emoji": "<:d_ampule:1499750066913673256>",
+      "rarity": "uncommon",
+      "type": "resource"
+    },
+    {
       "name": "Ferrite",
-      "amount": 68,
+      "amount": 69,
       "emoji": "<:ferrite:1499750270199009320>",
       "rarity": "common",
       "type": "resource"
     },
     {
-      "name": "Ferrite",
-      "amount": 56,
-      "emoji": "<:ferrite:1499750270199009320>",
-      "rarity": "common",
+      "name": "Rubedo",
+      "amount": 16,
+      "emoji": "<:rubedo:1499750208022773931>",
+      "rarity": "uncommon",
       "type": "resource"
     }
   ]

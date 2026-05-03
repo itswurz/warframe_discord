@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "total_missions": 44,
-  "total_kills": 129,
-  "credits_in_economy": 61270,
+  "total_missions": 45,
+  "total_kills": 132,
+  "credits_in_economy": 64760,
   "leaderboard": {
     "976787314175012914": {
       "display_name": "soln",
-      "kills": 66,
-      "missions_won": 22,
+      "kills": 69,
+      "missions_won": 23,
       "missions_lost": 1,
       "mastery_rank": 0,
       "warframe": "Excalibur",
       "weapon": "Paris",
-      "credits": 3340,
-      "damage_dealt": 27095,
+      "credits": 3490,
+      "damage_dealt": 28695,
       "highest_combo": 6,
-      "last_seen": "2026-05-03T01:03:48.419559+00:00"
+      "last_seen": "2026-05-03T03:01:47.615647+00:00"
     },
     "1478124487739445411": {
       "display_name": "6.18_",

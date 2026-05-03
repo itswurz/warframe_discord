@@ -275,7 +275,7 @@ def make_mod_instance(
         "uuid":                 mod_uuid,
         "name":                 name,
         "rarity":               rarity,
-        "rank":                 0,
+        "rank":                 1,
         "max_rank":             max_rank,
         "acquired_at":          datetime.now(timezone.utc).isoformat(),
         "source":               source,
