@@ -2,40 +2,40 @@
   "_note": "Consolidated mod database. Single source of truth for all mod stats, costs, descriptions, and TB effects.",
   "slot_polarities": {
     "madurai": {
-      "emoji": "<:madurai:1499939089925935125>",
-      "display": "Madurai"
+      "display": "Madurai",
+      "emoji_key": "madurai"
     },
     "naramon": {
-      "emoji": "<:naramon:1499939096980750336>",
-      "display": "Naramon"
+      "display": "Naramon",
+      "emoji_key": "naramon"
     },
     "vazarin": {
-      "emoji": "<:vazarin:1499939102370431016>",
-      "display": "Vazarin"
+      "display": "Vazarin",
+      "emoji_key": "vazarin"
     },
     "zenurik": {
-      "emoji": "<:zenurik:1499939105365168259>",
-      "display": "Zenurik"
+      "display": "Zenurik",
+      "emoji_key": "zenurik"
     },
     "unairu": {
-      "emoji": "<:unairu:1499939100520874196>",
-      "display": "Unairu"
+      "display": "Unairu",
+      "emoji_key": "unairu"
     },
     "penjaga": {
-      "emoji": "<:penjaga:1499939094799716484>",
-      "display": "Penjaga"
+      "display": "Penjaga",
+      "emoji_key": "penjaga"
     },
     "koneksi": {
-      "emoji": "<:koneksi:1499939107319845094>",
-      "display": "Koneksi"
+      "display": "Koneksi",
+      "emoji_key": "koneksi"
     },
     "umbra": {
-      "emoji": "<:umbra:1499939109697880134>",
-      "display": "Umbra"
+      "display": "Umbra",
+      "emoji_key": "umbra"
     },
     "any": {
-      "emoji": "<:any:1499939092811743242>",
-      "display": "Universal"
+      "display": "Universal",
+      "emoji_key": "any"
     }
   },
   "rarity_order": [
@@ -236,7 +236,7 @@
         7728,
         15456
       ],
-      "tb_effect": "Multiplies your base Energy pool. At max rank on a 150-Energy Warframe, this adds +225 max Energy \u2014 allowing 3 extra 75-Energy casts per refill.",
+      "tb_effect": "Multiplies your base Energy pool. At max rank on a 150-Energy Warframe, this adds +225 max Energy — allowing 3 extra 75-Energy casts per refill.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883650983006228/FlowMod.png?ex=69f66b00&is=69f51980&hm=fd285c5f5bebe7c6f125165cedb50149d1e35f583157ed44314761b65519991e&",
       "compatible_weapons": [],
       "stance_weapon": null,
@@ -634,7 +634,7 @@
       "base_effect": "+2.5% Status Chance",
       "max_effect": "+15% Status Chance",
       "description": "Trains the operator's precision with rifle-class weapons, focusing on maintaining controlled trigger pressure that activates status procs more reliably.",
-      "tb_effect": "Adds +15% to the base Status Chance on every Braton hit at max rank (base 6% \u2192 21%). Significantly raises the floor for landing Impact, Puncture, and Slash procs per burst.",
+      "tb_effect": "Adds +15% to the base Status Chance on every Braton hit at max rank (base 6% → 21%). Significantly raises the floor for landing Impact, Puncture, and Slash procs per burst.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883779357937754/RifleAptitudeMod.png?ex=69f66b1f&is=69f5199f&hm=84453e2bba2685054d0e423523b59353ebf6c580835c16235a5d852fad38cefd&",
       "compatible_weapons": [
         "MK1-Braton"
@@ -740,7 +740,7 @@
       "base_effect": "+10% Heat Damage",
       "max_effect": "+60% Heat Damage",
       "description": "Packs a thermite compound into pistol charges, adding superheated plasma to each round. The burning residue ignites targets, dealing ongoing Heat damage after the initial shot.",
-      "tb_effect": "Adds Heat elemental damage to your Lato. Heat procs deal 12 damage/turn for 2 turns and reduce the target's armor by 50% while burning. Stacks up to 4\u00d7. Equip in a Secondary slot.",
+      "tb_effect": "Adds Heat elemental damage to your Lato. Heat procs deal 12 damage/turn for 2 turns and reduce the target's armor by 50% while burning. Stacks up to 4×. Equip in a Secondary slot.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883674420777021/HeatedChargeMod.png?ex=69f66b06&is=69f51986&hm=2ab625b68116d18a4581b77d72f7ddfa89684fed6001a4726f8b34618e3259de&",
       "compatible_weapons": [
         "Lato"
@@ -775,7 +775,7 @@
       ],
       "base_effect": "+15% Slash Proc Duration",
       "max_effect": "+90% Slash Proc Duration",
-      "description": "Serrated pistol rounds leave shredded fragments inside target tissue. Once a Slash proc is inflicted, these fragments continue working inward \u2014 extending and deepening the bleed.",
+      "description": "Serrated pistol rounds leave shredded fragments inside target tissue. Once a Slash proc is inflicted, these fragments continue working inward — extending and deepening the bleed.",
       "tb_effect": "Extends the duration of Slash Bleed procs (Bleeds) inflicted by your Lato from 2 turns to 3 turns at max rank. Stacks with Rifle Aptitude if both weapons proc simultaneously.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883735565471754/PerpetualAgonyMod.png?ex=69f66b15&is=69f51995&hm=418b334c0d2acfee507ae4fbbf17bc9d6e30eb8db5f374bf7c585e942f4161f5&",
       "compatible_weapons": [
@@ -821,7 +821,7 @@
       ],
       "base_effect": "+20% Melee Damage",
       "max_effect": "+120% Melee Damage",
-      "description": "Strikes the anatomical weak points of target organisms, amplifying physical impact. Fundamental melee damage mod \u2014 the melee equivalent of Serration.",
+      "description": "Strikes the anatomical weak points of target organisms, amplifying physical impact. Fundamental melee damage mod — the melee equivalent of Serration.",
       "tb_effect": "Multiplies the base damage of melee strikes (Skana/Exalted Blade). At max rank, Skana's 120 base damage becomes 264 before crit and combo gauge bonuses. Equip in a Melee slot.",
       "thumbnail": null,
       "compatible_weapons": [
@@ -858,7 +858,7 @@
       "base_effect": "+10% Toxin Damage",
       "max_effect": "+60% Toxin Damage",
       "description": "Coats melee blades in a virulent biological compound that deals ongoing Toxin damage. The toxin bypasses physical shielding entirely, poisoning the bloodstream directly.",
-      "tb_effect": "Adds Toxin elemental damage to your Skana strikes. Toxin bypasses both shields and armor \u2014 HP damage is direct. Toxin procs deal 14 dmg/turn for 2 turns and stack up to 4\u00d7. Equip in a Melee slot.",
+      "tb_effect": "Adds Toxin elemental damage to your Skana strikes. Toxin bypasses both shields and armor — HP damage is direct. Toxin procs deal 14 dmg/turn for 2 turns and stack up to 4×. Equip in a Melee slot.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883642585878538/FeverStrikeMod.png?ex=69f66afe&is=69f5197e&hm=f4ed1f6a6cb3c19ac87c62a6c29987dc7a7df41090148a003596910d9a7cebeb&",
       "compatible_weapons": [
         "Skana"
@@ -894,7 +894,7 @@
       "base_effect": "+10% Cold Damage",
       "max_effect": "+60% Cold Damage",
       "description": "Cryogenically treated blade edges that shed ice crystals on each swing, adding Cold elemental damage to each strike.",
-      "tb_effect": "Adds Cold damage to melee. Cold procs reduce the target's outgoing damage by -30% for 2 turns. Combines with Fever Strike (Toxin) to create Viral \u2014 halving effective enemy HP for 2 turns. Equip in a Melee slot.",
+      "tb_effect": "Adds Cold damage to melee. Cold procs reduce the target's outgoing damage by -30% for 2 turns. Combines with Fever Strike (Toxin) to create Viral — halving effective enemy HP for 2 turns. Equip in a Melee slot.",
       "thumbnail": null,
       "compatible_weapons": [
         "Skana"
@@ -1061,7 +1061,7 @@
       "credit_costs_per_rank": [],
       "base_effect": "Unlocks Iron Phoenix combo tree for Swords",
       "max_effect": "Unlocks Iron Phoenix combo tree for Swords",
-      "description": "A Sword Combat Discipline passed down through Tenno dojos. Iron Phoenix favors controlled, linear strikes that build damage momentum \u2014 each blow flows cleanly into the next.",
+      "description": "A Sword Combat Discipline passed down through Tenno dojos. Iron Phoenix favors controlled, linear strikes that build damage momentum — each blow flows cleanly into the next.",
       "tb_effect": "Stance for Sword-class melee (Skana). Passive: Each consecutive melee action in the same turn adds +1 extra Combo Gauge stack (stacks with melee's base +2). Synergizes with Exalted Blade chains.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883697053106338/IronPhoenixMod.png?ex=69f66b0b&is=69f5198b&hm=a632f9c38b3be50808e3aadb7d7f0a42f30c86f3d23f3d02cca0ccfc54b78e19&",
       "compatible_weapons": [
@@ -1085,8 +1085,8 @@
       "credit_costs_per_rank": [],
       "base_effect": "Unlocks Tranquil Cleave combo tree for Swords",
       "max_effect": "Unlocks Tranquil Cleave combo tree for Swords",
-      "description": "A measured Sword discipline emphasizing efficient cuts over frantic flurries. Practitioners of Tranquil Cleave trust the blade's weight \u2014 letting momentum do the work on every arc.",
-      "tb_effect": "Alternative Sword stance (Skana). Passive: Melee hits inflict a guaranteed Slash proc (Bleed) on a Combo Gauge \u2265 10 \u2014 bypassing the normal status chance roll. Synergizes with high-combo Finisher setups.",
+      "description": "A measured Sword discipline emphasizing efficient cuts over frantic flurries. Practitioners of Tranquil Cleave trust the blade's weight — letting momentum do the work on every arc.",
+      "tb_effect": "Alternative Sword stance (Skana). Passive: Melee hits inflict a guaranteed Slash proc (Bleed) on a Combo Gauge ≥ 10 — bypassing the normal status chance roll. Synergizes with high-combo Finisher setups.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883812346134648/TranquilCleaveMod.png?ex=69f66b27&is=69f519a7&hm=60a1bb310664424c5ae24f041df247feb198f77f742f653549a49088e9a9b7dc&",
       "compatible_weapons": [
         "Skana"
@@ -1109,7 +1109,7 @@
       "credit_costs_per_rank": [],
       "base_effect": "Unlocks Defiled Snapdragon combo tree for Swords",
       "max_effect": "Unlocks Defiled Snapdragon combo tree for Swords",
-      "description": "A corrupted Sword discipline recovered from Orokin Derelict vaults. The fluid, arcing strikes of Snapdragon have been defiled \u2014 the rhythm is broken, each blow deceptively unpredictable.",
+      "description": "A corrupted Sword discipline recovered from Orokin Derelict vaults. The fluid, arcing strikes of Snapdragon have been defiled — the rhythm is broken, each blow deceptively unpredictable.",
       "tb_effect": "Rare Sword stance (Skana). Passive: On a CRIT hit during melee, the next melee action this turn costs 0 actions (free strike). The free strike cannot itself trigger this passive again. Extremely powerful in high-combo situations.",
       "thumbnail": "https://cdn.discordapp.com/attachments/1499564077075267617/1499883633471914044/DefiledSnapdragonMod.png?ex=69f66afc&is=69f5197c&hm=6e7681ed95b75eb5e2db0d7a96bf9e9c9292998507b8f661a01337235d6f3157&",
       "compatible_weapons": [

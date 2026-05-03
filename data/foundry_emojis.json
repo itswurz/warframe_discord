@@ -1,49 +1,6 @@
 {
+  "_deprecated": true,
   "_note": "Optional emoji overrides for Foundry items. Missing keys fall back to placeholder.",
-  "_placeholder": "❔",
-
-  "Ferrite":         "🪨",
-  "Salvage":         "🔩",
-  "Alloy Plate":     "🟫",
-  "Nano Spores":     "🟢",
-  "Polymer Bundle":  "🧵",
-  "Circuits":        "⚡",
-  "Rubedo":          "🔴",
-  "Plastids":        "🟡",
-  "Oxium":           "⚪",
-  "Neural Sensors":  "🧠",
-  "Control Module":  "📡",
-  "Morphics":        "🔮",
-  "Neurodes":        "🟣",
-  "Orokin Cell":     "🟠",
-  "Argon Crystal":   "💠",
-
-  "excalibur":           "⚔️",
-  "excalibur_neuroptics":"🧠",
-  "excalibur_chassis":   "🛡️",
-  "excalibur_systems":   "⚙️",
-
-  "volt":            "⚡",
-  "volt_neuroptics": "🧠",
-  "volt_chassis":    "🛡️",
-  "volt_systems":    "⚙️",
-
-  "mag":             "🧲",
-  "mag_neuroptics":  "🧠",
-  "mag_chassis":     "🛡️",
-  "mag_systems":     "⚙️",
-
-  "braton":      "🔫",
-  "karak":       "🔫",
-  "paris":       "🏹",
-  "bo":          "🪄",
-  "dual_skana":  "⚔️",
-  "furis":       "🔫",
-
-  "Braton":      "🔫",
-  "Karak":       "🔫",
-  "Paris":       "🏹",
-  "Bo":          "🪄",
-  "Dual Skana":  "⚔️",
-  "Furis":       "🔫"
+  "_migrated_to": "data/emojis.json → items section",
+  "_placeholder": "❔"
 }

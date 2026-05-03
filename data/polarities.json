@@ -1,131 +1,251 @@
 {
   "_note": "Polarity definitions for the turn-based Warframe bot. Edit this file to update polarities — never hardcode them elsewhere. All polarity names are lowercase.",
   "_wiki": "https://wiki.warframe.com/w/Polarity",
-
   "_rules": {
-    "match":    "Mod drain is halved (rounded UP). e.g. 14 drain → 7",
-    "neutral":  "No change. 'any' slot or 'any' mod polarity = neutral.",
+    "match": "Mod drain is halved (rounded UP). e.g. 14 drain → 7",
+    "neutral": "No change. 'any' slot or 'any' mod polarity = neutral.",
     "mismatch": "Mod drain is doubled. e.g. 14 drain → 28"
   },
-
-  "emojis": {
-    "madurai":  "<:madurai:1499939089925935125>",
-    "any":      "<:any:1499939092811743242>",
-    "penjaga":  "<:penjaga:1499939094799716484>",
-    "naramon":  "<:naramon:1499939096980750336>",
-    "unairu":   "<:unairu:1499939100520874196>",
-    "vazarin":  "<:vazarin:1499939102370431016>",
-    "zenurik":  "<:zenurik:1499939105365168259>",
-    "koneksi":  "<:koneksi:1499939107319845094>",
-    "umbra":    "<:umbra:1499939109697880134>"
-  },
-
   "warframes": {
-
     "excalibur": {
       "_wiki": "https://wiki.warframe.com/w/Excalibur#Mods",
       "_note": "Excalibur has 2 Madurai (V) slots — fitting his damage role. 2 empty (any) slots round out the base config.",
-      "warframe_slots": ["madurai", "madurai", "naramon", "any", "any", "any", "any", "any"],
-      "primary_slots":  ["madurai", "naramon", "any",     "any", "any", "any", "any", "any"],
-      "secondary_slots":["any",     "any",      "any",    "any", "any", "any"],
-      "melee_slots":    ["madurai", "naramon",  "any",    "any", "any", "any", "any", "any"]
+      "warframe_slots": [
+        "madurai",
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "mag": {
       "_wiki": "https://wiki.warframe.com/w/Mag#Mods",
       "_note": "Mag has 2 Vazarin (D) slots — fitting her shield/CC role. 2 Naramon (—) slots for utility.",
-      "warframe_slots": ["vazarin", "vazarin", "naramon", "naramon", "any", "any", "any", "any"],
-      "primary_slots":  ["madurai", "naramon", "any",     "any",     "any", "any", "any", "any"],
-      "secondary_slots":["any",     "any",     "any",     "any",     "any", "any"],
-      "melee_slots":    ["naramon", "any",     "any",     "any",     "any", "any", "any", "any"]
+      "warframe_slots": [
+        "vazarin",
+        "vazarin",
+        "naramon",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "volt": {
       "_wiki": "https://wiki.warframe.com/w/Volt#Mods",
       "_note": "Volt has 2 Naramon (—) slots and 1 Zenurik for his speed/energy playstyle.",
-      "warframe_slots": ["naramon", "naramon", "zenurik", "any", "any", "any", "any", "any"],
-      "primary_slots":  ["madurai", "naramon", "any",     "any", "any", "any", "any", "any"],
-      "secondary_slots":["any",     "any",     "any",     "any", "any", "any"],
-      "melee_slots":    ["naramon", "any",     "any",     "any", "any", "any", "any", "any"]
+      "warframe_slots": [
+        "naramon",
+        "naramon",
+        "zenurik",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "primary_slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "secondary_slots": [
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ],
+      "melee_slots": [
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     }
-
   },
-
   "weapons": {
-
     "MK1-Braton": {
       "_wiki": "https://wiki.warframe.com/w/MK1-Braton#Mods",
       "_note": "Starter rifle. 1 Madurai (V) slot for Serration; 1 Naramon for utility.",
-      "slots": ["madurai", "naramon", "any", "any", "any", "any", "any", "any"]
+      "slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "Paris": {
       "_wiki": "https://wiki.warframe.com/w/Paris#Mods",
       "_note": "Bow. 1 Madurai (V) slot for damage mods; 1 Vazarin for utility.",
-      "slots": ["madurai", "vazarin", "any", "any", "any", "any", "any", "any"]
+      "slots": [
+        "madurai",
+        "vazarin",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "Lato": {
       "_wiki": "https://wiki.warframe.com/w/Lato#Mods",
       "_note": "Starter pistol. 1 Madurai slot for basic damage.",
-      "slots": ["madurai", "any", "any", "any", "any", "any"]
+      "slots": [
+        "madurai",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "Kunai": {
       "_wiki": "https://wiki.warframe.com/w/Kunai#Mods",
       "_note": "Throwing daggers. 1 Naramon slot for status builds.",
-      "slots": ["naramon", "any", "any", "any", "any", "any"]
+      "slots": [
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "Skana": {
       "_wiki": "https://wiki.warframe.com/w/Skana#Mods",
       "_note": "Starter sword. 1 Madurai for damage; 1 Naramon for stance. Stance slot always Naramon on swords.",
-      "slots": ["madurai", "naramon", "any", "any", "any", "any", "any", "any"]
+      "slots": [
+        "madurai",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     },
-
     "Bo": {
       "_wiki": "https://wiki.warframe.com/w/Bo#Mods",
       "_note": "Staff. 1 Naramon for CC builds. Stance slot Naramon.",
-      "slots": ["naramon", "naramon", "any", "any", "any", "any", "any", "any"]
+      "slots": [
+        "naramon",
+        "naramon",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any",
+        "any"
+      ]
     }
-
   },
-
   "mods": {
     "_note": "Polarity of each mod as listed on the Warframe wiki. 'any' means no polarity (universal).",
-
-    "Vitality":            "madurai",
-    "Redirection":         "vazarin",
-    "Steel Fiber":         "naramon",
-    "Flow":                "naramon",
-    "Streamline":          "naramon",
-    "Heavy Impact":        "naramon",
-    "Master Thief":        "naramon",
-    "Diamond Skin":        "vazarin",
-    "Lightning Rod":       "vazarin",
-
-    "Serration":           "madurai",
-    "Ammo Drum":           "any",
-    "Fast Hands":          "naramon",
+    "Vitality": "madurai",
+    "Redirection": "vazarin",
+    "Steel Fiber": "naramon",
+    "Flow": "naramon",
+    "Streamline": "naramon",
+    "Heavy Impact": "naramon",
+    "Master Thief": "naramon",
+    "Diamond Skin": "vazarin",
+    "Lightning Rod": "vazarin",
+    "Serration": "madurai",
+    "Ammo Drum": "any",
+    "Fast Hands": "naramon",
     "Rifle Ammo Mutation": "naramon",
-    "Rifle Aptitude":      "any",
-    "North Wind":          "vazarin",
-    "Blunderbuss":         "any",
-
-    "Heated Charge":       "madurai",
-    "Perpetual Agony":     "madurai",
-
-    "Pressure Point":      "madurai",
-    "Fever Strike":        "naramon",
-    "Heavy Trauma":        "naramon",
-    "Rending Strike":      "naramon",
-    "Reflex Coil":         "naramon",
-    "Focus Energy":        "naramon",
-
-    "Iron Phoenix":        "madurai",
-    "Tranquil Cleave":     "vazarin",
-    "Defiled Snapdragon":  "naramon",
-
-    "Stance Mod (Various)":"any"
-  }
+    "Rifle Aptitude": "any",
+    "North Wind": "vazarin",
+    "Blunderbuss": "any",
+    "Heated Charge": "madurai",
+    "Perpetual Agony": "madurai",
+    "Pressure Point": "madurai",
+    "Fever Strike": "naramon",
+    "Heavy Trauma": "naramon",
+    "Rending Strike": "naramon",
+    "Reflex Coil": "naramon",
+    "Focus Energy": "naramon",
+    "Iron Phoenix": "madurai",
+    "Tranquil Cleave": "vazarin",
+    "Defiled Snapdragon": "naramon",
+    "Stance Mod (Various)": "any"
+  },
+  "_emoji_source": "emojis.json#polarity — resolve via utils/emojis.py E.polarity(key)"
 }

@@ -3,40 +3,40 @@
   "_wiki": "https://wiki.warframe.com",
   "slot_polarities": {
     "madurai": {
-      "emoji": "<:madurai:1499939089925935125>",
-      "display": "Madurai"
+      "display": "Madurai",
+      "emoji_key": "madurai"
     },
     "naramon": {
-      "emoji": "<:naramon:1499939096980750336>",
-      "display": "Naramon"
+      "display": "Naramon",
+      "emoji_key": "naramon"
     },
     "vazarin": {
-      "emoji": "<:vazarin:1499939102370431016>",
-      "display": "Vazarin"
+      "display": "Vazarin",
+      "emoji_key": "vazarin"
     },
     "zenurik": {
-      "emoji": "<:zenurik:1499939105365168259>",
-      "display": "Zenurik"
+      "display": "Zenurik",
+      "emoji_key": "zenurik"
     },
     "unairu": {
-      "emoji": "<:unairu:1499939100520874196>",
-      "display": "Unairu"
+      "display": "Unairu",
+      "emoji_key": "unairu"
     },
     "penjaga": {
-      "emoji": "<:penjaga:1499939094799716484>",
-      "display": "Penjaga"
+      "display": "Penjaga",
+      "emoji_key": "penjaga"
     },
     "koneksi": {
-      "emoji": "<:koneksi:1499939107319845094>",
-      "display": "Koneksi"
+      "display": "Koneksi",
+      "emoji_key": "koneksi"
     },
     "umbra": {
-      "emoji": "<:umbra:1499939109697880134>",
-      "display": "Umbra"
+      "display": "Umbra",
+      "emoji_key": "umbra"
     },
     "any": {
-      "emoji": "<:any:1499939092811743242>",
-      "display": "Universal"
+      "display": "Universal",
+      "emoji_key": "any"
     }
   },
   "rarity_order": [
@@ -52,7 +52,7 @@
         "shields": 270,
         "armor": 240,
         "energy": 100,
-        "sprint_speed": 1.0
+        "sprint_speed": 1
       },
       "mod_capacity": 30,
       "mod_slots": [
@@ -97,7 +97,7 @@
         "shields": 150,
         "armor": 105,
         "energy": 125,
-        "sprint_speed": 1.0
+        "sprint_speed": 1
       },
       "mod_capacity": 30,
       "mod_slots": [
@@ -142,7 +142,7 @@
         "shields": 150,
         "armor": 105,
         "energy": 100,
-        "sprint_speed": 1.0
+        "sprint_speed": 1
       },
       "mod_capacity": 30,
       "mod_slots": [

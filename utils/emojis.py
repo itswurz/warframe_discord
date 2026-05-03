@@ -2,6 +2,9 @@
 utils/emojis.py
 ─────────────────────────────────────────────────────────────────────────────
 Central emoji asset manager.  All bot files import E from here.
+data/emojis.json is the ONLY place emoji strings live — never hardcode them
+in other JSON files or Python code.  Use emoji_key fields in data files and
+resolve them at runtime with the helpers below.
 
 Flat attribute access:
     from utils.emojis import E
@@ -11,13 +14,17 @@ Flat attribute access:
     E.common         →  "<:common:1499767200410636351>"
 
 Typed lookup helpers:
-    E.mod("Vitality")        →  mod icon, rarity fallback if unknown
-    E.mod("Vitality", "common")
-    E.rarity("uncommon")     →  rarity-tier icon
-    E.warframe("excalibur")  →  warframe portrait icon
-    E.weapon("braton")       →  weapon icon
-    E.enemy("grineer_lancer")→  enemy icon
-    E.item("ferrite")        →  item/resource icon
+    E.item("ferrite")            →  resource/item icon (❔ if missing)
+    E.item(entry["emoji_key"])   →  resolve emoji_key field from any data file
+    E.enemy("grineer_lancer")    →  enemy icon  (❔ if missing)
+    E.polarity("madurai")        →  polarity slot icon
+    E.mod("Vitality")            →  mod icon, rarity fallback if unknown
+    E.rarity("uncommon")         →  rarity-tier icon
+    E.warframe("excalibur")      →  warframe portrait icon
+    E.weapon("braton")           →  weapon icon
+    E.ability("slash_dash")      →  ability icon
+    E.damage("slash")            →  damage type icon
+    E.placeholder                →  ❔  (canonical missing-emoji sentinel)
 
 All emoji IDs live in data/emojis.json.  Edit that file to update any emoji.
 ─────────────────────────────────────────────────────────────────────────────
@@ -81,11 +88,21 @@ class _EmojiManager:
         """Return the icon for an enemy key (e.g. 'grineer_lancer')."""
         return _data().get("enemies", {}).get(key.lower(), "👾")
 
+    @property
+    def placeholder(self) -> str:
+        """Canonical missing-emoji sentinel. Matches _placeholder in emojis.json."""
+        return _data().get("_placeholder", "❔")
+
     def item(self, key: str) -> str:
-        """Return the icon for a resource/item key (e.g. 'ferrite', 'Detonite Ampule')."""
+        """Resolve an emoji_key from any data file to its emoji string.
+        Falls back to the placeholder (❔) when the key has no entry yet."""
         items = _data().get("items", {})
         normalized = key.lower().replace(" ", "_")
-        return items.get(normalized) or items.get(key.lower(), "📦")
+        return items.get(normalized) or items.get(key.lower()) or self.placeholder
+
+    def polarity(self, key: str) -> str:
+        """Return the emoji for a polarity slot (e.g. 'madurai', 'naramon', 'any')."""
+        return _data().get("polarity", {}).get(key.lower(), self.placeholder)
 
     def ability(self, key: str) -> str:
         """Return the icon for an ability key (e.g. 'slash_dash')."""
