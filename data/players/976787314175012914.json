@@ -16,7 +16,11 @@
       "acquired_at": "2026-05-02T10:15:00.808814+00:00",
       "is_active": true,
       "equipped_mods": {
-        "1": null
+        "1": {
+          "mod_uuid": "LIDWXVD",
+          "mod_name": "Vitality",
+          "codex_uuid": "CDX-VIT-001"
+        }
       }
     }
   ],
@@ -46,8 +50,8 @@
       "rank": 0,
       "acquired_at": "2026-05-02T11:22:16.565328+00:00",
       "source": "drop:grineer_lancer",
-      "tradeable": true,
-      "equipped_on_warframe": null,
+      "tradeable": false,
+      "equipped_on_warframe": "A9A7OQI",
       "max_rank": 10
     },
     {

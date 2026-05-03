@@ -54,6 +54,31 @@ def _get_codex_mod(name: str) -> Optional[dict]:
     return None
 
 
+# ── Item CDN map  (mod_name → Discord CDN image URL) ─────────────────────────
+def _load_cdn_map() -> dict[str, str]:
+    path = os.path.join(os.path.dirname(__file__), "..", "item_cdn.txt")
+    cdn: dict[str, str] = {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if " -> " not in line:
+                    continue
+                fname, url = line.split(" -> ", 1)
+                cdn[fname.strip().lower()] = url.strip()
+    except FileNotFoundError:
+        pass
+    return cdn
+
+_CDN_MAP: dict[str, str] = _load_cdn_map()
+
+
+def _mod_cdn_url(mod_name: str) -> Optional[str]:
+    """Return the Discord CDN image URL for a mod, or None if unavailable."""
+    key = mod_name.replace(" ", "") + "Mod.png"
+    return _CDN_MAP.get(key.lower())
+
+
 # ── Case-insensitive UUID helpers ──────────────────────────────────────────────
 
 def _get_mod_by_uuid(profile: dict, mod_uuid: str) -> Optional[dict]:
@@ -156,6 +181,17 @@ class _CB:
 
     def text(self, content: str):
         self.items.append(discord.ui.TextDisplay(content))
+        return self
+
+    def section(self, content: str, thumbnail_url: Optional[str] = None):
+        """TextDisplay optionally pinned with a Thumbnail accessory (Components V2 Section)."""
+        if thumbnail_url:
+            self.items.append(discord.ui.Section(
+                discord.ui.TextDisplay(content),
+                accessory=discord.ui.Thumbnail(thumbnail_url),
+            ))
+        else:
+            self.items.append(discord.ui.TextDisplay(content))
         return self
 
     def sep(self, visible: bool = True,
@@ -361,48 +397,44 @@ def _build_mod_view_layout(
 
     rk_bar = _rank_bar(rank, max_r)
 
+    # ── CDN thumbnail ──────────────────────────────────────────────────────────
+    thumb_url = _mod_cdn_url(name)
+
     # ── Stats section ─────────────────────────────────────────────────────────
+    # Use effective rank (max 1, rank) so rank-0 shows the base effect, not blank
+    eff_rank = max(1, rank)
+
     if codex_mod:
         endo_needed   = _endo_cost_at_rank(codex_mod, rank, rarity) if rank < max_r else 0
         credit_needed = _credit_cost_at_rank(codex_mod, rank, rarity) if rank < max_r else 0
 
-        if rank == 0:
-            # Show the base_effect description and what rank 1 unlocks
-            base_eff  = codex_mod.get("base_effect", codex_mod.get("description", "—"))
-            r1_stats  = _stat_at_rank(codex_mod, 1)
-            r1_lines  = [_fmt_stat(k, v) for k, v in r1_stats.items()] if r1_stats else ["—"]
-            stats_text = (
-                f"**Current Stats (Rank 0 — Unranked):**\n"
-                f"  • *{base_eff}*\n"
-                f"  *(This mod already applies its base effect when equipped. "
-                f"Upgrade to increase it.)*\n\n"
-                f"**After first upgrade (Rank 1):**\n"
-                + "\n".join(f"  • {s}" for s in r1_lines)
-                + f"\n\n<:endo:1499750353002954792> **Upgrade Cost:** `{endo_needed:,}` Endo  ·  💰 `{credit_needed:,}` Credits"
+        cur_stats  = _stat_at_rank(codex_mod, eff_rank)
+        next_stats = _stat_at_rank(codex_mod, rank + 1) if rank < max_r else {}
+
+        cur_lines  = [_fmt_stat(k, v) for k, v in cur_stats.items()]
+        if not cur_lines:
+            cur_lines = [f"*{codex_mod.get('description', 'No rank_scaling in codex')}*"]
+        next_lines = [_fmt_stat(k, v) for k, v in next_stats.items()] if next_stats else ["—"]
+
+        rank_label = f"Rank {rank}" if rank > 0 else "Rank 0"
+        stats_text = (
+            f"**Current Stats ({rank_label}):**\n"
+            + "\n".join(f"  • {s}" for s in cur_lines)
+        )
+        if rank < max_r:
+            upgrade_cost_line = (
+                f"\n\n<:endo:1499750353002954792> `{endo_needed:,}` Endo  "
+                f"💰 `{credit_needed:,}` Credits"
+            )
+            stats_text += (
+                f"\n\n**Next Rank ({rank + 1}):**\n"
+                + "\n".join(f"  • {s}" for s in next_lines)
+                + upgrade_cost_line
             )
         else:
-            cur_stats  = _stat_at_rank(codex_mod, rank)
-            next_stats = _stat_at_rank(codex_mod, rank + 1) if rank < max_r else {}
-            cur_lines  = [_fmt_stat(k, v) for k, v in cur_stats.items()]
-            if not cur_lines:
-                cur_lines = [f"*{codex_mod.get('description', 'No rank_scaling in codex')}*"]
-            next_lines = [_fmt_stat(k, v) for k, v in next_stats.items()] if next_stats else ["—"]
-
-            stats_text = (
-                f"**Current Stats (Rank {rank}):**\n"
-                + "\n".join(f"  • {s}" for s in cur_lines)
-            )
-            if rank < max_r:
-                stats_text += (
-                    f"\n\n**Next Rank ({rank + 1}) Stats:**\n"
-                    + "\n".join(f"  • {s}" for s in next_lines)
-                    + f"\n\n<:endo:1499750353002954792> **Upgrade Cost:** `{endo_needed:,}` Endo  ·  💰 `{credit_needed:,}` Credits"
-                )
-            else:
-                stats_text += "\n\n✅ **Max Rank reached!**"
+            stats_text += "\n\n✅ **Max Rank reached!**"
     else:
         # Mod not in warframes_mods.json — weapon / stance / unknown category
-        # Surface the raw instance fields so the player still gets useful info
         source    = mod_inst.get("source", "unknown")
         acquired  = mod_inst.get("acquired_at", "")[:10]
         tradeable = mod_inst.get("tradeable", True)
@@ -410,13 +442,11 @@ def _build_mod_view_layout(
             f"**Category:** Weapon / Stance / Other *(not a Warframe mod)*\n"
             f"**Source:** {source}  ·  **Acquired:** {acquired}\n"
             f"**Tradeable:** {'Yes' if tradeable else 'No — currently equipped'}\n\n"
-            f"*This mod is not in the Warframe mod codex (`warframes_mods.json`). "
-            f"It cannot be equipped in a Warframe's mod slots.\n"
-            f"Weapon mods are managed separately through `!weapon mods`.*"
+            f"*This mod is not in the Warframe mod codex. "
+            f"Weapon mods are managed through `!weapon mods`.*"
         )
-        rank_label = f"Rank {rank}"
 
-    # ── Header ────────────────────────────────────────────────────────────────
+    # ── Header (with optional thumbnail) ─────────────────────────────────────
     header_text = (
         f"{icon} **{name}** — {re_em} {rtag}\n"
         f"<:combo:1499663262520971326> **UUID:** `{uuid}`\n"
@@ -445,7 +475,7 @@ def _build_mod_view_layout(
 
     cb = (
         _CB(accent_colour=accent)
-        .text(header_text)
+        .section(header_text, thumb_url)   # thumbnail on the header when available
         .sep()
         .text(stats_text)
     )
